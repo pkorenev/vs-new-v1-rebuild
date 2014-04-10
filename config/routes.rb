@@ -19,7 +19,7 @@ StudioVoronin::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  #devise_for :users
+  devise_for :users
 
   
 
@@ -29,7 +29,7 @@ StudioVoronin::Application.routes.draw do
   get 'articles'  => 'page#article', :as => 'article_list'
   
   #get 'articles/:id'  => 'page#article_item', :as => 'article'
- get 'artices/:id' => 'page#article_item', :as => 'article_item'
+ get 'articles/:id' => 'page#article_item', :as => 'article_item'
    get 'portfolio' => 'portfolio#index', :as => 'portfolio'
 
   # Portfolio routes
@@ -59,7 +59,7 @@ StudioVoronin::Application.routes.draw do
 
 
   # Rooting application
-  root :to        => 'page#index'
+  root :to        => 'page#index', as: :root
     
   #get '*a', :to => 'error#show', :code => 404
 

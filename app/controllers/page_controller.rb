@@ -6,9 +6,9 @@ class PageController < ApplicationController
   # TODO: Version 1.2
   # Should limited articles, banners, and companys displaes
   def index
-    @get_banners ||= Banner.find_all_by_published(:t)
-    @featured_articles ||= Article.limit(3).find_all_by_published(:t)
-    @our_clients ||= TrustCompany.find(:all, :order => "RANDOM()", :limit => 15)
+    @get_banners ||= Banner.where(published: true)
+    @featured_articles ||= Article.limit(3).where(published: true)
+    @our_clients ||= TrustCompany.all.order('RANDOM()').limit(15)
 
     @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc').limit(12)
 
@@ -17,7 +17,7 @@ class PageController < ApplicationController
 
   # About page
   def about
-    @our_clients ||= TrustCompany.find(:all, :order => "RANDOM()")
+    @our_clients ||= TrustCompany.all.order("RANDOM()")
   end
 
   # Contact page
@@ -37,11 +37,11 @@ class PageController < ApplicationController
   end
 
   def service
-    @get_all_services ||= Service.order('sort_id DESC').find_all_by_published(:t)
+    @get_all_services ||= Service.where(published: true).order('sort_id DESC')
   end
 
   def article
-    @articles ||= Article.order('id desc').find_all_by_published(:t)
+    @articles ||= Article.where(published: true).order('id desc')
   end
 
   def article_item
@@ -60,7 +60,7 @@ class PageController < ApplicationController
   def resolve_layout
     case action_name
       when "contact_modal", "order_us", "connect_with_us"
-        "contact-layout"
+        "contact_layout"
       else
         "application"
     end

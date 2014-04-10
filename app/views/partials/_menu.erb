@@ -16,13 +16,14 @@
     <div class="menu-wrapper">
       <nav>
         <script type="text/javascript" charset="utf-8" id="menu-linkup">
+        <script type="text/javascript" charset="utf-8" id="menu-linkup">
           /*$(document).ready(function() {
             $("#li-about").click(function(){
               window.location = "<%= about_path %>";
             });
 
             $("#contact-form").click(function(){
-              <% if current_page?(!root_path)%>
+              <% if !current_page?(root_path)%>
                 $("nav ul li").removeClass("current");
               <% end %>
               $(this).addClass("current");
