@@ -1,0 +1,129 @@
+.developers-panel-wrapper{
+  @include init-grid;
+  @include grid-3;
+  overflow: hidden;
+
+  @media(max-width:960px){
+    @include grid-12;
+
+    div.mobile-column{
+      @include init-grid;
+      @include grid-6;
+    }
+  }
+
+
+}
+
+#developers-panel{
+  //position: absolute;
+  //right: 15px;
+  //width: 400px;
+
+  position: relative;
+  width: auto;
+  left:0;
+  right:0;
+}
+
+#developers-panel div.dev-pan{
+  margin-top: 54px;
+}
+
+#developers-panel div.dev-pan div.dev-field{
+  display: block;
+  margin: 0em 0em 1.25em 0em;
+}
+
+#developers-panel div.dev-pan div.dev-field p{
+  color: #878787;
+  font-family: 'OpenSansLight', sans-serif;
+}
+
+#developers-panel div.dev-pan div.dev-field a,
+#developers-panel div.dev-pan div.dev-field a:hover,
+#developers-panel div.dev-pan div.dev-field a:active,
+#developers-panel div.dev-pan div.dev-field a:visited,
+#developers-panel div.dev-pan div.dev-field a:focus{
+  color:#ff2e8b;
+  text-decoration: none;
+  font-family: 'OpenSansRegular', sans-serif;
+}
+
+#developers-panel div.dev-pan div.dev-field h4{
+  padding-top: 2.5em;
+  color: #878787;
+  font-family: 'OpenSansLightItalic', sans-serif;
+}
+
+#developers-panel div.dev-pan div.dev-field h4.last-h4{
+  margin: 0;
+  padding-top: 2.5em;
+  padding-bottom: 0;
+  color: #878787;
+  font-family: 'OpenSansLightItalic', sans-serif;
+}
+
+#developers-panel div.dev-pan div.dev-field p.author{
+  margin: 0;
+  padding: 0;
+  font-size: 1.3em;
+  font-family: 'OpenSansRegular', sans-serif;
+  line-height: 1.4em;
+}
+
+#developers-panel div.dev-pan div.dev-field p.role{
+  margin: 0;
+  padding: 0;
+  //font-size: 0.85em;
+  font-family: 'OpenSansLight', sans-serif;
+  //line-height: 1.4em;
+}
+
+#developers-panel div.dev-pan div.dev-field.thanks_image{
+  max-width: 100%;
+  img{
+    max-width: 100%;
+  }
+}
+
+#developers-panel div.dev-pan div.dev-field.technologies ul{
+  width:220px;
+  position: relative;
+  padding: 0;
+  max-width: 100%;
+
+  li{
+    
+      margin-right: 25px;
+      float: left;
+      display: inline;
+      text-align: center;
+      position: relative;
+      width:48px;
+      height: 48px;
+      margin-bottom: 25px;
+
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      @media(max-width:1200px){
+        margin-right: 22px;
+      }
+
+      a{
+        max-width: 100%;
+        //width:100%;
+        position: relative;
+
+        img{
+          max-width: 100%;
+          position: relative;
+
+
+        }
+      }
+  }
+}

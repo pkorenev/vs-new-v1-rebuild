@@ -1,0 +1,162 @@
+<style>
+  .BWfade{
+    width:100%;
+    height: 100%;
+  }
+</style>
+<% if @item.portfolio_banner %>
+<div id="portfolio-banner-wrapper" data-banner-name="<%= @item.portfolio_banner.name %>" class="f-height">
+  <%#= @item.portfolio_banner.content.html_safe %>
+  <script type="text/javascript" charset="utf-8">
+      
+  </script>
+  <figure id="portfoio-banner-holder">
+  <div style="background-image: url(<%= @item.portfolio_banner.background.url %>)" class="slide">
+    <!--<div class="vs-graphic-part">
+      <%= image_tag('portfolio/web/voronin-studio/vs-port-web-left.png', :class => 'bg-vs') %>
+      <%= image_tag('portfolio/web/voronin-studio/vs-mac-preview-left.png', :class => 'webpr-vs') %>
+    </div>-->
+
+    <div class="slide-description">
+      <h1 class="title"><%= raw @item.portfolio_banner.title %></h1>
+      <p class="description"><%= raw @item.portfolio_banner.description %></p>
+    </div>
+  </div>
+</figure>
+</div><!-- Portfolio Banner Wrapper End here -->
+
+<% end %>
+
+<div class="wb" >&nbsp;</div>
+
+
+<!-- Render portfolio toolbar -->
+<div id="portfolio-toolbar" class="f-height">
+  <a href="#prev" class="pt-left"></a>
+  <a href="#next" class="pt-right"></a>
+  <div class="container">
+  <div class="tabs-wrapper">
+    
+      
+      <section id="tabs-container" class="f-height">
+        <div class="portfolio-tab bottom-arrow" id="result" >
+          <p>Результат</p>
+        </div>
+        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="process" >
+          <p>Процес</p>
+        </div>
+        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="live">
+          <p>В житті</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="wb">&nbsp;</div>
+<div class="page-content white-background portfolio-item-content">
+<div class="container portfolio-container">
+<!-- Render Portfolio body -->
+<div style="width:auto;" id="portfolio-body" class="f-height">
+  
+  
+
+  <section class="portfolio-content">
+    <section class="f-height">
+
+      <script type="text/javascript">
+      
+      </script>
+
+      <div class="pt-headers"><p><i>Задача:</i><%= @item.task %></p></div>
+
+      <!-- Here will be content -->
+      <div class="tabpages portfolio-tabpages">
+        <div class="tabpage active" id="result">
+          
+
+          <!-- result content -->
+
+         <!-- <figure class="span12 notebook-figure">
+        <div class="web-slider-wrapper">
+          
+          <div class="voronin-studio-banners">
+            <div class="scroller">
+              <%= image_tag('portfolio/web/voronin-studio/vs-main.jpg') %>
+              <%= image_tag('portfolio/web/voronin-studio/vs-about.jpg') %>
+            </div>
+          </div>
+        </div>
+      </figure> -->
+
+      <%=  raw @item.result  %>
+
+
+      <!-- /result content -->
+
+        </div>
+
+        <div class="tabpage" id="process">
+
+          <%= raw @item.process %>
+
+        </div>
+
+        <div class="tabpage" id="live">
+          <%= raw @item.live %>
+        </div>
+
+
+      </div>
+
+      <script type="text/javascript">
+      
+      </script>
+      
+    </section>
+  </section>
+
+  <div class="developers-panel-wrapper">
+<!-- Rendering developer panel partial -->
+<%= render :partial => 'partials/developer_panel', :locals => { :project => @item } %>
+<!-- /Rendering developer panel partial -->
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+</div>
+
+<div id="portfolio-item-like-wrapper">
+	<div id="portfolio-item-like">
+		<img src="/assets/portfolio_item_like.png" />
+	</div>
+</div>
+
+<div id="other-projects">
+  <div class="carousel-wrapper">
+    <ul class="carousel">
+      <% for i in 1..1 %>
+      <% @other_projects.each do |project| %>
+        <li class="carousel-item">
+          <figure>
+            <a href="<%= project.slug %>">
+              <img src="<%= project.avatar.url(:non_retina) %>" />
+            </a>
+          </figure>
+        </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+    <script type="text/javascript">
+      
+    </script>
+</div>
+<div id="portfolio-invitation-wrapper">
+<%= render :partial => 'partials/portfolio_invitation' %>
+</div>

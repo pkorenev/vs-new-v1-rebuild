@@ -1,0 +1,17 @@
+<div class="white-background">
+  <section class="container admin-login">
+    <section class="f-height">
+      <article class="g3">&nbsp;</article>
+      <article class="g6">
+        <h1>Забыли пароль?</h1>
+
+        <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+          <%= devise_error_messages! %>
+          <div><%= f.email_field :email, :autofocus => true %><br /><%= f.label :email %></div>
+          <div><%= f.submit 'Отправить инструкцию', :class => 'brand-button' %></div>
+        <% end %>
+      </article>
+      <article class="g3">&nbsp;</article>
+    </section>
+  </section>
+</div>

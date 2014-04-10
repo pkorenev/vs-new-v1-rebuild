@@ -1,0 +1,220 @@
+/*
+ Timeline CSS styles file
+ Author: P.Korenev
+ Editor: Vik Ewoods
+ Note: Please use same styling as me in the project
+ Note 2: Dont use px! use ems!
+
+*/
+
+div.timeline-wrapper{
+  height: 920px;
+  width: 100%;
+  overflow: hidden;
+}
+
+div.timeline{
+  position: relative;
+  height: 900px;
+}
+
+div.event{
+  width:850px;
+  height:283px;
+  position: absolute;
+}
+
+div.event.top-row{
+	top:110px;
+}
+
+div.event.bottom-row{
+	top:520px;
+}
+
+div.event:hover
+{
+	/*background: skyblue;*/
+	/*border:skyblue 5px groove;*/
+}
+div.event span.date
+{
+	position: absolute;
+	display: inline;
+	top: 213px;
+	left: 70px;
+	color:#fc3089;
+	background: $lightgray_background_color;
+	/*height: 64;*/
+	font-size: 32px;
+	z-index: 5;
+
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	font-weight: 900;
+
+}
+div.event.bottom-row span.date
+{
+	position: absolute;
+	display: inline;
+	top: 0px;
+	left: 70px;
+	color:#fc3089;
+	background: $lightgray_background_color;
+	/*height: 64;*/
+	font-size: 32px;
+	z-index: 5;
+
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	font-weight: 900;
+
+}
+div.event.active span.date
+{
+	position: absolute;
+	display: inline;
+	top: 0px;
+	left: 283px;
+	color:#fc3089;
+	background: $lightgray_background_color;
+	/*height: 64;*/
+	font-size: 32px;
+	z-index: 5;
+
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-right: 30px;
+	padding-bottom: 10px;
+	font-weight: 900;
+}
+
+
+div.event img
+{
+	position: absolute;
+	display: inline;
+	top:213px;
+	left:0;
+	width:70px;
+	height:70px;
+}
+div.event.bottom-row img
+{
+	position: absolute;
+	display: inline;
+	top:0px;
+	left:0;
+	width:70px;
+	height:70px;
+}
+div.event.active img
+{
+	top:0;
+	width:283px;
+	height:283px;
+}
+
+div.event p{
+	top:64px;
+	left: 300px;
+	width:540px;
+	position: absolute;
+	font-size: 14px;
+	color:#ababab;
+}
+div.event span.point
+{
+	    border: 2px solid #838383;
+    background-color: gray;
+    -moz-box-shadow: inset 0 0 3px rgba(0,0,0,.75);
+    -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,.75);
+    box-shadow: inset 0 0 3px rgba(0,0,0,.75);
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    z-index: 2;
+
+    cursor:pointer;
+
+}
+
+div.event.top-row span.point
+{
+	top:290px;
+	left:-23px;
+}
+
+div.event.bottom-row span.point{
+	top:-42px;
+}
+div.event.bottom-row.active span.point
+{
+	top:-42px;
+	left:283px;
+}
+div.event.active span.point
+{
+	background: #eb1374;
+
+	cursor: auto;
+}
+
+span.line{
+	background: #cbcbcb;
+	height: 6px;
+}
+
+button#next-event{
+	top:1300px;
+	right:0;
+	height:50px;
+	width: 50px;
+	position: absolute;
+}
+
+button#previous-event{
+	top:1300px;
+	left:0;
+	height:50px;
+	width: 50px;
+	position: absolute;
+}
+
+.timeline.ui-draggable
+{
+	cursor: -webkit-grab; 
+	cursor: -moz-grab;
+
+}
+
+.timeline.ui-draggable-dragging
+{
+	cursor: -webkit-grabbing; 
+	cursor: -moz-grabbing;
+
+}
+.timeline .selectable
+{
+	cursor: auto;
+}
+
+.event p.description
+{
+	display: none;
+}
+.event.active p.description
+{
+	display: block;
+} 
+
+
+.index
+{
+	display: none;
+}

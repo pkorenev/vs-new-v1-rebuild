@@ -1,0 +1,51 @@
+<div id="footer-wrapper">
+  <footer class="footer-container">
+      
+      
+      
+      <div class="footer-contacts-wrapper">
+        <div class="footer-contacts">
+          <p id="phone"><span class="cont-sprite-s cont-s-mobile-icon"></span><a href="tel: +38 (050) 417-07-28" title="+38 (050) 417-07-28">+38 (050) 417-07-28</a></p>
+          <p id="email"><span class="cont-sprite-s cont-s-email-icon"></span><a href="mailto: office@voroninstudio.eu" title="office@voroninstudio.eu">office@voroninstudio.eu</a></p>
+
+        </div>
+      </div>
+
+      <div class="behance">
+        <%= link_to image_tag('behance_footer.jpg'), '/behance', :title => 'Behance HOST' %>
+      </div>
+      <div class="get-me-top-wrapper">
+        <figure class="get-me-top-container-holder">
+          <div class="get-me-top-container">
+            <div id="get-me-top">
+              <%= image_tag("footer-get-top.jpg") %>
+            </div>
+        </div>
+        </figure>
+      </div>
+
+      <div id="social-panel-and-copyrights">
+        <div class="social-panel">
+          <ul>
+            <li><a href="" title=""><span class="soc-buttons behance-icon"></span></a></li>
+            <li><a href="" title=""><span class="soc-buttons facebook-icon"></span></a></li>
+            <li><a href="" title=""><span class="soc-buttons google-icon"></span></a></li>
+            <li><a href="" title=""><span class="soc-buttons linkedin-icon"></span></a></li>
+            <li><a href="" title=""><span class="soc-buttons thumbr-icon"></span></a></li>
+            <li><a href="" title=""><span class="soc-buttons twitter-icon"></span></a></li>
+            <li id="fb-like">
+              <div id="fb-like-wrapper">
+                <%= fc_connect %>
+                <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="copyrights-section">
+          <%= show_copyrights  %>
+        </div>
+      </div>
+  </footer>
+</div>
+
+

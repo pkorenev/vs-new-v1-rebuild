@@ -1,0 +1,44 @@
+<div class="home-clients-and-news-wrapper">
+<section class="home-clients-and-news-container">
+    <div id="home-clients">
+      <h2>Нам довіряють</h2>
+      <% @our_clients.each do |c| %>
+        <div class="client">
+          <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="news-holder">
+      <h2><a href="/articles">Анонси та події</a></h2>
+      <article class="news-item" itemscope itemtype ="http://schema.org/Article">
+          <div class="image-holder" itemprop="image">
+            <%= link_to(image_tag("article-home.jpg"), "#") %>
+          </div>
+         <header><h4 itemprop="name"><%= link_to("Behance Portfolio Review Lviv № 2", "#", :itemprop => "url") %></h4></header>
+         <section><p itemprop="description">Всім велике дякую, тим хто був присутній на Behance Portfolio Review #2! Зустріч пройшла успішно, панувала творча та позитивна атмосфера. Захід відвідало понад 90 чоловік. Дякуємо учасниками...</p></section>
+         <footer></footer>
+      </article>
+
+      <article class="news-item f-height">
+        <div class="image-holder">
+          <%= link_to(image_tag("article-home.jpg"), "#") %>
+        </div>
+        <header><h4><%= link_to("Behance Portfolio Review Lviv № 2", "#") %></h4></header>
+        <section><p>Всім велике дякую, тим хто був присутній на Behance Portfolio Review #2! Зустріч пройшла успішно, панувала творча та позитивна атмосфера. Захід відвідало понад 90 чоловік. Дякуємо учасниками...</p></section>
+        <footer></footer>
+      </article>
+
+      <article class="news-item f-height">
+        <div class="image-holder">
+          <%= link_to(image_tag("article-home.jpg"), "#") %>
+        </div>
+        <header><h4><%= link_to("Behance Portfolio Review Lviv № 2", "#") %></h4></header>
+        <section><p>Всім велике дякую, тим хто був присутній на Behance Portfolio Review #2! Зустріч пройшла успішно, панувала творча та позитивна атмосфера. Захід відвідало понад 90 чоловік. Дякуємо учасниками...</p></section>
+        <footer></footer>
+      </article>
+
+    </div>
+</section>
+</div>

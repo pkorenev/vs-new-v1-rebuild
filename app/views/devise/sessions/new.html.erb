@@ -1,0 +1,27 @@
+<div class="white-background">
+  <section class="container admin-login">
+    <section class="f-height">
+      <article class="g3">&nbsp;</article>
+      <article class="g6">
+        <h1>А вам куда?</h1>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <div><%= f.email_field :email, :autofocus => true, :placeholder => 'vik.ewoods' %><br /><%= f.label 'логин' %></div>
+          <div><%= f.password_field :password, :placeholder => 'verystrongpasswordthatimade' %><br /><%= f.label 'пароль' %></div>
+          <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+          <% end -%>
+          <div class="btn-push">
+            <%= f.submit 'Войти', :class => 'brand-button' %>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+              <%= link_to 'Забыли пароль?', new_password_path(resource_name), :class => 'brand-button', :style => 'margin-left:30px;' %><br />
+            <% end -%>
+          </div>
+        <% end %>
+      </article>
+      <article class="g3">&nbsp;</article>
+    </section>
+  </section>
+
+
+<%#= render "devise/shared/links" %>
+</div>

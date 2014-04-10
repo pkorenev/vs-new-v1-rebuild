@@ -1,0 +1,532 @@
+.clearfix{
+  position: relative;
+  clear: left;
+  float: left;
+}
+
+body {
+  /*min-width: 960px;*/
+  min-width: none;
+}
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 960px;
+
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+
+.g1,
+.g2,
+.g3,
+.g4,
+.g5,
+.g6,
+.g7,
+.g8,
+.g9,
+.g10,
+.g11,
+.g12 {
+  position: relative;
+  display:inline;
+  float: left;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+.omega {
+  margin-right: 30px;
+  margin-left: 0;
+}
+
+.g6-alpha{
+  margin-right: 15px;
+}
+
+.g6-omega{
+  margin-left: 15px;
+}
+
+#catalog-page-wrapper div.g4{
+  margin-right: 15px;
+  width: 275px;
+}
+
+#catalog-page-wrapper div.g8{
+  margin-left: 15px;
+  width: 595px;
+}
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+.container .g1 {
+  width:50px;
+}
+
+.container .g2 {
+  width:130px;
+}
+
+.container .g3 {
+  width:210px;
+}
+
+.container .g4 {
+  width:290px;
+}
+
+.container .g5 {
+  width:370px;
+}
+
+.container .g6 {
+  width:435px;
+}
+
+.container .g7 {
+  width:530px;
+}
+
+.container .g8 {
+  width:610px;
+}
+
+.container .g9 {
+  width:690px;
+}
+
+.container .g10 {
+  width:770px;
+}
+
+.container .g11 {
+  width:850px;
+}
+
+.container .g12 {
+  margin-right: 30px;
+
+  margin-left: 30px;
+  width:900px;
+}
+div#home-slider
+  {
+  height: 318px;
+}
+
+
+
+
+@media (min-width: 1200px) {
+
+  nav ul.header-nav li{
+    padding: 10px 50px;
+  }
+
+  body {
+    min-width: 1200px;
+  }
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+  }
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .g6,
+  .g7,
+  .g8,
+  .g9,
+  .g10,
+  .g11,
+  .g12 {
+    position: relative;
+    display:inline;
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+  .alpha {
+    margin-right: 0;
+    margin-left: 40px;
+  }
+
+  .omega {
+    margin-right: 40px;
+    margin-left: 0;
+  }
+
+  .g6-alpha{
+    margin-right: 20px;
+  }
+
+  .g6-omega{
+    margin-left: 20px;
+  }
+
+  #catalog-page-wrapper div.g4{
+    margin-right: 20px;
+    width: 340px;
+  }
+
+  #catalog-page-wrapper div.g8{
+    margin-left: 20px;
+    width: 740px;
+  }
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+
+  .container .g1 {
+    width:60px;
+  }
+
+  .container .g2 {
+    width:160px;
+  }
+
+  .container .g3 {
+    width:260px;
+  }
+
+  .container .g4 {
+    width:360px;
+  }
+
+  .container .g5 {
+    width:460px;
+  }
+
+  .container .g6 {
+    width:540px;
+  }
+
+  .container .g7 {
+    width:660px;
+  }
+
+  .container .g8 {
+    width:760px;
+  }
+
+  .container .g9 {
+    width:860px;
+  }
+
+  .container .g10 {
+    width:960px;
+  }
+
+  .container .g11 {
+    width:1060px;
+  }
+
+  .container .g12 {
+    margin-right: 40px;
+    margin-left: 40px;
+    width:1120px;
+  }
+  div#home-slider
+    {
+    width: 840px;
+    height: 300px;
+  }
+
+}
+
+
+@media (min-width: 1440px) {
+
+  body {
+    min-width: 1440px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1440px;
+  }
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .g6,
+  .g7,
+  .g8,
+  .g9,
+  .g10,
+  .g11,
+  .g12 {
+    position: relative;
+    display:inline;
+    float: left;
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+  .alpha {
+    margin-right: 0;
+    margin-left: 50px;
+  }
+
+  .omega {
+    margin-right: 50px;
+    margin-left: 0;
+  }
+
+  .g6-alpha{
+    margin-right: 25px;
+  }
+
+  .g6-omega{
+    margin-left: 25px;
+  }
+
+  #catalog-page-wrapper div.g4{
+    margin-right: 25px;
+    width: 405px;
+  }
+
+  #catalog-page-wrapper div.g8{
+    margin-left: 25px;
+    width: 885px;
+  }
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+  .container .g1 {
+    width:70px;
+  }
+
+  .container .g2 {
+    width:190px;
+  }
+
+  .container .g3 {
+    width:310px;
+  }
+
+  .container .g4 {
+    width:430px;
+  }
+
+  .container .g5 {
+    width:550px;
+  }
+
+  .container .g6 {
+    width:645px;
+  }
+
+  .container .g7 {
+    width:790px;
+  }
+
+  .container .g8 {
+    width:910px;
+  }
+
+  .container .g9 {
+    width:1030px;
+  }
+
+  .container .g10 {
+    width:1150px;
+  }
+
+  .container .g11 {
+    width:1270px;
+  }
+
+  .container .g12 {
+    margin-right: 50px;
+    margin-left: 50px;
+    width:1340px;
+  }
+
+  header section div.g10 nav ul li{
+    width: 10em !important;
+  }
+}
+
+
+@media (min-width: 2020px) {
+
+  body {
+    min-width: 1800px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+  .container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1800px;
+  }
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+  .g1,
+  .g2,
+  .g3,
+  .g4,
+  .g5,
+  .g6,
+  .g7,
+  .g8,
+  .g9,
+  .g10,
+  .g11,
+  .g12 {
+    position: relative;
+    display:inline;
+    float: left;
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+  .alpha {
+    margin-right: 0;
+    margin-left: 60px;
+  }
+
+  .omega {
+    margin-right: 60px;
+    margin-left: 0;
+  }
+
+  .g6-alpha{
+    margin-right: 30px;
+  }
+
+  .g6-omega{
+    margin-left: 30px;
+  }
+
+  #catalog-page-wrapper div.g4{
+    margin-right: 30px;
+    width: 510px;
+  }
+
+  #catalog-page-wrapper div.g8{
+    margin-left: 30px;
+    width: 1110px;
+  }
+
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+  .container .g1 {
+    width:90px;
+  }
+
+  .container .g2 {
+    width:240px;
+  }
+
+  .container .g3 {
+    width:390px;
+  }
+
+  .container .g4 {
+    width:540px;
+  }
+
+  .container .g5 {
+    width:690px;
+  }
+
+  .container .g6 {
+    width:810px;
+  }
+
+  .container .g7 {
+    width:990px;
+  }
+
+  .container .g8 {
+    width:1140px;
+  }
+
+  .container .g9 {
+    width:1290px;
+  }
+
+  .container .g10 {
+    width:1440px;
+  }
+
+  .container .g11 {
+    width:1590px;
+  }
+
+  .container .g12 {
+    margin-right: 60px;
+    margin-left: 60px;
+    width:1680px;
+  }
+
+}
+
+@media(max-width:959px){
+  body{
+    min-width: none;
+  }
+
+  .container{
+    width:100%;
+  }
+}
+

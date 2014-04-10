@@ -1,0 +1,170 @@
+#welcome-wrapper{
+	background-color: #212121;
+  	position: relative;
+  	z-index: 250;
+  	padding-bottom: 3em;
+
+  	#welcome-section{
+  		@include container_12;
+  		@include clearfix;
+  		padding: 2em 0;
+
+      #text-wrapper{
+        @include clearfix;
+        position: relative;
+      }
+
+      h2#greetings{
+        @include init-grid;
+        @include grid_12;
+        text-align: center;
+
+        //margin: 0em;
+          padding: 0.5em 0 0em 0;
+          font-size: 1.8em;
+          line-height: 1.2em;
+          margin-top: 0;
+          margin-bottom: 0;
+
+          @media(min-width:$desktop_menu_screen_min_width){
+            @include grid_6;
+            text-align: right;
+          }
+
+
+      }
+
+      h2#p-main{
+        @include init-grid;
+        @include grid_12;
+
+        text-align: center;
+        margin-top: 0.5em;
+        padding-bottom: 0.4em;
+        font-size: 1.8em;
+        line-height: 1.2em;
+        margin-top: 17px;
+        margin-bottom: 0;
+        padding:0;
+
+        @media(min-width:$desktop_menu_screen_min_width){
+          @include grid_6;
+          clear: left;
+          float: right;
+          margin-bottom: 66px;
+          margin-top: -1.25em;
+          text-align: left;
+          margin-right: 1%;
+        }
+      }
+
+      #sprites-and-button-wrapper{
+        float:left;
+        clear: left;
+        width:100%;
+        margin:0;
+        padding:0;
+
+        @media(max-width:$mobile_menu_screen_max_width){
+          margin-top: 10px;
+        }
+      }
+
+      #modal-btn-wrapper{
+        @include init-grid;
+        @include grid_12;
+
+        margin-top: 77px;
+        margin-bottom: 20px;
+        text-align: center;
+
+        .modal-btn{
+          padding-left:80px;
+          padding-right:80px;
+        }
+
+        @media(min-width:$desktop_menu_screen_min_width){
+          @include grid_6;
+          margin-top: 10px;
+          margin-bottom: 10px;
+          text-align: left;
+        }
+      }
+
+      p#p-simple{
+        @include init-grid;
+        @include grid_12;
+
+          color:white;
+          text-align: center;
+          margin-top: 17px;
+
+        @media(min-width:$desktop_menu_screen_min_width){
+          @include grid_6;
+          text-align: right;
+          margin-top: 0.3em;
+          margin-bottom: 1.7em;
+        }
+      }
+
+      div#home-sprites-wrapper{
+        @include init-grid;
+        @include grid_12;
+
+        @media(min-width:$desktop_menu_screen_min_width){
+          @include grid_6;
+          clear:left;
+        }
+
+        ul{
+          float: right;
+          position: relative;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+
+
+
+
+
+		.descr-section-first{
+  			//@include init-grid;
+  			//@include grid_6;
+  			//@include alpha;
+
+  			//margin-right: 1.6em;
+  			//text-align: right;
+        
+
+
+			p{
+  				
+			}
+
+			
+		}
+
+		.descr-section-last h2{
+  			
+		}
+  	}
+}
+
+#home-portfolio{
+	#portfolio-tabs-wrapper{
+		#tabs-container{
+			@include clearfix;
+
+			.portfolio-tab{
+				@include init-grid;
+
+				margin:0;
+			}
+		}
+	}
+}
+
+#portfolio-tab{
+  
+}

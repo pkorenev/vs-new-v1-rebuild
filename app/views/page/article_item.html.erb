@@ -1,0 +1,63 @@
+<div class="white-background">
+  	<section id="article-item-page">
+  		<div id="article-title-section">
+  			<div id="article-title-container">
+				<h2 id="article-title">Анонси та події</h2>
+			</div>
+		</div>
+
+		<div id="article-section">
+			<div id="article-container">
+				<div id="article-title">
+					<h2><%= @article.name %></h2>
+				</div>
+				<div id="avatar-container">
+					<%= image_tag @article.avatar.url, :alt => @article.name %>
+				</div>
+
+				<div id="article-body">
+					<div id="header-tag-list">
+						<ul class="tag-list">
+							<% @article.tag_list.each do |tag| %>
+								<li><%= link_to tag, article_tag_path(tag) %></li>
+							<% end %>
+						</ul>
+					</div>
+					
+					<div id="content"><%= raw @article.content %></div>
+
+					<div id="footer-tag-list">
+						<ul class="tag-list">
+							<% @article.tag_list.each do |tag| %>
+								<li><%= link_to tag, article_tag_path(tag) %></li>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="related-articles">
+			<% @related_articles.each do |article_item| %>
+        <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
+          <header>
+            <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), article_path+'/'+article_item.slug, :itemprop => 'url') %></h2></div>
+            <div class="image-container"><%= link_to(image_tag(article_item.avatar.url(:article_item), :itemprop => 'image', :alt => article_item.name), 
+            '/articles/'+ article_item.slug ) %></div>
+          </header>
+
+          <section itemprop="description">
+            <p><%= article_item.short_description.truncate(255) %></p>
+          </section>
+          <footer>
+            <ul class="tag-list">
+              <% article_item.tag_list.each do |tag| %>
+                <li><%= link_to tag, article_tag_path(tag) %></li>
+              <% end %>
+            </ul>
+          </footer>
+        </article>
+      <% end %>
+		</div>
+	</section>
+</div>

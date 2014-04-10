@@ -1,0 +1,183 @@
+#home-portfolio{
+  //background:white;
+}
+
+#portfolio-items-container{
+  position: relative;
+  background: #fff;
+  color: #545454;
+}
+
+#portfolio-tabs-wrapper{
+  position: relative;
+  background-color:   #f0f0f0;
+  color: #545454;
+}
+
+#home-portfolio #portfolio-tabs-wrapper{
+  margin-top:30px;
+  
+}
+
+#portfolio-index #portfolio-tabs-wrapper{
+  margin-bottom:30px;
+  
+}
+
+#tabs-container{
+  width:66.66666%;
+  margin-left: auto;
+  margin-right:auto;
+  position: relative;
+
+  @media(max-width:1200px){
+    width:100%;
+  }
+
+  
+}
+
+.portfolio-tab{
+  margin-left:0;
+  margin-right: 0;
+  padding-left: 1px;
+  /*width: 358px !important;*/
+  width: 25%;
+  height: 69px;
+  background-color: white;
+  
+  color: #ffffff;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1.2em;
+  font-family: 'OpenSansSemibold', Arial, sans-serif;
+  cursor: default;
+
+  @media(max-width:600px){
+    width: 50% ;
+    padding-top: 1px ;
+
+  }
+}
+.portfolio-tab p{
+  cursor: default;
+}
+
+.portfolio-tab:first-child{
+  padding-left: 0;
+}
+
+.portfolio-tab p{
+  color: #fff ;
+  text-align: center ;
+  font-weight: normal ;
+  font-size: 1.2em ;
+  font-family: 'OpenSansSemibold', Arial, sans-serif ;
+  line-height: 69px ;
+  height: 100%;
+  margin: 0;
+  padding:0 ;
+  background: url(branded-button-background.jpg) repeat;/*#e91266;*/
+}
+
+.portfolio-tab-index-page{
+
+}
+
+#portfolio-index{
+  #portfolio-tabs-wrapper{
+    #tabs-container{
+      @include container_12;
+      @include clearfix;
+      .portfolio-tab{
+        @include init-grid;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+#portfolio-index .portfolio-tab{
+  @include init-grid;
+}
+
+#portfolio-index .portfolio-tab::before, .portfolio-tab.bottom-arrow::before,
+#portfolio-index .portfolio-tab:hover::before, .portfolio-tab.bottom-arrow:hover::before{
+  border-width: 15px 12.5px 0 12.5px ;
+  border-color: #ce1165 transparent transparent transparent ;
+  border-style: solid;
+  top: 69px;
+  z-index: 99;
+}
+
+#portfolio-index .portfolio-tab:hover::before, .portfolio-tab.bottom-arrow:hover::before{
+  border-width: 15px 12.5px 0 12.5px ;
+  border-color: #ce1165 transparent transparent transparent ;
+  border-style: solid;
+  top: 69px;
+  z-index: 99;
+}
+
+#portfolio-index .portfolio-tab p{
+
+}
+
+.portfolio-tab::before{
+  @media(min-width:600px){
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    border-width: 0 12.5px 15px 12.5px;
+    border-style: solid;
+    border-color: transparent transparent #e91266 transparent;
+    content:"";
+  }
+}
+
+.portfolio-tab.inactive-portfolio-tab{
+  cursor: pointer;
+}
+
+.portfolio-tab.inactive-portfolio-tab p{
+  cursor: pointer;
+}
+
+.portfolio-tab.inactive-portfolio-tab p{
+  background: $lightgray_background_color ;
+}
+
+.portfolio-tab.inactive-portfolio-tab p:hover{
+  background: #e91266 ;
+}
+
+
+
+.inactive-portfolio-tab::before{
+  display: none;
+  visibility: hidden;
+}
+
+
+/**** Isotope filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -ms-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+}

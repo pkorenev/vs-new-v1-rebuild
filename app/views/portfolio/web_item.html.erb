@@ -1,0 +1,173 @@
+<div id="portfolio-banner-wrapper" data-banner-name="<%= @web_item.portfolio_banner.name %>" class="f-height">
+  <%#= @web_item.portfolio_banner.content.html_safe %>
+  <script type="text/javascript" charset="utf-8">
+      window.setTimeout(AnimateVoroninWebP, 3000);
+  </script>
+  <div id="voronin-web-banner">
+    <div class="vs-graphic-part">
+      <%= image_tag('portfolio/web/voronin-studio/vs-port-web-left.png', :class => 'bg-vs') %>
+      <%= image_tag('portfolio/web/voronin-studio/vs-mac-preview-left.png', :class => 'webpr-vs') %>
+    </div>
+
+    <div class="vs-banner-descr">
+      <h1>Оновлення сайту студії</h1>
+      <p>Частица принципиально неизмерима. Силовое поле кумулятивно. Темная материя теоретически возможна. Если предварительно подвергнуть объекты длительному вакуумированию, то расслоение излучает эксимер, как и предсказывает общая теория поля.</p>
+    </div>
+  </div>
+</div><!-- Portfolio Banner Wrapper End here -->
+
+<div class="wb" >&nbsp;</div>
+
+
+<!-- Render portfolio toolbar -->
+<div id="portfolio-toolbar" class="f-height">
+  <a href="#prev" class="pt-left"></a>
+  <a href="#next" class="pt-right"></a>
+  <div class="container">
+  <div class="g9">
+    
+      
+      <section id="tabs-container" class="f-height">
+        <div class="portfolio-tab bottom-arrow" >
+          <p>Результат</p>
+        </div>
+        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" >
+          <p>Процес</p>
+        </div>
+        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab">
+          <p>В житті</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+<div class="wb">&nbsp;</div>
+<div class="page-content white-background portfolio-item-content">
+<div class="container portfolio-container">
+<!-- Render Portfolio body -->
+<div style="width:auto;" id="portfolio-body" class="f-height">
+  
+  <div style="float: right;min-height: 1px;" class="g3">
+<!-- Rendering developer panel partial -->
+<%= render :partial => 'partials/developer_panel', :locals => { :project => @web_item } %>
+<!-- /Rendering developer panel partial -->
+</div>
+
+  <section style="float:right;" class="g9">
+    <section class="f-height">
+
+      <script type="text/javascript">
+      (function fn() {
+            fn.now = +new Date;
+            $(window).load(function() {
+              if (+new Date - fn.now < 500) setTimeout(fn, 500);
+              var $slider = $('.voronin-studio-banners .scroller');
+              
+              $('.web-slider-wrapper').each(function(){
+                var $wrapper = $(this);
+                $('.voronin-studio-banners .scroller').cycle();
+
+                var $left = $('<span class="nav-arrow left-arrow"></span>');
+                var $right = $('<span class="nav-arrow right-arrow"></span>');
+                $right.click(function(){
+                  $slider.cycle('prev');
+                });
+              
+                $left.click(function(){
+                  $slider.cycle('next');
+                });
+
+                $left.appendTo($wrapper);
+                $right.appendTo($wrapper);
+              });
+              
+          
+              
+            });
+          })();
+      </script>
+
+      <div class="pt-headers"><p><i>Задача:</i><%= @web_item.task %></p></div>
+
+      <!-- Here will be content -->
+      <div class="tabpages portfolio-tabpages">
+        <div class="tabpage" id="result">
+          
+
+          <!-- result content -->
+
+         <!-- <figure class="span12 notebook-figure">
+        <div class="web-slider-wrapper">
+          
+          <div class="voronin-studio-banners">
+            <div class="scroller">
+              <%= image_tag('portfolio/web/voronin-studio/vs-main.jpg') %>
+              <%= image_tag('portfolio/web/voronin-studio/vs-about.jpg') %>
+            </div>
+          </div>
+        </div>
+      </figure> -->
+
+      <%=  raw @web_item.result  %>
+
+
+      <!-- /result content -->
+
+        </div>
+      </div>
+      
+    </section>
+  </section>
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+</div>
+
+<div id="other-projects">
+  <div class="carousel-wrapper">
+    <ul class="carousel">
+      <% for i in 1..4 %>
+      <% @other_projects.each do |project| %>
+        <li class="carousel-item">
+          <a href="<%= project.slug %>">
+            <img src="<%= project.avatar.url(:non_retina) %>" />
+          </a>
+        </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+    <script type="text/javascript">
+      $('#other-projects a').BlackAndWhite({
+        hoverEffect : true, // default true
+        // set the path to BnWWorker.js for a superfast implementation
+        webworkerPath : false,
+        // for the images with a fluid width and height 
+        responsive:true,
+        // to invert the hover effect
+        invertHoverEffect: false,
+        // this option works only on the modern browsers ( on IE lower than 9 it remains always 1)
+        intensity:1,
+        speed: { //this property could also be just speed: value for both fadeIn and fadeOut
+            fadeIn: 200, // 200ms for fadeIn animations
+            fadeOut: 800 // 800ms for fadeOut animations
+        },
+        onImageReady:function(img) {
+          // this callback gets executed anytime an image is converted
+        }
+    });
+
+      carousel('.carousel-wrapper');
+    </script>
+</div>
+<div id="portfolio-invitation-wrapper">
+<%= render :partial => 'partials/portfolio_invitation' %>
+</div>

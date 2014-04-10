@@ -1,0 +1,152 @@
+/*h1 {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    //margin-left: 100%;
+    //width: 300%;
+    background-color:white;
+    top:-100%;
+  }
+
+  to {
+    //margin-left: 0%;
+    //width: 100%;
+    background-color:red;
+    top:0%;
+  }
+}*/
+
+
+#slide-3{
+	background:  lightpink;
+  	
+  	.layer{
+  		img{
+  			opacity: 0;
+  			width: 100%;
+  			position: relative;
+  		}
+    	&.description{
+    		&.final-position, &.display-slide{
+
+      			left: 50%;
+	  			top:15%;
+	  			color:white !important;
+
+	  			text-align: left;
+	  			width:45%;
+	
+	  			h2{
+					color:inherit;
+					font-size: 0.6em;
+					margin: 0;
+
+					a{
+						color: inherit;
+					}
+	  			}
+
+	  			p{
+					color:inherit;
+					font-size: 0.2em;
+					font-weight: 900;
+
+					margin-bottom: 5px;
+	  			}
+
+	  			h2 + p{
+					margin-top: 10px;
+	  			} 
+	
+	  			p + p{
+					margin-top: 0;
+	  			}
+			}
+
+			&.display-slide{
+				left:120%;
+				top:10%;
+			}
+    	}
+
+    	&.crystal{
+    		background-repeat: no-repeat;
+    		background-size: 100%;
+    	}
+	
+		&.ii-crystal-blured-medium{
+			background-image: url(/assets/banners/ii-v2/left-middle.png);
+			&.final-position, &.display-slide{
+				top:17%;
+				left:6%;
+				width:10%;
+			}
+
+			&.display-slide{
+				left:-10%;
+			}
+		}
+
+		&.ii-crystal-main{
+			background-image: url(/assets/banners/ii-v2/crystal-main.png);
+
+			
+
+
+			&.final-position, &.display-slide{
+				top:0%;
+				left:15%;
+				width:20%;
+			}
+
+			&.display-slide{
+				top:-100%;
+
+				//animation-duration: 1s;
+  				//animation-name: slidein;
+			}
+		}
+
+		&.ii-crystal-medium{
+			background-image: url(/assets/banners/ii-v2/right-middle.png);
+			&.final-position, &.display-slide{
+				top:-27%;
+				left:34%;
+				width:10%;
+			}
+		}
+
+		&.ii-crystal-blured-small{
+			background-image: url(/assets/banners/ii-v2/right-small.png);
+			&.final-position, &.display-slide{
+				top:50%;
+				left:39%;
+				width:5%;
+			}
+			&.display-slide{
+				opacity: 0;
+			}
+		}
+
+		&.ii-crystal-blured-big{
+			background-image: url(/assets/banners/ii-v2/right-big.png);
+			&.final-position, &.display-slide{
+				top:65%;
+				left:60%;
+				width:20%;
+			}
+			&.display-slide{
+				top:100%;
+			}
+		}
+  	}
+
+  	.layer.crystal.selected-layer{
+		background: none repeat scroll 0 0 rgba(255, 47, 139, 0.1);
+	}
+}
+
+

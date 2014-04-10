@@ -1,0 +1,80 @@
+<div id="header-wrapper">
+  <section id="navigation" class="f-height">
+    <div id="mobile-navigation-panel">
+    <div id='studio-logo-section'>
+      <div id="image-container">
+      <% if current_page?(root_path) %>
+        <%= image_tag('voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну') %>
+      <% else %>
+        <%= link_to(image_tag('voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path, :title => 'На головну') %>
+      <% end %>
+      </div>
+    </div>
+    <div id="mobile-menu-button">
+    </div>
+  </div>
+    <div class="menu-wrapper">
+      <nav>
+        <script type="text/javascript" charset="utf-8" id="menu-linkup">
+          /*$(document).ready(function() {
+            $("#li-about").click(function(){
+              window.location = "<%= about_path %>";
+            });
+
+            $("#contact-form").click(function(){
+              <% if current_page?(!root_path)%>
+                $("nav ul li").removeClass("current");
+              <% end %>
+              $(this).addClass("current");
+              $("#wrapper-header").css(
+                  'z-index', '9999'
+              );
+              $("#wrapper-header").css(
+                  'background', '#212121'
+              );
+            });
+          });*/
+        </script>
+        <ul>
+          <% menu_items = get_menu %>
+          <% menu_items.each do |menu_item| %>
+          <% if menu_item[:id] == 'contact-form' && 1==2 %>
+          <li <% if current_page?(contact_path) %> class="current" <% end %> id="contact-form">
+            <div class="pink-over"></div>
+            <%= link_to("ДЕ", contact_modal_path, :class => "", :id => "modal-btn", :data => { :'fancybox-type' => "iframe" }) %>
+            <span>Наші контакти</span>
+          </li>
+          <% else %>
+          <li data-url="<%= menu_item[:data_url] %>" id="<%= menu_item[:id] %>" title="<%= menu_item[:title] %>" <% if menu_item[:is_active] %> class="current" <% end %>>
+            
+            <% if !menu_item[:is_active] || menu_item[:link] %>
+              <a href="<%= menu_item[:data_url] %>" title = "<%= menu_item[:title] %>" class = "item-content<% if menu_item[:is_active] %> active<% end %>" <% if menu_item[:id]=='contact-form' %> data-fancybox-type="iframe" id="modal-btn" <% end %> >
+                <div class="pink-over"></div>
+                <span class="header"><%= menu_item[:header] %></span>
+                <span class="description"><%= menu_item[:description] %></span>
+              </a>
+            <% else %>
+              <span class="item-content active">
+                <div class="pink-over"></div>
+                <span class="header"><%= menu_item[:header] %></span>
+                <span class="description"><%= menu_item[:description] %></span>
+              </span>
+            <% end %>
+            
+          </li>
+          <% end %>
+          <% end %>
+          
+
+          
+        </ul>
+      </nav>
+    </div>
+  </section>
+<script type="text/javascript">
+//$('nav ul li a').click(function(e){if($(this).parent().hasClass('current')){e.preventDefault();}});
+ // $('nav ul li').click(function(){$(this).find('a').click();});
+
+  
+</script>
+</div>

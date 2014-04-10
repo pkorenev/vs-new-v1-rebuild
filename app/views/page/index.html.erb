@@ -1,0 +1,94 @@
+<%= meta(meta_keywords = "веб, розробка, створення, дизайн, поліграфія, дизайн студія, Львів, веб-дизайн, веб-сайт, веб сторінки, web сторінки, фірмовий стиль, логотипи, бренд-бук, флаєр, листівка, візитка, вітрина, друк", meta_description = "Дизайн студія Миколи Вороніна. Займається розробкою презентаційних і корпоративних веб-сайтів, Інтернет магазинів, SEO, а також створенням якісного графічного дизайну: логотипів, фірмового стилю, буклетів, афіш, реклами, зовнішньої реклами, Інтернет реклами, та веб-банерів.") %>
+<%= title("Дизайн студія Миколи Вороніна (Львів). Графічний дизайн. Створення веб-сайтів. Поліграфія.") %>
+<%= render :partial => 'partials/bjqs' %>
+
+<div id="welcome-wrapper">
+  <section class="" id="welcome-section">
+      <div id="text-wrapper">
+        <h2 id="greetings">Вітаємо!</h2>
+        <h2 id="p-main">Ми дизайн студія, яка через дослідження, стратегію, дизайн і розробку допомагає створювати та розвивати якісні і видатні бренди.</h2>
+        <p id="p-simple">Кожний новий творчий проект є унікальним і підхід до нього повинен бути відповідно унікальний, розроблений саме під нього. Ми розробляємо логотипи, фірмові стилі, рекламні компанії, веб сайти та мобільні додатки використовуючи інноваційні технології, методи розробки та інтеграції!</p>
+
+      </div>
+
+        <div id="sprites-and-button-wrapper">
+        <div id="home-sprites-wrapper" class="sprite-section-home">
+          <ul>
+            <li><a href="http://www.android.com/" title="Android development" target="_blank">
+              <figure class="tech-but android-icon">
+                <img src="/assets/home_technologies/android.svg" />
+              </figure>
+            </a></li>
+            
+            <li><a href="https://developer.apple.com/" title="Object-C development" target="_blank">
+              <figure class="tech-but apple-icon">
+                <img src="/assets/home_technologies/android.svg" />
+              </figure>
+            </a></li>
+            
+            <li>
+              <a href="http://www.adobe.com/ru/products/indesign.html" title="Adobe InDesign CS6" target="_blank">
+                <figure class="tech-but id-icon">
+                  <img src="/assets/home_technologies/android.svg" />
+                </figure>
+              </a>
+            </li>
+            
+            <li><a href="http://www.adobe.com/ru/products/photoshopfamily.html" title="Adobe Photoshop CS6" target="_blank">
+                <figure class="tech-but ps-icon">
+                  <img src="/assets/home_technologies/android.svg" />
+                </figure>
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://www.adobe.com/ru/products/illustrator.html" title="Adobe Illustrator CS6" target="_blank">
+                <figure class="tech-but ai-icon">
+                  <img src="/assets/home_technologies/android.svg" />      
+                </figure>
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://rubyonrails.org/" title="Ruby On Rails" target="_blank">
+                <figure class="tech-but rails-icon">
+                  <img src="/assets/home_technologies/android.svg" />
+                </figure>
+              </a>
+            </li>
+            
+            <li>
+              <a href="http://www.w3.org/Style/CSS/current-work" title="CSS3 Stylesheets" target="_blank">
+                <figure class="tech-but css3-icon">
+                  <img src="/assets/home_technologies/android.svg" />
+                </figure>
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5" title="HTML5" target="_blank">
+                <figure class="tech-but html5-icon">
+                  <img src="/assets/home_technologies/android.svg" />
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div id="modal-btn-wrapper">
+          <%= link_to("Замовте нас!", order_us_path, :class => "order-us brand-button", :id => "modal-btn", :data => { :'fancybox-type' => "iframe" }) %>
+        </div>
+      </div>
+  </section>
+</div>
+
+
+<div id="home-portfolio">
+  <%= render :partial => 'partials/portfolio-items', :locals => { :target => 'home', :items => @portfolios } %>
+  <%= render :partial => 'partials/portfolio-tabs', :locals => { :target => 'home' } %>
+  <script type="text/javascript">
+
+  </script>
+</div>
+<%= render :partial => 'partials/home_clients_and_news' %>
+
+

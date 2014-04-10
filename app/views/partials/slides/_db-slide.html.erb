@@ -1,0 +1,16 @@
+<% home_slide = get_home_banner %>
+
+
+
+
+<li id="slide-<%= home_slide.name.parameterize %>" class="slide">
+	<% home_slide.home_banner_slide_layers.each do |layer| %>
+		<style>
+			<%= layer.style %>
+		</style>
+		<div id="layer-<%= layer.name.parameterize %>" class = "layer <%= layer.name.parameterize %>-layer final-position"><%= layer.content %></div>
+	<% end %>
+	
+	
+
+</li>

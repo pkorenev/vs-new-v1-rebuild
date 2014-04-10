@@ -1,0 +1,419 @@
+/* common hide main scrollbar */
+
+html, body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+#main-scroller {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: -30px;
+	bottom: 0;	
+	padding-right: 15px;
+	overflow-y: scroll;
+}
+
+#main-scroller-content{
+	@include clearfix;
+	width:100%;
+	margin:0;
+	padding:0;
+	position: relative;
+}
+
+/* end */
+
+
+/* sticky footer */ 
+
+$footer_height:140;
+
+$mobile_footer_height:360;
+
+$mobile_menu_breakpoint:850;
+
+#main-scroller-content{
+	height:100%;
+}
+
+#wrapper{
+	min-height: 100%;
+	//position: relative; my adding
+}
+
+#main {
+	overflow:auto;
+	padding-bottom: ($footer_height)+px; /* must be same height as the footer */
+
+	@media(max-width: ($mobile_menu_breakpoint)+px ){
+		padding-bottom: ($mobile_footer_height)+px;
+	}
+}  
+
+#footer-wrapper {
+	position: relative;
+	margin-top: ( (-1) * $footer_height)+px; /* negative value of footer height */
+	height: ($footer_height)+px;
+	clear:both;
+
+	@media(max-width: ($mobile_menu_breakpoint)+px ){
+		margin-top: ( (-1) * ($mobile_footer_height) )+px;
+		height: ($mobile_footer_height)+px;
+	}
+} 
+
+
+
+/*Opera Fix*/
+body:before {
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;
+}
+
+
+/* end */
+
+/* set body min width */
+#main-scroller-content{
+	min-width:460px;
+}
+
+
+/* custom styling */
+
+/* header styling */
+
+#header-wrapper{
+	background-color: #212121;
+}
+
+/* end header styling */
+
+
+
+/* fonts */
+
+body{
+	@media(min-width:1440px){
+    	//font-size: 18px;
+    	//line-height: 26px;
+  	}
+
+  	/*@media(min-width:2020px){
+    	font-size: 18px;
+    	line-height: 26px;
+  	}*/
+}
+
+
+
+
+/* footer styling */
+
+#footer-wrapper{
+	@extend .clearfix;
+    overflow: hidden;
+	background-color: #212121;
+
+
+	.footer-container{
+		@include container_12;
+		@include clearfix;
+
+		padding: 1.4em 0 0.4em 0;
+
+		#social-panel-and-copyrights{
+			@include init-grid;
+			@include grid_6;
+			//@include clearfix;
+			float: left;
+
+			@media(min-width:1101px) and (max-width:1250px){
+				max-width:480px;
+			}
+
+			.social-panel{
+				//float: left;
+				//@include clearfix;
+
+				ul{
+					margin: 10px 0 0 0;
+  					padding: 0;
+  					list-style: none;
+
+  					li{
+  						float: left;
+  						margin-left: 55px;
+
+  						&#fb-like{
+  							#fb-like-wrapper{
+  								margin-top: 10px;
+  							}
+  						}
+
+  						@media(max-width:1650px){
+  							margin-left: 50px;
+  						}
+
+  						
+
+  						@media(max-width:1450px){
+  							margin-left: 40px;
+  						}
+
+  						@media(max-width:1250px){
+  							margin-left: 30px;
+  						}
+
+  						@media(max-width:1100px){
+							margin-left: 20px;
+  						}
+
+  						@media(max-width:900px){
+  							margin-left: 15px;
+  						}
+
+  						&:first-child{
+  							margin-left: 0;
+  						}
+
+  						@media(max-width:850px){
+  							margin-left: 55px;
+
+  							&:last-child{
+  								margin-left: 0;
+  							}
+  						}
+
+  						@media(max-width:480px){
+  							margin-left: 40px;
+  						}
+
+  						@media(max-width:420px){
+  							margin-left: 30px;
+  						}
+
+  						@media(max-width:350px){
+  							margin-left: 25px;
+  						}
+
+  						@media(max-width:320px){
+  							margin-left: 20px;
+  						}
+
+  						@media(max-width:300px){
+  							margin-left: 15px;
+  						}
+  					}
+				}
+			}
+
+			.copyrights-section{
+				float: left;
+
+
+			}
+		}
+
+		.get-me-top-wrapper{
+			@include init-grid;
+			@include grid_1;
+
+			max-width: 80px;
+
+			position: relative;
+			float: right;
+
+			@media(min-width:1px) and (max-width:1180px){
+				display: none;
+			}
+		}
+		.get-me-top-container-holder{
+			width:100%;
+			height: 1px;
+			padding-top: 130%;
+			position: relative;
+		}
+		.get-me-top-container{
+			width:100%;
+
+			position: absolute;
+			height: 100%;
+			top:0;
+
+			#get-me-top{
+				position: absolute;
+				height: 100%;
+				width:100%;
+
+				transition-property:all;
+      			transition-duration:0.35s;
+      			transition-timing-function:linear;
+      			transition-delay:0s;
+      			/* Safari */
+      			-webkit-transition-property:all;
+      			-webkit-transition-duration:0.35s;
+      			-webkit-transition-timing-function:linear;
+      			-webkit-transition-delay:0s;
+
+      			&.reset{
+      				transition-duration:0.1s;
+      				/* Safari */
+      				-webkit-transition-duration: 0.1s; 
+      			}
+
+				img{
+					width: 100%;
+					height: 100%
+				}
+
+			}
+		}
+
+		.behance{
+			@include init-grid;
+			@include grid_2;
+
+			float: right;
+
+			a{
+				max-width: 100%;
+				img{
+					max-width: 100%;
+				}
+			}
+		}
+
+		.footer-contacts-wrapper{
+			@include init-grid;
+			@include grid_3;
+			min-width: 262px;
+			float: right;
+		}
+
+		@media(max-width:850px){
+			.get-me-top-wrapper{
+				display: none;
+			}
+
+			.behance{
+				display: none;
+			}
+
+			#social-panel-and-copyrights{
+				@include grid_12;
+				margin-top: 40px;
+
+
+				.social-panel{
+					@include clearfix;
+					width:455px;
+					position: relative;
+					margin-right: auto;
+					margin-left: auto;
+					float: none;
+
+					@media(max-width:480px){
+						width:380px;
+					}
+
+					@media(max-width:420px){
+						width:330px;
+					}
+
+					@media(max-width:350px){
+						width:305px;
+					}
+
+					@media(max-width:320px){
+						width:280px;
+					}
+
+					@media(max-width:300px){
+						width:255px;
+					}
+
+					li#fb-like{
+						clear: both;
+						width:100%;
+						margin-top: 11px;
+						overflow: hidden;
+
+						#fb-like-wrapper{
+							width:115px;
+
+							position: relative;
+							margin-left: auto;
+							margin-right: auto;
+
+							margin-top: 15px;
+							margin-bottom: 15px;
+
+
+						}
+					}
+				}
+
+				.copyrights-section{
+					float: none;
+					position: relative;
+					margin-left: auto;
+					margin-right: auto;
+					max-width:480px;
+					text-align: center;
+				}
+			}
+
+			.footer-contacts-wrapper{
+				@include grid_12;
+
+				float: left;
+
+
+			}
+
+			.footer-contacts{
+				//float: left;
+				//margin-left: auto;
+				//margin-right: auto;
+
+				//width: 230px;
+				position: relative;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+				margin-top: 23px;
+				p{
+					a{
+						font-size: 2em;
+
+						@media(max-width:360px){
+							font-size: 1.5em;
+						}
+					}
+
+					span.cont-sprite-s{
+						@media(max-width:280px){
+							display: none;
+						}
+					}
+				}
+
+				p#phone{
+					span.cont-s-mobile-icon{
+						margin-left: -47px; 
+						margin-top: -18px;
+					}
+				}
+			}
+		}
+	}
+}
+ 
+/* end footer styling */

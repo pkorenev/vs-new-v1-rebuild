@@ -1,0 +1,313 @@
+#intro-wrapper{
+  @include first_page_section;
+
+  #intro-container{
+    @include container_12;
+    @include clearfix;
+
+    #intro-description-wrapper{
+      @include init-grid;
+      @include grid_6;
+
+      padding-right:3em;
+
+      @media(max-width:899px){
+        @include grid_12;
+        //@include prefix_2;
+        //@include suffix_2;
+      }
+    }
+
+    .header-quote{
+      @include init-grid;
+      @include grid_6;
+
+      padding-top:3em;
+
+      @media (min-width:1px) and (max-width:899px){
+        @include grid_12;
+        //@include prefix_2;
+        //@include suffix_2;
+        //padding-top:3em;
+
+        h1{
+          padding-left:0;
+        }
+      }
+    }
+  }
+}
+
+#services-list-wrapper{
+  @include page_section;
+
+  #services-list-container{
+    @include container_12;
+    @include clearfix;
+
+    .service-item{
+      @include init-grid;
+      @include grid_10;
+
+      //header{
+        //width:70%;
+          .index{
+            display: block;
+            float: left;
+            font-size: 0.75em;
+            vertical-align: super;
+            background-color:$lightgray_background_color;
+            width:50px;
+            height: 50px;
+            //margin-left:-5%;
+            position: absolute;
+            left: -50px;
+          }
+
+          .image-container{
+            display: block;
+            float: left;
+            position: relative;
+
+            img{
+              width: 100%;
+            }
+          }
+
+          h2{
+            display: block;
+            float: left;
+            position: relative;
+            width:53%;
+
+          }
+        //}
+
+        section.description{
+          float: left;
+          width:53%;
+        }
+
+      &.left-item{
+        //@include push_2;
+
+        section.description{
+          width:69%;
+        }
+        
+        @media(max-width:1200px){
+          //header{
+            .index{
+              margin-left: 0;
+            }
+            .image-container{
+              //margin-right: 5%;
+            }
+            h2{
+              //margin-left: 20%;
+            }
+          //}
+
+          section.description{
+            //width: 72%;
+          }
+        }
+        
+      }
+
+      &.right-item{
+        @include push_2;
+        
+        //header{
+          //float: right;
+          .index{
+            float: right;
+            //margin-right: -5%;
+            left: 100%;
+          }
+
+          .image-container{
+            float: right;
+          }
+
+          h2{
+            float: right;
+          }
+        //}
+
+        section.description{
+          float: right;
+
+          p{
+            margin-left: 0;
+          }
+        }
+
+        @media(max-width:1200px){
+          //header{
+            .index{
+              margin-right: 0;
+            }
+
+            h2{
+              //width: 71%;
+              margin-left: 0;
+            }
+
+            .image-container{
+              //margin-right: 5%;
+            }
+          //}
+
+          section.description{
+            //width:70%;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+
+  }
+}
+
+.service-header-desr{
+  @include init-grid;
+}
+
+.service-header-quote{
+  @include init-grid;
+}
+
+.service-item{
+  padding-bottom: 8em ;
+}
+
+.service-item {
+
+}
+
+.service-item .image-container{
+  float: left;
+  max-width: 100%;
+  //width: 281px;
+  width:23%;
+}
+
+.service-item .service-title{
+  float: left;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.4em;
+  padding-top: 0.4em;
+  //width: 869px;
+  background: $lightgray_background_color;
+  width:52%;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+
+}
+
+.service-item section.description{
+  width:77%;
+  float: left;
+}
+
+.service-item section.description p{
+  float: left;
+  margin: 0.5em ;
+  //width: 850px;
+  width:100%;
+
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-bottom: 0.4em;
+  padding-top: 0.4em;
+}
+
+.service-item footer{
+
+}
+
+//#service-1 .service-title, #service-1 p,
+//#service-3 .service-title, #service-3 p,
+//#service-5 .service-title, #service-5 p{
+//  text-align: left ;
+//}
+
+.push-right{
+  margin-left: 305px;
+}
+
+.push-right .image-container{
+  float: right ;
+}
+
+.push-right .service-title{
+  text-align: right ;
+}
+
+.push-right .service-title{
+  padding-right: 1em ;
+}
+
+.order-p-descr-service{
+  padding: 0.4em 0 2em 0 ;
+}
+
+.last-service-block div:first-child{
+  text-align: center;
+}
+
+.last-service-block .image-container{
+  margin-top: 1em;
+  float: left;
+  margin-right: 2em;
+}
+
+.push-right sup{
+  position: absolute;
+  right: -78px;
+  padding: 1.65em 2em;
+  background: $lightgray_background_color;
+}
+
+.push-left sup{
+  position: absolute;
+  left: -78px;
+  padding: 1.65em 2em;
+  background: $lightgray_background_color;
+}
+
+
+.service-item.left-item .service-title{
+  text-align: left;
+}
+
+.service-item.right-item .service-title{
+  text-align: right;
+  //margin-left: 25%;
+}
+
+.service-item.right-item section.description{
+  //width:52%;
+  //margin-left: 25%;
+}
+
+.service-item.right-item section.description p{
+  padding-left: 0;
+  //width: 52%;
+  //margin-left: 25%;
+}
+
+.cocktail-try{
+  -moz-border-radius: 38px 46px 95px 95px / 73px 73px 88px 88px;
+  -webkit-border-radius: 38px 46px 95px 95px / 73px 73px 88px 88px;
+  border-radius: 38px 46px 95px 95px / 73px 73px 88px 88px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #e7e7e7;
+}

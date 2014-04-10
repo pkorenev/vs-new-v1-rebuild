@@ -1,0 +1,39 @@
+
+<div class="white-background">
+  <section id="article-page">
+      <article class="page-title-section">
+        <div class="page-title-container">
+          <div class="article-header-desr">
+            <h1>Анонси та події</h1>
+          </div>
+        </div>
+      </article>
+
+
+      <div class="articles-wrapper">
+
+<% for i in 1..10 %>
+      <% @articles.each do |article_item| %>
+        <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
+          <div class="article-body">
+            <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), article_list_path+'/'+article_item.slug, :itemprop => 'url') %></h2></div>
+            <div class="image-container"><%= link_to(image_tag(article_item.avatar.url(:article_item), :itemprop => 'image', :alt => article_item.name), 
+            '/articles/'+ article_item.slug ) %></div>
+
+            <section itemprop="description">
+              <p><%= article_item.short_description.truncate(255) %></p>
+            </section>
+          </div>
+            <footer>
+              <ul class="tag-list">
+                <% article_item.tag_list.each do |tag| %>
+                  <li><%= link_to tag, article_tag_path(tag) %></li>
+                <% end %>
+              </ul>
+            </footer>
+        </article>
+      <% end %>
+      <% end %>
+      </div>
+  </section>
+</div>

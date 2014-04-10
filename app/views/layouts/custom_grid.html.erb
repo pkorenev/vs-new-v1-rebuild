@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html class="no-js" prefix="og: http://ogp.me/ns#">
+<head role="main">
+
+  <title><%= yield :title %></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="keywords" content="<%= yield :meta_keywords %>" />
+  <meta name="description" content="<%= yield :meta_description %>" />
+  <meta property="fb:admins" content="vik.ewoods" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= yield :title %>" />
+  <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
+  <meta property="og:image" content="http://<%= request.host+asset_path('banner1.jpg') %>" />
+  <meta property="og:description" content="<%= yield :meta_description %>" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "custom_grid/app" %>
+
+  <script type="text/javascript">
+    jQuery('html').removeClass('no-js');
+  </script>
+
+  <!-- sticky footer fix for IE version <=6 and >=8 -->
+  
+  <!--[if !IE 7]>
+    <style type="text/css">
+      #wrap {display:table;height:100%}
+    </style>
+  <![endif]-->
+  
+  <!-- end -->
+
+</head>
+<body role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>">
+  
+  <div id="main-scroller">
+    <div id="main-scroller-content">
+        <div id="wrapper">
+          <div id="main">
+            <div id="header-wrapper">
+            </div>
+            <div id="page-content">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+  </div>
+  
+</body>
+</html>

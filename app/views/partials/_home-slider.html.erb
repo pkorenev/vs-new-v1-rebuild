@@ -1,0 +1,113 @@
+<div id="wrap-banner">
+  <figure class="f-height banner-holder">
+  	<ul class="slides-list">
+  		<li class="slide">
+      		<div class="slide-content">
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-main.png'), :class => 'ii-main-logo-image parallax-layer' %></div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-additional.png'), :class => 'ii-additional-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_big_1.png'), :class => 'ii-blured_big_1-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_medium_3.png'), :class => 'ii-blured_medium_3-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_small_2.png'), :class => 'ii-blured_small_2-image parallax-layer' %> </div>
+      		</div>
+      	</li>
+
+      	<li class="slide">
+      		<div class="slide-content">
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-main.png'), :class => 'ii-main-logo-image parallax-layer' %></div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-additional.png'), :class => 'ii-additional-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_big_1.png'), :class => 'ii-blured_big_1-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_medium_3.png'), :class => 'ii-blured_medium_3-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_small_2.png'), :class => 'ii-blured_small_2-image parallax-layer' %> </div>
+      		</div>
+      	</li>
+
+      	<li class="slide">
+      		<div class="slide-content">
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-main.png'), :class => 'ii-main-logo-image parallax-layer' %></div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-additional.png'), :class => 'ii-additional-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_big_1.png'), :class => 'ii-blured_big_1-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_medium_3.png'), :class => 'ii-blured_medium_3-image parallax-layer' %> </div>
+        		<div class="layer"> <%= image_tag ('banners/ii/ii-blured_small_2.png'), :class => 'ii-blured_small_2-image parallax-layer' %> </div>
+      		</div>
+      	</li>
+      </ul>
+<div class="slider-navigation-dots-line">
+	<div class="slider-navigation-dots-group">
+		<span class="slider-navigation-dot active"></span>
+		<span class="slider-navigation-dot"></span>
+		<span class="slider-navigation-dot"></span>
+	</div>
+</div>
+  </figure>
+</div>
+  <script type="text/javascript">
+	var $slider ;
+	var $slides;
+	var $slides_container;
+	
+	initSlider = function(slider){
+		console.log('m');
+		$slider = $(slider);
+		$slides = $slider.find('.slide');
+		$slides_container = $( $slides.parent() );
+
+		var slide_width = $slides_container.width();
+		$slides_container.css( 'width', $slides_container.width() * $slides.length );
+		$slides.each(function(index){
+			console.warn('warn');
+			var $slide = $(this);
+			
+
+			
+			$slide.width(slide_width);
+
+		});
+	}
+	function selectSlide(slideNumber){
+		var total = $slides.length;
+		$slides.filter('.active');
+		var required_index = slideNumber - 1;
+		var active_index = $slides.filter('.active').index();
+		if(active_index == -1){
+			active_index = 0;
+			$slides.eq(0).addClass('active');
+		}
+
+		if(required_index < 0){
+			required_index = 0;
+		}
+		else if(required_index >total-1){
+			required_index = total-1;
+		}
+
+		//if($active_slide.length>0){
+			//var active_index = $active_slide.index();
+console.log('display: req:'+ (required_index ) +'active:'+active_index);
+			var difference = required_index - active_index;
+			if(difference != 0){
+				
+				$slides.eq(active_index).removeClass('active');
+				$slides.eq(required_index).addClass('active');
+				$slides.eq(0).animate({
+					'margin-left':required_index * $slider.width() 
+				});
+			}
+		//}
+	}
+
+	/*initSlider('#wrap-banner');
+	$('.slider-navigation-dot').click(function(){
+		var $span = $(this);
+		var index = $span.index();
+		selectSlide(index+1);
+		$('.slider-navigation-dot').removeClass('active');
+		$span.addClass('active');
+	});
+console.log('jjdj');*/
+
+$('.slides-list').bjqs({
+	width:'100%',
+	height:'100%'
+});
+</script>
+

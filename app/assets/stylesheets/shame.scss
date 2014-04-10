@@ -1,0 +1,8 @@
+@media(min-width:1px) and (max-width:620px){
+
+	/* fix footer top indent */
+	#footer-wrapper{
+		height: 376px;
+		margin-top: -376px;
+	}
+}

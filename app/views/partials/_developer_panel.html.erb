@@ -1,0 +1,56 @@
+<div id="developers-panel">
+  <div class="dev-pan f-height">
+    <div class="mobile-column">
+      <div class="dev-field project-description">
+        <p><%= raw project.description %></p>
+      </div>
+
+    <% if project.developers.count>0 %>
+      <div class="dev-field">
+        <h4>Команда проекту:</h4>
+      </div>
+      <!-- Developers and roles -->
+    <% project.developers.each do |developer| %>
+      <div class="dev-field">
+        <p class="role"><%= developer.developer_role.name %></p>
+        <p class="author"><%= developer.first_name+' '+developer.last_name %></p>
+      </div>
+    <% end %>
+    <% end %>
+    </div>
+
+
+    <div class="mobile-column">
+    <% if project.thanks_to && project.thanks_to!='' %>
+    <!-- Thanks for work -->
+      <div class="dev-field">
+        <h4 class="last-h4">Особлива подяка:</h4>
+        <p class="author"><%= project.thanks_to %></p>
+      </div>
+    <% end %>
+
+    <% if project.thanks_image %>
+      <div style="padding-top:45px;"  class="dev-field thanks_image">
+          <a href="<%= project.thanks_image.url(:big) %>">
+            <img class="thanks_image" src="<%= project.thanks_image.url(:thumb) %>" />
+          </a>
+      </div>
+    <% end %>
+
+
+    <% if project.portfolio_technologies.count > 0 %>
+    <div class="dev-field technologies" style="padding-top:45px;">
+      <ul>
+      <% project.portfolio_technologies.each do |technology| %>
+          <li>
+          <a href="<%= technology.official_link %>">
+            <img src="<%= technology.avatar.url(:icon48) %>" />
+          </a>
+        </li>
+      <% end %>
+    </ul>
+    </div>
+    <% end %>
+  </div>
+  </div>
+</div>

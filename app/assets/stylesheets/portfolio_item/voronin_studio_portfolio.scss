@@ -1,0 +1,146 @@
+#voronin-web-banner{
+
+}
+
+#voronin-web-banner .vs-graphic-part{
+  float: left;
+  width: 60%;
+}
+
+#voronin-web-banner .vs-graphic-part img{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#voronin-web-banner .vs-graphic-part img.bg-vs{
+  top: 92px;
+}
+
+#voronin-web-banner .vs-graphic-part img.webpr-vs{
+  top: 92px;
+  left: -1000px;
+}
+
+#voronin-web-banner .vs-banner-descr{
+  float: right;
+  padding: 4em 0;
+  width: 40%;
+}
+
+#voronin-web-banner .vs-banner-descr h1{
+  color: #ffffff;
+  font-size: 2.8em;
+}
+
+#voronin-web-banner .vs-banner-descr p{
+  color: #ffffff;
+  font-size: 1.3em;
+  line-height: 1.15em;
+}
+
+
+/* Portfolio toolbar */
+#portfolio-toolbar{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  background: #f0f0f0;
+  position: absolute;
+  z-index:1;
+}
+
+#portfolio-toolbar div.tabs-wrapper{
+  @include init-grid;
+  @include grid-9;
+
+  @media(max-width:960px){
+    width:100%;
+
+    #tabs-container{
+      margin-left: 46px;
+      margin-right: 46px;
+    }
+  }
+}
+
+#portfolio-toolbar #tabs-container{
+  //@include init-grid;
+  //@include grid-6;
+  float: right;
+  width: auto;
+  clear: none;
+  z-index: 9; 
+  position: absolute;
+  right: 0px;
+}
+
+#portfolio-toolbar .portfolio-tab{
+  @include init-grid;
+  //@include grid-2;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width:158px;
+  height: 45px;
+
+  p{
+    line-height: 45px;
+    font-size: 1em;
+  }
+
+  &.bottom-arrow:before{
+    top:45px;
+    margin-left: -12px;
+  }
+}
+
+#portfolio-toolbar .pt-left{
+  position: absolute;
+  left: 0;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url("/assets/pt-left.jpg") no-repeat;
+  vertical-align: text-top;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+#portfolio-toolbar .pt-right{
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background: url("/assets/pt-right.jpg") no-repeat;
+  vertical-align: text-top;
+  line-height: 45px;
+  cursor: pointer;
+}
+
+
+.white-background #portfolio-body div.pt-headers{
+  /*margin: 0 auto;
+  width: 500px;*/
+  color: #545454;
+  font-weight: normal;
+  font-family: 'OpenSansLight', sans-serif;
+  line-height: 45px;
+  margin: 0;
+  float: none;
+  position: relative;
+
+  padding-right: 500px;
+
+  @media(max-width:2019px){
+    margin-top: 54px;
+    padding-right: 0;
+    width: 100%;
+  }
+
+}
+
+.white-background #portfolio-body div.pt-headers p i{
+  font-style: normal;
+  font-family: 'OpenSansLightItalic', sans-serif;
+}

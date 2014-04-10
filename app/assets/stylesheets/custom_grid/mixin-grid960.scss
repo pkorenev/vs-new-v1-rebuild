@@ -1,0 +1,657 @@
+/*
+  Variable Grid System (Fluid Version).
+  Learn more ~ http://www.spry-soft.com/grids/
+  Based on 960 Grid System - http://960.gs/ & 960 Fluid - http://www.designinfluences.com/
+
+  Licensed under GPL and MIT.
+*/
+
+
+/* Containers
+----------------------------------------------------------------------------------------------------*/
+
+$small_screen_max_width: 824px;
+$small_screen_min_width: 1px;
+
+$medium_screen_min_width: 825px;
+$medium_screen_max_width: 1399px;
+
+$large_screen_min_width:1440px;
+$large_screen_max_width: 5000px;
+
+
+@mixin container_12{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+
+  @media(max-width:1600px){
+    width:92%;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  @media(max-width:1200px){
+    width:96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }  
+
+  @media(max-width:960px){
+    width:98%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  @media(max-width:780px){
+    width:100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /*@media(min-width:$small_screen_min_width) and (max-width:$small_screen_max_width){
+    width:100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  @media(min-width:$medium_screen_min_width) and (max-width:$medium_screen_max_width){
+    width:
+  }*/
+}
+
+.container {
+  @include container_12; 
+}
+
+/* Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+@mixin init-grid{
+  display:inline;
+  float: left;
+  position: relative;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.g1,
+.g2,
+.g3,
+.g4,
+.g5,
+.g6,
+.g7,
+.g8,
+.g9,
+.g10,
+.g11,
+.g12 {
+  @include init-grid;
+}
+
+/* Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+@mixin alpha{
+  margin-left: 0;
+}
+
+.alpha {
+  @include alpha;
+}
+
+@mixin omega{
+  margin-right: 0;
+}
+
+.omega {
+  @include omega;
+}
+
+/* Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+@mixin grid_1 {
+  width:6.333%;
+}
+
+@mixin grid_2 {
+  width:14.667%;
+}
+
+@mixin grid_3 {
+  width:23.0%;
+}
+
+@mixin grid_4 {
+  width:31.333%;
+}
+
+@mixin grid_5 {
+  width:39.667%;
+}
+
+@mixin grid_6 {
+  width:48.0%;
+}
+
+@mixin grid_7 {
+  width:56.333%;
+}
+
+@mixin grid_8 {
+  width:64.667%;
+}
+
+@mixin grid_9 {
+  width:73.0%;
+}
+
+@mixin grid_10 {
+  width:81.333%;
+}
+
+@mixin grid_11 {
+  width:89.667%;
+}
+
+@mixin grid_12 {
+  width:98.0%;
+}
+
+/* classes */
+
+
+.container .g1 {
+  @include grid_1;
+}
+
+.container .g2 {
+  @include grid_2;
+}
+
+.container .g3 {
+  @include grid_3;
+}
+
+.container .g4 {
+  @include grid_4;
+}
+
+.container .g5 {
+  @include grid_5;
+}
+
+.container .g6 {
+  @include grid_6;
+}
+
+.container .g7 {
+  @include grid_7;
+}
+
+.container .g8 {
+  @include grid_8;
+}
+
+.container .g9 {
+  @include grid_9;
+}
+
+.container .g10 {
+  @include grid_10;
+}
+
+.container .g11 {
+  @include grid_11;
+}
+
+.container .g12 {
+  @include grid_12;
+}
+
+
+
+/* Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+@mixin prefix_1 {
+  padding-left:8.333%;
+}
+
+@mixin prefix_2 {
+  padding-left:16.667%;
+}
+
+@mixin prefix_3 {
+  padding-left:25.0%;
+}
+
+@mixin prefix_4 {
+  padding-left:33.333%;
+}
+
+@mixin prefix_5 {
+  padding-left:41.667%;
+}
+
+@mixin prefix_6 {
+  padding-left:50.0%;
+}
+
+@mixin prefix_7 {
+  padding-left:58.333%;
+}
+
+@mixin prefix_8 {
+  padding-left:66.667%;
+}
+
+@mixin prefix_9 {
+  padding-left:75.0%;
+}
+
+@mixin prefix_10 {
+  padding-left:83.333%;
+}
+
+@mixin prefix_11 {
+  padding-left:91.667%;
+}
+
+/* classes */
+
+.container .prefix_1 {
+  @include prefix_1;
+}
+
+.container .prefix_2 {
+  @include prefix_2;
+}
+
+.container .prefix_3 {
+  @include prefix_3;
+}
+
+.container .prefix_4 {
+  @include prefix_4;
+}
+
+.container .prefix_5 {
+  @include prefix_5;
+}
+
+.container .prefix_6 {
+  @include prefix_6;
+}
+
+.container .prefix_7 {
+  @include prefix_7;
+}
+
+.container .prefix_8 {
+  @include prefix_8;
+}
+
+.container .prefix_9 {
+  @include prefix_9;
+}
+
+.container .prefix_10 {
+  @include prefix_10;
+}
+
+.container .prefix_11 {
+  @include prefix_11;
+}
+
+
+
+/* Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+@mixin suffix_1 {
+  padding-right:8.333%;
+}
+
+@mixin suffix_2 {
+  padding-right:16.667%;
+}
+
+@mixin suffix_3 {
+  padding-right:25.0%;
+}
+
+@mixin suffix_4 {
+  padding-right:33.333%;
+}
+
+@mixin suffix_5 {
+  padding-right:41.667%;
+}
+
+@mixin suffix_6 {
+  padding-right:50.0%;
+}
+
+@mixin suffix_7 {
+  padding-right:58.333%;
+}
+
+@mixin suffix_8 {
+  padding-right:66.667%;
+}
+
+@mixin suffix_9 {
+  padding-right:75.0%;
+}
+
+@mixin suffix_10 {
+  padding-right:83.333%;
+}
+
+@mixin suffix_11 {
+  padding-right:91.667%;
+}
+
+/* classes */
+
+.container .suffix_1 {
+  @include suffix_1;
+}
+
+.container .suffix_2 {
+  @include suffix_2;
+}
+
+.container .suffix_3 {
+  @include suffix_3;
+}
+
+.container .suffix_4 {
+  @include suffix_4;
+}
+
+.container .suffix_5 {
+  @include suffix_5;
+}
+
+.container .suffix_6 {
+  @include suffix_6;
+}
+
+.container .suffix_7 {
+  @include suffix_7;
+}
+
+.container .suffix_8 {
+  @include suffix_8;
+}
+
+.container .suffix_9 {
+  @include suffix_9;
+}
+
+.container .suffix_10 {
+  @include suffix_10;
+}
+
+.container .suffix_11 {
+  @include suffix_11;
+}
+
+
+
+/* Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+@mixin push_1 {
+  left:8.333%;
+}
+
+@mixin push_2 {
+  left:16.667%;
+}
+
+@mixin push_3 {
+  left:25.0%;
+}
+
+@mixin push_4 {
+  left:33.333%;
+}
+
+@mixin push_5 {
+  left:41.667%;
+}
+
+@mixin push_6 {
+  left:50.0%;
+}
+
+@mixin push_7 {
+  left:58.333%;
+}
+
+@mixin push_8 {
+  left:66.667%;
+}
+
+@mixin push_9 {
+  left:75.0%;
+}
+
+@mixin push_10 {
+  left:83.333%;
+}
+
+@mixin push_11 {
+  left:91.667%;
+}
+
+/* classes */
+
+.container .push_1 {
+  @include push_1;
+}
+
+.container .push_2 {
+  @include push_2;
+}
+
+.container .push_3 {
+  @include push_3;
+}
+
+.container .push_4 {
+  @include push_4;
+}
+
+.container .push_5 {
+  @include push_5;
+}
+
+.container .push_6 {
+  @include push_6;
+}
+
+.container .push_7 {
+  @include push_7;
+}
+
+.container .push_8 {
+  @include push_8;
+}
+
+.container .push_9 {
+  @include push_9;
+}
+
+.container .push_10 {
+  @include push_10;
+}
+
+.container .push_11 {
+  @include push_11;
+}
+
+
+
+/* Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+@mixin pull_1 {
+  left:-8.333%;
+}
+
+@mixin pull_2 {
+  left:-16.667%;
+}
+
+@mixin pull_3 {
+  left:-25.0%;
+}
+
+@mixin pull_4 {
+  left:-33.333%;
+}
+
+@mixin pull_5 {
+  left:-41.667%;
+}
+
+@mixin pull_6 {
+  left:-50.0%;
+}
+
+@mixin pull_7 {
+  left:-58.333%;
+}
+
+@mixin pull_8 {
+  left:-66.667%;
+}
+
+@mixin pull_9 {
+  left:-75.0%;
+}
+
+@mixin pull_10 {
+  left:-83.333%;
+}
+
+@mixin pull_11 {
+  left:-91.667%;
+}
+
+/* classes */
+
+.container .pull_1 {
+  @include pull_1;
+}
+
+.container .pull_2 {
+  @include pull_1;
+}
+
+.container .pull_3 {
+  @include pull_1;
+}
+
+.container .pull_4 {
+  @include pull_1;
+}
+
+.container .pull_5 {
+  @include pull_1;
+}
+
+.container .pull_6 {
+  @include pull_1;
+}
+
+.container .pull_7 {
+  @include pull_1;
+}
+
+.container .pull_8 {
+  @include pull_1;
+}
+
+.container .pull_9 {
+  @include pull_1;
+}
+
+.container .pull_10 {
+  @include pull_1;
+}
+
+.container .pull_11 {
+  @include pull_1;
+}
+
+
+
+
+/* Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+@mixin clear{
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clear {
+  @include clear;
+}
+
+/* http://perishablepress.com/press/2008/02/05/lessons-learned-concerning-the-clearfix-css-hack */
+
+@mixin clearfix{
+  
+
+  &:after{
+    clear: both;
+    content: ' ';
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  display: inline-block;
+
+  height: 1%;
+
+  display: block;
+}
+
+.clearfix:after {
+  clear: both;
+  content: ' ';
+  display: block;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}

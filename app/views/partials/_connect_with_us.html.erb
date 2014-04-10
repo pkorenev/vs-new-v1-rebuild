@@ -1,0 +1,118 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).on('ready page:load',function() {
+    $(".modal-cls-btn").click(function(){
+      parent.$.fancybox.close( true );
+    });
+
+    $("#contact-us-tab").click(function(){
+//      $("#contact-us-container").show();
+      $("#contact-us-container").fadeIn("slow");
+      $(this).addClass("contact-active-tab");
+
+      $("#order-us-container").hide();
+      $("#join-us-wrapper").hide();
+
+      $("#order-us-tab").removeClass("contact-active-tab");
+      $("#join-us-tab").removeClass("contact-active-tab");
+    });
+
+    $("#order-us-tab").click(function(){
+      $("#order-us-container").fadeIn("slow");
+      $(this).addClass("contact-active-tab");
+
+      $("#contact-us-container").hide();
+      $("#join-us-wrapper").hide();
+
+      $("#contact-us-tab").removeClass("contact-active-tab");
+      $("#join-us-tab").removeClass("contact-active-tab");
+    });
+
+    $("#join-us-tab").click(function(){
+      $("#join-us-wrapper").fadeIn("slow");
+      $(this).addClass("contact-active-tab");
+
+      $("#contact-us-container").hide();
+      $("#order-us-container").hide();
+
+      $("#contact-us-tab").removeClass("contact-active-tab");
+      $("#order-us-tab").removeClass("contact-active-tab");
+    });
+  });
+</script>
+<section id="contacts-page">
+  <article class="contact-header">
+    <div id="contact-us-tab" title="Зв’язатись з нами">
+      Зв’язатись з нами
+    </div>
+    <div id="order-us-tab" title="Замовити нас">
+      Замовити нас
+    </div>
+    <div id="join-us-tab" class="contact-active-tab" title="Приєднатись до нас">
+      Приєднатись до нас
+    </div>
+    <div id="close-button" class="modal-cls-btn" title="Закрити вікно">
+      <a href="" class="modal-cls-btn" title="Закрити вікно">
+        <%= image_tag("contacts-close-button.png", :alt => "Закрити вікно") %>
+      </a>
+    </div>
+  </article>
+
+  <article class="body-contacts" id="contact-us-container" style="display: none;">
+    <div class="contact-us-wrapper">
+      <a href="tel:+38 (050) 417 07 28" class="mobile" title="+38 (050) 417 07 28">
+        <span class="cont-sprite-b cont-mobile-icon"></span>
+        +38 (050) 417 07 28
+      </a>
+      <a href="tel:+38 (032) 232-41-51" class="fax" title="+38 (032) 232-41-51">
+        <span class="cont-sprite-b cont-fax-icon"></span>
+        +38 (032) 232-41-51
+      </a>
+      <a href="" class="address" title="вул. Хімічна, м. Львів, Україна">
+        <span class="cont-sprite-b cont-address-icon"></span>
+        вул. Хімічна, м. Львів, Україна
+      </a>
+      <div class="emails">
+        <span class="cont-sprite-b cont-email-icon"></span>
+        <p><a href="mailto:voronin.nick@gmail.com">voronin.nick@gmail.com</a>&nbsp;&mdash;&nbsp;фінансові та арт питання</p>
+        <p><a href="mailto:office@voroninstudio.eu">office@voroninstudio.eu</a>&nbsp;&mdash;&nbsp;вакансії, офіс</p>
+        <p><a href="mailto:support@voroninstudio.eu">support@voroninstudio.eu</a>&nbsp;&mdash;&nbsp;питання технічної підтримки</p>
+      </div>
+    </div>
+    <!--<div class="next-section-btn">
+      <a href="">
+        <%= image_tag("contacts-next-article.png", :alt => "") %>
+      </a>
+    </div>-->
+  </article>
+
+  <article class="body-contacts " id="order-us-container" style="display: none;"></article>
+  <article class="body-contacts " id="join-us-wrapper" style="display: block;"></article>
+
+  <article class="footer-contacts f-height">
+    <section id="like-block">
+      <ul>
+				<li><a href="http://www.behance.net/voronin" title="Behance"><span class="soc-buttons behance-icon"></span></a></li>
+				<li><a href="https://www.facebook.com/voroninstudio" title="Facebook"><span class="soc-buttons facebook-icon"></span></a></li>
+				<li><a href="http://ua.linkedin.com/pub/nick-voronin/5/b61/417" title="Linked In"><span class="soc-buttons linkedin-icon"></span></a></li>
+        <li>
+          <%= fc_connect %>
+          <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="address-block">
+      <p><span class="cont-sprite-s cont-s-email-icon"></span> <%= mail_to("office@voroninstudio.eu") %></p>
+      <p><span class="cont-sprite-s cont-s-address-icon"></span>вул. Хімічна, м. Львів, Україна</p>
+    </section>
+
+    <section id="phone-block">
+      <p><span class="cont-sprite-s cont-s-mobile-icon"></span><a href="tel:+38 (050) 417 07 28" class="mobile" title="+38 (050) 417 07 28" style="font-size: 130%;">
+        +38 (050) 417 07 28
+      </a></p>
+      <p><span class="cont-sprite-s cont-s-fax-icon"></span><a href="tel:+38 (032) 232-41-51" class="" style="color: white;" title="+38 (032) 232-41-51">
+        +38 (032) 232-41-51
+      </a></p>
+    </section>
+  </article>
+</section><!-- contacts-page -->

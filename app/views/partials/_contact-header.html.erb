@@ -1,0 +1,57 @@
+<script type="text/javascript" charset="utf-8">
+  $(document).on('ready page:load', function() {
+      $(".modal-cls-btn").click(function(){
+        parent.$.fancybox.close( true );
+      });
+
+      $("#contact-us-tab").click(function(){
+        $("#contact-us-container").show();
+        $(this).addClass("contact-active-tab");
+
+        $("#order-us-container").hide();
+        $("#join-us-wrapper").hide();
+
+        $("#order-us-tab").removeClass("contact-active-tab");
+        $("#join-us-tab").removeClass("contact-active-tab");
+      });
+
+      $("#order-us-tab").click(function(){
+        $("#order-us-container").show();
+        $(this).addClass("contact-active-tab");
+
+        $("#contact-us-container").hide();
+        $("#join-us-wrapper").hide();
+
+        $("#contact-us-tab").removeClass("contact-active-tab");
+        $("#join-us-tab").removeClass("contact-active-tab");
+      });
+
+      $("#join-us-tab").click(function(){
+        $("#join-us-wrapper").show();
+        $(this).addClass("contact-active-tab");
+
+        $("#contact-us-container").hide();
+        $("#order-us-container").hide();
+
+        $("#contact-us-tab").removeClass("contact-active-tab");
+        $("#order-us-tab").removeClass("contact-active-tab");
+      });
+  });
+</script>
+
+<article class="contact-header">
+    <div id="contact-us-tab" class="contact-active-tab" title="Зв’язатись з нами">
+      Зв’язатись з нами
+    </div>
+    <div id="order-us-tab" title="Замовити нас">
+      Замовити нас
+    </div>
+    <div id="join-us-tab" title="Приєднатись до нас">
+      Приєднатись до нас
+    </div>
+    <div id="close-button" class="modal-cls-btn" title="Закрити вікно">
+      <a href="" class="modal-cls-btn" title="Закрити вікно">
+        <%= image_tag("contacts-close-button.png", :alt => "Закрити вікно") %>
+      </a>
+    </div>
+  </article>

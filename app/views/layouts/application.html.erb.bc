@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="no-js" prefix="og: http://ogp.me/ns#">
+<head role="main">
+
+  <title><%= yield :title %></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="keywords" content="<%= yield :meta_keywords %>" />
+  <meta name="description" content="<%= yield :meta_description %>" />
+  <meta property="fb:admins" content="vik.ewoods" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="<%= yield :title %>" />
+  <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
+  <meta property="og:image" content="http://<%= request.host+asset_path('banner1.jpg') %>" />
+  <meta property="og:description" content="<%= yield :meta_description %>" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application" %>
+
+  <script type="text/javascript">
+    jQuery('html').removeClass('no-js');
+  </script>
+
+</head>
+<body role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>">
+<div id="developer-panel" style="background: white; height: 60px; margin: 10px 0;display: none;">
+  <a class="brand-button" href="#" onclick="SendNotification('/assets/notify.png', 'Обновление саб версии', 'Саб версия обновленна до последней версии!')">Обновиться</a>
+</div>
+<div id="main">
+  <div class="wrapper ">
+    <%= render :partial => 'partials/menu' %>
+
+        <%= yield %>
+
+    <%= render :partial => 'partials/footer' %>
+  </div>
+</div>
+</body>
+</html>

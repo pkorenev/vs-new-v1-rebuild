@@ -1,0 +1,58 @@
+<div class="page-content about-page">
+<div class="white-background">
+  <div class="white-background-content">
+    <div id="intro-wrapper">
+  <section id="intro-container">
+        <div id="intro-description-wrapper">
+          <h2 class="h1-font">Послуги студії</h2>
+          <p>Дизайн Студія Миколи Вороніна надає повний спектр послуг в сфері графічного та веб дизайну, а також займається розробкою веб сайтів та мобільних додатків будь якого рівня складності. </p>
+          <p>Окрім дизайну та розробки ми також вміємо придумувати класні назви для продуктів загального вжитку та торгових марок, аналізувати цільову аудиторію та позиціонування, проводити SEO оптимізацію, просування в пошукових мережах </p>
+        </div>
+        <div class="header-quote">
+          <blockquote>
+            <em class="left"><span class="quote-sprite qs-left"></span></em>
+            <h1>Кожний новий творчий проект є унікальним і підхід до нього повинен бути відповідно унікальний, розроблений саме під нього.</h1>
+            <em class="right"><span class="quote-sprite qs-right"></span></em>
+          </blockquote>
+        </div>
+      </section>
+      </div>
+
+      <div id="services-list-wrapper">
+        <div id="services-list-container">
+      <% @get_all_services.each do |service_item| %>
+        <article id="service-<%= service_item.id %>" class="service-item <%= cycle('left-item', 'right-item') %>" itemscope itemtype="http://schema.org/Product">
+            <span class="index">0<%= service_item.sort_id %></span>
+            <% if service_item.avatar.present? %>
+            <div class="image-container">
+              <%= image_tag(service_item.avatar.url, :itemprop => 'image', :alt => service_item.name) %>
+            </div>
+            <% end %>
+            <h2 itemprop="name" class="service-title"><%= link_to(service_item.name, service_path+'#service-'+service_item.id.to_s, :itemprop => 'url') %></h2>
+          <section class="description" itemprop="description">
+            <% if service_item.short_description[0, 3] == '<p>' %>
+              <%= service_item.short_description.html_safe unless service_item.short_description.blank? %>
+            <% else %>
+              <p><%= service_item.short_description unless service_item.short_description.blank? %></p>
+            <% end %>
+          </section>
+        </article>
+      <% end %>
+    </div>
+    </div>
+
+  <section id="sub-footer">
+    <article class="container last-service-block f-height push-left">
+      <div class="g2">&nbsp;</div>
+      <div class="g8">
+        <%= image_tag('service-order-us.png') %>
+        <h1>Шукаєте щось цікавеньке? </h1>
+        <p class="order-p-descr-service">Ми завжди готові взятись за невідомий та цікавий проект, де потрібно проявити максимум смекалки та прийняти ряд креативних і нестандартних рішень для вирішення поставленої задачі! </p>
+        <%= link_to('Замовте нас!', order_us_path, :class => 'order-us brand-button', :id => 'modal-btn', :data => { :'fancybox-type' => 'iframe' }) %>
+      </div>
+      <div class="g2">&nbsp;</div>
+    </article>
+  </section>
+</div>
+</div>
+</div>

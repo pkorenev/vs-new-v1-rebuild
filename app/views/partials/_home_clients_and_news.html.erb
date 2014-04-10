@@ -1,0 +1,29 @@
+<div class="home-clients-and-news-wrapper">
+<section class="home-clients-and-news-container">
+    <div id="home-clients">
+      <h2><a href="/about#clients-section">Нам довіряють</a></h2>
+      <% @our_clients.each do |c| %>
+        <div class="client">
+          <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url %>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="news-holder">
+      <h2><a href="/articles">Анонси та події</a></h2>
+
+      <% @featured_articles.each do |a| %>
+      <article class="news-item" itemscope itemtype ="http://schema.org/Article">
+          <div class="image-holder" itemprop="image">
+            <%= link_to(image_tag(a.avatar.url(:article_item)), article_item_path(a.slug) ) %>
+          </div>
+         <header><h4 itemprop="name"><%= link_to(a.title, article_item_path(a.slug), :itemprop => "url") %></h4></header>
+         <section><p itemprop="description"><%= a.short_description %></p></section>
+         <footer></footer>
+      </article>
+      <% end %>
+
+    </div>
+</section>
+</div>

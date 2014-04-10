@@ -1,0 +1,66 @@
+.article-item{
+
+}
+
+.event-line .line{
+  width: 1px;
+  height: 320px;
+  background: grey;
+  -webkit-transform: rotate(120deg);
+}
+
+/* Left article */
+
+.article-left header{
+
+}
+
+.article-left .original-date{
+  top: -35px;
+  left: -88px;
+  position: relative;
+  float: right;
+}
+
+.article-left header img{
+  float: right;
+}
+
+.article-left header h1{
+
+}
+
+/* Right article */
+
+.article-right header{
+
+}
+
+.article-right .original-date{
+  bottom: -200px;
+  right: -88px;
+  position: relative;
+  float: left;
+}
+
+.article-right header img{
+  float: left;
+}
+
+.article-right header h1{
+
+}
+
+/* Article section styling */
+
+.article-item section{
+
+}
+
+.article-item section p{
+
+}
+
+.article-item header img{
+  width: 40%;
+}

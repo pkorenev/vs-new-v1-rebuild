@@ -1,0 +1,37 @@
+<div id="developers-panel">
+  <div class="dev-pan f-height">
+    <div class="dev-field">
+      <p>Розроблено в січні 2012 на замволення ТзОВ  “Столкер”</p>
+      <p><a href="#">www.05bar.lviv.ua</a></p>
+    </div>
+    <div class="dev-field">
+      <h4>Команда проекту:</h4>
+    </div>
+    <!-- Developers and roles -->
+    <div class="dev-field">
+      <p class="role">Арт директор та дизайнер:</p>
+      <p class="author">Микола Воронін</p>
+    </div>
+    <div class="dev-field">
+      <p class="role">Дизайнер:</p>
+      <p class="author">Олеся Бородавко</p>
+    </div>
+    <div class="dev-field">
+      <p class="role">Технічний дизайнер:</p>
+      <p class="author">Богдана Юрмолюк</p>
+    </div>
+    <div class="dev-field">
+      <p class="role">Головний програміст:</p>
+      <p class="author">Vik Ewoods</p>
+    </div>
+    <div class="dev-field">
+      <p class="role">Фотограф:</p>
+      <p class="author">Назарій боблик</p>
+    </div>
+    <!-- Thanks for work -->
+    <div class="dev-field">
+      <h4 class="last-h4">Особлива подяка:</h4>
+      <p class="author">Івану Нульпять</p>
+    </div>
+  </div>
+</div>

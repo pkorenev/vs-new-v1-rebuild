@@ -1,0 +1,12 @@
+.mycatalog{
+	@include container_12;
+	@include clearfix;
+	.myproduct{
+		@include init-grid;
+		@include grid_1;
+
+		background-color:yellow;
+		height:200px;
+		margin-top:20px;
+	}
+}
