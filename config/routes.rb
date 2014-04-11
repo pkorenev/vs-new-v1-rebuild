@@ -1,11 +1,17 @@
 StudioVoronin::Application.routes.draw do
 
- 
+  get '/users/sign_up', :to => 'error#show', :code => 404
+  get '/users', :to => 'error#show', :code => 404
+
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Ckeditor::Engine => '/ckeditor'
+
+
   get "test_slider/index"
 
   # prevent sign up as new admin
-  get '/users/sign_up', :to => 'error#show', :code => 404
-  get '/users', :to => 'error#show', :code => 404
+
 
   get 'articles/tags/:tag', to: 'page#articles_by_tags', as: :article_tag
 
@@ -16,10 +22,9 @@ StudioVoronin::Application.routes.draw do
   get "partial_test/portfolio", :to => 'partial_test#portfolio'
   get "partial_test/home-slider", :to => 'partial_test#home_slider'
 
-  mount Ckeditor::Engine => '/ckeditor'
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  devise_for :users
+
+
 
   
 
