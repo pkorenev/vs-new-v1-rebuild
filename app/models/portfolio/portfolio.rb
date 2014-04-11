@@ -88,25 +88,16 @@ class Portfolio::Portfolio < ActiveRecord::Base
         label 'Задача'
       end
 
-      field :result do
+      field :result, :ck_editor do
         label 'Результат'
-        ckeditor do
-          true
-        end
       end
 
-      field :process do
+      field :process, :ck_editor do
         label 'Процесс'
-        ckeditor do
-          true
-        end
       end
 
-      field :live do
+      field :live, :ck_editor do
         label 'Реальность'
-        ckeditor do
-          true
-        end
       end
 
       field :avatar do
@@ -122,9 +113,8 @@ class Portfolio::Portfolio < ActiveRecord::Base
         label 'Баннер работы'
       end
 
-      field :description do
+      field :description, :ck_editor do
         label 'Описание проекта'
-        ckeditor true
       end
 
       field :thanks_to do
@@ -138,6 +128,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
       field :developers do
         label 'Команда'
       end
+
       field :portfolio_technologies do
         label 'Технологии'
       end

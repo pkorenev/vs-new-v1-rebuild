@@ -21,19 +21,13 @@ class Portfolio::PortfolioBanner < ActiveRecord::Base
   			help 'внутреннее имя'
   		end
 
-  		field :title do
+  		field :title, :ck_editor do
   			help 'будет выводится на странице портфолио'
-  			ckeditor do 
-  				true
-  			end
   		end
 
-  		field :description do
+  		field :description, :ck_editor do
   			label 'Описание'
-  			help 'описание баннера под заголовком' 
-  			ckeditor do 
-  				true
-  			end
+  			help 'описание баннера под заголовком'
   		end
 
   		field :background do

@@ -40,8 +40,7 @@ class Article < ActiveRecord::Base
       field :short_description do 
       	label 'краткое описание'
       end
-      field :content do
-      	ckeditor true
+      field :content, :ck_editor do
       	label 'содержание статьи'
       end 
       field :avatar, :paperclip
@@ -53,8 +52,7 @@ class Article < ActiveRecord::Base
       field :short_description do 
       	label 'краткое описание'
       end
-      field :content do
-      	ckeditor true
+      field :content, :ck_editor do
       	label 'содержание статьи'
       end
       field :tag_list do
