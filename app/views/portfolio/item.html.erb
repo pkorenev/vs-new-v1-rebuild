@@ -8,16 +8,21 @@
       #portfolio-body, .page-content, .wb{
         background-color: #3f3d3f !important;
       }
+  <% end %>
+      /* temporary fixes */
 
-  <% elsif @item.id == 13 %>
     .slide{
         background-position-x: 50% !important;
     }
 
-    .slide-description .description{
+    .slide-description{
         max-width: 700px !important ;
     }
-  <% end %>
+
+    #portfolio-toolbar{
+        display: none;
+    }
+
 
 </style>
 <% if @item.portfolio_banner %>

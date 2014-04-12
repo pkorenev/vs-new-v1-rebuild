@@ -29,9 +29,9 @@
       </div>
     <% end %>
 
-    <% if project.thanks_image %>
+    <% if project.thanks_image && project.thanks_image.exists?(:thumb) && project.thanks_image.exists?(:big)  %>
       <div style="padding-top:45px;"  class="dev-field thanks_image">
-          <a href="<%= project.thanks_image.url(:big) %>">
+          <a href="<%=  project.thanks_image.url(:big) %>">
             <img class="thanks_image" src="<%= project.thanks_image.url(:thumb) %>" />
           </a>
       </div>
