@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs	
-//= require turbolinks
 //= require jquery-migrate-min
 //= require jquery.ui.effect
 //= require modernizr

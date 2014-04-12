@@ -8,8 +8,6 @@ class Portfolio::Portfolio < ActiveRecord::Base
   has_many   :portfolio_technologies
   has_many   :developers
 
-  has_attached_file :avatar
-
   # Paperclip image attachments
   has_attached_file :avatar, :styles => {
                         admin_prv:     '65x65#',
