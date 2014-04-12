@@ -3,6 +3,22 @@
     width:100%;
     height: 100%;
   }
+
+  <% if @item.id == 14 %>
+      #portfolio-body, .page-content, .wb{
+        background-color: #3f3d3f !important;
+      }
+
+  <% elsif @item.id == 13 %>
+    .slide{
+        background-position-x: 50% !important;
+    }
+
+    .slide-description .description{
+        max-width: 700px !important ;
+    }
+  <% end %>
+
 </style>
 <% if @item.portfolio_banner %>
 <div id="portfolio-banner-wrapper" data-banner-name="<%= @item.portfolio_banner.name %>" class="f-height">
@@ -19,7 +35,7 @@
 
     <div class="slide-description">
       <h1 class="title"><%= raw @item.portfolio_banner.title %></h1>
-      <p class="description"><%= raw @item.portfolio_banner.description %></p>
+      <div class="description"><%= raw @item.portfolio_banner.description %></div>
     </div>
   </div>
 </figure>
@@ -32,25 +48,35 @@
 
 <!-- Render portfolio toolbar -->
 <div id="portfolio-toolbar" class="f-height">
-  <a href="#prev" class="pt-left"></a>
-  <a href="#next" class="pt-right"></a>
-  <div class="container">
-  <div class="tabs-wrapper">
-    
-      
-      <section id="tabs-container" class="f-height">
-        <div class="portfolio-tab bottom-arrow" id="result" >
-          <p>Результат</p>
+  <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.name.parameterize) %>" class="pt-left"></a>
+  <a href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.name.parameterize) %>" class="pt-right"></a>
+  <% if (@item.result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
+      <div class="container">
+      <div class="tabs-wrapper">
+
+
+          <section id="tabs-container" class="f-height">
+            <% if @item.result && @item.result.length > 0  %>
+                <div class="portfolio-tab bottom-arrow" id="result" >
+                    <p>Результат</p>
+                </div>
+            <% end %>
+
+            <% if @item.process && @item.process.length > 0  %>
+              <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="process" >
+                <p>Процес</p>
+              </div>
+            <% end %>
+
+            <% if @item.live && @item.live.length > 0  %>
+              <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="live">
+                <p>В житті</p>
+              </div>
+            <% end %>
+          </section>
         </div>
-        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="process" >
-          <p>Процес</p>
-        </div>
-        <div class="portfolio-tab bottom-arrow inactive-portfolio-tab" id="live">
-          <p>В житті</p>
-        </div>
-      </section>
-    </div>
-  </div>
+      </div>
+  <% end %>
 </div>
 <div class="wb">&nbsp;</div>
 <div class="page-content white-background portfolio-item-content">
@@ -70,43 +96,50 @@
       <div class="pt-headers"><p><i>Задача:</i><%= @item.task %></p></div>
 
       <!-- Here will be content -->
-      <div class="tabpages portfolio-tabpages">
-        <div class="tabpage active" id="result">
-          
 
-          <!-- result content -->
+      <% if (@item.result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
+          <div class="tabpages portfolio-tabpages">
+            <% if @item.result && @item.result.length > 0 %>
+                <div class="tabpage active" id="result">
 
-         <!-- <figure class="span12 notebook-figure">
-        <div class="web-slider-wrapper">
-          
-          <div class="voronin-studio-banners">
-            <div class="scroller">
-              <%= image_tag('portfolio/web/voronin-studio/vs-main.jpg') %>
-              <%= image_tag('portfolio/web/voronin-studio/vs-about.jpg') %>
-            </div>
+
+                  <!-- result content -->
+
+                 <!-- <figure class="span12 notebook-figure">
+                <div class="web-slider-wrapper">
+
+                  <div class="voronin-studio-banners">
+                    <div class="scroller">
+                      <%= image_tag('portfolio/web/voronin-studio/vs-main.jpg') %>
+                      <%= image_tag('portfolio/web/voronin-studio/vs-about.jpg') %>
+                    </div>
+                  </div>
+                </div>
+              </figure> -->
+
+              <%=  raw @item.result  %>
+
+
+              <!-- /result content -->
+
+                </div>
+            <% end %>
+            <% if @item.process && @item.process.length > 0 %>
+                <div class="tabpage" id="process">
+
+                  <%= raw @item.process %>
+
+                </div>
+            <% end %>
+
+            <% if @item.live && @item.live.length > 0 %>
+                <div class="tabpage" id="live">
+                  <%= raw @item.live %>
+                </div>
+            <% end %>
+
           </div>
-        </div>
-      </figure> -->
-
-      <%=  raw @item.result  %>
-
-
-      <!-- /result content -->
-
-        </div>
-
-        <div class="tabpage" id="process">
-
-          <%= raw @item.process %>
-
-        </div>
-
-        <div class="tabpage" id="live">
-          <%= raw @item.live %>
-        </div>
-
-
-      </div>
+      <% end %>
 
       <script type="text/javascript">
       

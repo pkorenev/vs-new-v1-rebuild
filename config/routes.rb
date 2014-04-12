@@ -45,7 +45,7 @@ StudioVoronin::Application.routes.draw do
   #get 'portfolio/web' => 'portfolio#web', :as => 'portfolio_web'
   #get 'portfolio/web/:id' => 'portfolio#web_item', :as => 'portfolio_web_item'
   get 'portfolio/:category' => 'portfolio#category'
-  get 'portfolio/:category/:item' => 'portfolio#item'
+  get 'portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
 
   # Contacts and contacts-modal routes
   get 'contact' => 'page#contact', :as => 'contact'

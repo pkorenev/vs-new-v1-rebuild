@@ -6,8 +6,34 @@ class PortfolioController < ApplicationController
   def item
     # Fetching Portfolio Web item
     #@item ||= Portfolio::Portfolio.where('slug = "'+params[:item]+'"')
-    @item = Portfolio::Portfolio.find_by_slug!(params[:item])
+    @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
+    if @item.count == 1
+      @item = @item.first
+    end
     @other_projects = Portfolio::Portfolio.where('slug != "'+params[:item]+'"').limit(8)
+
+    #portfolio_count = Portfolio::Portfolio.count
+    @next_portfolio = Portfolio::Portfolio.first
+    @prev_portfolio = Portfolio::Portfolio.first
+
+    if @item
+
+      @next_portfolio = Portfolio::Portfolio.where( id: @item.id + 1 ).limit(1)
+      if @next_portfolio.count == 0
+        @next_portfolio = Portfolio::Portfolio.first
+      else
+        @next_portfolio = @next_portfolio.first
+      end
+
+      @prev_portfolio = Portfolio::Portfolio.where( id: @item.id - 1 ).limit(1)
+      if @prev_portfolio.count == 0
+        @prev_portfolio = Portfolio::Portfolio.last
+      else
+        @prev_portfolio = @prev_portfolio.first
+      end
+
+    end
+
   end
 
   def category
