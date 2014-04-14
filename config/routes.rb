@@ -1,5 +1,7 @@
 StudioVoronin::Application.routes.draw do
 
+
+
   get '/users/sign_up', :to => 'error#show', :code => 404
   get '/users', :to => 'error#show', :code => 404
 
@@ -66,7 +68,7 @@ StudioVoronin::Application.routes.draw do
   # Rooting application
   root :to        => 'page#index', as: :root
     
-  #get '*a', :to => 'error#show', :code => 404
+  get '*a', :to => 'error#show', :code => 404
 
 
 
