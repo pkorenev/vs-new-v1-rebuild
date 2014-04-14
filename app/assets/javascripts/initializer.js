@@ -57,4 +57,47 @@ $(document).on('ready page:load', function() {
     //window.setTimeout(NewSubversion, 50000);
 
 
+    /* * * * * * * * * * * * * * * * * * * Nice scroll * * * * * * * * * * * * * * * * * * * * * * * * */
+
+    /*function niceScrollInit(){
+        $("html").niceScroll({
+            scrollspeed: 60,
+            mousescrollstep: 40,
+            cursorwidth: 15,
+            cursorborder: 0,
+            cursorcolor: '#2D3032',
+            cursorborderradius: 6,
+            autohidemode: false,
+            horizrailenabled: false
+        });
+
+        if($('#boxed').length == 0){
+            $('body, body #header-outer, body #header-secondary-outer, body #search-outer').css('padding-right','16px');
+        }
+
+        $('html').addClass('no-overflow-y');
+    }
+
+    var $smoothActive = $('body').attr('data-smooth-scrolling');
+    var $smoothCache = ( $smoothActive == 1 ) ? true : false;
+
+    if( $smoothActive == 1 && $(window).width() > 690 && $('body').outerHeight(true) > $(window).height()){ niceScrollInit(); } else {
+        $('body').attr('data-smooth-scrolling','0');
+    }*/
+
+    $("#main-scroller").niceScroll({
+        scrollspeed: 60,
+        mousescrollstep: 40,
+        cursorwidth: 15,
+        cursorborder: 0,
+        cursorcolor: '#2D3032',
+        cursorborderradius: 6,
+        autohidemode: false,
+        horizrailenabled: false
+    });
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 });

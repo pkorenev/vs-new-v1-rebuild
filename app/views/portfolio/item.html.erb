@@ -4,6 +4,12 @@
     height: 100%;
   }
 
+  <% if @item.id == 6 %>
+    #portfoio-banner-holder .slide-description{
+        display: none;
+    }
+  <% end %>
+
   <% if @item.id == 14 %>
       #portfolio-body, .page-content, .wb{
         background-color: #3f3d3f !important;

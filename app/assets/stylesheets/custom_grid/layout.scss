@@ -10,9 +10,9 @@ html, body {
 	position: absolute;
 	left: 0;
 	top: 0;
-	right: -30px;
+	right: 0px;
 	bottom: 0;	
-	padding-right: 15px;
+	padding-right: 0px;
 	overflow-y: scroll;
 }
 
@@ -26,6 +26,79 @@ html, body {
 
 /* end */
 
+
+/* custom -scroll */
+
+.js{
+  @media(min-width: 960px){
+    #main-scroller-content{
+      padding-right: 10px;
+    }
+
+    .nicescroll-rails{
+      width: 10px !important;
+      background-color: #666 !important;
+      left: auto !important;
+      right: 0 !important;
+
+      & > div{
+        width: 10px !important;
+        border-radius: 0 !important;
+      }
+    }
+  }
+
+}
+
+/* custom -scroll end */
+
+/* fixed topbar */
+$header_height: 95;
+
+.js{
+  @media(min-width: 960px){
+    #header-wrapper{
+
+      height: #{$header_height}px;
+
+      &, & * {
+        max-height: 100%;
+        max-width: 100%;
+      }
+
+      .menu-wrapper{
+        height: #{$header_height}px;
+        nav{
+          height: #{$header_height}px;
+
+          ul{
+            height: #{$header_height}px;
+
+            li{
+              height: #{$header_height}px;
+
+              a{
+                padding-top: 0 !important;
+
+                .header{
+                  margin-top: 0 !important;
+                  padding-top: 8px !important;
+                }
+
+                .description{
+                  padding-top: 8px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+/* fixed topbar end */
 
 /* sticky footer */ 
 
@@ -41,7 +114,7 @@ $mobile_menu_breakpoint:850;
 
 #wrapper{
 	min-height: 100%;
-	//position: relative; my adding
+	position: relative; // my adding
 }
 
 #main {

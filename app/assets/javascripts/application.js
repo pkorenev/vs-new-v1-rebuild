@@ -15,6 +15,7 @@
 //= require jquery-migrate-min
 //= require jquery.ui.effect
 //= require modernizr
+//= require jquery.nicescroll
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-media

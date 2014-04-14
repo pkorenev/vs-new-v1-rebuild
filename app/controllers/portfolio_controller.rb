@@ -18,21 +18,60 @@ class PortfolioController < ApplicationController
 
     if @item
 
-      @next_portfolio = Portfolio::Portfolio.where( id: @item.id + 1 ).limit(1)
-      if @next_portfolio.count == 0
-        @next_portfolio = Portfolio::Portfolio.first
-      else
-        @next_portfolio = @next_portfolio.first
+      query = "SELECT p.id FROM portfolios p ORDER BY p.portfolio_category_id, p.release asc"
+      result = ActiveRecord::Base.connection.execute(query)
+      arr_ids = []
+      result.each do | row |
+        arr_ids.push( row['id'] )
       end
 
-      @prev_portfolio = Portfolio::Portfolio.where( id: @item.id - 1 ).limit(1)
-      if @prev_portfolio.count == 0
-        @prev_portfolio = Portfolio::Portfolio.last
-      else
-        @prev_portfolio = @prev_portfolio.first
+      current_id = @item.id
+      prev_id = -1
+      next_id = -1
+      first_id = arr_ids.first
+      last_id = arr_ids.last
+      ids_count = arr_ids.count
+
+      for i in 0..arr_ids.count
+        if arr_ids[i] == current_id
+
+        end
       end
 
+      arr_ids.each_with_index do | item, index |
+        if item == current_id
+          prev_id = arr_ids[index-1]
+          next_id = arr_ids[index+1]
+
+          if prev_id.nil?
+            prev_id = last_id
+          elsif next_id.nil?
+            next_id = first_id
+          end
+        end
+      end
+
+      @next_portfolio = Portfolio::Portfolio.find(prev_id)
+      @prev_portfolio = Portfolio::Portfolio.find(next_id)
     end
+
+    #if @item
+    #
+    #  @next_portfolio = Portfolio::Portfolio.where( id: @item.id + 1 ).limit(1)
+    #  if @next_portfolio.count == 0
+    #    @next_portfolio = Portfolio::Portfolio.first
+    #  else
+    #    @next_portfolio = @next_portfolio.first
+    #  end
+    #
+    #  @prev_portfolio = Portfolio::Portfolio.where( id: @item.id - 1 ).limit(1)
+    #  if @prev_portfolio.count == 0
+    #    @prev_portfolio = Portfolio::Portfolio.last
+    #  else
+    #    @prev_portfolio = @prev_portfolio.first
+    #  end
+    #
+    #end
 
   end
 
