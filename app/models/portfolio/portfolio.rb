@@ -82,6 +82,10 @@ class Portfolio::Portfolio < ActiveRecord::Base
         label 'Название'
       end
 
+      field :slug do
+        label 'url портфолио относительно категории'
+      end
+
       field :task do
         label 'Задача'
       end

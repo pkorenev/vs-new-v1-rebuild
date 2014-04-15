@@ -15,4 +15,13 @@ class Portfolio::PortfolioCategory < ActiveRecord::Base
   def generate_slug
     self.slug ||= name.parameterize
   end
+
+  rails_admin do
+    edit do
+      field :name
+      field :slug do
+        label 'url категории'
+      end
+    end
+  end
 end

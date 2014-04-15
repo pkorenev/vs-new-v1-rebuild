@@ -99,7 +99,7 @@
   
   <div id="portfolio-items-container" class="sortable-portfolio">
     <% items.each do |item| %>
-      <div class="g4 portfolio-item <%= item.portfolio_category.name.parameterize %>">
+      <div class="g4 portfolio-item <%= item.portfolio_category.slug %>">
         <figure>
           <%= link_to(image_tag(item.avatar.url(:non_retina)), '/portfolio/'+item.portfolio_category.slug+'/' +item.slug ) %>
         </figure>
