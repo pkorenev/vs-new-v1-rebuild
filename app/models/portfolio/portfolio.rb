@@ -8,6 +8,9 @@ class Portfolio::Portfolio < ActiveRecord::Base
   has_many   :portfolio_technologies
   has_many   :developers
 
+  accepts_nested_attributes_for :portfolio_banner, :allow_destroy => true
+  attr_accessible :portfolio_banner_attributes
+
   # Paperclip image attachments
   has_attached_file :avatar, :styles => {
                         admin_prv:     '65x65#',
@@ -52,7 +55,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
   def generate_slug
     self.slug ||= name.parameterize
   end
-  
+
   attr_accessible :slug
 
   # Rails admin configuration
