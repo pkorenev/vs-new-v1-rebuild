@@ -49,6 +49,12 @@ class Portfolio::Portfolio < ActiveRecord::Base
   # Before validate generate friendly url
   before_validation :generate_slug
 
+  def generate_slug
+    self.slug ||= name.parameterize
+  end
+  
+  attr_accessible :slug
+
   # Rails admin configuration
   rails_admin do
     label 'Портфолио'
