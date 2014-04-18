@@ -31,19 +31,37 @@ html, body {
 
 .js{
   @media(min-width: 960px){
+
+    #banner-container{
+      //-webkit-transition: margin 0.2s;
+      //-moz-transition: margin 0.2s;
+      //-ms-transition: margin 0.2s;
+      //-o-transition: margin 0.2s;
+      //transition: margin 0.2s;
+    }
+
+    #main-scroller{
+      right: -15px !important;
+      overflow: hidden;
+    }
     #main-scroller-content{
       padding-right: 10px;
     }
 
-    .nicescroll-rails{
+    .custom-scroll-rails{
       width: 10px !important;
       background-color: #666 !important;
       left: auto !important;
       right: 0 !important;
+      z-index: 10000000;
+      position: fixed;
+      height: 100%;
 
       & > div{
         width: 10px !important;
         border-radius: 0 !important;
+        background-color: red;
+        position: relative;
       }
     }
   }
@@ -65,6 +83,11 @@ $header_height: 95;
         max-height: 100%;
         max-width: 100%;
       }
+
+      & img{
+        max-width: none;
+      }
+
 
       .menu-wrapper{
         height: #{$header_height}px;
