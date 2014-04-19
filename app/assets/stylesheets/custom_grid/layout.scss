@@ -32,6 +32,14 @@ html, body {
 .js{
   @media(min-width: 960px){
 
+    #header-outer{
+      -webkit-transition: height 0.5s;
+      -moz-transition: height 0.5s;
+      -ms-transition: height 0.5s;
+      -o-transition: height 0.5s;
+      transition: height 0.5s;
+    }
+
     #banner-container{
       //-webkit-transition: margin 0.2s;
       //-moz-transition: margin 0.2s;
@@ -76,8 +84,9 @@ $header_height: 95;
 .js{
   @media(min-width: 960px){
     #header-wrapper{
+      //background-color: green;
 
-      height: #{$header_height}px;
+      height: inherit;
 
       &, & * {
         max-height: 100%;
@@ -86,19 +95,25 @@ $header_height: 95;
 
       & img{
         max-width: none;
+        width: auto;
+        height: auto;
+      }
+
+      #navigation{
+        height: inherit;
       }
 
 
       .menu-wrapper{
-        height: #{$header_height}px;
+        height: inherit;
         nav{
-          height: #{$header_height}px;
+          height: inherit;
 
           ul{
-            height: #{$header_height}px;
+            height: inherit;
 
             li{
-              height: #{$header_height}px;
+              height: inherit;
 
               a{
                 padding-top: 0 !important;
@@ -117,6 +132,38 @@ $header_height: 95;
         }
       }
 
+    }
+
+    #header-outer{
+      &.header-compact-height{
+
+
+        #studio-logo-section{
+          img{
+            max-width: 100%;
+          }
+        }
+
+        .menu-wrapper{
+          nav{
+            ul{
+              li{
+                a{
+                  .header{
+                    padding-top: 0 !important;
+                    height: inherit;
+                    line-height: 60px;
+                  }
+
+                  .description{
+                    color: rgb(0,0,0);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

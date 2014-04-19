@@ -85,7 +85,14 @@ $(document).on('ready page:load', function() {
         $('body').attr('data-smooth-scrolling','0');
     }*/
 
-    $("body").niceScroll({
+    $body = $('body')
+
+    var $body_children = $body.children()
+    var $body_content = $('<div id="body-content"></div>')
+    $body_content.insertBefore($body_children.first())
+    $body_children.appendTo($body_content)
+
+    $body.niceScroll({
         scrollspeed: 60,
         mousescrollstep: 40,
         cursorwidth: 15,
@@ -96,9 +103,117 @@ $(document).on('ready page:load', function() {
         horizrailenabled: false
     });
 
-    $('body').css({
+
+
+    $body.css({
         paddingRight: '10px'
     })
+
+
+
+
+
+
+
+
+    // fixed header
+
+    var $header_wrapper = $('#header-wrapper')
+    var $body = $('body')
+
+    $header_wrapper.insertBefore($body.children().first())
+    $header_wrapper.wrap('<div id="header-holder"></div>')
+
+    var $header_holder = $('#header-holder')
+
+    $header_holder.wrap('<div id="header-outer"></div>')
+    var $header_outer = $('#header-outer')
+
+
+    var scroll_top = $body.scrollTop()
+
+    var current_header_height = $header_wrapper.height()
+    var header_height = 95
+    if(scroll_top > 100){
+
+        header_height = 60
+
+    }
+
+    $header_wrapper.css({
+        //position: 'fixed',
+        height: 'inherit',
+        //paddingRight: '10px',
+        width: '100%'
+    })
+
+    $header_holder.css({
+        height: 'inherit',
+        position: 'fixed',
+        width: '100%',
+        paddingRight: '10px',
+        'z-index': 9999999
+    })
+
+    $header_outer.css({
+
+    })
+
+    function initHeaderSize(){
+        console.log('initHeaderSize()')
+        var current_header_height = $header_wrapper.height()
+        var header_height = 95
+        var scroll_top = $body.scrollTop()
+
+        if(scroll_top > 100){
+
+            header_height = 60
+
+        }
+
+        if(current_header_height != header_height){
+            console.log('init menu size!')
+            $header_outer.css({
+                height: header_height + 'px'
+            })
+        }
+    }
+
+    initHeaderSize()
+
+    $body.niceScroll().scrollend(function(){
+        console.log('checkHeaderSize()')
+        var current_header_height = $header_wrapper.height()
+        var header_height = 95
+        var scroll_top = $body.scrollTop()
+
+        if(scroll_top > 100){
+
+            header_height = 60
+            if(!$header_outer.hasClass('header-compact-height')){
+                $header_outer.addClass('header-compact-height')
+            }
+        }
+        else{
+            if($header_outer.hasClass('header-compact-height')){
+                $header_outer.removeClass('header-compact-height')
+            }
+        }
+
+
+
+        if(current_header_height != header_height){
+            console.log('init menu size!')
+            $header_outer.css({
+                height: header_height + 'px'
+            })
+
+
+        }
+    })
+
+
+    console.log('header initialized!')
 
     /*$main_scroller = $('#main-scroller')
 
