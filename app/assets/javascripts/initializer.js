@@ -96,7 +96,7 @@ $(document).on('ready page:load', function() {
         horizrailenabled: false
     });
 
-    $main_scroller = $('#main-scroller')
+    /*$main_scroller = $('#main-scroller')
 
     function getDocumentHeight(){
 
@@ -141,7 +141,7 @@ $(document).on('ready page:load', function() {
             $main_scroller.scrollTop(new_scroll_top);
         })
     }
-
+*/
 
 
     //initScrollbar();
@@ -156,7 +156,7 @@ $(document).on('ready page:load', function() {
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
-    $wrapper = $('#wrapper');
+    /*$wrapper = $('#wrapper');
 
     $main = $('#main');
 
@@ -232,7 +232,15 @@ $(document).on('ready page:load', function() {
             marginTop: slider_top + 'px',
             //height: slider_height + 'px'
         })
-    });
+    });*/
+
+
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * OLD CODE * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 //    $('#main-scroller').customScroll({
 //        customGetTotalHeightPx: function(){

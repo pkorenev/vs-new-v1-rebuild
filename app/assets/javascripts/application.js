@@ -17,7 +17,7 @@
 //= require modernizr
 //= require jquery.mousewheel.min
 //= require jquery.nicescroll
-//= require jquery.custom_scroll
+// jquery.custom_scroll
 //= require fancybox/jquery.fancybox
 //= require fancybox/helpers/jquery.fancybox-buttons
 //= require fancybox/helpers/jquery.fancybox-media
@@ -28,7 +28,7 @@
 //= require jquery.black_and_white
 //= require bjqs
 //= require carousel
-// initializer
+//= require initializer
 //= require to-top
 //= require portfolio-banners
 //= require portfolio-body-slider
