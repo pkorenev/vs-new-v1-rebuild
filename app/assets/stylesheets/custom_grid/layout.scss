@@ -128,6 +128,12 @@ $header_height: 95;
 
                 .description{
                   padding-top: 8px !important;
+
+                  -webkit-transition: all 1s;
+                  -moz-transition: all 1s;
+                  -ms-transition: all 1s;
+                  -o-transition: all 1s;
+                  transition: all 1s;
                 }
               }
             }
