@@ -25,10 +25,9 @@
             </section>
           </div>
             <footer>
-              <ul class="tag-list">
-                <% article_item.tag_list.each do |tag| %>
-                  <li><%= link_to tag, article_tag_path(tag) %></li>
-                <% end %>
+              <ul style="display: none" class="tag-list">
+
+                  <li><%= link_to 'test_tag_name', 'test_tag_link' %></li>
               </ul>
             </footer>
         </article>
