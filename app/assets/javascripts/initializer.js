@@ -85,7 +85,7 @@ $(document).on('ready page:load', function() {
         $('body').attr('data-smooth-scrolling','0');
     }*/
 
-    $("#main-scroller").niceScroll({
+    $("body").niceScroll({
         scrollspeed: 60,
         mousescrollstep: 40,
         cursorwidth: 15,
@@ -95,6 +95,10 @@ $(document).on('ready page:load', function() {
         autohidemode: false,
         horizrailenabled: false
     });
+
+    $('body').css({
+        paddingRight: '10px'
+    })
 
     /*$main_scroller = $('#main-scroller')
 
