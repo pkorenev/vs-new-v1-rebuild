@@ -212,6 +212,9 @@ $(document).on('ready page:load', function() {
     $page_content_wrapper.css({marginTop: page_content_top})
 
     var $banner_wrapper = $('#banner-wrapper')
+    $banner_outer.css({
+
+    })
 
     $main_scroller.scroll(function(){
         var scroll_top = $main_scroller.scrollTop();
@@ -219,13 +222,15 @@ $(document).on('ready page:load', function() {
 
         var banner_wrapper_height = $banner_wrapper.height()
 
+        var $slider = $('ul.slider')
 
-        var banner_container_top = scroll_top
-        var banner_container_height = banner_wrapper_height - scroll_top
 
-        $banner_container.css({
-            marginTop: banner_container_top + 'px',
-            height: banner_container_height + 'px'
+        var slider_top = scroll_top
+        var slider_height = banner_wrapper_height - scroll_top
+
+        $slider.animate({
+            marginTop: slider_top + 'px',
+            //height: slider_height + 'px'
         })
     });
 
