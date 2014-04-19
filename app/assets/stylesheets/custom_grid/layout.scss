@@ -24,6 +24,10 @@ html, body {
 	position: relative;
 }
 
+#page-content{
+  background-color: white;
+}
+
 /* end */
 
 
@@ -84,7 +88,6 @@ $header_height: 95;
 .js{
   @media(min-width: 960px){
     #header-wrapper{
-      //background-color: green;
 
       height: inherit;
 
@@ -94,7 +97,7 @@ $header_height: 95;
       }
 
       & img{
-        max-width: none;
+
         width: auto;
         height: auto;
       }
@@ -135,30 +138,39 @@ $header_height: 95;
     }
 
     #header-outer{
-      &.header-compact-height{
+      &{
+        height: 95px;
+      }
+    }
+  }
+}
 
 
-        #studio-logo-section{
-          img{
-            max-width: 100%;
-          }
-        }
+// compact header
 
-        .menu-wrapper{
-          nav{
-            ul{
-              li{
-                a{
-                  .header{
-                    padding-top: 0 !important;
-                    height: inherit;
-                    line-height: 60px;
-                  }
+.header-compact-height{
+  #header-outer{
+    height: 60px;
 
-                  .description{
-                    color: rgb(0,0,0);
-                  }
-                }
+    /*#studio-logo-section{
+      img{
+        max-width: 100%;
+      }
+    }*/
+
+    .menu-wrapper{
+      nav{
+        ul{
+          li{
+            a{
+              .header{
+                padding-top: 0 !important;
+                height: inherit;
+                line-height: 60px;
+              }
+
+              .description{
+                color: rgb(0,0,0);
               }
             }
           }
@@ -167,6 +179,12 @@ $header_height: 95;
     }
   }
 }
+
+// comapct header end
+
+
+
+
 
 /* fixed topbar end */
 

@@ -166,54 +166,93 @@ $(document).on('ready page:load', function() {
         var scroll_top = $body.scrollTop()
 
         if(scroll_top > 100){
-
-            header_height = 60
-
-        }
-
-        if(current_header_height != header_height){
-            console.log('init menu size!')
-            $header_outer.css({
-                height: header_height + 'px'
-            })
+            if(!$body.hasClass('header-compact-height')){
+                $body.addClass('header-compact-height')
+            }
         }
     }
 
     initHeaderSize()
 
-    $body.niceScroll().scrollend(function(){
-        console.log('checkHeaderSize()')
-        var current_header_height = $header_wrapper.height()
-        var header_height = 95
-        var scroll_top = $body.scrollTop()
+    function homeBannerOnScroll(info){
+        var scroll_top = info.end.y
+
+        var home_banner_content_top = scroll_top / 3 * (-1)
+        var home_banner_opacity = 150 / scroll_top
+        $('#home-banner-outer .slide .slide-content').css({
+            marginTop: home_banner_content_top + 'px'
+        })
+
+        $('#home-banner-outer .slide .slide-content .layer.description').css({
+            opacity: home_banner_opacity
+        })
+    }
+
+    $('#home-banner-outer').insertAfter('#header-outer')
+
+    $body.niceScroll().scrollstart(function(info){
+        console.log('checkHeaderSize(): niceScroll().scrollstart: end.y='+info.end.y)
+        console.log(info)
+        //var current_header_height = $header_wrapper.height()
+        //var header_height = 95
+        //var scroll_top = $body.scrollTop()
+        var scroll_top = info.end.y
+
 
         if(scroll_top > 100){
 
-            header_height = 60
-            if(!$header_outer.hasClass('header-compact-height')){
-                $header_outer.addClass('header-compact-height')
+            if(!$body.hasClass('header-compact-height')){
+                $body.addClass('header-compact-height')
             }
         }
         else{
-            if($header_outer.hasClass('header-compact-height')){
-                $header_outer.removeClass('header-compact-height')
+            if($body.hasClass('header-compact-height')){
+                $body.removeClass('header-compact-height')
             }
         }
 
 
 
-        if(current_header_height != header_height){
-            console.log('init menu size!')
-            $header_outer.css({
-                height: header_height + 'px'
-            })
+        homeBannerOnScroll(info)
+    })
+
+    $body.niceScroll().scrollend(function(info){
+        console.log('checkHeaderSize(): niceScroll().scrollend: end.y='+info.end.y)
+
+        var scroll_top = info.end.y
 
 
+        if(scroll_top > 100){
+
+            if(!$body.hasClass('header-compact-height')){
+                $body.addClass('header-compact-height')
+            }
         }
+        else{
+            if($body.hasClass('header-compact-height')){
+                $body.removeClass('header-compact-height')
+            }
+        }
+
+
+        homeBannerOnScroll(info)
     })
 
 
     console.log('header initialized!')
+
+
+    // home slider
+
+    /*$body.niceScroll().scrollstart(function(info){
+        scroll_top = info.end.y
+    })
+
+    $body.niceScroll().scrollend(function(info){
+
+    })*/
+
+    // home slider
 
     /*$main_scroller = $('#main-scroller')
 

@@ -22,7 +22,7 @@
 
 #studio-logo-section{
   @include init-grid;
-  @include grid-2;
+  @include grid-3;
   @media(max-width:1175px){
     #image-container{
       width: 90px;
@@ -91,7 +91,7 @@
 
 #navigation div.menu-wrapper{
   @include init-grid;
-  @include grid-10;
+  @include grid-9;
 
   nav{
     width: 100%;

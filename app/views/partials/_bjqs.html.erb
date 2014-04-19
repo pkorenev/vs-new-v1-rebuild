@@ -1,19 +1,26 @@
-<div id="banner-container">
+<div id="home-banner-outer"  class="banner-outer">
 <!-- Outer wrapper for presentation only, this can be anything you like -->
-      <figure id="holder-container" class="slider-holder">
-        <div id="banner-wrapper" class="slider-wrapper">
-        <!-- start Basic Jquery Slider -->
-        <ul class="slider">
+      <figure class="banner-holder-figure">
+        <div class="fixed-banner-wrapper">
+          <figure class="fixed-banner-holder-figure">
 
-          <%= render :partial => 'partials/slides/slide_ii' %>
-          
-          <%= render :partial => 'partials/slides/slide2' %>
-          
-          <%= render :partial => 'partials/slides/slide3' %>
+            <div class="banner-wrapper">
 
-          
-        </ul>
+                <!-- start Basic Jquery Slider -->
+                <ul class="slider">
+
+                  <%= render :partial => 'partials/slides/slide_ii' %>
+
+                  <%= render :partial => 'partials/slides/slide2' %>
+
+                  <%= render :partial => 'partials/slides/slide3' %>
+
+
+                </ul>
+            </div>
+
         <!-- end Basic jQuery Slider -->
+          </figure>
         </div>
       </figure>
       <!-- End outer wrapper -->
