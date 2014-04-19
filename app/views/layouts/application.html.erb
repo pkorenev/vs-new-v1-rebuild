@@ -48,18 +48,14 @@
 
 </head>
 <body role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>">
-<div id="main-scroller">
-  <div id="main-scroller-content">
-    <div id="wrapper">
-      <div id="main">
+<div id="wrapper">
+    <div id="main">
         <%= render :partial => 'partials/menu' %>
         <div id="page-content">
           <%= yield %>
         </div>
-      </div>
     </div>
     <%= render :partial => 'partials/footer' %>
-  </div>
 </div>
 
 </body>
