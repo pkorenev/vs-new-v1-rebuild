@@ -28,7 +28,7 @@
 //= require jquery.black_and_white
 //= require bjqs
 //= require carousel
-//= require initializer
+// initializer
 //= require to-top
 //= require portfolio-banners
 //= require portfolio-body-slider
