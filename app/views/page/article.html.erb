@@ -12,7 +12,6 @@
 
       <div class="articles-wrapper">
 
-<% for i in 1..10 %>
       <% @articles.each do |article_item| %>
         <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
           <div class="article-body">
@@ -25,13 +24,13 @@
             </section>
           </div>
             <footer>
-              <ul style="display: none" class="tag-list">
-
-                  <li><%= link_to 'test_tag_name', 'test_tag_link' %></li>
+              <ul style="" class="tag-list">
+                <% article_item.tag_list.each do | tag | %>
+                  <li><%= link_to tag, article_tag_path(tag) %></li>
+                <% end %>
               </ul>
             </footer>
         </article>
-      <% end %>
       <% end %>
       </div>
   </section>

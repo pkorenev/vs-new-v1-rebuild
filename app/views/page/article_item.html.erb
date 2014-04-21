@@ -16,10 +16,11 @@
 				</div>
 
 				<div id="article-body">
-					<div style="display:none" id="header-tag-list">
+					<div style="" id="header-tag-list">
 						<ul class="tag-list">
-
-							<li><%= link_to 'test_tag_name', article_tag_path('test_tag_link') %></li>
+                          <% @article.tag_list.each do | tag | %>
+                              <li><%= link_to tag, article_tag_path(tag) %></li>
+                          <% end %>
 
 						</ul>
 					</div>
@@ -28,9 +29,9 @@
 
 					<div id="footer-tag-list" style="display: none">
 						<ul class="tag-list">
-
-								<li><%= link_to 'test_tag_name', article_tag_path('test_tag_link') %></li>
-
+                          <% @article.tag_list.each do | tag | %>
+                              <li><%= link_to tag, article_tag_path(tag) %></li>
+                          <% end %>
 						</ul>
 					</div>
 				</div>
@@ -51,9 +52,9 @@
           </section>
           <footer>
             <ul style="display: none" class="tag-list">
-
-                <li><%= link_to 'test_tag_name', '#' %></li>
-
+              <% article_item.tag_list.each do | tag | %>
+                  <li><%= link_to tag, article_tag_path(tag) %></li>
+              <% end %>
             </ul>
           </footer>
         </article>

@@ -2,7 +2,8 @@
 class Article < ActiveRecord::Base
   attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :avatar, :delete_avatar, :tags, :tag_list, :release_date, :author
 
-  #acts_as_taggable
+  acts_as_taggable
+  attr_accessible :tag_list
 
   #translates :name, :title, :slug, :short_description, :author, :content
 
@@ -55,9 +56,9 @@ class Article < ActiveRecord::Base
       field :content, :ck_editor do
       	label 'содержание статьи'
       end
-      #field :tag_list do
-        #partial 'tag_list_with_suggestions'
-      #end
+      field :tag_list do
+        partial 'tag_list_with_suggestions'
+      end
       field :avatar, :paperclip
       field :release_date
       field :author
