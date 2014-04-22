@@ -7,6 +7,8 @@ class Pages::AboutPage < ActiveRecord::Base
   attr_accessible :static_page_data_attributes
 
   attr_accessible :content
+  attr_accessible :clients_intro
+  attr_accessible :team_text
 
   rails_admin do
     field :content
