@@ -10,6 +10,8 @@ class Pages::AboutPage < ActiveRecord::Base
 
   rails_admin do
     field :content
+    field :clients_intro
+    field :team_text
     field :static_page_data
   end
 end
