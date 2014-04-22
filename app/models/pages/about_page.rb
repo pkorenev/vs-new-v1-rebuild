@@ -11,9 +11,9 @@ class Pages::AboutPage < ActiveRecord::Base
   attr_accessible :team_text
 
   rails_admin do
-    field :content
-    field :clients_intro
-    field :team_text
+    field :content, :ck_editor
+    field :clients_intro, :ck_editor
+    field :team_text, :ck_editor
     field :static_page_data
   end
 end
