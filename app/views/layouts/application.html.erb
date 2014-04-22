@@ -2,11 +2,16 @@
 <html style="height:auto !imoportant;overflow:visible !important;" class="no-js" prefix="og: http://ogp.me/ns#">
 <head role="main">
 
-  <title><%= yield :title %></title>
+  <% if @static_page_data %>
+      <title><%= @static_page_data.head_title %></title>
+      <meta name="keywords" content="<%= @static_page_data.head_keywords %>" />
+      <meta name="description" content="<%= yield :meta_description %>" />
+  <% end %>
+
+
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="keywords" content="<%= yield :meta_keywords %>" />
-  <meta name="description" content="<%= yield :meta_description %>" />
+
   <meta property="fb:admins" content="vik.ewoods" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="<%= yield :title %>" />

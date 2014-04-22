@@ -104,3 +104,7 @@ gem 'browser'
 # deployment
 gem 'capistrano'
 gem 'capistrano-rails'
+
+gem 'acts_as_tree'
+
+gem 'rubytree'

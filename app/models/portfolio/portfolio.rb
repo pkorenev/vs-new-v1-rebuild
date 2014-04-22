@@ -58,6 +58,25 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   attr_accessible :slug
 
+
+
+  has_one :static_page_data, :as => :has_static_page_data
+  attr_accessible :static_page_data
+
+  accepts_nested_attributes_for :static_page_data, :allow_destroy => true
+  attr_accessible :static_page_data_attributes
+
+  rails_admin do
+
+
+    edit do
+      field :greetings
+      field :static_page_data
+    end
+
+
+  end
+
   # Rails admin configuration
   rails_admin do
     label 'Портфолио'
@@ -147,6 +166,8 @@ class Portfolio::Portfolio < ActiveRecord::Base
       field :release do
         label 'Дата выхода работы'
       end
+
+      field :static_page_data
 
     end
 

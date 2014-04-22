@@ -12,16 +12,20 @@ class PageController < ApplicationController
 
     @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc').limit(12)
 
+    @static_page_data = Pages::HomePage.first.static_page_data
 
   end
 
   # About page
   def about
     @our_clients ||= TrustCompany.all.order("RANDOM()")
+
+    @static_page_data = Pages::AboutPage.first.static_page_data
   end
 
   # Contact page
   def contact
+
   end
 
   # Order us frame
@@ -38,15 +42,21 @@ class PageController < ApplicationController
 
   def service
     @get_all_services ||= Service.where(published: true).order('sort_id DESC')
+
+    @static_page_data = Pages::HomePage.first.static_page_data
   end
 
   def article
     @articles ||= Article.where(published: true).order('id desc')
+
+    @static_page_data = Pages::HomePage.first.static_page_data
   end
 
   def article_item
     @article ||= Article.find_by_slug(params[:id])
     @related_articles = Article.limit(2)
+
+    @static_page_data = @article.static_page_data
   end
 
   def articles_by_tags

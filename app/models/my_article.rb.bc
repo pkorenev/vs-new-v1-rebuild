@@ -1,0 +1,25 @@
+class MyArticle < ActiveRecord::Base
+  attr_accessible :name
+  attr_accessible :title
+  attr_accessible :content
+
+  rails_admin do
+    create do
+
+    end
+
+    edit do
+      field :title do
+        render do
+          #if !bindings.nil?
+            partial = 'my_field'
+            bindings[:view].render :partial => "rails_admin/main/#{partial}", :locals => {:field => self, :form => bindings[:form], bindings: bindings, first_article: Article.first }
+          #else
+          #  ''
+          #end
+
+        end
+      end
+    end
+  end
+end

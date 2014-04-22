@@ -1,6 +1,7 @@
 class PortfolioController < ApplicationController
   def index
     @portfolios ||= Portfolio::Portfolio.all
+    @static_page_data = Pages::PortfolioListPage.first.static_page_data
   end
 
   def item
