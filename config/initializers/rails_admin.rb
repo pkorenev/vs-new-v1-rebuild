@@ -51,47 +51,47 @@ RailsAdmin.config do |config|
       'About Page' => ''
   }
 
-  [
-      Pages::AboutPage,
-      Pages::ArticlesListPage,
-      Pages::HomePage,
-      Pages::PortfolioCorporateIdentityListPage,
-      Pages::PortfolioListPage,
-      Pages::PortfolioPolygraphyListPage,
-      Pages::PortfolioWebListPage,
-      Pages::ServicesPage,
-      Pages::AboutPage,
-      Pages::AboutPage,
-      Pages::AboutPage,
-
-      Banner,
-      StaticPageData,
-
-      Portfolio::PortfolioBanner,
-      Portfolio::PortfolioCategory,
-      Portfolio::PortfolioTechnology,
-      Portfolio::Portfolio,
-
-      Ckeditor::Asset,
-      Ckeditor::AttachmentFile,
-      Ckeditor::Picture,
-
-      TrustCompany,
-      Service,
-
-      Article,
-
-      User,
-
-      Developer,
-      DeveloperRole
-
-
-  ].each do | model |
-    config.model model.name do
-      visible false
-    end
-  end
+  #[
+  #    Pages::AboutPage,
+  #    Pages::ArticlesListPage,
+  #    Pages::HomePage,
+  #    Pages::PortfolioCorporateIdentityListPage,
+  #    Pages::PortfolioListPage,
+  #    Pages::PortfolioPolygraphyListPage,
+  #    Pages::PortfolioWebListPage,
+  #    Pages::ServicesPage,
+  #    Pages::AboutPage,
+  #    Pages::AboutPage,
+  #    Pages::AboutPage,
+  #
+  #    Banner,
+  #    StaticPageData,
+  #
+  #    Portfolio::PortfolioBanner,
+  #    Portfolio::PortfolioCategory,
+  #    Portfolio::PortfolioTechnology,
+  #    Portfolio::Portfolio,
+  #
+  #    Ckeditor::Asset,
+  #    Ckeditor::AttachmentFile,
+  #    Ckeditor::Picture,
+  #
+  #    TrustCompany,
+  #    Service,
+  #
+  #    Article,
+  #
+  #    User,
+  #
+  #    Developer,
+  #    DeveloperRole
+  #
+  #
+  #].each do | model |
+  #  config.model model.name do
+  #    visible false
+  #  end
+  #end
 
   config.navigation_static_label = "Static Pages"
 
