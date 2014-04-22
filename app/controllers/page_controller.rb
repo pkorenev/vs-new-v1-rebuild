@@ -50,13 +50,15 @@ class PageController < ApplicationController
   def service
     @get_all_services ||= Service.where(published: true).order('sort_id DESC')
 
-    @static_page_data = Pages::HomePage.first.static_page_data
+    @page_data = Pages::ServicesPage.first
+    @static_page_data = @page_data.static_page_data
   end
 
   def article
     @articles ||= Article.where(published: true).order('id desc')
 
-    @static_page_data = Pages::HomePage.first.static_page_data
+    @page_data = Pages::ArticlesListPage.first
+    @static_page_data = @page_data.static_page_data
   end
 
   def article_item
