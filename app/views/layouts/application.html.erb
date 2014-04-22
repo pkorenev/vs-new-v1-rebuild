@@ -4,8 +4,8 @@
 
   <% if @static_page_data %>
       <title><%= @static_page_data.head_title %></title>
-      <meta name="keywords" content="<%= @static_page_data.head_keywords %>" />
-      <meta name="description" content="<%= yield :meta_description %>" />
+      <meta name="keywords" content="<%= @static_page_data.meta_keywords %>" />
+      <meta name="description" content="<%= @static_page_data.meta_description %>" />
   <% end %>
 
 
