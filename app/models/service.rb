@@ -3,6 +3,7 @@ class Service < ActiveRecord::Base
   has_attached_file :avatar
   validates :sort_id, :uniqueness => true, :presence => true
 
+
   belongs_to :services_page, :class_name => 'Pages::ServicesPage'
   attr_accessible :services_page, :services_page_id
 

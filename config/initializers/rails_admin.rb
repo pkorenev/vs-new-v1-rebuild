@@ -97,7 +97,9 @@ RailsAdmin.config do |config|
 
   root = Tree::TreeNode.new('navigation_static_tree')
   root << Tree::TreeNode.new( 'seo' )
+  root << Tree::TreeNode.new( 'services', title: 'Наші послуги' )
   root << Tree::TreeNode.new( 'portfolio', title: 'Портфолио' )
+  root << Tree::TreeNode.new( 'clients', title: 'Наші клієнти' )
   root << Tree::TreeNode.new( 'articles', title: 'Статті' )
   root << Tree::TreeNode.new( 'team', title: 'Команда' )
   root << Tree::TreeNode.new( 'users', title: 'Users' )
@@ -132,6 +134,12 @@ RailsAdmin.config do |config|
   team << Tree::TreeNode.new( 'Developers', { title: 'Developers', link: '/admin/developer' } )
   team << Tree::TreeNode.new( 'Developer roles', { title: 'Developer roles', link: '/admin/developer_role' } )
 
+
+  services = root['services']
+  services << Tree::TreeNode.new( 'services', { title: 'Наші послуги', link: '/admin/service' } )
+
+  clients = root['clients']
+  clients << Tree::TreeNode.new( 'clients', { title: 'Наші клієнти', link: '/admin/trust_company' } )
 
 
 
