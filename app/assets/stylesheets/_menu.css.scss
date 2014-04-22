@@ -354,3 +354,15 @@ section div.menu-wrapper nav ul li:hover a
 }
 
 
+.menu-wrapper .item-content {
+  padding-top: 0 !important;
+}
+
+.menu-wrapper .item-content > .header {
+  margin-top: 0 !important;
+  padding-top: 8px !important;
+}
+
+.menu-wrapper .item-content > .description {
+  padding-top: 8px !important;
+}
