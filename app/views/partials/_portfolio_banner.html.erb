@@ -1,38 +1,42 @@
-<% if @item.portfolio_banner %>
-    <div id="portfolio-banner-outer" data-banner-name="<%= @item.portfolio_banner.name %>" class="f-height">
-      <%#= @item.portfolio_banner.content.html_safe %>
+<div id="portfolio-banner-outer"  class="banner-outer">
+  <!-- Outer wrapper for presentation only, this can be anything you like -->
+  <figure class="banner-holder-figure">
+    <div class="fixed-banner-wrapper">
+      <figure class="fixed-banner-holder-figure">
 
-      <figure id="portfolio-banner-holder">
         <div style="background-image: url(<%= @item.portfolio_banner.background.url %>)" class="slide">
-          <div id="nav-arrows">
-            <div class="prev">
-              <a title="<%= @prev_portfolio.name %>" href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>">
-                <span class="arrow"></span>
-                <img src="<%= @prev_portfolio.avatar.url(:thumb180) %>" alt="<%= @prev_portfolio.name %>"/>
-              </a>
+            <div id="nav-arrows">
+                <div class="prev">
+                  <a title="<%= @prev_portfolio.name %>" href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>">
+                    <span class="arrow"></span>
+                    <img src="<%= @prev_portfolio.avatar.url(:thumb180) %>" alt="<%= @prev_portfolio.name %>"/>
+                  </a>
+                </div>
+
+                <div class="next">
+                  <a title="<%= @next_portfolio.name %>" href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.slug) %>">
+                    <span class="arrow"></span>
+                    <img src="<%= @next_portfolio.avatar.url(:thumb180) %>" alt="<%= @next_portfolio.name %>"/>
+                  </a>
+                </div>
             </div>
-            <div class="next">
-              <a title="<%= @next_portfolio.name %>" href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.slug) %>">
-                <span class="arrow"></span>
-                <img src="<%= @next_portfolio.avatar.url(:thumb180) %>" alt="<%= @next_portfolio.name %>"/>
-              </a>
-            </div>
 
-
+              <div class="slide-description">
+                <h1 class="title"><%= raw @item.portfolio_banner.title %></h1>
+                <div class="description"><%= raw @item.portfolio_banner.description %></div>
+              </div>
           </div>
-          <!--<div class="vs-graphic-part">
-      <%= image_tag('portfolio/web/voronin-studio/vs-port-web-left.png', :class => 'bg-vs') %>
-      <%= image_tag('portfolio/web/voronin-studio/vs-mac-preview-left.png', :class => 'webpr-vs') %>
-    </div>-->
-
-          <div class="slide-description">
-            <h1 class="title"><%= raw @item.portfolio_banner.title %></h1>
-            <div class="description"><%= raw @item.portfolio_banner.description %></div>
-          </div>
-        </div>
+        <!-- end Basic jQuery Slider -->
       </figure>
-    </div><!-- Portfolio Banner Wrapper End here -->
+    </div>
+  </figure>
+  <!-- End outer wrapper -->
 
-<% end %>
+  <script class="secret-source">
+      //jQuery(document).ready(function($) {
 
-<div class="wb" >&nbsp;</div>
+
+
+      //});
+  </script>
+</div>

@@ -22,6 +22,6 @@ module StudioVoronin
 
     #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w( zoomico.png )
+    config.assets.precompile += %w( zoomico.png contact-compiler.css jquery.js )
   end
 end

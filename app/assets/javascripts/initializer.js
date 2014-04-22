@@ -188,7 +188,23 @@ $(document).on('ready page:load', function() {
         })
     }
 
+    function portfolioBannerOnScroll(info){
+        var scroll_top = info.end.y
+
+
+        var portfolio_banner_content_top = scroll_top / 3 * (-1)
+        var portfolio_banner_opacity = 150 / scroll_top
+        $('#portfolio-banner-outer .slide .slide-description').css({
+            marginTop: portfolio_banner_content_top + 'px'
+        })
+
+        $('#portfolio-banner-outer .slide .slide-description').css({
+            opacity: portfolio_banner_opacity
+        })
+    }
+
     $('#home-banner-outer').insertAfter('#header-outer')
+    $('#portfolio-banner-outer').insertAfter('#header-outer')
 
     $body.niceScroll().scrollstart(function(info){
         console.log('checkHeaderSize(): niceScroll().scrollstart: end.y='+info.end.y)
@@ -214,6 +230,7 @@ $(document).on('ready page:load', function() {
 
 
         homeBannerOnScroll(info)
+        portfolioBannerOnScroll(info)
     })
 
     $body.niceScroll().scrollend(function(info){
@@ -236,6 +253,7 @@ $(document).on('ready page:load', function() {
 
 
         homeBannerOnScroll(info)
+        portfolioBannerOnScroll(info)
     })
 
 

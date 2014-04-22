@@ -26,7 +26,8 @@ var $body = $('body');
                 $draggable.css('margin-top',0);
                 $draggable.addClass('reset');
 
-                var $scroller = $('#main-scroller');
+                //var $scroller = $('#main-scroller');
+                var $scroller = $('body');
 
                 var new_scrolltop_percentage = 1 - state.top / options.max_top;
 
@@ -42,6 +43,7 @@ var $body = $('body');
                         duration:1500,
                         complete:function(){
                             $draggable.removeClass('reset');
+
                         }
                     }
                 );

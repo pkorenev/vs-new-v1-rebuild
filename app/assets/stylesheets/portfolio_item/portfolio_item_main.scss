@@ -27,24 +27,7 @@
       background-size: cover;
 
 
-      .slide-description{
-        right:3em;
-        top:30%;
-        position: absolute;
-        display: block;
-        width:50%;
-        min-width: 300px;
 
-        .title{
-          color:#9d0f03;
-
-        }
-
-        .description{
-          color:black;
-          font-weight: 600;
-        }
-      }
     }
 
     @media(max-width:1600px){
@@ -378,95 +361,137 @@
 
 
 
-#portfolio-banner-wrapper #nav-arrows{
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 0;
-  margin-top: -45px;
-  width: 100%;
-  height: 0;
+//#portfolio-banner-wrapper
 
-  > .prev{
-    position: absolute;
-    display: block;
-    left: -90px;
-    height: 90px;
-    width: 180px;
-    overflow: hidden;
+#portfolio-banner-outer{
+  .banner-holder-figure{
+    padding-top: 20%;
+    .fixed-banner-wrapper{
+      //z-index: 1;
+      .fixed-banner-holder-figure{
+        padding-top: 20%;
 
-    &:hover{
-      //width: 180px;
-      left: 0;
-    }
+        #nav-arrows{
+          position: absolute;
+          display: block;
+          top: 50%;
+          left: 0;
+          margin-top: -45px;
+          width: 100%;
+          height: 0;
 
-    img{
-      float: right;
+          > .prev{
+            position: absolute;
+            display: block;
+            left: -90px;
+            height: 90px;
+            width: 180px;
+            overflow: hidden;
 
-    }
+            &:hover{
+              //width: 180px;
+              left: 0;
+            }
 
-    .arrow{
-      float: right;
-    }
-  }
+            img{
+              float: right;
 
-  > .next{
-    position: absolute;
-    display: block;
-    right: -90px;
-    height: 90px;
-    width: 180px;
-    overflow: hidden;
+            }
+
+            .arrow{
+              float: right;
+            }
+          }
+
+          > .next{
+            position: absolute;
+            display: block;
+            right: -90px;
+            height: 90px;
+            width: 180px;
+            overflow: hidden;
 
 
-    &:hover{
-      //width: 180px;
-      right: 0;
-    }
+            &:hover{
+              //width: 180px;
+              right: 0;
+            }
 
-    img{
-      float: left;
-    }
+            img{
+              float: left;
+            }
 
-    .arrow{
-      float: left;
-      background-position-x: 100%;
-    }
+            .arrow{
+              float: left;
+              background-position-x: 100%;
+            }
 
-  }
+          }
 
-  > .next, > .prev{
-    &, & * {
-      -webkit-transition: 0.3s all;
-      -moz-transition: 0.3s all;
-      -ms-transition: 0.3s all;
-      -o-transition: 0.3s all;
-      transition: 0.3s all;
-    }
-    z-index: 100;
+          > .next, > .prev{
+            &, & * {
+              -webkit-transition: 0.3s all;
+              -moz-transition: 0.3s all;
+              -ms-transition: 0.3s all;
+              -o-transition: 0.3s all;
+              transition: 0.3s all;
+            }
+            z-index: 100;
 
-    &:hover{
-      .arrow{
-        background-color: #eb1374;
+            &:hover{
+              .arrow{
+                background-color: #eb1374;
+              }
+            }
+
+
+          }
+
+          .arrow{
+            background-image: url('/assets/banners/main-banner-arrows.png');
+            background-size: cover;
+            width: 90px;
+            height: 90px;
+            display: block;
+            position: relative;
+          }
+
+          img{
+            width: 90px;
+            height: 90px;
+            display: block;
+            position: relative;
+          }
+        }
+
+        .slide{
+          top: 0;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-repeat: no-repeat;
+
+          .slide-description{
+            right:3em;
+            //top:30%;
+            position: absolute;
+            display: block;
+            width:50%;
+            min-width: 300px;
+
+            .title{
+              color:#9d0f03;
+
+            }
+
+            .description{
+              color:black;
+              font-weight: 600;
+            }
+          }
+        }
       }
     }
-
-
-  }
-
-  .arrow{
-    background-image: url('/assets/banners/main-banner-arrows.png');
-    background-size: cover;
-    width: 90px;
-    height: 90px;
-    display: block;
-    position: relative;
-  }
-
-  img{
-    width: 90px;
-    height: 90px;
-    display: block;
-    position: relative;
   }
 }

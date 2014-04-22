@@ -6,3 +6,13 @@
 		margin-top: -376px;
 	}
 }
+
+
+.fancybox-wrap{
+  z-index: 1;
+}
+
+.fancybox-wrap iframe.fancybox-iframe{
+  width: 100%;
+  height: 100%;
+}
