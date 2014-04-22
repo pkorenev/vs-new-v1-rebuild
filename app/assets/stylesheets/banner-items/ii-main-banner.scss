@@ -39,9 +39,9 @@
 	  			text-align: left;
 	  			width:45%;
 	
-	  			h2{
+	  			.title{
 					color:inherit;
-					font-size: 0.6em;
+					font-size: 3.6rem;
 					margin: 0;
 
 					a{
@@ -52,13 +52,13 @@
 
 	  			p{
 					color:inherit;
-					font-size: 0.2em;
+					font-size: 1.2rem;
 					font-weight: 900;
 
 					margin-bottom: 5px;
 	  			}
 
-	  			h2 + p{
+	  			.title + p{
 					margin-top: 10px;
 	  			} 
 	
@@ -68,11 +68,11 @@
 
 	  			@media(max-width:1700px){
 	  				p{
-	  					font-size: 0.17em;
+	  					font-size: 1rem;
 	  				}
 
-	  				h2{
-	  					font-size: 0.5em;
+	  				.title{
+	  					font-size: 3rem;
 	  				}
 
 	  			}
@@ -103,7 +103,7 @@
           				position: relative;
           				margin-left: auto;
           				margin-right: auto;
-          				font-size: 0.3em !important;
+          				font-size: 1.8rem !important;
           				line-height: 100px;
           
           				padding:0;
