@@ -11,14 +11,21 @@ class PageController < ApplicationController
     @our_clients ||= TrustCompany.all.order('RANDOM()').limit(15)
 
     @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc').limit(12)
-
-    @static_page_data = Pages::HomePage.first.static_page_data
+    @page_data = Pages::HomePage.first
+    @static_page_data = @page_data.static_page_data
+    @greetings = @page_data.greetings
 
   end
 
   # About page
   def about
     @our_clients ||= TrustCompany.all.order("RANDOM()")
+
+    @page_data = Pages::AboutPage.first
+    @static_page_data = @page_data.static_page_data
+    @content = @page_data.content
+    @clients_intro = @page_data.clients_intro
+    @team_text = @page_data.team_text
 
     @static_page_data = Pages::AboutPage.first.static_page_data
   end
