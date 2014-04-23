@@ -5,36 +5,47 @@
       });
 
       $("#contact-us-tab").click(function(){
+          var $tab = $(this)
         $("#contact-us-container").show();
-        $(this).addClass("contact-active-tab");
+        $tab.addClass("contact-active-tab");
 
         $("#order-us-container").hide();
         $("#join-us-wrapper").hide();
 
         $("#order-us-tab").removeClass("contact-active-tab");
         $("#join-us-tab").removeClass("contact-active-tab");
+
+          $('#wrapper').addClass('selected-' + $this.attr('id'))
       });
 
       $("#order-us-tab").click(function(){
+          var $tab = $(this)
+
         $("#order-us-container").show();
-        $(this).addClass("contact-active-tab");
+        $tab.addClass("contact-active-tab");
 
         $("#contact-us-container").hide();
         $("#join-us-wrapper").hide();
 
         $("#contact-us-tab").removeClass("contact-active-tab");
         $("#join-us-tab").removeClass("contact-active-tab");
+
+          $('#wrapper').addClass('selected-' + $this.attr('id'))
       });
 
       $("#join-us-tab").click(function(){
+          $tab = $(this)
+
         $("#join-us-wrapper").show();
-        $(this).addClass("contact-active-tab");
+        $tab.addClass("contact-active-tab");
 
         $("#contact-us-container").hide();
         $("#order-us-container").hide();
 
         $("#contact-us-tab").removeClass("contact-active-tab");
         $("#order-us-tab").removeClass("contact-active-tab");
+
+          $('#wrapper').addClass('selected-' + $this.attr('id'))
       });
   });
 </script>

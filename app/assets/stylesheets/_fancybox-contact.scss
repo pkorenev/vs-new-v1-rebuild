@@ -1,0 +1,15 @@
+.fancybox-overlay.fancybox-overlay-fixed{
+  position: fixed;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.fancybox-wrap{
+  z-index: 1001 !important;
+}

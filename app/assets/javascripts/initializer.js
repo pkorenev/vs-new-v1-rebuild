@@ -151,7 +151,7 @@ $(document).on('ready page:load', function() {
         height: 'inherit',
         position: 'fixed',
         width: '100%',
-        paddingRight: '10px',
+
 
     })
 

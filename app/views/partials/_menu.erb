@@ -6,7 +6,7 @@
       <% if current_page?(root_path) %>
         <%= image_tag('voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну') %>
       <% else %>
-        <%= link_to(image_tag('voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path, :title => 'На головну') %>
+        <%= link_to(image_tag('voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path, :title => 'На головну' ) %>
       <% end %>
       </div>
     </div>
@@ -41,14 +41,14 @@
           <% if menu_item[:id] == 'contact-form' && 1==2 %>
           <li <% if current_page?(contact_path) %> class="current" <% end %> id="contact-form">
             <div class="pink-over"></div>
-            <%= link_to("ДЕ", contact_modal_path, :class => "", :id => "modal-btn", :data => { :'fancybox-type' => "iframe" }) %>
+            <%= link_to("ДЕ", contact_modal_path, :class => "", :id => "modal-btn", :data => { :'fancybox-type' => "iframe", :"fancybox-height" => "746" }) %>
             <span>Наші контакти</span>
           </li>
           <% else %>
           <li data-url="<%= menu_item[:data_url] %>" id="<%= menu_item[:id] %>" title="<%= menu_item[:title] %>" <% if menu_item[:is_active] %> class="current" <% end %>>
             
             <% if !menu_item[:is_active] || menu_item[:link] %>
-              <a href="<%= menu_item[:data_url] %>" title = "<%= menu_item[:title] %>" class = "item-content<% if menu_item[:is_active] %> active<% end %>" <% if menu_item[:id]=='contact-form' %> data-fancybox-type="iframe" id="modal-btn" <% end %> >
+              <a href="<%= menu_item[:data_url] %>" title = "<%= menu_item[:title] %>" class = "item-content<% if menu_item[:is_active] %> active<% end %><%= menu_item[:id]=='contact-form' ? ' modal-link' : ''  %>" <% if menu_item[:id]=='contact-form' %> data-fancybox-type="iframe" id="modal-btn" <% end %> >
                 <div class="pink-over"></div>
                 <span class="header"><%= menu_item[:header] %></span>
                 <span class="description"><%= menu_item[:description] %></span>

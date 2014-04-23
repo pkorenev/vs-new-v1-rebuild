@@ -34,7 +34,26 @@ html, body {
 /* custom -scroll */
 
 .js{
-  .no-touch{
+
+  #ascrail2000.nicescroll-rails{
+    width: 10px !important;
+    background-color: #666 !important;
+    left: auto !important;
+    right: 0 !important;
+    z-index: 10000000;
+    position: fixed;
+    height: 100%;
+
+    & > div{
+      width: 10px !important;
+      border-radius: 0 !important;
+      background-color: red;
+      position: relative;
+    }
+  }
+
+
+  &.no-touch{
     @media(min-width: 960px){
       #header-outer{
         -webkit-transition: height 0.5s;
@@ -42,6 +61,10 @@ html, body {
         -ms-transition: height 0.5s;
         -o-transition: height 0.5s;
         transition: height 0.5s;
+
+        #header-holder{
+          padding-right: 10px;
+        }
       }
 
       #banner-container{
@@ -60,22 +83,7 @@ html, body {
         padding-right: 10px;
       }
 
-      #ascrail2000.nicescroll-rails{
-        width: 10px !important;
-        background-color: #666 !important;
-        left: auto !important;
-        right: 0 !important;
-        z-index: 10000000;
-        position: fixed;
-        height: 100%;
 
-        & > div{
-          width: 10px !important;
-          border-radius: 0 !important;
-          background-color: red;
-          position: relative;
-        }
-      }
     }
   }
 }
@@ -585,3 +593,30 @@ body{
 }
  
 /* end footer styling */
+
+
+
+.white-background{
+  padding-top: 0;
+}
+
+#header-wrapper{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
