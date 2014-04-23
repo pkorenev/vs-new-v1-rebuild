@@ -86,7 +86,7 @@ h6, .h6-font{
   margin-bottom: 0;
 }
 
-@mixin last-page-section{
+.last-page-section{
   @include last_page_section;
 }
 
