@@ -69,13 +69,25 @@ h6, .h6-font{
   }
 }
 
+.page-section{
+  @include page_section;
+}
+
 @mixin first_page_section{
   @include page_section;
+}
+
+.first-page-section{
+  @include first_page_section;
 }
 
 @mixin last_page_section{
   @include page_section;
   margin-bottom: 0;
+}
+
+@mixin last-page-section{
+  @include last-page-section;
 }
 
 
