@@ -34,50 +34,56 @@ html, body {
 /* custom -scroll */
 
 .js{
-  @media(min-width: 960px){
+  .no-touch{
+    @media(min-width: 960px){
+      #header-outer{
+        -webkit-transition: height 0.5s;
+        -moz-transition: height 0.5s;
+        -ms-transition: height 0.5s;
+        -o-transition: height 0.5s;
+        transition: height 0.5s;
+      }
 
-    #header-outer{
-      -webkit-transition: height 0.5s;
-      -moz-transition: height 0.5s;
-      -ms-transition: height 0.5s;
-      -o-transition: height 0.5s;
-      transition: height 0.5s;
-    }
+      #banner-container{
+        //-webkit-transition: margin 0.2s;
+        //-moz-transition: margin 0.2s;
+        //-ms-transition: margin 0.2s;
+        //-o-transition: margin 0.2s;
+        //transition: margin 0.2s;
+      }
 
-    #banner-container{
-      //-webkit-transition: margin 0.2s;
-      //-moz-transition: margin 0.2s;
-      //-ms-transition: margin 0.2s;
-      //-o-transition: margin 0.2s;
-      //transition: margin 0.2s;
-    }
+      #main-scroller{
+        right: -15px !important;
+        overflow: hidden;
+      }
+      #main-scroller-content{
+        padding-right: 10px;
+      }
 
-    #main-scroller{
-      right: -15px !important;
-      overflow: hidden;
-    }
-    #main-scroller-content{
-      padding-right: 10px;
-    }
-
-    #ascrail2000.nicescroll-rails{
-      width: 10px !important;
-      background-color: #666 !important;
-      left: auto !important;
-      right: 0 !important;
-      z-index: 10000000;
-      position: fixed;
-      height: 100%;
-
-      & > div{
+      #ascrail2000.nicescroll-rails{
         width: 10px !important;
-        border-radius: 0 !important;
-        background-color: red;
-        position: relative;
+        background-color: #666 !important;
+        left: auto !important;
+        right: 0 !important;
+        z-index: 10000000;
+        position: fixed;
+        height: 100%;
+
+        & > div{
+          width: 10px !important;
+          border-radius: 0 !important;
+          background-color: red;
+          position: relative;
+        }
       }
     }
   }
 
+  .touch{
+    *{
+      background-color: red !important;
+    }
+  }
 }
 
 /* custom -scroll end */

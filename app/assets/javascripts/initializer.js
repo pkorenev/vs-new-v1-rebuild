@@ -152,7 +152,7 @@ $(document).on('ready page:load', function() {
         position: 'fixed',
         width: '100%',
         paddingRight: '10px',
-        'z-index': 9999999
+
     })
 
     $header_outer.css({

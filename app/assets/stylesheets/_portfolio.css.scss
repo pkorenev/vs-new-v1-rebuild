@@ -43,7 +43,7 @@
   padding-left: 1px;
   /*width: 358px !important;*/
   width: 25%;
-  height: 69px;
+  height: 50px;
   background-color: white;
   
   color: #ffffff;
@@ -73,7 +73,7 @@
   font-weight: normal ;
   font-size: 1.2em ;
   font-family: 'OpenSansSemibold', Arial, sans-serif ;
-  line-height: 69px ;
+  line-height: 46px ;
   height: 100%;
   margin: 0;
   padding:0 ;
@@ -107,16 +107,15 @@
   border-width: 15px 12.5px 0 12.5px ;
   border-color: #ce1165 transparent transparent transparent ;
   border-style: solid;
-  top: 69px;
-  z-index: 99;
+  top: 50px;
+
 }
 
 #portfolio-index .portfolio-tab:hover::before, .portfolio-tab.bottom-arrow:hover::before{
   border-width: 15px 12.5px 0 12.5px ;
   border-color: #ce1165 transparent transparent transparent ;
   border-style: solid;
-  top: 69px;
-  z-index: 99;
+  top: 50px;
 }
 
 #portfolio-index .portfolio-tab p{

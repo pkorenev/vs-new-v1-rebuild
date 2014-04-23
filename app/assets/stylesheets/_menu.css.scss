@@ -134,7 +134,6 @@
     
 
     nav{
-      z-index: 251;
       position: absolute;
       background-color: #212121;
 
@@ -264,10 +263,10 @@ section div.menu-wrapper nav ul li div.pink-over
   {
   position: relative;
   top: 82px;
-  z-index: 600;
   width: 0px;
   height: 10px;
   background: #eb1474;
+  z-index: 1;
   opacity: 1;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
@@ -304,7 +303,6 @@ section div.menu-wrapper nav ul li span.description
   top: -15px;
   display: block;
   line-height: normal;
-  z-index: 450;
   color: white;
   text-decoration: none;
   font-weight: normal;
@@ -327,7 +325,7 @@ section div.menu-wrapper nav ul li span.description
 section div.menu-wrapper nav ul li a.item-content, section div.menu-wrapper nav ul li span.item-content
   {
   position: relative;
-  z-index: 400;
+
   display: block;
   //margin-top: -10px;
   height: 100%;
