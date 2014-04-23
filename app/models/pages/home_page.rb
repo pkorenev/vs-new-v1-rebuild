@@ -13,7 +13,7 @@ class Pages::HomePage < ActiveRecord::Base
 
 
     edit do
-      field :greetings, :ck_editor
+      field :greetings
       field :static_page_data
     end
 
