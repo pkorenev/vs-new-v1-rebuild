@@ -102,7 +102,7 @@
         <% if item.portfolio_category %>
           <div class="g4 portfolio-item <%= item.portfolio_category.slug %>">
             <figure>
-              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: a.title ), '/portfolio/'+item.portfolio_category.slug+'/' +item.slug, title: item.title ) %>
+              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.title ), '/portfolio/'+item.portfolio_category.slug+'/' +item.slug, title: item.title ) %>
             </figure>
           </div>
         <% end %>
