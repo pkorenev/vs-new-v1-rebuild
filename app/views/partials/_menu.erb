@@ -41,7 +41,7 @@
           <% if menu_item[:id] == 'contact-form' && 1==2 %>
           <li <% if current_page?(contact_path) %> class="current" <% end %> id="contact-form">
             <div class="pink-over"></div>
-            <%= link_to("ДЕ", contact_modal_path, :class => "", :id => "modal-btn", :data => { :'fancybox-type' => "iframe", :"fancybox-height" => "746" }) %>
+            <%= link_to("ДЕ", contact_path, :class => "", :id => "modal-btn", :data => { :'fancybox-type' => "iframe", :"fancybox-height" => "746" }) %>
             <span>Наші контакти</span>
           </li>
           <% else %>

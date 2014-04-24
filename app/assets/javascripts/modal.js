@@ -1,4 +1,6 @@
 $(document).on('ready page:load', function() {
+    $link = $('.modal-link')
+    $link.attr('href', $link.attr('href') + '?iframe=true' )
     $(".modal-link").fancybox({
         padding: 0,
         width: 1100,

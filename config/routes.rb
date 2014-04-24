@@ -1,5 +1,17 @@
 StudioVoronin::Application.routes.draw do
 
+  #post '/order', to: 'order#submit_form'
+
+  # Contacts and contacts-modal routes
+  get '/contact' => 'contact#contact_show', :as => 'contact'
+  get '/order' => 'contact#order_show', :as => 'order'
+  get '/join-us' => 'contact#join_us_show', :as => 'join_us'
+  #get '/contact-modal' => 'page#contact_modal', :as => 'contact_modal'
+
+  post '/order', to: 'contact#order_create'
+  post '/join-us', to: 'contact#join_us_create'
+
+
 
 
   get '/users/sign_up', :to => 'error#show', :code => 404
@@ -49,11 +61,6 @@ StudioVoronin::Application.routes.draw do
   get 'portfolio/:category' => 'portfolio#category'
   get 'portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
 
-  # Contacts and contacts-modal routes
-  get 'contact' => 'page#contact', :as => 'contact'
-  get 'contact-modal' => 'page#contact_modal', :as => 'contact_modal'
-  get 'order-us' => 'page#order_us', :as => 'order_us'
-  get 'connect-with-us' => 'page#connect_with_us', :as => 'connect_us'
 
 
 

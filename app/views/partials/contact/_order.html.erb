@@ -1,0 +1,82 @@
+<article class="body-contacts" id="order-us-container" style="display: none;">
+  <div class="contact-us-wrapper">
+    <form id="order-form" action="/order" method="post">
+      <div class="group-1-and-group-2-and-reference">
+
+        <div id="group-1">
+          <div class="contact-form-field field-1">
+            <input type="text" name="name" id="name" placeholder="Микола Еплович" data-validation="length" data-validation-length="3-20"  />
+            <label for="name">Вас звати <sup>*</sup></label>
+          </div>
+          <div class="contact-form-field field-2">
+            <input type="text" name="phone" id="phone" placeholder="+38 (050) 417 07 28"/>
+            <label for="phone">Ваш телефон <sup>*</sup></label>
+          </div>
+        </div>
+
+        <div id="group-2">
+
+          <div class="contact-form-field field-3">
+            <input class="organization" id="organization" type="text" placeholder="Ябко плюс" data-validation="length" data-validation-length="3-20" />
+            <label for="organization">Назва організації, яку Ви представляєте</label>
+          </div>
+
+          <div class="contact-form-field field-4">
+            <input class="email" id="email" type="text" placeholder="appleplus@gmail.com" />
+            <label for="email">Ваша електронна почта <sup>*</sup></label>
+          </div>
+
+        </div>
+
+        <div class="reference">
+          <p>Примітка:</p>
+          <p><i>Поля відмічені <sup>*</sup> є обов’язковими для заповнення.</i></p>
+          <p><i>Чим повніше Ви опишете суть запиту / проекту, тим швидшою та повноціннішею буде наша відповідь, а визначення меж бюджету значно зекономить Ваш час :)</i></p>
+        </div>
+      </div>
+
+
+      <div id="group-3">
+        <div class="contact-form-field field-5">
+          <select name="price-range" id="price-range">
+            <option value="extra-high-budget">від 12 000 грн.</option>
+            <option value="high-budget">від 6 000 до 12 000 грн.</option>
+            <option value="medium-budget">від 3 000 до 6 000 грн.</option>
+            <option value="low-budget" selected>до 3 000 грн.</option>
+          </select>
+          <label for="price-range">Межі вашого бюджету на проект</label>
+        </div>
+
+        <div class="right-section-textarea field-6">
+          <div class="contact-form-field text-input">
+            <textarea name="message" id="message" cols="15" rows="15" placeholder="Нам потрібен крутий логотип, фірмовий стиль та бренд бук. Ми продаємо натуральні яблука з власних садів. А також нам потрібно налагодити замовлення  продаж яблок через інтернет. Терміни: 2 місяця."></textarea>
+            <label for="message">Чим ми можемо вам допомогти? <sup>*</sup></label>
+          </div>
+        </div>
+
+        <div class="submit field-7">
+          <input style="float:right" type="submit" class="brand-button" value="НАДІСЛАТИ" />
+        </div>
+
+        <div class="mobile-reference">
+          <p>Примітка:</p>
+          <p><i>Поля відмічені <sup>*</sup> є обов’язковими для заповнення.</i></p>
+          <p><i>Чим повніше Ви опишете суть запиту / проекту, тим швидшою та повноціннішею буде наша відповідь, а визначення меж бюджету значно зекономить Ваш час :)</i></p>
+        </div>
+      </div>
+
+
+
+
+
+    </form>
+  </div><!-- contact us wrapper -->
+
+  <script type="text/javascript">
+    $(document).on('ready', function(){
+        $.validate({
+            form: '#order-form'
+        })
+    })
+  </script>
+</article>
