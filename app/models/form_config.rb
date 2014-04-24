@@ -1,5 +1,5 @@
 class FormConfig < ActiveRecord::Base
-  acts_as_taggable_on :form_receiver
+  acts_as_taggable_on :form_receivers
   attr_accessible :form_receiver_list
   attr_accessible :name
 
