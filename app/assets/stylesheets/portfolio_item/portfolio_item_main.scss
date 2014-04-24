@@ -288,7 +288,7 @@
       }
     }
 
-    @media screen and (min-width: 300px) {
+    /*@media screen and (min-width: 300px) {
       ul{
         li{
           width: 50%; // 1/2
@@ -360,6 +360,22 @@
           &:nth-child(1), &:nth-child(12) {
             display: block;
           }
+        }
+      }
+    }*/
+
+    @media screen and (max-width: 1200px){
+      ul{
+        li{
+          width: 16.66%;
+        }
+      }
+    }
+
+    @media screen and (max-width: $mobile_menu_screen_max_width){
+      ul{
+        li{
+          width: 25%;
         }
       }
     }
