@@ -15,6 +15,7 @@
 //= require jquery-migrate-min
 //= require jquery.ui.effect
 //= require modernizr
+//= require turbolinks
 //= require jquery.mousewheel.min
 //= require jquery.nicescroll
 // jquery.custom_scroll
@@ -30,6 +31,7 @@
 //= require carousel
 //= require initializer
 //= require to-top
+//= require portfolio/item
 //= require portfolio-banners
 //= require portfolio-body-slider
 //= require portfolio-sorting
