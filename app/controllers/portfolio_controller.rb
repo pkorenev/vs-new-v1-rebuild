@@ -53,6 +53,8 @@ class PortfolioController < ApplicationController
         end
       end
 
+      @static_page_data = @item.static_page_data
+
       @next_portfolio = Portfolio::Portfolio.find(prev_id)
       @prev_portfolio = Portfolio::Portfolio.find(next_id)
     end
