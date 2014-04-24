@@ -66,7 +66,7 @@ class PortfolioController < ApplicationController
 
       other_projects_ids = []
 
-      for i in projs_start_index..projs_end_index
+      for i in projs_end_index..projs_start_index
         if i != current_index
           id = arr_ids[i]
           if i < 0
