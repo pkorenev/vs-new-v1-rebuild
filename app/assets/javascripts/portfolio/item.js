@@ -91,7 +91,7 @@ $(document).on('ready page:load', function(){
             }
         });
 
-          carousel('.carousel-wrapper');
+          //carousel('.carousel-wrapper');
 
 
     });

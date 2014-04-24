@@ -126,6 +126,8 @@ class PortfolioController < ApplicationController
         arr.push( row['id'] )
       end
 
+      filter_count = 12
+
       selected_number = @item.id
 
       prev_number = -1
@@ -161,7 +163,7 @@ class PortfolioController < ApplicationController
 
       next_indices = []
       # generate next 4 indices
-      for i in 1..4
+      for i in 1..(filter_count / 2)
         index = current_index + i
 
         if index > last_index
@@ -177,7 +179,7 @@ class PortfolioController < ApplicationController
 
       prev_indices = []
       # generate prev 4 indices
-      for i in 1..4
+      for i in 1..(filter_count / 2)
         index = current_index - i
 
         if index < first_index

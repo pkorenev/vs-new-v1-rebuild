@@ -287,8 +287,89 @@
         }
       }
     }
+
+    @media screen and (min-width: 300px) {
+      ul{
+        li{
+          width: 50%; // 1/2
+
+          &:nth-child(1), &:nth-child(12),
+          &:nth-child(2), &:nth-child(11),
+          &:nth-child(3), &:nth-child(10),
+          &:nth-child(4), &:nth-child(9),
+          &:nth-child(5), &:nth-child(8) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 600px) {
+      ul{
+        li{
+          width: 25%; // 1/4
+
+          &:nth-child(5), &:nth-child(8) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 960px) {
+      ul{
+        li{
+          width: 16.66%; // 1/6
+
+          &:nth-child(4), &:nth-child(9) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      ul{
+        li{
+          width: 12.5%; // 1/8
+
+          &:nth-child(3), &:nth-child(10) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 1600px) {
+      ul{
+        li{
+          width: 10%; // 1/10
+
+          &:nth-child(2), &:nth-child(11) {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 2020px) {
+      ul{
+        li{
+          width: 8.33%; // 1/12
+
+          &:nth-child(1), &:nth-child(12) {
+            display: block;
+          }
+        }
+      }
+    }
+
   }
+
+
 }
+
+
 
 #portfolio-invitation-wrapper{
    @extend .clearfix;
