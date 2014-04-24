@@ -68,7 +68,7 @@ class PortfolioController < ApplicationController
 
       for i in projs_start_index..projs_end_index
         if i != current_index
-          id = i
+          id = arr_ids[i]
           if i < 0
             id = arr_ids[total + i]
           elsif i > total - 1
