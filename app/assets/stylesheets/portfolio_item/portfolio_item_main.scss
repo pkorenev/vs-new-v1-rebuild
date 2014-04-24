@@ -368,6 +368,10 @@
       ul{
         li{
           width: 16.66%;
+
+          &:first-child, &:last-child {
+            display: none;
+          }
         }
       }
     }
@@ -376,6 +380,10 @@
       ul{
         li{
           width: 25%;
+
+          &:nth-child(2), &:nth-child(7) {
+            display: none;
+          }
         }
       }
     }
