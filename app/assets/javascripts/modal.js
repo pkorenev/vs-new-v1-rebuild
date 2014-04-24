@@ -1,7 +1,9 @@
 $(document).on('ready page:load', function() {
     $link = $('.modal-link')
-    $link.attr('href', $link.attr('href') + '?iframe=true' )
+    var original_href = $link.attr('href')
+
     $(".modal-link").fancybox({
+        href: original_href + '?iframe=true',
         padding: 0,
         width: 1100,
         height: 746,
@@ -18,6 +20,12 @@ $(document).on('ready page:load', function() {
         },
         iframe: {
             preload   : true
+        },
+        beforeLoad: function(){
+
+        },
+        afterLoad: function(){
+
         },
         afterClose: function(){
             $("#contact-form").removeClass("current");
@@ -63,9 +71,15 @@ $(document).on('ready page:load', function() {
     var $window = $(window);
 
     $window.resize(function() {
+        var window_width = window.innerWidth
+        var window_height = window.innerHeight
         var $wrapper = $('.fancybox-wrap').find('iframe').contents().find('#wrapper');
         var $inner = $('.fancybox-inner');
-        $inner.height( $wrapper.height() );
+        //$inner.height( $wrapper.height() );
+        $('.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-iframe').css({
+            'max-height': '' + window_height + 'px',
+            'max-width': '' + window_width + 'px'
+        });
     })
 });
 
