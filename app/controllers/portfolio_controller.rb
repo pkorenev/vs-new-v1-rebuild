@@ -40,8 +40,10 @@ class PortfolioController < ApplicationController
         end
       end
 
+      current_index = -1
       arr_ids.each_with_index do | item, index |
         if item == current_id
+          current_index = index
           prev_id = arr_ids[index-1]
           next_id = arr_ids[index+1]
 
@@ -51,6 +53,36 @@ class PortfolioController < ApplicationController
             next_id = first_id
           end
         end
+      end
+
+      @other_projects = []
+      projs_start_index = current_index - 4
+      projs_end_index = current_index + 4
+      total = arr_ids.count
+
+      if projs_start_index < 0
+
+      end
+
+      other_projects_ids = []
+
+      for i in projs_start_index..projs_end_index
+        if i != current_index
+          id = i
+          if i < 0
+            id = arr_ids[total + i]
+          elsif i > total - 1
+            id = arr_ids[ i + 1 - total ]
+          end
+
+          other_projects_ids[other_projects_ids.count] = id
+        end
+      end
+
+      @other_projects = []
+
+      other_projects_ids.each do | id |
+        @other_projects[@other_projects.count] = Portfolio::Portfolio.find(id)
       end
 
       @static_page_data = @item.static_page_data
