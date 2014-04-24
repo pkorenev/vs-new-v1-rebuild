@@ -1,12 +1,233 @@
 class PortfolioController < ApplicationController
   def index
     #@portfolios ||= Portfolio::Portfolio.all
-    #@portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
-    @portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
+    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
+    #@portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
     @static_page_data = Pages::PortfolioListPage.first.static_page_data
   end
 
+  def test
+    #arr = [3,9,12,8,7,11,2,1,5,10,4,6]
+
+    query = "SELECT p.id FROM portfolios p ORDER BY p.portfolio_category_id, p.release asc"
+    result = ActiveRecord::Base.connection.execute(query)
+    arr = []
+    result.each do | row |
+      arr.push( row['id'] )
+    end
+
+
+
+    selected_number = 9
+    prev_number = -1
+    next_number = -1
+
+    current_index = -1
+    prev_index = -1
+    next_index = -1
+
+    arr.each_with_index do | number, index |
+      if number == selected_number
+        current_index = index
+
+        prev_index = index - 1
+        next_index = index + 1
+      end
+    end
+
+    first_index = 0
+    last_index = arr.count - 1
+
+    if prev_index < first_index
+      prev_index = last_index
+    end
+
+    if next_index > last_index
+      next_index = first_index
+    end
+
+    # current index = OK
+    # prev_index = OK
+    # next_index = OK
+
+    next_indices = []
+    # generate next 4 indices
+    for i in 1..4
+      index = current_index + i
+
+      if index > last_index
+        index = index - last_index - 1
+      end
+
+      next_indices.push index
+    end
+
+    #next_indices.rev
+
+
+
+    prev_indices = []
+    # generate prev 4 indices
+    for i in 1..4
+      index = current_index - i
+
+      if index < first_index
+        index = last_index + index + 1
+      end
+
+      prev_indices.push index
+    end
+
+    prev_indices.reverse!
+
+
+
+    # numbers
+
+    next_number = arr[next_index]
+    prev_number = arr[prev_index]
+
+    prev_numbers = []
+
+    prev_indices.each do | index |
+      prev_numbers.push arr[index]
+    end
+
+    next_numbers = []
+
+    next_indices.each do | index |
+      next_numbers.push arr[index]
+    end
+
+    output_arr = prev_numbers + next_numbers
+
+    render inline: 'array: ' + arr.join(', ') + '<br/>' + 'current_number: ' + selected_number.to_s + '<br/><br/>' + 'first_index: ' + first_index.to_s + '; last_index: ' + last_index.to_s + ';current_index: ' + current_index.to_s + '<br/>' +
+        'prev: ' + prev_index.to_s + '; next: ' + next_index.to_s + '<br/>prev: ' + prev_indices.join(', ') + '<br/>next: ' + next_indices.join(', ') + '<br/></br>' +
+        'prev_number: ' + prev_number.to_s + '; next_number: ' + next_number.to_s + '<br/>prev_numbers: ' + prev_numbers.join(', ') + '<br/>next_numbers: ' + next_numbers.join(', ') + '<br/>' +
+        output_arr.join(', ')
+
+
+
+  end
+
   def item
+
+    @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
+
+    if @item.count == 1
+      @item = @item.first
+    end
+
+    if @item
+      query = "SELECT p.id FROM portfolios p ORDER BY p.portfolio_category_id, p.release asc"
+      result = ActiveRecord::Base.connection.execute(query)
+      arr = []
+      result.each do | row |
+        arr.push( row['id'] )
+      end
+
+      selected_number = @item.id
+
+      prev_number = -1
+      next_number = -1
+
+      current_index = -1
+      prev_index = -1
+      next_index = -1
+
+      arr.each_with_index do | number, index |
+        if number == selected_number
+          current_index = index
+
+          prev_index = index - 1
+          next_index = index + 1
+        end
+      end
+
+      first_index = 0
+      last_index = arr.count - 1
+
+      if prev_index < first_index
+        prev_index = last_index
+      end
+
+      if next_index > last_index
+        next_index = first_index
+      end
+
+      # current index = OK
+      # prev_index = OK
+      # next_index = OK
+
+      next_indices = []
+      # generate next 4 indices
+      for i in 1..4
+        index = current_index + i
+
+        if index > last_index
+          index = index - last_index - 1
+        end
+
+        next_indices.push index
+      end
+
+      #next_indices.rev
+
+
+
+      prev_indices = []
+      # generate prev 4 indices
+      for i in 1..4
+        index = current_index - i
+
+        if index < first_index
+          index = last_index + index + 1
+        end
+
+        prev_indices.push index
+      end
+
+      prev_indices.reverse!
+
+
+
+      # numbers
+
+      next_number = arr[next_index]
+      prev_number = arr[prev_index]
+
+      prev_numbers = []
+
+      prev_indices.each do | index |
+        prev_numbers.push arr[index]
+      end
+
+      next_numbers = []
+
+      next_indices.each do | index |
+        next_numbers.push arr[index]
+      end
+
+      output_arr = prev_numbers + next_numbers
+
+      @next_portfolio = Portfolio::Portfolio.find(next_number)
+      @prev_portfolio = Portfolio::Portfolio.find(prev_number)
+      @other_projects = []
+
+      output_arr.each do | number |
+        @other_projects.push Portfolio::Portfolio.find(number)
+      end
+
+
+
+
+
+
+
+    end
+  end
+
+  def item_bc
     # Fetching Portfolio Web item
     #@item ||= Portfolio::Portfolio.where('slug = "'+params[:item]+'"')
     @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
@@ -28,6 +249,8 @@ class PortfolioController < ApplicationController
         arr_ids.push( row['id'] )
       end
 
+
+
       current_id = @item.id
       prev_id = -1
       next_id = -1
@@ -35,11 +258,6 @@ class PortfolioController < ApplicationController
       last_id = arr_ids.last
       ids_count = arr_ids.count
 
-      for i in 0..arr_ids.count
-        if arr_ids[i] == current_id
-
-        end
-      end
 
       current_index = -1
       arr_ids.each_with_index do | item, index |
