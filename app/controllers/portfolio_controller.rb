@@ -126,7 +126,7 @@ class PortfolioController < ApplicationController
         arr.push( row['id'] )
       end
 
-      filter_count = 12
+      filter_count = 8
 
       selected_number = @item.id
 
