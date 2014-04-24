@@ -1,7 +1,8 @@
 class PortfolioController < ApplicationController
   def index
     #@portfolios ||= Portfolio::Portfolio.all
-    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
+    #@portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
+    @portfolios ||= Portfolio::Portfolio.where(published: true).order('category_id, release asc')
     @static_page_data = Pages::PortfolioListPage.first.static_page_data
   end
 
