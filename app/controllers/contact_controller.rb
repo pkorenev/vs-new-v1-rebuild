@@ -34,10 +34,12 @@ class ContactController < ApplicationController
     f.money = params['money']
     f.text = params['text']
 
+
     OrderMailer.new_letter(f).deliver
 
+    render inline: f.inspect
 
-    render template: 'contact/show'
+    #render template: 'contact/show'
   end
 
   def order_validate_form
