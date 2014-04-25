@@ -29,6 +29,7 @@
 
             <% @portfolio_technologies.reverse_order! %>
             <% @portfolio_technologies.each do | t | %>
+                <% if 1 == 2 %>
             <li>
               <a href="<%= t.official_link %>" rel="nofollow" title="<%= t.name %>" target="_blank">
                 <figure class="tech-but android-icon">
@@ -36,6 +37,7 @@
                 </figure>
               </a>
             </li>
+                    <% end %>
             <% end %>
           </ul>
         </div>
