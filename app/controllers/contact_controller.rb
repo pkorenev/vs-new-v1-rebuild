@@ -50,7 +50,7 @@ class ContactController < ApplicationController
 
   def join_us_show
     @selected_tab = 'join_us'
-    @order = Forms::Order.new
+    @join_us = Forms::JoinUp.new
     render template: 'contact/show'
   end
 

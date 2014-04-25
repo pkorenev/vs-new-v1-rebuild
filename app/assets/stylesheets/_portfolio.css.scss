@@ -59,7 +59,7 @@
 
   }
 }
-.portfolio-tab p{
+.portfolio-tab .tab-header{
   cursor: default;
 }
 
@@ -67,7 +67,7 @@
   padding-left: 0;
 }
 
-.portfolio-tab p{
+.portfolio-tab .tab-header{
   color: #fff ;
   text-align: center ;
   font-weight: normal ;
@@ -118,7 +118,7 @@
   top: 50px;
 }
 
-#portfolio-index .portfolio-tab p{
+#portfolio-index .portfolio-tab .tab-header{
 
 }
 /*
@@ -140,15 +140,15 @@
   cursor: pointer;
 }
 
-.portfolio-tab.inactive-portfolio-tab p{
+.portfolio-tab.inactive-portfolio-tab .tab-header{
   cursor: pointer;
 }
 
-.portfolio-tab.inactive-portfolio-tab p{
+.portfolio-tab.inactive-portfolio-tab .tab-header{
   background: $lightgray_background_color ;
 }
 
-.portfolio-tab.inactive-portfolio-tab p:hover{
+.portfolio-tab.inactive-portfolio-tab .tab-header:hover{
   background: #e91266 ;
 }
 
