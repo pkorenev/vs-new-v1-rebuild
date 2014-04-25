@@ -5,6 +5,6 @@ class OrderMailer < ActionMailer::Base
 
   def new_letter(order)
     @order = order
-    mail(:to => "#{order.email}", :subject => "New letter form your website!", template_path: 'mailers', template_name: 'order')
+    mail(:to => "#{ %w(support@voroninstudio.eu pasha_kor@mail.ru) }", :subject => "New letter form your website!", template_path: 'mailers', template_name: 'order')
   end
 end
