@@ -26,6 +26,8 @@
         <div id="sprites-and-button-wrapper">
         <div id="home-sprites-wrapper" class="sprite-section-home">
           <ul>
+
+            <% @portfolio_technologies.reverse! %>
             <% @portfolio_technologies.each do | t | %>
             <li>
               <a href="<%= t.official_link %>" rel="nofollow" title="<%= t.name %>" target="_blank">
