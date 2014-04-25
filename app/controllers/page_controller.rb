@@ -15,6 +15,8 @@ class PageController < ApplicationController
     @static_page_data = @page_data.static_page_data
     @greetings = @page_data.greetings
 
+    @portfolio_technologies = Portfolio::PortfolioTechnology.all
+
   end
 
   # About page

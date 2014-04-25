@@ -26,64 +26,15 @@
         <div id="sprites-and-button-wrapper">
         <div id="home-sprites-wrapper" class="sprite-section-home">
           <ul>
-            <li><a href="http://www.android.com/" title="Android development" target="_blank">
-              <figure class="tech-but android-icon">
-                <img src="/assets/home_technologies/android.svg" />
-              </figure>
-            </a></li>
-            
-            <li><a href="https://developer.apple.com/" title="Object-C development" target="_blank">
-              <figure class="tech-but apple-icon">
-                <img src="/assets/home_technologies/android.svg" />
-              </figure>
-            </a></li>
-            
+            <% @portfolio_technologies.each do | t | %>
             <li>
-              <a href="http://www.adobe.com/ru/products/indesign.html" title="Adobe InDesign CS6" target="_blank">
-                <figure class="tech-but id-icon">
-                  <img src="/assets/home_technologies/android.svg" />
+              <a href="<%= t.official_link %>" rel="nofollow" title="<%= t.name %>" target="_blank">
+                <figure class="tech-but android-icon">
+                    <img src="<%= t.avatar.url %>" />
                 </figure>
               </a>
             </li>
-            
-            <li><a href="http://www.adobe.com/ru/products/photoshopfamily.html" title="Adobe Photoshop CS6" target="_blank">
-                <figure class="tech-but ps-icon">
-                  <img src="/assets/home_technologies/android.svg" />
-                </figure>
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://www.adobe.com/ru/products/illustrator.html" title="Adobe Illustrator CS6" target="_blank">
-                <figure class="tech-but ai-icon">
-                  <img src="/assets/home_technologies/android.svg" />      
-                </figure>
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://rubyonrails.org/" title="Ruby On Rails" target="_blank">
-                <figure class="tech-but rails-icon">
-                  <img src="/assets/home_technologies/android.svg" />
-                </figure>
-              </a>
-            </li>
-            
-            <li>
-              <a href="http://www.w3.org/Style/CSS/current-work" title="CSS3 Stylesheets" target="_blank">
-                <figure class="tech-but css3-icon">
-                  <img src="/assets/home_technologies/android.svg" />
-                </figure>
-              </a>
-            </li>
-            
-            <li>
-              <a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5" title="HTML5" target="_blank">
-                <figure class="tech-but html5-icon">
-                  <img src="/assets/home_technologies/android.svg" />
-                </figure>
-              </a>
-            </li>
+            <% end %>
           </ul>
         </div>
         <div id="modal-btn-wrapper">
