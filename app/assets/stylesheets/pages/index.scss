@@ -165,7 +165,7 @@
         .modal-btn{
           //padding-left:80px;
           //padding-right:80px;
-          left: -1rem;
+          left: 0rem;
           position: relative;
 
         }
@@ -176,6 +176,7 @@
           margin-top: 10px;
           margin-bottom: 10px;
           text-align: left;
+          padding-left: 1rem;
 
 
         }
@@ -213,7 +214,7 @@
         display: block;
         position: relative;
         width: 100%;
-        padding-right: 3rem;
+        padding-right: 1rem;
 
         @media(min-width:$desktop_menu_screen_min_width){
           //@include grid_6;
@@ -231,7 +232,7 @@
           margin-bottom: 0;
 
           li{
-            
+
             a{
               figure{
                 img{
