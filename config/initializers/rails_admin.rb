@@ -146,7 +146,7 @@ RailsAdmin.config do |config|
   forms = root['forms']
   forms_forms = Tree::TreeNode.new( 'clients', { title: 'Всі форми', link: '/admin/form_config' } )
   forms << forms_forms
-  forms_forms << Tree::TreeNode.new( 'clients', { title: 'Зв’язатись з нами', link: '/admin/form_config/1/edit' } )
+  #forms_forms << Tree::TreeNode.new( 'clients', { title: 'Зв’язатись з нами', link: '/admin/form_config/1/edit' } )
   forms_forms << Tree::TreeNode.new( 'request_us', { title: 'Замовити нас', link: '/admin/form_config/2/edit' } )
   forms_forms << Tree::TreeNode.new( 'join_us', { title: 'Приєднатись до нас', link: '/admin/form_config/3/edit' } )
 
