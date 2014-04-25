@@ -1,5 +1,7 @@
 StudioVoronin::Application.routes.draw do
 
+  get 'test', to: 'portfolio#test'
+
   #post '/order', to: 'order#submit_form'
 
   # Contacts and contacts-modal routes
