@@ -27,7 +27,7 @@
         <div id="home-sprites-wrapper" class="sprite-section-home">
           <ul>
 
-            <% @portfolio_technologies.reverse! %>
+            <% @portfolio_technologies.reverse_order! %>
             <% @portfolio_technologies.each do | t | %>
             <li>
               <a href="<%= t.official_link %>" rel="nofollow" title="<%= t.name %>" target="_blank">
