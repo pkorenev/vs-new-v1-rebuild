@@ -5,7 +5,9 @@ class OrderMailer < ActionMailer::Base
 
   def new_letter(order)
     @order = order
+    to = []
+    to = FormConfig.find(2).form_receiver_list
 
-    mail(:to => "#{ [ 'support@voroninstudio.eu', 'p.korenev@voroninstudio.eu', 'pasha_kor@mail.ru' ] }", :subject => "New letter form your website!", template_path: 'mailers', template_name: 'order')
+    mail(:to =>  to , :subject => "New letter form your website!", template_path: 'mailers', template_name: 'order')
   end
 end
