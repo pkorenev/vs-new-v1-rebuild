@@ -5,7 +5,22 @@
 <div id="welcome-wrapper">
   <section class="" id="welcome-section">
       <div id="text-wrapper">
-        <%= raw @greetings %>
+        <!-- Copy and paste  -->
+
+        <div id="text-container">
+          <div id="pink-text">
+            <p id="main-greetings"><span style="">Вітаємо!</span></p>
+            <h1 id="h1-about"><span style="" >Ми розробляємо логотипи, фірмові стилі, веб сайти, етикетки та упаковки</span></h1>
+            <p id="main-description">Наша студія через дослідження, стратегію, дизайн і розробку допомагає створювати та розвивати якісні і видатні бренди. А кожний новий творчий проект є унікальним і підхід до нього повинен бути відповідно унікальний, розроблений саме під нього.</p>
+
+          </div>
+        </div>
+
+
+
+
+
+        <!-- Copy and paste -->
       </div>
 
         <div id="sprites-and-button-wrapper">
@@ -72,7 +87,7 @@
           </ul>
         </div>
         <div id="modal-btn-wrapper">
-          <%= link_to("Замовте нас!", order_path, :class => "order-us brand-button", :id => "modal-btn", :data => { :'fancybox-type' => "iframe" }) %>
+          <%= link_to("Замовте нас!", order_path, :class => "order-us brand-button", :class => "modal-btn brand-button", :data => { :'fancybox-type' => "iframe" }) %>
         </div>
       </div>
   </section>
