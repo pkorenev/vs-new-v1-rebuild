@@ -1,11 +1,11 @@
 $(document).on('ready page:load', function(){
 $('#portfolio-tabs-wrapper').each(function(){
-  $("#all").click(visualizePortfolioShowAll);
+  $("#all-tab").click(visualizePortfolioShowAll);
 
-  $("#firm-styles").click(visualizePortfolioShowFirmStyles);
+  $("#firm-styles-tab").click(visualizePortfolioShowFirmStyles);
 
-  $("#polygraphy").click(visualizePortfolioShowPolygraphy);
+  $("#polygraphy-tab").click(visualizePortfolioShowPolygraphy);
 
-  $("#web-sites").click(visualizePortfolioShowWeb);
+  $("#web-sites-tab").click(visualizePortfolioShowWeb);
 });
 });

@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300&subset=latin,cyrillic-ext,cyrillic);
+
 @import "custom_grid/normalize";
 @import "basic";
 @import "font-face";
@@ -51,7 +53,12 @@
 @import "bjqs";
 
 
-@import "shame"; // temporary fast resolve bugs 
+@import "shame"; // temporary fast resolve bugs
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
 
 
 
@@ -711,15 +718,29 @@ article.footer-contacts p a {
 
 					&:focus{
 						//color: #eb1474;
-						border-color: rgba(250,20,115,0.5);
+						border: 2px solid rgba(250,20,115,0.5) !important;
+                      outline: none;
 
 
 					}
+
+                  &.error{
+                    //border: none !important;
+                    background-image: url(/assets/icon-fail.png);
+                    background-repeat:no-repeat;
+                    background-position:right center;
+                  }
+
+                  &.valid{
+                    background-image: url(/assets/icon-ok.png);
+                    background-repeat:no-repeat;
+                    background-position:right center;
+                  }
 				}
 				label {
 					width: 100%;
 					float: left;
-					color: #212121;
+					color: #818181;
 					font-family: 'OpenSansRegular', sans-serif;
 					padding-left: 1em;
 					sup {
@@ -745,6 +766,35 @@ article.footer-contacts p a {
 
                 select{
                   background-color: transparent;
+                  z-index: 1;
+                  position: relative;
+
+                  &:focus{
+                    outline: none;
+                  }
+                }
+
+                .select-arrow{
+                  width: 50px;
+                  height: 50px;
+                  position: absolute;
+                  right: 0;
+                  top: 0;
+
+
+                  border-left: 1px solid rgb(222, 222, 222);
+
+                  &:before{
+                    content: "";
+                    width: 0px;
+                    height: 0px;
+                    border-style: solid;
+                    border-width: 10px 10px 0 10px;
+                    border-color: #aeaeae transparent transparent transparent;
+                    position: relative;
+                    top: 27px;
+                    left: 15px;
+                  }
                 }
               }
 			}
@@ -885,6 +935,12 @@ article.footer-contacts p a {
 				@include init-grid;
 				@include grid_4;
 				float: right;
+
+                font-size: 0.8em;
+
+                sup{
+                  color: #eb1474;
+                }
 
 				@media(max-width:1000px){
 					display: none;

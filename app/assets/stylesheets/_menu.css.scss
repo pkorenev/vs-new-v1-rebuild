@@ -20,6 +20,30 @@
   }
 }
 
+.header-compact-height{
+  #studio-logo-section{
+    @media (max-width: 1175px) {
+      #image-container{
+        width: auto;
+      }
+    }
+
+    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
+      #image-container{
+        width:177px;
+      }
+    }
+  }
+
+  #mobile-menu-button{
+    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
+      margin-top: 7px;
+    }
+  }
+
+
+}
+
 #studio-logo-section{
   @include init-grid;
   @include grid-3;
@@ -73,6 +97,12 @@
   margin-top: 20px;
   margin-left: 1%;
   margin-right: 1%;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
 
   @media(min-width:$desktop_menu_screen_min_width) and (max-width:$media_max_width) {
     display: none;

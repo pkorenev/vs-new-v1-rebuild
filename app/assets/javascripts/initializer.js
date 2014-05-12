@@ -26,7 +26,7 @@ $(document).on('ready page:load', function() {
 
     // Logo right click event
     $('#studio-logo-section').bind('contextmenu', function(e){
-        return false;
+        //return false;
     });
 
     // Check for notification permissions
@@ -150,10 +150,13 @@ $(document).on('ready page:load', function() {
     $header_holder.css({
         height: 'inherit',
         position: 'fixed',
-        width: '100%',
-
-
+        width: '100%'
     })
+
+    var $header_logo = $('#studio-logo-section')
+
+    console.log('$header_logo')
+
 
     $header_outer.css({
 

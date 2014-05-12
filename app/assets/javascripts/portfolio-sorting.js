@@ -102,7 +102,7 @@ function visualizePortfolioShowAll(){
     if($tab.hasClass("inactive-portfolio-tab")){
         $(".portfolio-tab").addClass("inactive-portfolio-tab");
         if( location.pathname == '/portfolio' || location.pathname == '/portfolio/'){
-                location.hash = tab_id;
+            location.hash = tab_id.substr( 0, tab_id.length - 4);
         }
         $tab.removeClass("inactive-portfolio-tab");
         PortfolioShowAll();
@@ -116,7 +116,8 @@ function visualizePortfolioShowAll(){
 
         $(".portfolio-tab").addClass("inactive-portfolio-tab");
           if( location.pathname == '/portfolio' || location.pathname == '/portfolio/'){
-                location.hash = tab_id;
+                location.hash = tab_id.substr( 0, tab_id.length - 4);
+
             }
         $tab.removeClass("inactive-portfolio-tab");
         PortfolioShowFirm();
@@ -129,7 +130,7 @@ function visualizePortfolioShowAll(){
         if($tab.hasClass("inactive-portfolio-tab")){
             $(".portfolio-tab").addClass("inactive-portfolio-tab");
             if( location.pathname == '/portfolio' || location.pathname == '/portfolio/'){
-                location.hash = tab_id;
+                location.hash = tab_id.substr( 0, tab_id.length - 4);
             }
             $tab.removeClass("inactive-portfolio-tab");
             PortfolioShowPoly();
@@ -142,7 +143,7 @@ function visualizePortfolioShowAll(){
         if($tab.hasClass("inactive-portfolio-tab")){
             $(".portfolio-tab").addClass("inactive-portfolio-tab");
             if( location.pathname == '/portfolio' || location.pathname == '/portfolio/'){
-                location.hash = tab_id;
+                location.hash = tab_id.substr( 0, tab_id.length - 4);
             }
             $tab.removeClass("inactive-portfolio-tab");
             PortfolioShowWeb();
@@ -155,16 +156,16 @@ function visualizePortfolioShowAll(){
             $('.portfolio-tab.inactive-portfolio-tab').each(function(){
                 var $tab = $(this);
                 var tab_id = $tab.attr('id');
-                if('#'+tab_id == location.hash ){
-                    if( tab_id == 'firm-styles' ){
+                if('#' +tab_id.substr(0, tab_id.length - 4) == location.hash ){
+                    if( tab_id == 'firm-styles-tab' ){
                         visualizePortfolioShowFirmStyles.call($tab);
                         isInitialized =true;
                     }
-                    else if( tab_id == 'polygraphy' ){
+                    else if( tab_id == 'polygraphy-tab' ){
                         isInitialized = true;
                         visualizePortfolioShowPolygraphy.call($tab);
                     }
-                    else if( tab_id == 'web-sites' ){
+                    else if( tab_id == 'web-sites-tab' ){
                         isInitialized = true;
                         visualizePortfolioShowWeb.call($tab);
                     }
