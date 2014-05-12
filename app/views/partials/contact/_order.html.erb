@@ -17,12 +17,12 @@
         <div id="group-2">
 
           <div class="contact-form-field field-3">
-            <input class="organization" id="organization" type="text" placeholder="Ябко плюс"  />
+            <input class="organization" id="organization" name="organization" type="text" placeholder="Ябко плюс"  />
             <label for="organization">Назва організації, яку Ви представляєте</label>
           </div>
 
           <div class="contact-form-field field-4">
-            <input class="email" id="email" type="text" placeholder="appleplus@gmail.com" data-validation="email" />
+            <input class="email" id="email" name="email" type="text" placeholder="appleplus@gmail.com" data-validation="email" />
             <label for="email">Ваша електронна почта <sup>*</sup></label>
           </div>
 
@@ -74,12 +74,74 @@
 
 
     </form>
+
+    <div id="order-form-success-alert" style="margin-top: 7em;display: none;">
+      <span class="h1" style="margin: 0;
+              padding: 0.4em 0;
+              font-size: 2.1em;
+              line-height: 1.2em;
+              color: #ff2e8b;
+              text-decoration: none;
+              font-family: 'OpenSansSemibold', Arial, sans-serif;
+              font-weight: 400;
+              display: block;
+              width: 100%;
+              text-align: center;
+      ">Ваш запит відправлено!</span>
+      <p style="
+              margin: 0;
+              padding-top: 0.4em;
+              padding-bottom: 0.4em;
+              color: #545454;
+              font-size: 1em;
+              line-height: 1.5em;
+              text-align: center;
+
+      ">Дякуємо за проявлений інтерес до студії.
+        В разі зацікавленості ми обов'язково зв'яжемося з вами.<br/>
+        Гарного дня.</p>
+    </div>
+
   </div><!-- contact us wrapper -->
 
   <script type="text/javascript">
     $(document).on('ready', function(){
         $.validate({
             form: '#order-form'
+        })
+
+        var $form = $('#order-form')
+        $form.submit(function(event){
+            console.log('submit order form')
+            if( $form.find('.error').length == 0 ){
+                event.preventDefault()
+                var form_data = $form.serialize()
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: 'POST',
+                    data: form_data,
+                    complete: function(){
+                        $form.animate(
+                            {
+                                opacity: 0
+                            },
+
+                            {
+                                complete: function(){
+                                    $form.remove()
+                                    //var $alert = $('<div id="alert"></div>')
+                                    var $alert = $('#order-form-success-alert')
+                                    $alert.show()
+                                }
+                            }
+                        )
+                    }
+                })
+            }
+
+            console.log('submit order form')
+
+            return false
         })
     })
   </script>
