@@ -7,7 +7,7 @@ class PageController < ApplicationController
   # Should limited articles, banners, and companys displaes
   def index
     @get_banners ||= Banner.where(published: true)
-    @featured_articles ||= Article.limit(3).where(published: true)
+    @featured_articles ||= Article.limit(3).where(published: true).order('release_date desc')
     @our_clients ||= TrustCompany.all.order('RANDOM()').limit(15)
 
     @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc').limit(12)
