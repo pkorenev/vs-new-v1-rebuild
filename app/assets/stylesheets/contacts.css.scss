@@ -1039,3 +1039,32 @@ article.footer-contacts p a {
 		}
 	}
 }
+
+.form-success-alert{
+  margin-top: 5em;
+  display: none;
+
+  .h1{
+    margin: 0;
+    padding: 0.4em 0;
+    font-size: 2.1em;
+    line-height: 1.2em;
+    color: #ff2e8b;
+    text-decoration: none;
+    font-family: 'OpenSansSemibold', Arial, sans-serif;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  p{
+    margin: 0;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    color: #545454;
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: center;
+  }
+}

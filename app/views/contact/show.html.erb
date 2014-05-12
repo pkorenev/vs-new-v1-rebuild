@@ -1,1 +1,44 @@
 <%= render :partial => 'partials/contacts_forms' %>
+
+<script type="text/javascript">
+    $(document).on('ready', function(){
+        $.validate({
+            form: '#order-form, #join-us-form'
+        })
+
+        var $form = $('#order-form')
+        $form.submit(function(event){
+            //console.log('submit order form')
+            if( $form.find('.error').length == 0 ){
+                event.preventDefault()
+                var form_data = $form.serialize()
+                $.ajax({
+                    url: $form.attr('action'),
+                    type: 'POST',
+                    data: form_data,
+                    complete: function(){
+                        $form.animate(
+                                {
+                                    opacity: 0
+                                },
+
+                                {
+                                    complete: function(){
+                                        var $alert = $form.parent().find('.form-success-alert')
+                                        $form.remove()
+                                        //var $alert = $('<div id="alert"></div>')
+
+                                        $alert.show()
+                                    }
+                                }
+                        )
+                    }
+                })
+            }
+
+            //console.log('submit order form')
+
+            return false
+        })
+    })
+</script>
