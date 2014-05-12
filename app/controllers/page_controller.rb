@@ -57,7 +57,7 @@ class PageController < ApplicationController
   end
 
   def article
-    @articles ||= Article.where(published: true).order('id desc')
+    @articles ||= Article.where(published: true).order('release_date desc')
 
     @page_data = Pages::ArticlesListPage.first
     @static_page_data = @page_data.static_page_data
