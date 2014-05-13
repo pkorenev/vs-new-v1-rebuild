@@ -1,5 +1,10 @@
 StudioVoronin::Application.routes.draw do
 
+  # Portfolio routes
+  get 'portfolio', to: 'portfolio#index', :as => 'portfolio'
+  get 'portfolio/:category', to: 'portfolio#category', as: :portfolio_category
+  get 'portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
+
   get 'test', to: 'portfolio#test'
 
   #post '/order', to: 'order#submit_form'
@@ -51,7 +56,7 @@ StudioVoronin::Application.routes.draw do
   
   #get 'articles/:id'  => 'page#article_item', :as => 'article'
  get 'articles/:id' => 'page#article_item', :as => 'article_item'
-   get 'portfolio' => 'portfolio#index', :as => 'portfolio'
+
 
   # Portfolio routes
   #get 'portfolio/polygraphy' => 'portfolio#polygraphy', :as => 'portfolio_polygraphy'
@@ -60,8 +65,7 @@ StudioVoronin::Application.routes.draw do
   #get 'portfolio/corporate-identity/:id' => 'portfolio#corporate_identity_item', :as => 'portfolio_corporate_identity_item'
   #get 'portfolio/web' => 'portfolio#web', :as => 'portfolio_web'
   #get 'portfolio/web/:id' => 'portfolio#web_item', :as => 'portfolio_web_item'
-  get 'portfolio/:category' => 'portfolio#category'
-  get 'portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
+
 
 
 

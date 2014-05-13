@@ -61,4 +61,6 @@ module ApplicationHelper
   def get_lates_articles(limit)
     @articles ||= Article.where(:published => true, :limit => limit)
   end
+
+
 end

@@ -68,6 +68,8 @@ function normalize(filterClass){
     });
 }
 
+
+
 function PortfolioShowFirm(){
     // Caching selector
     var filter = '.corporate-identity';
@@ -80,7 +82,7 @@ function PortfolioShowPoly(){
     // Caching selector
     var $container = $('.sortable-portfolio');
 
-    PortfolioFilter('.polygraphy');
+    PortfolioFilter('.packaging');
 
     //normalize('poly');
 }
@@ -108,6 +110,11 @@ function visualizePortfolioShowAll(){
         PortfolioShowAll();
     }
 }
+
+
+      function visualizePortfolioShowCategory(category_url){
+
+      }
 
       function visualizePortfolioShowFirmStyles(){
         var $tab = $(this);
@@ -161,7 +168,7 @@ function visualizePortfolioShowAll(){
                         visualizePortfolioShowFirmStyles.call($tab);
                         isInitialized =true;
                     }
-                    else if( tab_id == 'polygraphy-tab' ){
+                    else if( tab_id == 'packaging-tab' ){
                         isInitialized = true;
                         visualizePortfolioShowPolygraphy.call($tab);
                     }

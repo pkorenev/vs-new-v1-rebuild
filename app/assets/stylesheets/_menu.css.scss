@@ -49,9 +49,19 @@
   @include grid-3;
   @media(max-width:1175px){
     #image-container{
-      width: 90px;
+      width: 80px;
       overflow: hidden;
     }
+  }
+
+  @media(min-width: $desktop_menu_screen_min_width){
+    #image-container{
+      img{
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+    }
+
   }
 
   @media (min-width:1px) and (max-width:$mobile_menu_screen_max_width){
@@ -87,7 +97,7 @@
   
   background: transparent;
   border: none;
-  width: 90px;
+  width: 80px;
   height: 45px;
   text-indent: -900em;
   overflow: hidden;

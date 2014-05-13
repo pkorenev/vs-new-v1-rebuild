@@ -7,14 +7,14 @@
         <div style="background-image: url(<%= @item.portfolio_banner.background.url %>)" class="slide">
             <div id="nav-arrows">
                 <div class="prev">
-                  <a title="<%= @prev_portfolio.name %>" href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>">
+                  <a title="<%= @prev_portfolio.name %>" href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.url, item: @prev_portfolio.slug) %>">
                     <span class="arrow"></span>
                     <img src="<%= @prev_portfolio.avatar.url(:thumb180) %>" alt="<%= @prev_portfolio.name %>"/>
                   </a>
                 </div>
 
                 <div class="next">
-                  <a title="<%= @next_portfolio.name %>" href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.slug) %>">
+                  <a title="<%= @next_portfolio.name %>" href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.url, item: @next_portfolio.slug) %>">
                     <span class="arrow"></span>
                     <img src="<%= @next_portfolio.avatar.url(:thumb180) %>" alt="<%= @next_portfolio.name %>"/>
                   </a>

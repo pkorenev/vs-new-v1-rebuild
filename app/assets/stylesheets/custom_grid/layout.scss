@@ -40,7 +40,7 @@ html, body {
     background-color: #666 !important;
     left: auto !important;
     right: 0 !important;
-    z-index: 10000000;
+    z-index: 100 !important;
     position: fixed;
     height: 100%;
 
@@ -54,7 +54,7 @@ html, body {
 
 
   &.no-touch{
-    @media(min-width: 960px){
+    @media(min-width: $desktop_menu_screen_min_width){
       #header-outer{
         -webkit-transition: height 0.5s;
         -moz-transition: height 0.5s;
@@ -95,7 +95,14 @@ html, body {
 $header_height: 95;
 
 .js{
-  @media(min-width: 960px){
+
+  #header-outer{
+    &{
+      height: 95px;
+    }
+  }
+
+  @media(min-width: $desktop_menu_screen_min_width){
     #header-wrapper{
 
       height: inherit;
@@ -174,12 +181,10 @@ $header_height: 95;
 
     }
 
-    #header-outer{
-      &{
-        height: 95px;
-      }
-    }
+
   }
+
+
 }
 
 
@@ -259,7 +264,7 @@ $mobile_menu_breakpoint:850;
 	padding-bottom: ($footer_height)+px; /* must be same height as the footer */
 
 	@media(max-width: ($mobile_menu_breakpoint)+px ){
-		padding-bottom: ($mobile_footer_height)+px;
+		padding-bottom: ($mobile_footer_height - 15)+px;
 	}
 }  
 

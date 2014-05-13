@@ -1,25 +1,30 @@
 class Portfolio::PortfolioCategory < ActiveRecord::Base
-  attr_accessible :name, :portfolio_ids
+  attr_accessible :name, :title, :url, :portfolio_ids
 
   has_many :portfolios
 
   validates :name, presence: true
-  validates :slug, uniqueness: true, presence: true
+  validates :url, uniqueness: true, presence: true
 
-  before_validation :generate_slug
+  before_validation :generate_url
 
   def to_param
-    slug
+    url
   end
 
-  def generate_slug
-    self.slug ||= name.parameterize
+  def generate_url
+    self.url ||= name.parameterize
   end
 
   rails_admin do
     edit do
-      field :name
-      field :slug do
+      field :name do
+        label 'внутренне имя'
+      end
+      field :title do
+        label 'Title (имя)'
+      end
+      field :url do
         label 'url категории'
       end
     end

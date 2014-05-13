@@ -17,6 +17,8 @@ class PageController < ApplicationController
 
     @portfolio_technologies = Portfolio::PortfolioTechnology.all
 
+    @portfolio_categories = Portfolio::PortfolioCategory.all
+
   end
 
   # About page

@@ -1,6 +1,7 @@
 class PortfolioController < ApplicationController
   def index
     #@portfolios ||= Portfolio::Portfolio.all
+    @portfolio_categories = Portfolio::PortfolioCategory.all
     @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
     #@portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
     @static_page_data = Pages::PortfolioListPage.first.static_page_data
@@ -333,7 +334,16 @@ class PortfolioController < ApplicationController
   end
 
   def category
+    @portfolio_categories = Portfolio::PortfolioCategory.all
+    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')
+    #@portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
+    @static_page_data = Pages::PortfolioListPage.first.static_page_data
 
+    requested_category_url = params[:category]
+
+    @active_category = Portfolio::PortfolioCategory.where(url: requested_category_url)
+
+    render template: 'portfolio/category'
   end
 
   def polygraphy

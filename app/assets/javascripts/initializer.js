@@ -92,6 +92,10 @@ $(document).on('ready page:load', function() {
     $body_content.insertBefore($body_children.first())
     $body_children.appendTo($body_content)
 
+    $body_content.css({
+        zIndex: 5
+    })
+
     $body.niceScroll({
         scrollspeed: 60,
         mousescrollstep: 40,

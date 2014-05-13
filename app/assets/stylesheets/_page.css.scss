@@ -214,8 +214,10 @@
     background: $lightgray_background_color;
   }
 
-  .news-item header h4 a{
-
+  .news-item header .h4-title a{
+    font-size: 1.375rem;
+    border-bottom: solid 1px rgba(255, 46, 139, 0.3);
+    line-height: 1.75rem;
   }
 
   .news-item section{
