@@ -1,11 +1,11 @@
 <div id="portfolio-tabs-wrapper">
       <section id="tabs-container">
-        <div class="portfolio-tab brand-tab active" data-tab-index="1" data-filter=".portfolio-item" data-tab-url="/portfolio" data-tab-relative-url=""  id="all-tab">
+        <div class="portfolio-tab brand-tab<%= (@active_category)? '' : ' active'  %>" data-tab-index="1" data-filter=".portfolio-item" data-tab-url="/portfolio" data-tab-relative-url=""  id="all-tab">
           <h2 class="tab-title"><%= link_to( 'Усі види', portfolio_path ) %></h2>
         </div>
 
         <% @portfolio_categories.each_with_index do | c, index | %>
-            <div  class="portfolio-tab brand-tab category-tab tab" data-tab-index="<%= index + 2 %>" data-filter=".<%= c.url %>" data-tab-url="<%= c.url %>" data-tab-relative-url="<%= c.url %>" data-category-url="<%= c.url %>" id="<%= c.url %>-tab">
+            <div  class="portfolio-tab brand-tab category-tab tab<%= ( @active_category && @active_category.id == c.id )? ' active' : '' %>" data-tab-index="<%= index + 2 %>" data-filter=".<%= c.url %>" data-tab-url="<%= c.url %>" data-tab-relative-url="<%= c.url %>" data-category-url="<%= c.url %>" id="<%= c.url %>-tab">
               <h2 class="tab-title"><%= link_to( c.title, portfolio_category_path(c.url) ) %></h2>
             </div>
         <% end %>

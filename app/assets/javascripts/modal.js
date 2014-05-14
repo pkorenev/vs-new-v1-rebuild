@@ -1,67 +1,72 @@
 $(document).on('ready page:load', function() {
-    $link = $('.modal-link')
-    var original_href = $link.attr('href')
 
-    $(".modal-link").fancybox({
-        href: original_href + '?iframe=true',
-        padding: 0,
-        width: 1100,
-        height: 746,
-        autoHeight:true,
-        closeBtn: false,
-        overlayOpacity: '0.4',
-        overlayColor: '#fff',
-        closeClick: true,
-        scrolling:'no',
-        helpers: {
-             overlay: {
-                locked: false
+
+
+    $(".modal-link").each(function() {
+        $link = $(this)
+        var original_href = $link.attr('href')
+
+        $link.fancybox({
+            href: original_href + '?iframe=true',
+            padding: 0,
+            width: 1100,
+            height: 746,
+            autoHeight: true,
+            closeBtn: false,
+            overlayOpacity: '0.4',
+            overlayColor: '#fff',
+            closeClick: true,
+            scrolling: 'no',
+            helpers: {
+                overlay: {
+                    locked: false
+                }
+            },
+            iframe: {
+                preload: true
+            },
+            beforeLoad: function () {
+
+            },
+            afterLoad: function () {
+
+            },
+            afterClose: function () {
+                $("#contact-form").removeClass("current");
+                if (window.location.pathname == "/about") {
+                    $("#li-about").addClass("current");
+                } else if (window.location.pathname == "/service") {
+                    $("#li-service").addClass("current");
+                } else if (window.location.pathname == "/articles") {
+                    $("#li-article").addClass("current");
+                }
+
+            },
+
+            beforeShow: function () {
+                $iframe = $('.fancybox-iframe')
+                $iframe_body = $iframe.contents().find('body')
+                $iframe_body_wrapper = $iframe_body.find('#wrapper')
+
+                $iframe_contact_header = $iframe_body.find('.contact-header')
+                $tabs = $iframe_contact_header.find('[id*=tab]')
+                $tabs.click(function () {
+                    $tab = $(this);
+                    $active_tab = $tabs.filter('.contact-active-tab')
+                    wrapper_height = $iframe_body_wrapper.height()
+
+                    console.log('wrap_height:' + wrapper_height)
+
+                    $('.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-iframe').css({
+                        height: '' + wrapper_height + 'px'
+                    });
+
+                });
+
+                console.log('hello')
             }
-        },
-        iframe: {
-            preload   : true
-        },
-        beforeLoad: function(){
-
-        },
-        afterLoad: function(){
-
-        },
-        afterClose: function(){
-            $("#contact-form").removeClass("current");
-            if (window.location.pathname == "/about"){
-              $("#li-about").addClass("current");
-            }else if(window.location.pathname == "/service"){
-              $("#li-service").addClass("current");
-            }else if(window.location.pathname == "/articles"){
-                $("#li-article").addClass("current");
-            }
-
-        },
-
-        beforeShow: function(){
-            $iframe = $('.fancybox-iframe')
-            $iframe_body = $iframe.contents().find('body')
-            $iframe_body_wrapper = $iframe_body.find('#wrapper')
-
-            $iframe_contact_header = $iframe_body.find('.contact-header')
-            $tabs = $iframe_contact_header.find('[id*=tab]')
-            $tabs.click(function(){
-               $tab = $(this);
-               $active_tab = $tabs.filter('.contact-active-tab')
-               wrapper_height = $iframe_body_wrapper.height()
-
-                console.log('wrap_height:' + wrapper_height)
-
-               $('.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-iframe').css({
-                  height: '' + wrapper_height + 'px'
-               });
-
-            });
-
-            console.log('hello')
-        }
-    });
+        });
+    })
 
 
     $('.modal-link').click(function(e){

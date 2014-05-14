@@ -128,4 +128,10 @@ $(document).on('ready page:load', function(){
 
         });
 
+
+
+    var $active_tab = $('.portfolio-tab.active')
+    var filter = $active_tab.attr('data-filter')
+    console.log('filter:' + filter)
+    PortfolioFilter(filter)
 });

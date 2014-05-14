@@ -12,6 +12,7 @@ class ContactController < ApplicationController
 
 
   def contact_show
+    @section = :contact
     @selected_tab = 'contact'
     render template: 'contact/show'
 
@@ -20,12 +21,14 @@ class ContactController < ApplicationController
   # order form
 
   def order_show
+    @section = :order
     @selected_tab = 'order'
     @order = Forms::Order.new
     render template: 'contact/show'
   end
 
   def order_create
+    @section = :order
     f = Forms::Order.new
     f.name = params['name']
     f.phone = params['phone']
@@ -49,12 +52,14 @@ class ContactController < ApplicationController
   # join us form
 
   def join_us_show
+    @section = :join_us
     @selected_tab = 'join_us'
-    @join_us = Forms::JoinUp.new
+    @join_us = Forms::JoinUs.new
     render template: 'contact/show'
   end
 
   def join_us_create
+    @section = :join_us
     @join_us_form = params['']
     render template: 'contact/show'
   end

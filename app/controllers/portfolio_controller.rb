@@ -342,7 +342,9 @@ class PortfolioController < ApplicationController
     requested_category_url = params[:category]
 
     @active_category = Portfolio::PortfolioCategory.where(url: requested_category_url)
-
+    if @active_category && @active_category.count == 1
+      @active_category = @active_category.first
+    end
     render template: 'portfolio/category'
   end
 
