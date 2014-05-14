@@ -195,7 +195,7 @@
         margin-bottom: 20px;
         text-align: center;
 
-        .modal-btn{
+        .brand-button{
           //padding-left:80px;
           //padding-right:80px;
           left: 0rem;
@@ -217,7 +217,7 @@
         @media(max-width: $mobile_menu_screen_max_width) {
           margin-top: 2rem;
 
-          .modal-btn {
+          .brand-button {
             display: inline;
             float: none;
           }
