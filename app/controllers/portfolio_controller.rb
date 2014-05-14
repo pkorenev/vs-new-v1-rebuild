@@ -120,7 +120,7 @@ class PortfolioController < ApplicationController
     end
 
     if @item
-      query = "SELECT p.id FROM portfolios p WHERE  ORDER BY p.portfolio_category_id, p.release asc"
+      query = "SELECT p.id FROM portfolios p WHERE p.published = 't' ORDER BY p.portfolio_category_id, p.release asc"
       result = ActiveRecord::Base.connection.execute(query)
       arr = []
       result.each do | row |
