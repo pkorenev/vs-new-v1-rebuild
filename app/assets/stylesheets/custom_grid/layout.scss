@@ -26,6 +26,8 @@ html, body {
 
 #page-content{
   background-color: white;
+  position: relative;
+  z-index: 5;
 }
 
 /* end */

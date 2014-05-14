@@ -55,12 +55,22 @@
 <div id="wrapper">
     <div id="main">
         <%= render :partial => 'partials/menu' %>
+
+        <% if params[:controller] == 'page' && params[:action] == 'index' %>
+          <%= render :partial => 'partials/bjqs' %>
+        <% end %>
+
+      <% if params[:controller] == 'portfolio' && params[:action] == 'item' %>
+          <%= render partial: 'partials/portfolio_banner' %>
+      <% end %>
+
         <div id="page-content">
           <%= yield %>
         </div>
     </div>
-    <%= render :partial => 'partials/footer' %>
+
 </div>
+<%= render :partial => 'partials/footer' %>
 
 </body>
 </html>
