@@ -72,6 +72,10 @@
 				#content{
 					a{
 						@include link_style;
+
+                      &.image-link{
+                        border-bottom: none;
+                      }
 					}
 
 					img{
@@ -85,6 +89,7 @@
                         list-style: none;
                         padding-left: 1.75em;
                         position: relative;
+
 
                         &:before{
                           content: "\2014";
