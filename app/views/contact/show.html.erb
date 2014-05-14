@@ -12,6 +12,10 @@
             if( $form.find('.error').length == 0 ){
                 event.preventDefault()
                 var form_data = $form.serialize()
+                var $form_container = $form.parent()
+                var $form_waiting = $form_container.find('.form-waiting')
+                $form.remove()
+                $form_waiting.show()
                 $.ajax({
                     url: $form.attr('action'),
                     type: 'POST',
@@ -24,8 +28,8 @@
 
                                 {
                                     complete: function(){
-                                        var $alert = $form.parent().find('.form-success-alert')
-                                        $form.remove()
+                                        var $alert = $form_container.find('.form-success-alert')
+                                        $form_waiting.hide()
                                         //var $alert = $('<div id="alert"></div>')
 
                                         $alert.show()
