@@ -5,6 +5,9 @@
 
 @import "fonts";
 
+@import "config";
+
+
 @import "custom_grid/layout";
 
 @import "z_index";
@@ -62,5 +65,5 @@
 @import "shame"; // temporary fast resolve bugs
 
 
-@import "config";
+
 @import "brand-style";
