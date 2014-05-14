@@ -235,7 +235,12 @@
 #team-section{
 	@include last_page_section;
 
+
+
 	padding:0;
+
+    padding-bottom: 50px;
+    padding-top: 1.125rem;
 
 	#team-container{
 		@include container_12;

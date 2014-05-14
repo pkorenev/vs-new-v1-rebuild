@@ -44,6 +44,8 @@ $(document).on('ready page:load', function() {
         zIndex: 5
     })
 
+    var $wrapper = $('#wrapper')
+
     $body.niceScroll({
         scrollspeed: 60,
         mousescrollstep: 40,

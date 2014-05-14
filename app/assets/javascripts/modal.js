@@ -68,11 +68,6 @@ $(document).on('ready page:load', function() {
         });
     })
 
-
-    $('.modal-link').click(function(e){
-        e.preventDefault();
-    });
-
     var $window = $(window);
 
     $window.resize(function() {
