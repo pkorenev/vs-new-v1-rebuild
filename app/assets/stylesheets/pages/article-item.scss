@@ -77,6 +77,27 @@
 					img{
 						max-width: 100%;
 					}
+
+                    ul{
+                      padding-left: 0;
+
+                      li{
+                        list-style: none;
+                        padding-left: 1.75em;
+                        position: relative;
+
+                        &:before{
+                          content: "\2014";
+                          color: $pink-color;
+                          position: absolute;
+                          left: 0;
+                        }
+
+                        ul{
+                          
+                        }
+                      }
+                    }
 				}
 			}
 		}
