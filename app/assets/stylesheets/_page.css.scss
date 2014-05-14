@@ -169,7 +169,7 @@
 
 
   /* from #sub-footer */
-  padding: 4em 0;
+  padding: 4rem 0;
   background: #fff;
   color: #545454;
 
@@ -186,6 +186,10 @@
    //width:90%;
    //margin-left:5%;
    //margin-right:5%;
+
+  @media(max-width: 959px){
+    padding-top: 4rem;
+  }
   
    @media(min-width:960px){
      @include grid-6;
