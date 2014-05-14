@@ -223,7 +223,8 @@
   padding-top: 10px;
   padding-bottom:10px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
+  margin-bottom: 0;
 
   #portfolio-item-like{
     width:300px;
@@ -238,6 +239,7 @@
   @extend .f-height;
 
   padding: 0;
+  padding-top: 2.125rem;
 
   background:white;
   width: 100%;
@@ -258,6 +260,7 @@
         position: relative;
         float: left;
         width:12.5%;
+        list-style: none;
 
         @media(max-width: 720px){
 
@@ -645,8 +648,8 @@
   background: white !important;
   color: #545454 !important;
   width: 100% !important;
-  padding-top: 4em !important;
-  padding-bottom: 4em !important;
+  padding-top: 1rem !important;
+  padding-bottom: 2.125rem !important;
 
   #portfolio-wrapper-last-section{
     background-color: #F0F0F0 !important;
