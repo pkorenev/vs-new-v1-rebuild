@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height:auto !imoportant;overflow:visible !important;" class="no-js" prefix="og: http://ogp.me/ns#">
+<html style="height:auto !imoportant;overflow:visible !important;" prefix="og: http://ogp.me/ns#" class="no-js <%= params[:controller] %>-controller <%= params[:action] %>-action" >
 <head role="main">
 
   <% if @static_page_data %>
@@ -51,7 +51,7 @@
   <!-- end -->
 
 </head>
-<body role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>">
+<body  role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>" >
 <div id="wrapper">
     <div id="main">
         <%= render :partial => 'partials/menu' %>
