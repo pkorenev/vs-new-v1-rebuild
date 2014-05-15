@@ -102,38 +102,65 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .h5, h5, .h6, h6{
 
 a{
   color: $link-color;
+  cursor: pointer;
+  cursor: url("/assets/portfolio-item-cursor.png"), default;
 }
 
 
-@mixin brand-button( $size: "medium", $float: false ){
+@mixin brand-button( $size: medium, $float: false ){
   background: url(branded-button-background.jpg) repeat;
   color: white;
   border: 0;
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+  float: none;
+  display: inline;
+  position: relative;
+
+
+
+
 
   @if $float == true {
-    position: relative;
     display: block;
     float: left;
   }
 
-  @if $size == "medium"{
+  @if $size == medium{
     padding-left: 30px;
     padding-right: 30px;
-    padding-top: 0;
-    padding-bottom: 0;
+
+    padding-top: rem-calc(8);
+    padding-bottom: rem-calc(8);
+
+    //line-height: #{ rem-calc( calc-line-height($medium-button-font-size + 16) )};
+    line-height: rem-calc( calc-line-height($medium-button-font-size) + 16 );
 
 
+    //height: $medium-button-height;
+    //line-height: $medium-button-height;
 
-    height: $medium-button-height;
-    line-height: $medium-button-height;
-
-
+    color: $medium-button-font-size;
     font-weight: $medium-button-font-weight;
-    font-size: $medium-button-font-size;
+    font-size: rem-calc($medium-button-font-size);
     font-family: $medium-button-font-family;
+  }
+
+  @if $size == large{
+    padding-left: 30px;
+    padding-right: 30px;
+
+    padding-top: #{12}px;
+    padding-bottom: #{12}px;
+
+    line-height: #{calc-line-height($large-button-font-size) + 24}px ;
+
+
+
+    font-weight: #{$large-button-font-weight};
+    font-size: #{$large-button-font-size};
+    font-family: #{$large-button-font-family};
   }
 
 
@@ -146,6 +173,10 @@ a{
 
   &.float{
     @include brand-button($float: true);
+  }
+
+  &.large{
+    @include brand-button( $size: large )
   }
 }
 
@@ -164,8 +195,8 @@ a{
     color: inherit;
     padding: 0;
 
-    font-size: 1.5rem;
-    line-height: 50px;
+    font-size: #{rem-calc(24)};
+    line-height: #{ rem-calc(50) };
   }
 
   a{

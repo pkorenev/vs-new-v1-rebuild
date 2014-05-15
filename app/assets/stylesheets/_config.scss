@@ -1,3 +1,24 @@
+$rem-base: 16;
+
+$body-line-height: 1.618;
+$body-font-size: 16px;
+
+@function rem-calc($value, $return_with_unit: true){
+  $result:  $value / $rem-base;
+  @if $return_with_unit == true{
+    @return  #{$result}rem;
+  }
+  @return $result;
+}
+
+@function calc-line-height($value){
+  $result: $value * $body-line-height;
+  @return $result;
+}
+
+
+
+
 $light-gray-color: #f0f0f0;
 
 $gray-color: #e8e8e8;
@@ -8,16 +29,21 @@ $gray-background-color: $light-gray-color;
 
 $button-font-family: 'OpenSansExtrabold', sans-serif;
 
-$medium-button-height: 50px;
-$medium-button-font-size: 1.4em;
+//$medium-button-height: 50px;
+$medium-button-font-size: 22;
 $medium-button-font-weight: normal;
 $medium-button-font-family: $button-font-family;
+
+//$large-button-height-: ;
+$large-button-font-size: 38;
+$large-button-font-weight: 800;
+$large-button-font-family: $button-font-family;
 
 $tab-background-color: $gray-color;
 $tab-hover-background-color: $pink-color;
 $tab-active-background: url(branded-button-background.jpg) repeat;
 $tab-text-color: white;
-$tab-height: $medium-button-height;
+$tab-height: 50px;
 
 $text-pink-color: #ff2e8b;
 

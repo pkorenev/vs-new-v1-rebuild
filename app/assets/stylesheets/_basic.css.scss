@@ -160,7 +160,7 @@ $lightgray_background_color: #e8e8e8;
 ::selection{background: #000000;color:#ff2e8b;}
 ::-moz-selection{background: #000000;color:#ff2e8b;}
 
-.brand-button{
+/*.brand-button{
   padding:10px 30px;
   border: 0;
   background:url(branded-button-background.jpg) repeat;
@@ -178,11 +178,12 @@ $lightgray_background_color: #e8e8e8;
 
   @media(min-width:1px) and (max-width:$mobile_menu_screen_max_width){
   }
-}
+}*/
 
+/*
 .brand-button:hover, .brand-button:active, .brand-button:visited{
   color:white;
-}
+}*/
 
 .wb{
   background: rgb(255, 255, 255);
@@ -279,13 +280,13 @@ body
   color: #fff;
   letter-spacing: 0;
   font-weight: normal;
-  font-size: 16px;
+  font-size: $body-font-size;
   font-family: 'OpenSansLight', Helvetica, Arial, sans-serif;
-  line-height: 28px;
+  line-height: $body-line-height;
 
   @media(min-width:1px) and (max-width:$mobile_menu_screen_max_width){
-    font-size: 18px;
-    line-height: 25px;
+    //font-size: 18px;
+    //line-height: 1.618;
   }
 }
 

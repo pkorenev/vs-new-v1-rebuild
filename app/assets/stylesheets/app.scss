@@ -1,3 +1,4 @@
+@import "config";
 @import "custom_grid/normalize";
 @import "basic";
 @import "font-face";
@@ -5,7 +6,7 @@
 
 @import "fonts";
 
-@import "config";
+
 
 
 @import "custom_grid/layout";
@@ -30,6 +31,8 @@
 @import "pages/article-item";
 
 @import "portfolio";
+
+@import "partials/portfolio_invitation";
 
 @import "portfolio_item/portfolio_item_main";
 @import "portfolio_item/voronin_studio_portfolio";
