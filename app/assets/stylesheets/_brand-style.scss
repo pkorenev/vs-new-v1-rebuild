@@ -103,7 +103,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, .h5, h5, .h6, h6{
 a{
   color: $link-color;
   cursor: pointer;
-  cursor: url("/assets/portfolio-item-cursor.png"), default;
 }
 
 
@@ -115,10 +114,11 @@ a{
   text-transform: uppercase;
   text-align: center;
   float: none;
-  display: inline;
+
   position: relative;
 
 
+  display: inline-block;
 
 
 
@@ -135,7 +135,7 @@ a{
     padding-bottom: rem-calc(8);
 
     //line-height: #{ rem-calc( calc-line-height($medium-button-font-size + 16) )};
-    line-height: rem-calc( calc-line-height($medium-button-font-size) + 16 );
+    //line-height: rem-calc( calc-line-height($medium-button-font-size) + 16 );
 
 
     //height: $medium-button-height;
@@ -151,15 +151,17 @@ a{
     padding-left: 30px;
     padding-right: 30px;
 
-    padding-top: #{12}px;
-    padding-bottom: #{12}px;
+    padding-top: rem-calc(12);
+    padding-bottom: rem-calc(12);
 
-    line-height: #{calc-line-height($large-button-font-size) + 24}px ;
+
+
+    //line-height: #{ $large-button-font-size * 1.380 + 24}px ;
 
 
 
     font-weight: #{$large-button-font-weight};
-    font-size: #{$large-button-font-size};
+    font-size: rem-calc($large-button-font-size);
     font-family: #{$large-button-font-family};
   }
 
