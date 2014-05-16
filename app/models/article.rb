@@ -39,7 +39,7 @@ class Article < ActiveRecord::Base
     #self.short_description ||= 'my_default_short_description'
     #self.release_date ||= self.created_at
     #release_date = Date.yesterday
-    self.release_date ||= self.updated_at
+    self.release_date ||= DateTime.now
   end
 
 
