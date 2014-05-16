@@ -337,7 +337,7 @@ h2{
   {
   display: table;
   content: "";
-  line-height: 0;
+  //line-height: 0;
 }
 
 [class*="container"]::after, [class*="f-height"]::after
