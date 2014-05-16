@@ -13,19 +13,27 @@
 				<div id="article-title-wrapper">
 					<h1 class="article-title"><%= @article.title %></h1>
 				</div>
-				<div id="avatar-container">
-					<%= image_tag @article.avatar.url, :alt => @article.title %>
-				</div>
+                <div id="avatar-and-tags">
+				    <div id="avatar-container">
+					    <%= image_tag @article.avatar.url, :alt => @article.title %>
+				    </div>
+
+                  <div style="" id="header-tag-list">
+                    <ul class="tag-list">
+                      <% @article.tag_list.each do | tag | %>
+                          <li><%= link_to tag, article_tag_path(tag) %></li>
+                      <% end %>
+
+                    </ul>
+                  </div>
+                </div>
+
+              <div id="short-description">
+                <%= raw @article.short_description %>
+              </div>
 
 				<div id="article-body">
-					<div style="" id="header-tag-list">
-						<ul class="tag-list">
-                          <% @article.tag_list.each do | tag | %>
-                              <li><%= link_to tag, article_tag_path(tag) %></li>
-                          <% end %>
 
-						</ul>
-					</div>
 					
 					<div id="content"><%= raw @article.content %></div>
 

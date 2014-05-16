@@ -20,33 +20,42 @@
   }
 }
 
-.header-compact-height{
-  #studio-logo-section{
-    @media (max-width: 1175px) {
-      #image-container{
-        width: auto;
-      }
-    }
-
-    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
-      #image-container{
-        width:177px;
-      }
-    }
-  }
-
-  #mobile-menu-button{
-    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
-      margin-top: 7px;
-    }
-  }
 
 
-}
 
 #studio-logo-section{
   @include init-grid;
   @include grid-3;
+  height: 95px;
+  //padding-top: 5px;
+  //padding-bottom: 5px;
+
+  #image-container{
+    height: 100%;
+
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+
+    img{
+      max-width: none;
+      max-height: none;
+      height: 100%;
+      width: 247px;
+
+
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s;
+    }
+  }
+
+
+
   @media(max-width:1175px){
     #image-container{
       width: 80px;
@@ -61,7 +70,6 @@
         padding-bottom: 5px;
       }
     }
-
   }
 
   @media (min-width:1px) and (max-width:$mobile_menu_screen_max_width){
@@ -76,10 +84,41 @@
       }
     }
   }
+}
 
-  @media (min-width:1px) and (max-width:480px){
+
+
+
+
+.header-compact-height{
+  #studio-logo-section{
+    height: 60px;
+
     #image-container{
-      //width: 90px;
+
+      img{
+        //height: 50px;
+        width: 147px;
+      }
+    }
+
+    @media (max-width: 1175px) {
+      #image-container{
+        //width: auto;
+        width: 247px;
+      }
+    }
+
+    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
+      #image-container{
+        width:177px;
+      }
+    }
+  }
+
+  #mobile-menu-button{
+    @media (min-width: 1px) and (max-width: $mobile_menu_screen_max_width){
+      margin-top: 7px;
     }
   }
 

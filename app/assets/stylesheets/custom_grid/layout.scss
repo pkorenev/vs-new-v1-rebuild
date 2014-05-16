@@ -116,35 +116,15 @@ $header_height: 95;
 
       & img{
 
-        width: auto;
-        height: auto;
+        //width: auto;
+        //height: auto;
       }
 
       #navigation{
         height: inherit;
       }
 
-      #studio-logo-section{
-        #image-container{
-          -webkit-transition: all 0.5s;
-          -moz-transition: all 0.5s;
-          -ms-transition: all 0.5s;
-          -o-transition: all 0.5s;
-          transition: all 0.5s;
 
-          img{
-            max-width: none;
-            max-height: none;
-            height: 94px;
-
-            -webkit-transition: all 0.5s;
-            -moz-transition: all 0.5s;
-            -ms-transition: all 0.5s;
-            -o-transition: all 0.5s;
-            transition: all 0.5s;
-          }
-        }
-      }
 
 
       .menu-wrapper{
@@ -202,14 +182,7 @@ $header_height: 95;
       }
     }*/
 
-    #studio-logo-section{
-      height: 60px;
-      #image-container{
-        img{
-          height: 60px;
-        }
-      }
-    }
+
 
     @media (min-width: $desktop_menu_screen_min_width) {
       .menu-wrapper {
