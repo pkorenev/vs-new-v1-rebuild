@@ -65,13 +65,9 @@ class PageController < ApplicationController
     @static_page_data = @page_data.static_page_data
   end
 
-  def article_item
-    @article ||= Article.find_by_slug(params[:id])
-
-    @static_page_data = @article.static_page_data
-
+  def get_related_articles(article)
     articles = Article.order('release_date desc')
-    tags = @article.tag_list
+    tags = article.tag_list
     related_article_ids = []
     articles.each do | a |
       similar_tags = 0
@@ -88,7 +84,7 @@ class PageController < ApplicationController
 
     # sort by similar_tags_count
     sorted_related_article_ids = related_article_ids.sort do | x, y |
-      similar_tags_count_difference = x[:similar_tags_count] - y[:similar_tags_count]
+      similar_tags_count_difference = y[:similar_tags_count] - x[:similar_tags_count]
       res = 0
       if similar_tags_count_difference != 0
         res = similar_tags_count_difference
@@ -112,7 +108,17 @@ class PageController < ApplicationController
       related_articles.push( Article.find(a[:article_id]) )
     end
 
-    @related_articles = related_articles
+    return related_articles
+  end
+
+  def article_item
+    @article ||= Article.find_by_slug(params[:id])
+
+    @static_page_data = @article.static_page_data
+
+
+
+    @related_articles = get_related_articles(@article)
   end
 
   def articles_by_tags

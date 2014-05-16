@@ -21,18 +21,25 @@ class Article < ActiveRecord::Base
                     :path => ':rails_root/public/assets/articles/:id/:style/:basename.:extension'
 
 
-  before_validation :generate_slug, :generate_release_date, :generate_title
+  before_validation :generate_slug
+  before_validation :generate_title
+  before_validation :generate_release_date
 
   def generate_slug
   	self.slug = self.name.parameterize
   end
 
-  def generate_release_date
-    self.release_date ||= self.updated_at
-  end
-
   def generate_title
     self.title ||= self.name
+  end
+
+  #before_validation :generate_release_date
+
+  def generate_release_date
+    #self.short_description ||= 'my_default_short_description'
+    #self.release_date ||= self.created_at
+    #release_date = Date.yesterday
+    self.release_date = Date.today
   end
 
 
