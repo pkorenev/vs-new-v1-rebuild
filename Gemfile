@@ -108,3 +108,5 @@ gem 'capistrano-rails'
 gem 'acts_as_tree'
 
 gem 'rubytree'
+
+gem 'social-buttons'
