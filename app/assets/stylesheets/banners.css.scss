@@ -159,6 +159,7 @@
   }
 
     .markers-wrapper ul{
+      top: 9px;
       width:224px;
       height:32px;
 
@@ -176,14 +177,14 @@
 
 
       li{
-        width: 24px;
-        height: 24px;
+        width: 16px;
+        height: 16px;
         background:black;
         position: relative;
         display: block;
         float: left;
         margin-left: 54px;
-        border:gray 3px solid;
+        border:gray 0px solid;
         padding:4px;
         opacity: 0.5;
         cursor: pointer;
@@ -205,7 +206,7 @@
       }
 
       li:after{
-        content:"";
+        //content:"";
         width: 52px;
         height: 2px;
         background:white;
