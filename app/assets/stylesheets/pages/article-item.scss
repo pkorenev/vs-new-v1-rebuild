@@ -43,13 +43,13 @@
           display: inline-block;
 
           &:before{
-
-          }
-
-          &:first-child:before{
             content: ",";
             margin-right: 10px;
             margin-left: 2px;
+          }
+
+          &:first-child:before{
+            content: none;
           }
 
           a{
