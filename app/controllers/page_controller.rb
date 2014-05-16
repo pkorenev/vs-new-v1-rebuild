@@ -66,7 +66,7 @@ class PageController < ApplicationController
   end
 
   def get_related_articles(article)
-    articles = Article.order('release_date desc')
+    articles = Article.where("id <> #{article.id}").order('release_date desc')
     tags = article.tag_list
     related_article_ids = []
     articles.each do | a |
