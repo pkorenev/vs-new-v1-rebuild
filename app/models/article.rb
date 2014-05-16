@@ -23,7 +23,7 @@ class Article < ActiveRecord::Base
 
   before_validation :generate_slug
   before_validation :generate_title
-  before_validation :generate_release_date
+  before_save :generate_release_date
 
   def generate_slug
   	self.slug = self.name.parameterize
