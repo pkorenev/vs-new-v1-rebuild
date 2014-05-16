@@ -15,7 +15,8 @@
 				</div>
                 <div id="avatar-and-tags">
 				    <div id="avatar-container">
-					    <%= image_tag @article.avatar.url, :alt => @article.title %>
+					    <%# image_tag @article.avatar.url, :alt => @article.title %>
+                        <%= image_tag( 'http://placehold.it/1440x960&text=[img]' ) %>
 				    </div>
 
                   <div style="" id="header-tag-list">
@@ -28,8 +29,15 @@
                   </div>
                 </div>
 
-              <div id="short-description">
-                <%= raw @article.short_description %>
+
+              <div id="release-date-and-short-description">
+                <div id="release-date">
+                  <% date = @article.release_date %>
+                  Дата статті: <%= date.day.to_s + '.' + date.month.to_s + '.' + date.year.to_s %>
+                </div>
+                <div id="short-description">
+                    <%= raw @article.short_description %>
+                </div>
               </div>
 
 				<div id="article-body">

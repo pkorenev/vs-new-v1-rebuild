@@ -39,6 +39,7 @@
         padding-left: 0;
         text-align: right;
         margin-top: 0;
+
         li{
           display: inline-block;
 
@@ -96,12 +97,31 @@
             }
 
 
+            #release-date-and-short-description{
+              padding-left: 34.333%;
+
+
+              #short-description{
+                font-family: 'OpenSansLightItalic', Arial, sans-serif;
+              }
+            }
+
+
 
 			#article-body{
 				@include init-grid;
 				@include grid_8;
 
+                padding-top: 2rem;
+
 				float: right;
+
+                @media( max-width: 959px ){
+                  //float: none;
+                  clear: left;
+                  width: 98%;
+                  padding-top: 0;
+                }
 
 				#header-tag-list, #footer-tag-list{
 					ul{
@@ -165,6 +185,30 @@
 				}
 			}
 		}
+
+
+
+      @media( max-width: $mobile_menu_screen_max_width ){
+        #article-container {
+          #article-title-wrapper{
+            width: 98%;
+          }
+
+          #avatar-and-tags{
+            width: 98%;
+          }
+
+          #release-date-and-short-description{
+            padding-left: 1%;
+            position: relative;
+            top: -33px;
+
+            #short-description{
+              padding-top: 10px;
+            }
+          }
+        }
+      }
 	}
 
 	
