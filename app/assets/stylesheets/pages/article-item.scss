@@ -23,6 +23,10 @@
 
 			}
 		}
+
+      @media(max-width: $mobile_menu_screen_max_width){
+        margin-bottom: 0;
+      }
 	}
 
     ul.tag-list{
@@ -69,12 +73,15 @@
 				@include init-grid;
 				@include grid_8;
 
+
+
 				float:right;
 
 				.article-title{
 					@include h1_font;
 
                     color: $header-color;
+                    line-height: 1.1;
 
 
                     padding-top: 0;
@@ -99,10 +106,20 @@
 
             #release-date-and-short-description{
               padding-left: 34.333%;
+              position: relative;
+              top: -18px;
+
 
 
               #short-description{
                 font-family: 'OpenSansLightItalic', Arial, sans-serif;
+                max-width: 640px;
+                padding-top: 4px;
+              }
+
+              #release-date{
+                position: relative;
+                color: #aaa;
               }
             }
 
