@@ -76,8 +76,9 @@ class PageController < ApplicationController
     articles.each do | a |
       similar_tags = 0
       tags.each do | t |
-        a.tagged_with(t)
-        similar_tags += 1
+        if a.tag_list.include? t
+          similar_tags += 1
+        end
       end
 
       #if similar_tags > 0
