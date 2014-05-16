@@ -62,7 +62,10 @@ class PageController < ApplicationController
     @articles ||= Article.where(published: true).order('release_date desc')
 
     @page_data = Pages::ArticlesListPage.first
-    @static_page_data = @page_data.static_page_data
+
+    if @page_data
+      @static_page_data = @page_data.static_page_data
+    end
   end
 
   def get_related_articles(article)

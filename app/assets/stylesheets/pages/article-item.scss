@@ -1,6 +1,8 @@
 #article-item-page{
 	#article-title-section{
-		@include page_section; 
+		@include page_section;
+
+        margin-bottom: 0;
 		#article-title-container{
 			@include container_12;
 			@include clearfix;
@@ -8,7 +10,17 @@
 				@include init-grid;
 				@include grid_12;
 
+
+
 				@include h1_font;
+                color: $header-color;
+              font-weight: normal;
+              font-family: 'OpenSansSemibold', Arial, sans-serif;
+
+                .article-title {
+                  padding-top: 0;
+                }
+
 			}
 		}
 	}
@@ -18,14 +30,21 @@
 		#article-container{
 			@include container_12;
 			@include clearfix;
-			#article-title{
+			#article-title-wrapper{
 				@include init-grid;
 				@include grid_8;
 
 				float:right;
 
-				h2{
+				.article-title{
 					@include h1_font;
+
+                    color: $header-color;
+
+
+                    padding-top: 0;
+                    position: relative;
+                    top: -7px;
 				}
 			}
 

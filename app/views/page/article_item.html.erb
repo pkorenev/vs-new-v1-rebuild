@@ -2,17 +2,19 @@
   	<section id="article-item-page">
   		<div id="article-title-section">
   			<div id="article-title-container">
-				<h2 id="article-title">Анонси та події</h2>
+				<span id="article-title">Анонси та події</span>
 			</div>
 		</div>
 
+        <%= render partial: 'partials/page_breadcrumbs' %>
+
 		<div id="article-section">
 			<div id="article-container">
-				<div id="article-title">
-					<h2><%= @article.name %></h2>
+				<div id="article-title-wrapper">
+					<h1 class="article-title"><%= @article.title %></h1>
 				</div>
 				<div id="avatar-container">
-					<%= image_tag @article.avatar.url, :alt => @article.name %>
+					<%= image_tag @article.avatar.url, :alt => @article.title %>
 				</div>
 
 				<div id="article-body">
@@ -37,6 +39,9 @@
 				</div>
 			</div>
 		</div>
+
+
+      <%= render partial: 'partials/item_like_bar' %>
 
 		<div id="related-articles">
 			<% @related_articles.each do |article_item| %>
