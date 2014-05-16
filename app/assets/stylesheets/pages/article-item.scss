@@ -83,9 +83,11 @@
 			}
 
             #avatar-and-tags{
+              @include init-grid;
+              @include grid_4;
+
               #avatar-container{
-                @include init-grid;
-                @include grid_4;
+
 
                 img{
                   max-width: 100%;
