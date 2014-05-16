@@ -130,7 +130,8 @@ var $body = $('body');
     };
 //}(jQuery));
 $(document).on('ready page:load',function() {
-    mydraggable($("#get-me-top"), {
+    var $get_me_top = $('#get-me-top')
+    mydraggable($get_me_top, {
         containment: "parent",
         drag: function(){
         	//var $content = $('#main-scroller-content');
@@ -150,4 +151,12 @@ $(document).on('ready page:load',function() {
         	//$('#get-me-top').animate({'top':0});
         }
     });
+
+    $get_me_top.click(function(){
+        console.log('get-me-top click')
+        var $scroller = $('body');
+        $scroller.animate({
+            scrollTop:0
+        }, {duration:300});
+    })
 });

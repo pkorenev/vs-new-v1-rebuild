@@ -22,7 +22,10 @@
         <div id="services-list-container">
       <% @get_all_services.each do |service_item| %>
         <article id="service-<%= service_item.id %>" class="service-item <%= cycle('left-item', 'right-item') %>" itemscope itemtype="http://schema.org/Product">
-            <span class="index">0<%= service_item.sort_id %></span>
+            <% if 1 == 2 %>
+              <span class="index">0<%= service_item.sort_id %></span>
+            <% end %>
+
             <% if service_item.avatar.present? %>
             <div class="image-container">
               <%= image_tag(service_item.avatar.url, :itemprop => 'image', :alt => service_item.name) %>
