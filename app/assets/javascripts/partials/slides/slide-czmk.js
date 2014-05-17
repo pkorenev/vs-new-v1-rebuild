@@ -5,18 +5,20 @@ $(document).on('ready page:load',function(){
             var $crystal_layers = $slide.find('.layer.crystal');
 
             var $g3k_left_arrow = $slide.find('#g3k-left-arrow');
-            var $g3k_letter = $slide.find('#g3k-letter');
+            var $czmk_monitor = $slide.find('#czmk-monitor');
             var $g3k_top_center_arrow = $slide.find('#g3k-top-center-arrow');
-            var $g3k_letter_arrow = $slide.find('#g3k-letter-arrow');
+            var $czmk_monitor_arrow = $slide.find('#g3k-letter-arrow');
             var $g3k_bottom_right_arrow = $slide.find('#g3k-bottom-right-arrow');
             var $description = $slide.find('.description');
+            
+
 
 
 // init
             $g3k_left_arrow.data('step_ratio',0.15);
-            $g3k_letter.data('step_ratio',0.04);
+            $czmk_monitor.data('step_ratio',0.04);
             $g3k_top_center_arrow.data('step_ratio',0.35);
-            $g3k_letter_arrow.data('step_ratio',0.04);
+            $czmk_monitor_arrow.data('step_ratio',0.04);
             $g3k_bottom_right_arrow.data('step_ratio',0.3);
 
 
@@ -143,13 +145,13 @@ $(document).on('ready page:load',function(){
                 $g3k_left_arrow.switchClass('display-slide','final-position',1000,'easeInOutQuad');
                 //$g3k_left_arrow.removeClass('display-slide').addClass('final-position');
 
-                $g3k_letter.removeClass('final-position').addClass('display-slide');
-                $g3k_letter.switchClass('display-slide','final-position',1500,'easeOutBack');
-                //$g3k_letter.removeClass('display-slide').addClass('final-position').css('animation-name','kf').css('animation-name','slidein');
+                $czmk_monitor.removeClass('final-position').addClass('display-slide');
+                $czmk_monitor.switchClass('display-slide','final-position',1500,'easeOutBack');
+                //$czmk_monitor.removeClass('display-slide').addClass('final-position').css('animation-name','kf').css('animation-name','slidein');
 
-                $g3k_letter_arrow.removeClass('final-position').addClass('display-slide');
-                $g3k_letter_arrow.switchClass('display-slide','final-position',1500,'easeOutBack');
-                //$g3k_letter_arrow.removeClass('display-slide').addClass('final-position');
+                $czmk_monitor_arrow.removeClass('final-position').addClass('display-slide');
+                $czmk_monitor_arrow.switchClass('display-slide','final-position',1500,'easeOutBack');
+                //$czmk_monitor_arrow.removeClass('display-slide').addClass('final-position');
 
                 $g3k_top_center_arrow.removeClass('final-position').addClass('display-slide');
                 $g3k_top_center_arrow.switchClass('display-slide','final-position',1000,'easeInOutQuad');

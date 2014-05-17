@@ -1,0 +1,51 @@
+#home-banner-outer .slider #slide-czmk{
+  background: url('/assets/banners/czmk/vs-main-czmk-bg-1.jpg') repeat-x #ab0020;
+
+  .layer{
+    &.description{
+      &.final-position, &.display-slide{
+
+        .brand-button{
+          background: white;
+          color: #ab0020;
+        }
+
+        .title{
+
+        }
+      }
+    }
+
+    &.crystal{
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    &.czmk-monitor{
+      background-image: url(/assets/banners/czmk/vs-main-czmk-1.png);
+
+
+
+
+      &.final-position, &.display-slide{
+        top: -4%;
+        left: 8%;
+        width: 38.75%;
+
+      }
+
+      &.display-slide{
+        //top:-100%;
+        left: -50%;
+
+        //animation-duration: 1s;
+        //animation-name: slidein;
+      }
+    }
+  }
+
+  .layer.crystal.selected-layer{
+    background: none repeat scroll 0 0 rgba(255, 47, 139, 0.1);
+  }
+}
+
