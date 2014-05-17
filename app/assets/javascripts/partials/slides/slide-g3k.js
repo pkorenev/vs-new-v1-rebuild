@@ -15,7 +15,7 @@ $(document).on('ready page:load',function(){
 // init
             $g3k_left_arrow.data('step_ratio',0.15);
             $g3k_letter.data('step_ratio',0.04);
-            $g3k_top_center_arrow.data('step_ratio',0.04);
+            $g3k_top_center_arrow.data('step_ratio',0.35);
             $g3k_letter_arrow.data('step_ratio',0.04);
             $g3k_bottom_right_arrow.data('step_ratio',0.3);
 
@@ -136,7 +136,7 @@ $(document).on('ready page:load',function(){
 
 
                 $description.removeClass('final-position').addClass('display-slide');
-                $description.delay(1000).switchClass('display-slide','final-position',{duration:3000,easing:'easeOutExpo'});
+                $description.switchClass('display-slide','final-position',{duration:3000,easing:'easeOutExpo'});
                 //$description.removeClass('display-slide').addClass('final-position');
 
                 $g3k_left_arrow.removeClass('final-position').addClass('display-slide');
@@ -144,11 +144,11 @@ $(document).on('ready page:load',function(){
                 //$g3k_left_arrow.removeClass('display-slide').addClass('final-position');
 
                 $g3k_letter.removeClass('final-position').addClass('display-slide');
-                $g3k_letter.switchClass('display-slide','final-position',2000,'easeOutBack');
+                $g3k_letter.switchClass('display-slide','final-position',1500,'easeOutBack');
                 //$g3k_letter.removeClass('display-slide').addClass('final-position').css('animation-name','kf').css('animation-name','slidein');
 
                 $g3k_letter_arrow.removeClass('final-position').addClass('display-slide');
-                $g3k_letter_arrow.switchClass('display-slide','final-position',1000,'easeOutBack');
+                $g3k_letter_arrow.switchClass('display-slide','final-position',1500,'easeOutBack');
                 //$g3k_letter_arrow.removeClass('display-slide').addClass('final-position');
 
                 $g3k_top_center_arrow.removeClass('final-position').addClass('display-slide');
