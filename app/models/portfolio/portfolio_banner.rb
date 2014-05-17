@@ -6,7 +6,7 @@ class Portfolio::PortfolioBanner < ActiveRecord::Base
 
   # Validate content and name
   validates :name, :presence => true
-  validates :description, :presence => true
+  #validates :description, :presence => true
 
   attr_accessor :delete_background
 
