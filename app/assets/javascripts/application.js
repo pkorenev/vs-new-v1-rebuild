@@ -42,6 +42,7 @@
 //= require partials/portfolio-items
 //= require partials/bjqs-init
 //= require partials/slides/slide-valko
-// partials/slides/slide-ii
+//= require partials/slides/slide-g3k
+//= require partials/slides/slide-ii
 //= require partials/slides/slide2
 //= require partials/slides/slide3
