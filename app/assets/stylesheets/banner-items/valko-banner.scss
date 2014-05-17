@@ -20,15 +20,10 @@
 }*/
 
 
-#slide-valko{
+#home-banner-outer .slider #slide-valko{
   background: url('/assets/banners/ii-v2/bg-main.jpg') repeat-x #03C3E8;
 
   .layer{
-    img{
-      opacity: 0;
-      width: 100%;
-      position: relative;
-    }
     &.description{
       &.final-position, &.display-slide{
 
