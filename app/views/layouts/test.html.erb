@@ -1,0 +1,151 @@
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <style>
+        body h5{
+
+            color: red;
+        }
+
+        @media only-screen {
+            #m1{
+                color: black;
+            }
+        }
+
+        /* min width 641px */
+        @media only-screen and (min-width:40.063em) {
+            #m2{
+                color: black;
+            }
+        }
+
+        @media only screen and (max-width: 40em) {
+            #m3{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:40.063em) and (max-width:64em) {
+            #m4{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:64.063em) and (max-width:90em) {
+            #m5{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:90.063em) and (max-width:120em) {
+            #m6{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:90.063em) {
+            #m7{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:120.063em) and (max-width:99999999em) {
+            #m8{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:120.063em) {
+            #m9{
+                color: black;
+            }
+        }
+
+        @media print {
+            #m10{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:40.063em) {
+            #m11{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:64.063em) {
+            #m12{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:90.063em) {
+            #m13{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width:120.063em) {
+            #m14{
+                color: black;
+            }
+        }
+
+        @media only screen and (orientation: landscape) {
+            #m15{
+                color: black;
+            }
+        }
+
+        @media only screen and (orientation: portrait) {
+            #m16{
+                color: black;
+            }
+        }
+
+        @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+            #m17{
+                color: black;
+            }
+        }
+
+        @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (max-width: 320px) {
+            #m18{
+                color: black;
+            }
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            #m19{
+                color: black;
+            }
+        }
+
+        @media only screen and (max-width: 767px) {
+            #m20{
+                color: black;
+            }
+        }
+
+
+
+      </style>
+    </head>
+    <body>
+        <% if 1 == 2 %>
+        <div id="m1" class="only-screen">m1</div>
+        <div id="m2" class="only-screen min-width-641px">m2</div>
+        <div id="m3" class="only-screen max-width-640px">m3</div>
+        <% end %>
+
+        <% for i in 1..20 %>
+            <h5 id="m<%= i.to_s %>"><%= i %></h5>
+        <% end %>
+
+
+    </body>
+</html>
+
+
