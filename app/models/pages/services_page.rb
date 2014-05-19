@@ -16,10 +16,13 @@ class Pages::ServicesPage < ActiveRecord::Base
 
   #attr_accessible :content
 
+  attr_accessible :intro_text
+
   rails_admin do
 
 
     edit do
+      field :intro_text
       field :services
       field :static_page_data
     end

@@ -31,6 +31,7 @@ class PageController < ApplicationController
     @clients_intro = @page_data.clients_intro
     @team_text = @page_data.team_text
 
+
     @static_page_data = Pages::AboutPage.first.static_page_data
   end
 
@@ -56,6 +57,7 @@ class PageController < ApplicationController
 
     @page_data = Pages::ServicesPage.first
     @static_page_data = @page_data.static_page_data
+    @services_intro = @page_data.intro_text
   end
 
   def article
