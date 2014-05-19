@@ -58,6 +58,7 @@ class PageController < ApplicationController
     @page_data = Pages::ServicesPage.first
     @static_page_data = @page_data.static_page_data
     @services_intro = @page_data.intro_text
+    @services_footer = @page_data.footer_text
   end
 
   def article

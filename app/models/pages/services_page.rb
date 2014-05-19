@@ -16,13 +16,14 @@ class Pages::ServicesPage < ActiveRecord::Base
 
   #attr_accessible :content
 
-  attr_accessible :intro_text
+  attr_accessible :intro_text, :footer_text
 
   rails_admin do
 
 
     edit do
       field :intro_text
+      field :footer_text
       field :services
       field :static_page_data
     end
