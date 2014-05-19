@@ -25,7 +25,7 @@
             // transition valuess
             animtype: 'fade',
             animduration: 450,      // length of transition
-            animspeed: 4000,     // delay between transitions
+            animspeed: 10000,     // delay between transitions
             automatic: true,     // enable/disable automatic slide rotation
 
             // control and marker configuration
@@ -79,7 +79,8 @@
             currentindex: 0,                // current slide being viewed (0 based)
             nextindex: 0,                // slide to view next (0 based)
             interval: null,              // interval for automatic rotation
-            lastindex: $slides.length - 1
+            lastindex: $slides.length - 1,
+            needToNext: false
         };
 
         var responsive = {
@@ -91,7 +92,8 @@
         // helpful variables
         var vars = {
             fwd: 'forward',
-            prev: 'previous'
+            prev: 'previous',
+            timeout_id: false
         };
 
         // run through options and initialise settings
@@ -107,7 +109,19 @@
             $slides.on('resetSlide', onResetSlide);
             $slides.on('beforeHideSlide', onBeforeHideSlide);
             $slides.on('afterHideSlide', onAfterHideSlide);
+
+            runAuto();
+
+
+            //runTimer()
+            $slider.trigger('afterAnimate')
+
+
         };
+
+
+
+
 
         var analizeSize = function () {
             $slides.css({
@@ -144,6 +158,24 @@
         };
 
         var conf_controls = function () {
+
+        };
+
+        var initVisualTimer = function(){
+
+        }
+
+        var hideVisualTimer = function(){
+            var $timer = $('<div id="timer"></div>');
+            $timer.css({
+                position: 'absolute',
+                top: '0',
+                right: '0'
+                //width: '100px'
+            })
+        }
+
+        var showVisualTimer = function(){
 
         };
 
@@ -254,6 +286,45 @@
             showSlide(required_index);
         };
 
+        var runTimer = function( ){
+            /*setTimeout(function(){
+                if( settings.automatic && settings.animspeed ){
+                    if( vars.timeout_id )
+                        clearTimeout(vars.timeout_id)
+                    var timeout_id = setTimeout(function(){
+                        if( state.needToNext ){
+                            nextSlide();
+                        }
+                    }, settings.animspeed)
+
+                    vars.timeout_id = timeout_id
+                }
+            }, settings.animspeed)
+            */
+            if(vars.timeout_id)
+                clearTimeout(vars.timeout_id)
+
+
+            vars.timeout_id = setTimeout(function(){
+                if( settings.automatic && !state.animating ){
+                    nextSlide()
+                }
+            }, settings.animspeed)
+        };
+
+        var runAuto = function(){
+            //if(!vars.timeout_id)
+            //    runTimer()
+            //state.needToNext = true;
+          $slider.on('afterAnimate', function () {
+            runTimer()
+          })
+        };
+
+        var stopAuto = function(){
+            state.needToNext();
+        }
+
         var conf_keynav = function () {
 
         };
@@ -285,6 +356,13 @@
 
                 state.animating = true;
 
+                var currentIndex = state.currentindex;
+                var $current_slide = $slides.eq(currentIndex);
+                var $required_slide = $slides.eq(slideIndex);
+
+                $slider.trigger('beforeAnimate');
+
+
                 if (settings.animtype == 'slide') {
 
 
@@ -292,13 +370,13 @@
                     //console.log('displaySlide!!');
                     var difference = slideIndex - state.currentindex;
                     var direction = difference > 0 ? true : false;
-                    var currentIndex = state.currentindex;
+
                     if (!direction) {
                         difference *= -1;
                     }
 
-                    var $required_slide = $slides.eq(slideIndex);
-                    var $current_slide = $slides.eq(currentIndex);
+
+
 
                     $slider.animate({
                         'margin-left': ( direction ? '-=100%' : '+=100%' )
@@ -336,12 +414,24 @@
 
                 }
 
-                else if (settings.type == 'fade') {
+                else if (settings.animtype == 'fade') {
+                    console.log('type = fade')
                     $slider.trigger('beforeHideSlide');
 
                     $slider.css({
-                        'margin-left': '' + ( slideIndex * 100 ) + '%'
+                        'margin-left': '-' + ( slideIndex * 100 ) + '%'
                     })
+
+                    $current_slide.trigger('afterHideSlide');
+                    $current_slide.trigger('resetSlide');
+
+                    $required_slide.trigger('afterShowSlide');
+                    $required_slide.trigger('playSlideAnimation');
+
+                    state.animating = false
+                    state.currentindex = slideIndex;
+
+                    $slider.trigger('afterAnimate')
                 }
 
             }
