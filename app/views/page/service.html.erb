@@ -16,7 +16,7 @@
               <%= image_tag(service_item.avatar.url, :itemprop => 'image', :alt => service_item.name) %>
             </div>
             <% end %>
-            <h2 itemprop="name" class="service-title"><%= link_to(service_item.name, service_path+'#service-'+service_item.id.to_s, :itemprop => 'url') %></h2>
+            <h2 itemprop="name" class="service-title"><%= link_to(service_item.name, service_path+'#service-'+service_item.id.to_s, :itemprop => 'url', rel: 'nofollow') %></h2>
           <section class="description" itemprop="description">
             <% if service_item.short_description[0, 3] == '<p>' %>
               <%= service_item.short_description.html_safe unless service_item.short_description.blank? %>

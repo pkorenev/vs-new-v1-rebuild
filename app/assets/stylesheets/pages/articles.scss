@@ -31,11 +31,14 @@
 
     .article-body{
       @include clearfix;
-      height:335px;
+      //height:335px;
 
       overflow: hidden;
 
-      height: 265px;
+      //height: 265px;
+      height: auto;
+      max-height: 265px;
+      line-height: auto;
     }
 
     @media(min-width:1351px) and (max-width:1730px){
@@ -56,9 +59,11 @@
 
     @media (min-width:951px) and (max-width:1020px){
       height: 400px;
-
+      //max-height: 400px;
       .article-body{
-        height: 355px;
+        //height: 355px;
+        height: auto;
+        max-height: 355px;
       }
     }
 
@@ -66,15 +71,19 @@
       height: 430px;
 
       .article-body{
-        height: 385px;
+        //height: 385px;
+        height: auto;
+        max-height: 385px;
       }
     }
 
     @media(max-width:860px){
-      height: 450px;
-
+      //height: 450px;
+      max-height: 450px;
       .article-body{
-        height: 405px;
+        //height: 405px;
+        height: auto;
+        max-height: 405px;
       }
     }
 
@@ -211,7 +220,7 @@
       @include grid-6;
     }
 
-    @media(max-width:850px){
+    @media(max-width:860px){
       @include grid-12;
     }
   }
