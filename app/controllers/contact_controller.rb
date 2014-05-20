@@ -65,7 +65,7 @@ class ContactController < ApplicationController
     @section = :join_us
     #@join_us_form = params['']
 
-    f = Forms::Order.new
+    f = Forms::JoinUs.new
     f.name = params['name']
     f.phone = params['phone']
     #f.organization_name = params['organization_name']
