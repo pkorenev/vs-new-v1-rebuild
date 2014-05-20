@@ -6,7 +6,7 @@ class PortfolioController < ApplicationController
     #@portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
     @page_data = Pages::PortfolioListPage.first
     @static_page_data = @page_data.static_page_data
-    @portfolio_invitation_source = @page_data.portfolio_invitation
+    #@portfolio_invitation_source = @page_data.portfolio_invitation
   end
 
   def test
