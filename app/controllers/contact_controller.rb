@@ -55,12 +55,25 @@ class ContactController < ApplicationController
     @section = :join_us
     @selected_tab = 'join_us'
     @join_us = Forms::JoinUs.new
+
+
+
     render template: 'contact/show'
   end
 
   def join_us_create
     @section = :join_us
-    @join_us_form = params['']
+    #@join_us_form = params['']
+
+    f = Forms::Order.new
+    f.name = params['name']
+    f.phone = params['phone']
+    #f.organization_name = params['organization_name']
+    f.email = params['email']
+    f.attachment = params['attachment']
+    f.vacancy = params['vacancy']
+    f.text = params['message']
+
     render template: 'contact/show'
   end
 
