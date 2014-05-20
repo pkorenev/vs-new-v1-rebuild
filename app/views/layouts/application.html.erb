@@ -12,6 +12,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+  <% if 1 == 2 %>
   <meta property="fb:admins" content="vik.ewoods" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
@@ -19,6 +20,7 @@
   <meta property="og:description" content="<%= yield :meta_description %>" />
   <meta property="og:locale" content="uk_UA" />
   <meta property="og:locale:alternate" content="en_GB" />
+  <% end %>
 
   <meta name="viewport" content="width=device-width">
   <meta name="viewport" content="initial-scale=1">
