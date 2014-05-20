@@ -35,7 +35,7 @@ class ContactController < ApplicationController
     f.organization_name = params['organization_name']
     f.email = params['email']
     f.money = params['money']
-    f.text = params['text']
+    f.text = params['message']
 
 
     OrderMailer.new_letter(f).deliver
