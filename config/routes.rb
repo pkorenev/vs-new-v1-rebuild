@@ -54,7 +54,7 @@ StudioVoronin::Application.routes.draw do
 
   # Define pages routes
   get 'about'   => 'page#about', :as => 'about'
-  get 'service'   => 'page#service', :as => 'service'
+  get 'services'   => 'page#service', :as => 'service'
   get 'articles'  => 'page#article', :as => 'article_list'
   
   #get 'articles/:id'  => 'page#article_item', :as => 'article'

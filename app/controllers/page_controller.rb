@@ -53,7 +53,7 @@ class PageController < ApplicationController
   end
 
   def service
-    @get_all_services ||= Service.where(published: true).order('sort_id DESC')
+    @get_all_services ||= Service.where(published: true).order('sort_id asc')
 
     @page_data = Pages::ServicesPage.first
     @static_page_data = @page_data.static_page_data
