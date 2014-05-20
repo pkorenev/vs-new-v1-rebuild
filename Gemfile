@@ -59,7 +59,7 @@ end
 gem 'protected_attributes'
 
 
-gem 'rails_admin'
+gem 'rails_admin' #, github: 'VoroninNick/rails_admin', branch: 'pasha'
 gem 'safe_yaml'
 gem 'devise'
 gem 'paperclip', '~> 3.5.3'

@@ -2,10 +2,11 @@ StudioVoronin::Application.routes.draw do
 
   get '/test', to: 'test#media_queries'
 
+
   # Portfolio routes
-  get 'portfolio', to: 'portfolio#index', :as => 'portfolio'
-  get 'portfolio/:category', to: 'portfolio#category', as: :portfolio_category
-  get 'portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
+  get '/portfolio', to: 'portfolio#index', :as => 'portfolio'
+  get '/portfolio/:category', to: 'portfolio#category', as: :portfolio_category
+  get '/portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
 
   get 'test', to: 'portfolio#test'
 
