@@ -108,9 +108,9 @@ RailsAdmin.config do |config|
   seo = root['seo']
   seo << Tree::TreeNode.new('Метатеги', { link: '/admin/page_metadata' } )
   seo_metatags = seo['Метатеги']
-  PageMetadata.all.each do | m |
-    seo_metatags << Tree::TreeNode.new( m.taggable.name, { link: "/admin/page_metadata/#{m.id}/edit" } )
-  end
+  #PageMetadata.all.each do | m |
+  #  seo_metatags << Tree::TreeNode.new( m.taggable.name, { link: "/admin/page_metadata/#{m.id}/edit" } )
+  #end
 
   seo << Tree::TreeNode.new( 'Головна', { link: '/admin/pages~home_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Про нас', { link: '/admin/pages~about_page/1/edit' } )
