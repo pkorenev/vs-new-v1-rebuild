@@ -63,14 +63,14 @@
     }
   }
 
-  @media(min-width: $desktop_menu_screen_min_width){
+  //@media(min-width: $desktop_menu_screen_min_width){
     #image-container{
       img{
         padding-top: 5px;
         padding-bottom: 5px;
       }
     }
-  }
+  //}
 
   @media (min-width:1px) and (max-width:$mobile_menu_screen_max_width){
     #image-container{
