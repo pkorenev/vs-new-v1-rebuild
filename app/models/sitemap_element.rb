@@ -13,7 +13,7 @@ class SitemapElement < ActiveRecord::Base
 
   before_save :set_url, :set_defaults
   def set_url
-    #self.url = "http://#{ActionMailer::Base.default_url_options[:host]}#{ self.path }"
+    self.url = "http://#{ActionMailer::Base.default_url_options[:host]}#{ self.path }"
   end
 
   def set_defaults
