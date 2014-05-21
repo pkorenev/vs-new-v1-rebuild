@@ -2,6 +2,12 @@ class ContactController < ApplicationController
 
   layout :resolve_layout
 
+  before_filter :create_join_us_form
+
+  def create_join_us_form
+    @join_us = Forms::JoinUs.new
+  end
+
   def resolve_layout
     #if params['iframe']
       'contact_layout'
@@ -56,7 +62,7 @@ class ContactController < ApplicationController
   def join_us_show
     @section = :join_us
     @selected_tab = 'join_us'
-    @join_us = Forms::JoinUs.new
+
 
 
 
