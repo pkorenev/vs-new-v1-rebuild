@@ -11,6 +11,11 @@ class SitemapElement < ActiveRecord::Base
   attr_accessible :sitemappable_type
 
 
+  before_save :set_url
+  def set_url
+    self.url =
+  end
+
 
 
   rails_admin do

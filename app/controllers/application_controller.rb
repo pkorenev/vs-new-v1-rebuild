@@ -7,6 +7,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :get_menu
 
+
+  before_filter :set_mailer_host
+
+  def set_mailer_host
+    ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
+
   def get_menu
   	arr = []
   	arr[0] = {:data_url => about_path, :id => 'li-about', :title => 'ХТО - Про студію', :is_active => request[:controller] == 'page' && request[:action] == 'about', :header => 'ХТО', :description => 'Про студію'}
@@ -45,4 +53,6 @@ class ApplicationController < ActionController::Base
   def brand_tab(title)
     render template: 'helpers/application/brand_tab.html', locals: { title: title }
   end
+
+
 end
