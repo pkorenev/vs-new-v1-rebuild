@@ -19,6 +19,11 @@ class StaticPageData < ActiveRecord::Base
   accepts_nested_attributes_for :sitemap_element, :allow_destroy => true
   attr_accessible :sitemap_element
 
+  before_save :create_sitemap_element
+  def create_sitemap_element
+    build_sitemap_element
+  end
+
   rails_admin do
     edit do
       field :head_title
