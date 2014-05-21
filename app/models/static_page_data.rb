@@ -14,6 +14,11 @@ class StaticPageData < ActiveRecord::Base
   attr_accessible :has_static_page_data_id
   attr_accessible :has_static_page_data_type
 
+  has_one :sitemap_element
+
+  accepts_nested_attributes_for :sitemap_element, :allow_destroy => true
+  attr_accessible :sitemap_element
+
   rails_admin do
     edit do
       field :head_title
@@ -22,6 +27,8 @@ class StaticPageData < ActiveRecord::Base
       #  partial 'tag_list_with_suggestions'
       #end
       field :meta_description
+
+      field :sitemap_element
     end
   end
 end
