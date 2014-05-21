@@ -330,6 +330,10 @@
 
             .brand-button{
               top: 3.5rem;
+
+              @media only screen and (max-width: 1000px){
+                top: 0;
+              }
             }
 
 
@@ -385,5 +389,9 @@
         }
       }
     }
+  }
+
+  @media only screen and (max-width: $mobile_menu_screen_max_width){
+    display: none;
   }
 }
