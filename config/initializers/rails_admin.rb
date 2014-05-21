@@ -112,6 +112,7 @@ RailsAdmin.config do |config|
   #  seo_metatags << Tree::TreeNode.new( m.taggable.name, { link: "/admin/page_metadata/#{m.id}/edit" } )
   #end
 
+  seo << Tree::TreeNode.new( 'Sitemap', { link: '/admin/sitemap_element' } )
   seo << Tree::TreeNode.new( 'Головна', { link: '/admin/pages~home_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Про нас', { link: '/admin/pages~about_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Наші послуги', { link: '/admin/pages~services_page/1/edit' } )
