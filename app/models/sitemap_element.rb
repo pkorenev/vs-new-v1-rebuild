@@ -1,6 +1,6 @@
 class SitemapElement < ActiveRecord::Base
   belongs_to :static_page_data
-  attr_accessible :static_page_data
+  attr_accessible :static_page_data, :static_page_data_id
 
   attr_accessible :path
   attr_accessible :url
@@ -9,6 +9,7 @@ class SitemapElement < ActiveRecord::Base
   attr_accessible :lastmod
   attr_accessible :sitemappable_id
   attr_accessible :sitemappable_type
+
 
 
 
