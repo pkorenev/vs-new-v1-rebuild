@@ -72,7 +72,7 @@ class ContactController < ApplicationController
     f.phone = params['phone']
     #f.organization_name = params['organization_name']
     f.email = params['email']
-    f.portfolio = params['portfolio']
+    f.portfolio = params['forms_join_us[portfolio]']
     f.role = params['vacancy']
     f.text = params['message']
 
