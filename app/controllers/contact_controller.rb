@@ -72,12 +72,12 @@ class ContactController < ApplicationController
     f.phone = params['phone']
     #f.organization_name = params['organization_name']
     f.email = params['email']
-    f.portfolio = params['forms_join_us[portfolio]']
+    f.portfolio = params['forms_join_us']['portfolio']
     f.role = params['vacancy']
     f.text = params['message']
 
     f.save
-    render inline: params['forms_join_us']['portfolio'].inspect
+    #render inline: params['forms_join_us']['portfolio'].inspect
 
     #@hostname = request.inspect
 
