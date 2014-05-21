@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Portfolio::Portfolio < ActiveRecord::Base
-  attr_accessible   :published, :task, :thanks_to, :thanks_image, :delete_thanks_image, :description, :release, :name, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng, :avatar, :delete_avatar
+  attr_accessible   :published, :task, :thanks_to, :thanks_image, :delete_thanks_image, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng, :avatar, :delete_avatar
 
   # Association's category, banners, technologies
   belongs_to :portfolio_category
@@ -107,6 +107,10 @@ class Portfolio::Portfolio < ActiveRecord::Base
       end
 
       field :name do
+        label 'Название (внутреннее)'
+      end
+
+      field :title do
         label 'Название'
       end
 
