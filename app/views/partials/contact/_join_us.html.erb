@@ -1,6 +1,7 @@
 <article class="body-contacts" id="join-us-wrapper"  <% if( @section == :join_us ) %>style="display: block;" <% else %>style="display: none;" <% end %> >
   <div class="contact-us-wrapper">
-    <form id="join-us-form" method="post" action="/join-us" multipart="true" >
+    <% if 1 == 2 %><form id="join-us-form" method="post" action="/join-us" multipart="true" ><% end %>
+    <%= form_for @join_us, url: join_us_path, html: { multipart: true } do |f| %>
       <div class="group-1-and-reference">
         <div id="group-1">
           <div class="contact-form-field field-1">
@@ -14,7 +15,8 @@
         </div>
         <div id="group-2">
           <div class="contact-form-field field-3">
-            <input class="portfolio" id="portfolio" name="attachment" type="file" placeholder="Виберіть файл"/>
+            <% if 1 == 2 %><input class="portfolio" id="portfolio" name="attachment" type="file" placeholder="Виберіть файл"/><% end %>
+            <%= f.file_field :portfolio  %>
             <label for="portfolio">Ваше портфоліо</label>
           </div>
           <div class="contact-form-field field-4">
@@ -65,9 +67,9 @@
 
 
 
+    <% end %>
 
-
-    </form>
+    <% if 1 == 2 %></form><% end %>
 
     <div id="order-form-waiting" class="form-waiting">
       <img src="/assets/ajax-loader.gif" >
