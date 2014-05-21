@@ -77,6 +77,8 @@ class ContactController < ApplicationController
 
     f.save
 
+    JoinUsMailer.new_letter(f).deliver
+
     @join_us = Forms::JoinUs.new
     render template: 'contact/show'
   end
