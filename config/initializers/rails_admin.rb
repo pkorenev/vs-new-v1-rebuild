@@ -106,11 +106,11 @@ RailsAdmin.config do |config|
   root << Tree::TreeNode.new( 'forms', title: 'Форми' )
 
   seo = root['seo']
-  seo << Tree::TreeNode.new('Метатеги', { link: '/admin/page_metadata' } )
-  seo_metatags = seo['Метатеги']
-  PageMetadata.all.each do | m |
-    seo_metatags << Tree::TreeNode.new( m.taggable.name, { link: "/admin/page_metadata/#{m.id}/edit" } )
-  end
+  #seo << Tree::TreeNode.new('Метатеги', { link: '/admin/page_metadata' } )
+  #seo_metatags = seo['Метатеги']
+  #PageMetadata.all.each do | m |
+  #  seo_metatags << Tree::TreeNode.new( m.taggable.name, { link: "/admin/page_metadata/#{m.id}/edit" } )
+  #end
 
   seo << Tree::TreeNode.new( 'Головна', { link: '/admin/pages~home_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Про нас', { link: '/admin/pages~about_page/1/edit' } )
@@ -158,6 +158,9 @@ RailsAdmin.config do |config|
   #forms_forms << Tree::TreeNode.new( 'clients', { title: 'Зв’язатись з нами', link: '/admin/form_config/1/edit' } )
   forms_forms << Tree::TreeNode.new( 'request_us', { title: 'Замовити нас', link: '/admin/form_config/2/edit' } )
   forms_forms << Tree::TreeNode.new( 'join_us', { title: 'Приєднатись до нас', link: '/admin/form_config/3/edit' } )
+
+  forms_data = Tree::TreeNode.new( 'order_history', { title: 'Замовити нас - історія', link: '/admin/forms~order' } )
+  forms_data = Tree::TreeNode.new( 'join_us_history', { title: 'Приєднатись до нас - історія', link: '/admin/forms~join_us' } )
 
 
 
