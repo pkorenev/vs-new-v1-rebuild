@@ -77,6 +77,7 @@ class ContactController < ApplicationController
 
     f.save
 
+    @join_us = Forms::JoinUs.new
     render template: 'contact/show'
   end
 
