@@ -386,6 +386,11 @@
             left:120%;
             //top:10%;
           }
+
+
+          @media only screen and (max-width: 959px){
+            top: 0;
+          }
         }
       }
     }
