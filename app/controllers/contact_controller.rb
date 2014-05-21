@@ -84,7 +84,7 @@ class ContactController < ApplicationController
     JoinUsMailer.new_letter(f).deliver
 
     @join_us = Forms::JoinUs.new
-    render template: 'contact/show'
+    #render template: 'contact/show'
   end
 
   def join_us_validate_form
