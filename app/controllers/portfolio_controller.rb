@@ -116,6 +116,7 @@ class PortfolioController < ApplicationController
   def item
 
     @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
+    @static_page_data = @item.static_page_data
 
     if @item.count == 1
       @item = @item.first
