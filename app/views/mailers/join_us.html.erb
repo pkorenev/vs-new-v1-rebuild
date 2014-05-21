@@ -1,3 +1,5 @@
+<% hostname = 'voroninstudio.eu' %>
+
 <h3 class="field-title">name</h3>
 <p>
   <%= @join_us_form.name %>
@@ -15,5 +17,5 @@
 
 <br/>
 <p class="link-in-admin-panel">
-  <%= link_to( 'in admin panel', @hostname ) %>
+  <%= link_to( 'in admin panel', "http://#{hostname}/admin/forms~order/1/show" ) %>
 </p>
