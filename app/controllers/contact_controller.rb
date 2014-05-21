@@ -77,6 +77,7 @@ class ContactController < ApplicationController
     f.text = params['message']
 
     f.save
+    render inline: f.portfolio.inspect
 
     #@hostname = request.inspect
 
