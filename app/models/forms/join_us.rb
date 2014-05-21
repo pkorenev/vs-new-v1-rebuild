@@ -6,5 +6,7 @@ class Forms::JoinUs < ActiveRecord::Base
   attr_accessible :portfolio
   attr_accessible :text
 
-  
+  has_attached_file :portfolio
+
+
 end
