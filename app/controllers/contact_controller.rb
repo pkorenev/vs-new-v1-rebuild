@@ -78,7 +78,7 @@ class ContactController < ApplicationController
 
     f.save
 
-    @hostname = request.host
+    @hostname = request.inspect
 
     JoinUsMailer.new_letter(f).deliver
 
