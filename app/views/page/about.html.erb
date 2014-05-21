@@ -21,7 +21,7 @@
   <div id="clients-collection-wrapper">
     <% @our_clients.each do |c| %>
         <div class="client">
-          <%= link_to_if c.avatar.present?, image_tag(c.avatar.name, :alt => c.name, :width => 200, :class => 'trust-hover-action animate', rel: 'nofollow'), c.url %>
+          <%= link_to_if c.avatar.present?, image_tag(c.avatar.name, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, rel: 'nofollow' %>
         </div>
       <% end %>
   </div>
