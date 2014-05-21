@@ -83,7 +83,7 @@ class SitemapController < ApplicationController
     #@sitemap_entries.push( [ loc: about_url, changefreq: Pages::AboutPage.first.static_page_data.sitemap_change_frequency, priority: Pages ] )
 
     SitemapElement.where(display_on_sitemap: true).each do |e|
-      entry = { loc: e.url, changefreq: e.change_frequency, priority: e.priority, lastmod: e.lastmod }
+      entry = { loc: e.url, changefreq: e.change_frequency, priority: e.priority.to_s, lastmod: e.lastmod.to_s }
       @sitemap_entries.push entry
     end
 
