@@ -12,5 +12,17 @@ class SitemapElement < ActiveRecord::Base
 
 
 
+  rails_admin do
+    edit do
+      attr_accessible :path
+      attr_accessible :url do
+        readonly true
+      end
+      attr_accessible :changefreq
+      attr_accessible :priority
+      attr_accessible :lastmod
+    end
+  end
+
 
 end
