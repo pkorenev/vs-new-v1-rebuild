@@ -153,14 +153,17 @@ RailsAdmin.config do |config|
 
 
   forms = root['forms']
-  forms_forms = Tree::TreeNode.new( 'clients', { title: 'Всі форми', link: '/admin/form_config' } )
-  forms << forms_forms
+  forms_config = Tree::TreeNode.new( 'forms_config', { title: 'Налаштування', link: '/admin/form_config' } )
+  forms << forms_config
   #forms_forms << Tree::TreeNode.new( 'clients', { title: 'Зв’язатись з нами', link: '/admin/form_config/1/edit' } )
-  forms_forms << Tree::TreeNode.new( 'request_us', { title: 'Замовити нас', link: '/admin/form_config/2/edit' } )
-  forms_forms << Tree::TreeNode.new( 'join_us', { title: 'Приєднатись до нас', link: '/admin/form_config/3/edit' } )
+  forms_config << Tree::TreeNode.new( 'request_us', { title: 'Замовити нас', link: '/admin/form_config/2/edit' } )
+  forms_config << Tree::TreeNode.new( 'join_us', { title: 'Приєднатись до нас', link: '/admin/form_config/3/edit' } )
 
-  forms_data = Tree::TreeNode.new( 'order_history', { title: 'Замовити нас - історія', link: '/admin/forms~order' } )
-  forms_data = Tree::TreeNode.new( 'join_us_history', { title: 'Приєднатись до нас - історія', link: '/admin/forms~join_us' } )
+  forms_history = Tree::TreeNode.new( 'forms_history', { title: 'Історія', link: false } )
+  forms << forms_history
+
+  forms_history << Tree::TreeNode.new( 'order_history', { title: 'Замовити нас - історія', link: '/admin/forms~order' } )
+  forms_history << Tree::TreeNode.new( 'join_us_history', { title: 'Приєднатись до нас - історія', link: '/admin/forms~join_us' } )
 
 
 
