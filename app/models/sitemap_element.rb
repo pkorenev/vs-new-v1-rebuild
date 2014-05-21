@@ -17,7 +17,7 @@ class SitemapElement < ActiveRecord::Base
     edit do
       field :path
       field :url do
-        readonly true
+        read_only true
       end
       field :changefreq
       field :priority
