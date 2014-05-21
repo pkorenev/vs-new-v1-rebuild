@@ -5,6 +5,7 @@ class StaticPageData < ActiveRecord::Base
   #attr_accessible :meta_keyword_list
   attr_accessible :meta_keywords
 
+
   attr_accessible :url
   attr_accessible :body_title
   attr_accessible :head_title
