@@ -2,6 +2,8 @@ StudioVoronin::Application.routes.draw do
 
   get '/test', to: 'test#media_queries'
 
+  get 'sitemap.xml', to: 'sitemap#index'
+
 
   # Portfolio routes
   get '/portfolio', to: 'portfolio#index', :as => 'portfolio'
