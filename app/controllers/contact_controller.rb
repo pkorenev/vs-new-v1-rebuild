@@ -77,7 +77,7 @@ class ContactController < ApplicationController
     f.text = params['message']
 
     f.save
-    render inline: params.inspect
+    render inline: params['forms_join_us']['portfolio'].inspect
 
     #@hostname = request.inspect
 
