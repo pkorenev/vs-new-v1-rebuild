@@ -1,0 +1,19 @@
+<h3 class="field-title">name</h3>
+<p>
+  <%= @join_us_form.name %>
+</p>
+<h3 class="field-title">phone</h3>
+<p><%= @join_us_form.phone %></p>
+<h3 class="field-title">email:</h3>
+<p><%= @join_us_form.email %></p>
+<h3 class="field-title">role:</h3>
+<p><%= @join_us_form.role %></p>
+<h3 class="field-title">portfolio</h3>
+<p><%= link_to( 'portfolio', @join_us_form.portfolio.url) %></p>
+<h3 class="field-title">text:</h3>
+<p><%= @join_us_form.text %></p>
+
+<br/>
+<p class="link-in-admin-panel">
+  <%= link_to( 'in admin panel', request.host ) %>
+</p>

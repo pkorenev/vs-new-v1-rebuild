@@ -36,6 +36,7 @@ class ContactController < ApplicationController
     f.email = params['email']
     f.money = params['money']
     f.text = params['message']
+    f.save
 
 
     OrderMailer.new_letter(f).deliver
@@ -70,9 +71,11 @@ class ContactController < ApplicationController
     f.phone = params['phone']
     #f.organization_name = params['organization_name']
     f.email = params['email']
-    f.attachment = params['attachment']
-    f.vacancy = params['vacancy']
+    f.portfolio = params['attachment']
+    f.role = params['vacancy']
     f.text = params['message']
+
+    f.save
 
     render template: 'contact/show'
   end
