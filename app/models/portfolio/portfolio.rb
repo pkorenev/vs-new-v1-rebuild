@@ -37,6 +37,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
 
 
+
   attr_accessor :delete_thanks_image
 
   has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
@@ -50,13 +51,21 @@ class Portfolio::Portfolio < ActiveRecord::Base
   validates_associated :portfolio_category
 
   # Before validate generate friendly url
-  before_validation :generate_slug
+  before_validation :generate_slug, :generate_title
 
   def generate_slug
     self.slug ||= name.parameterize
   end
 
+  def generate_title
+    self.title ||= name
+  end
+
+
+
   attr_accessible :slug
+
+
 
 
 
