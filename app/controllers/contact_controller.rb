@@ -38,6 +38,7 @@ class ContactController < ApplicationController
     f.text = params['message']
     f.save
 
+    @hostname = request.host
 
     OrderMailer.new_letter(f).deliver
 
@@ -76,6 +77,8 @@ class ContactController < ApplicationController
     f.text = params['message']
 
     f.save
+
+    @hostname = request.host
 
     JoinUsMailer.new_letter(f).deliver
 
