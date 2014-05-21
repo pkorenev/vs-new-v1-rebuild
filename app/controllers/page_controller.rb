@@ -122,14 +122,25 @@ class PageController < ApplicationController
     @article ||= Article.find_by_slug(params[:id])
 
 
-    if @article.count == 1
-      @article = @article.first
+    if @article
+      if @article.count && @article.count > 0
+        @article = @article.first
+
+
+
+      end
+
+      @static_page_data = @article.static_page_data
+
+      @related_articles = get_related_articles(@article)
+
+
     end
-    @static_page_data = @article.static_page_data
 
 
 
-    @related_articles = get_related_articles(@article)
+
+
   end
 
   def articles_by_tags
