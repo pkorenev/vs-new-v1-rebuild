@@ -4,6 +4,8 @@ StudioVoronin::Application.routes.draw do
 
   get 'sitemap.xml', to: 'sitemap#index'
 
+  get 'googleb4007362349b57e0.html', to: 'google_analytics#confirm'
+
 
   # Portfolio routes
   get '/portfolio', to: 'portfolio#index', :as => 'portfolio'
