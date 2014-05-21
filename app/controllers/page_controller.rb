@@ -68,6 +68,7 @@ class PageController < ApplicationController
 
     if @page_data
       @static_page_data = @page_data.static_page_data
+
     end
   end
 
@@ -120,6 +121,10 @@ class PageController < ApplicationController
   def article_item
     @article ||= Article.find_by_slug(params[:id])
 
+
+    if @article.count == 1
+      @article = @article.first
+    end
     @static_page_data = @article.static_page_data
 
 
