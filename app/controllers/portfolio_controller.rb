@@ -116,13 +116,14 @@ class PortfolioController < ApplicationController
   def item
 
     @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
-    @static_page_data = @item.static_page_data
+
 
     if @item.count == 1
       @item = @item.first
     end
 
     if @item
+      @static_page_data = @item.static_page_data
       query = "SELECT p.id FROM portfolios p WHERE p.published = 't' ORDER BY p.portfolio_category_id, p.release asc"
       result = ActiveRecord::Base.connection.execute(query)
       arr = []
