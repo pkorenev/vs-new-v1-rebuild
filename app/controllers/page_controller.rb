@@ -123,8 +123,10 @@ class PageController < ApplicationController
 
 
     if @article
-      if @article.count && @article.count > 0
-        @article = @article.first
+      if @article.methods.include? :count
+        if @article.count > 0
+          @article = @article.first
+        end
 
 
 
