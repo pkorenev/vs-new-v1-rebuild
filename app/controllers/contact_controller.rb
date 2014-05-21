@@ -80,11 +80,12 @@ class ContactController < ApplicationController
     #render inline: params['forms_join_us']['portfolio'].inspect
 
     #@hostname = request.inspect
+    flash[:submitted] = "Your message was successfully submitted"
 
     JoinUsMailer.new_letter(f).deliver
 
     @join_us = Forms::JoinUs.new
-    #render template: 'contact/show'
+    render template: 'contact/show'
   end
 
   def join_us_validate_form

@@ -1,5 +1,6 @@
 <article class="body-contacts" id="join-us-wrapper"  <% if( @section == :join_us ) %>style="display: block;" <% else %>style="display: none;" <% end %> >
   <div class="contact-us-wrapper">
+    <% if !flash[:submitted]  %>
     <% if 1 == 2 %><form id="join-us-form" method="post" action="/join-us" multipart="true" ><% end %>
     <%= form_for @join_us, url: join_us_path, html: { multipart: true } do |f| %>
       <div class="group-1-and-reference">
@@ -71,11 +72,15 @@
 
     <% if 1 == 2 %></form><% end %>
 
+
+
     <div id="order-form-waiting" class="form-waiting">
       <img src="/assets/ajax-loader.gif" >
     </div>
 
-    <div id="join-us-form-success-alert" class="form-success-alert">
+    <% end %>
+
+    <div id="join-us-form-success-alert" class="form-success-alert" <% if flash[:submitted] %>style="display: block;"<% end %> >
       <span class="h1">Ваш запит відправлено!</span>
       <p>Дякуємо за проявлений інтерес до студії.
         В разі зацікавленості ми обов'язково зв'яжемося з вами.<br/>
