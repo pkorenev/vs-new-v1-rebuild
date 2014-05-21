@@ -1,3 +1,4 @@
+<% hostname = 'voroninstudio.eu' %>
 name: <%= @order.name %>
 phone: <%= @order.phone %>
 organization_name: <%= @order.organization_name %>
@@ -8,5 +9,5 @@ text: <%= @order.text %>
 
 <br/>
 <p class="link-in-admin-panel">
-  <%= link_to( 'in admin panel', @hostname ) %>
+  <%= link_to( 'in admin panel', "http://#{hostname}/admin/forms~order/1/show" ) %>
 </p>
