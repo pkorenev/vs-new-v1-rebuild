@@ -2,6 +2,7 @@ class SitemapElement < ActiveRecord::Base
   belongs_to :static_page_data
   attr_accessible :static_page_data, :static_page_data_id
 
+  attr_accessible :display_on_sitemap
   attr_accessible :path
   attr_accessible :url
   attr_accessible :changefreq
@@ -28,6 +29,7 @@ class SitemapElement < ActiveRecord::Base
 
   rails_admin do
     edit do
+      field :display_on_sitemap
       field :path
       field :url do
         read_only true
