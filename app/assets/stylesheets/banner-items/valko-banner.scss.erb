@@ -21,7 +21,7 @@
 
 
 #home-banner-outer .slider #slide-valko{
-  background: url('/assets/banners/ii-v2/bg-main.jpg') repeat-x #03C3E8;
+  background: url( <%= asset_path('banners/ii-v2/bg-main.jpg') %> ) repeat-x #03C3E8;
 
   .layer{
     &.description{
@@ -120,7 +120,7 @@
     }
 
     &.ii-crystal-blured-medium{
-      background-image: url(/assets/banners/valko/vs-maimban-valko-2.png);
+      background-image: url( <%= asset_path('banners/valko/vs-maimban-valko-2.png') %> );
       &.final-position, &.display-slide{
 
         top:17%;
@@ -137,7 +137,7 @@
     }
 
     &.ii-crystal-main{
-      background-image: url(/assets/banners/valko/vs-maimban-valko-1.png);
+      background-image: url( <%= asset_path('banners/valko/vs-maimban-valko-1.png') %> );
 
 
       z-index: 1;
@@ -160,7 +160,7 @@
 
     &.ii-crystal-medium{
       display: none !important;
-      background-image: url(/assets/banners/ii-v2/right-middle.png);
+      background-image: url( <%= asset_path('banners/ii-v2/right-middle.png') %> );
 
       &.final-position, &.display-slide{
         top:-27%;
@@ -177,7 +177,7 @@
     }
 
     &.ii-crystal-blured-small{
-      background-image: url(/assets/banners/valko/vs-maimban-valko-3.png);
+      background-image: url( <%= asset_path('banners/valko/vs-maimban-valko-3.png') %> );
       &.final-position, &.display-slide{
         top:50%;
         left:39%;
@@ -191,7 +191,7 @@
     }
 
     &.ii-crystal-blured-big{
-      background-image: url(/assets/banners/valko/vs-maimban-valko-4.png);
+      background-image: url(<%= asset_path('banners/valko/vs-maimban-valko-4.png') %> );
       &.final-position, &.display-slide{
         top:59.5%;//valko
         left:60%;

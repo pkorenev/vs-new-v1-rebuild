@@ -1,5 +1,5 @@
 #home-banner-outer .slider #slide-g3k{
-  background: url('/assets/banners/g3k/vs-main-g3k-bg-1.jpg') repeat-x #404040;
+  background: url(<%= asset_path('banners/g3k/vs-main-g3k-bg-1.jpg') %>) repeat-x #404040;
 
   .layer{
     &.description{
@@ -21,7 +21,7 @@
     }
 
     &.g3k-left-arrow{
-      background-image: url(/assets/banners/g3k/vs-main-g3k-2.png);
+      background-image: url( <%= asset_path('banners/g3k/vs-main-g3k-2.png') %> );
       &.final-position, &.display-slide{
         left: -5.2%;
         top: 40%;
@@ -35,7 +35,7 @@
     }
 
     &.g3k-letter{
-      background-image: url(/assets/banners/g3k/vs-main-g3k-1a.png);
+      background-image: url( <%= asset_path('banners/g3k/vs-main-g3k-1a.png') %>);
 
 
 
@@ -58,7 +58,7 @@
     }
 
     &.g3k-top-center-arrow{
-      background-image: url(/assets/banners/g3k/vs-main-g3k-3.png);
+      background-image: url(<%= asset_path( 'banners/g3k/vs-main-g3k-3.png' ) %> );
       opacity: 0.6;
 
       &.final-position, &.display-slide{
@@ -76,7 +76,7 @@
     }
 
     &.g3k-letter-arrow{
-      background-image: url(/assets/banners/g3k/vs-main-g3k-1b.png);
+      background-image: url( <%= asset_path('banners/g3k/vs-main-g3k-1b.png') %> );
 
       &.final-position, &.display-slide{
         //top:50%;
@@ -94,7 +94,7 @@
     }
 
     &.g3k-bottom-right-arrow{
-      background-image: url(/assets/banners/g3k/vs-main-g3k-4.png);
+      background-image: url( <%= asset_path('banners/g3k/vs-main-g3k-4.png') %> );
       &.final-position, &.display-slide{
         top:65%;
         left:60%;
