@@ -102,7 +102,7 @@
         <% if item.portfolio_category %>
           <div class="g4 portfolio-item <%= item.portfolio_category.url %><%= ( @active_category && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
             <figure class="myclass">
-              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.name, class: 'grayscale' ), '/portfolio/'+item.portfolio_category.url+'/' +item.slug, title: item.name ) %>
+              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.name, class: 'grayscale' ), '/portfolio/'+item.portfolio_category.url+'/' +item.slug, title: item.name, html: { :'data-no-turbolink' => '' } ) %>
             </figure>
           </div>
         <% end %>
