@@ -7,7 +7,7 @@ module FacebookHelper
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
                 js = d.createElement(s); js.id = id;
-                js.src = '//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=268725039814798';
+                js.src = '//connect.facebook.net/uk_UA/all.js#xfbml=1&appId=268725039814798';
                 fjs.parentNode.insertBefore(js, fjs);
                 }(document, 'script', 'facebook-jssdk'));</script>"
 
