@@ -162,7 +162,7 @@
       <% @other_projects.each do |project| %>
         <li class="carousel-item">
           <figure>
-            <a href="<%= project.slug %>">
+            <a href="<%= project.slug %>" data-no-turbolink="" >
               <img class="grayscale" src="<%= project.avatar.url(:non_retina) %>" />
             </a>
           </figure>
