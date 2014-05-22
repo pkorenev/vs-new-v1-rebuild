@@ -42,6 +42,12 @@
           }
         }
 
+        #main-description{
+          @media only screen and (max-width: $mobile_menu_screen_max_width){
+            display: none;
+          }
+        }
+
         #main-description-copy{
           overflow: hidden;
           height: 0;
@@ -69,8 +75,8 @@
 
           @media(max-width: $mobile_menu_screen_max_width){
             //width: 100%;
-            height: 0;
-            overflow: hidden;
+            //height: 0;
+            //overflow: hidden;
           }
 
           #main-greetings{
