@@ -10,7 +10,7 @@ $(document).on('ready page:load', function() {
             href: original_href + '?iframe=true',
             padding: 0,
             width: 1100,
-            height: 746,
+            //height: 746,
             autoHeight: true,
             closeBtn: false,
             overlayOpacity: '0.4',
@@ -47,6 +47,13 @@ $(document).on('ready page:load', function() {
                 $iframe = $('.fancybox-iframe')
                 $iframe_body = $iframe.contents().find('body')
                 $iframe_body_wrapper = $iframe_body.find('#wrapper')
+
+
+                wrapper_height = $iframe_body_wrapper.height()
+
+                $('.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-iframe').css({
+                    height: '' + wrapper_height + 'px'
+                });
 
                 $iframe_contact_header = $iframe_body.find('.contact-header')
                 $tabs = $iframe_contact_header.find('[id*=tab]')
