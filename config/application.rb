@@ -29,6 +29,8 @@ module StudioVoronin
 
     config.assets.precompile += %w(footer-get-top.jpg behance_footer.jpg)
 
+    config.assets.precompile += %w(favicon.ico)
+
     config.assets.compile = true
   end
 end
