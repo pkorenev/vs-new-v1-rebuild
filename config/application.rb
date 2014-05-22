@@ -31,6 +31,10 @@ module StudioVoronin
 
     config.assets.precompile += %w(favicon.ico)
 
+    # add banners images
+    config.assets.precompile += %w(banners/valko banners/czmk banners/g3k)
+
+
     config.assets.compile = true
   end
 end
