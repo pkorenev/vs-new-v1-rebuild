@@ -136,7 +136,7 @@ $(document).on('ready page:load',function(){
 
 
                 $description.removeClass('final-position').addClass('display-slide');
-                $description.delay(1000).switchClass('display-slide','final-position',{duration:3000,easing:'easeOutExpo',});
+                $description.delay(1000).switchClass('display-slide','final-position',{duration:3000,easing:'easeOutExpo'});
                 //$description.removeClass('display-slide').addClass('final-position');
 
                 $crystal_blured_medium.removeClass('final-position').addClass('display-slide');

@@ -46,16 +46,18 @@ $(document).on('ready page:load', function() {
 
     var $wrapper = $('#wrapper')
 
-    $body.niceScroll({
-        scrollspeed: 60,
-        mousescrollstep: 40,
+    /*$body_nicescroll = $body.niceScroll({
+        scrollspeed: 0,
+        mousescrollstep: 10,
         cursorwidth: 15,
         cursorborder: 0,
         cursorcolor: '#2D3032',
         cursorborderradius: 6,
         autohidemode: false,
         horizrailenabled: false
-    });
+    });*/
+
+
 
 
 
@@ -163,55 +165,61 @@ $(document).on('ready page:load', function() {
     //$('#home-banner-outer').insertAfter('#header-outer')
     //$('#portfolio-banner-outer').insertAfter('#header-outer')
 
-    $body.niceScroll().scrollstart(function(info){
-        console.log('checkHeaderSize(): niceScroll().scrollstart: end.y='+info.end.y)
-        console.log(info)
-        //var current_header_height = $header_wrapper.height()
-        //var header_height = 95
-        //var scroll_top = $body.scrollTop()
-        var scroll_top = info.end.y
+
+    if( typeof $body_nicescroll != 'undefined' && $body_nicescroll ) {
+
+        $('html').addClass('has-nicescroll')
+
+        $body_nicescroll.scrollstart(function (info) {
+            console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + info.end.y)
+            console.log(info)
+            //var current_header_height = $header_wrapper.height()
+            //var header_height = 95
+            //var scroll_top = $body.scrollTop()
+            var scroll_top = info.end.y
 
 
-        if(scroll_top > 100){
+            if (scroll_top > 100) {
 
-            if(!$body.hasClass('header-compact-height')){
-                $body.addClass('header-compact-height')
+                if (!$body.hasClass('header-compact-height')) {
+                    $body.addClass('header-compact-height')
+                }
             }
-        }
-        else{
-            if($body.hasClass('header-compact-height')){
-                $body.removeClass('header-compact-height')
+            else {
+                if ($body.hasClass('header-compact-height')) {
+                    $body.removeClass('header-compact-height')
+                }
             }
-        }
 
 
+            homeBannerOnScroll(info)
+            portfolioBannerOnScroll(info)
+        })
 
-        homeBannerOnScroll(info)
-        portfolioBannerOnScroll(info)
-    })
+        $body_nicescroll.scrollend(function (info) {
+            console.log('checkHeaderSize(): niceScroll().scrollend: end.y=' + info.end.y)
 
-    $body.niceScroll().scrollend(function(info){
-        console.log('checkHeaderSize(): niceScroll().scrollend: end.y='+info.end.y)
-
-        var scroll_top = info.end.y
+            var scroll_top = info.end.y
 
 
-        if(scroll_top > 100){
+            if (scroll_top > 100) {
 
-            if(!$body.hasClass('header-compact-height')){
-                $body.addClass('header-compact-height')
+                if (!$body.hasClass('header-compact-height')) {
+                    $body.addClass('header-compact-height')
+                }
             }
-        }
-        else{
-            if($body.hasClass('header-compact-height')){
-                $body.removeClass('header-compact-height')
+            else {
+                if ($body.hasClass('header-compact-height')) {
+                    $body.removeClass('header-compact-height')
+                }
             }
-        }
 
 
-        homeBannerOnScroll(info)
-        portfolioBannerOnScroll(info)
-    })
+            homeBannerOnScroll(info)
+            portfolioBannerOnScroll(info)
+        })
+
+    }
 
 
     // fix sticky footer when js enabled

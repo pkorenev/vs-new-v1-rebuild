@@ -72,7 +72,7 @@ $(document).on('ready page:load', function(){
 
     $('div#other-projects').each(function(){
 
-        $('#other-projects a').BlackAndWhite({
+        /*$('#other-projects a').BlackAndWhite({
             hoverEffect : true, // default true
             // set the path to BnWWorker.js for a superfast implementation
             webworkerPath : false,
@@ -89,7 +89,7 @@ $(document).on('ready page:load', function(){
             onImageReady:function(img) {
               // this callback gets executed anytime an image is converted
             }
-        });
+        });*/
 
           //carousel('.carousel-wrapper');
 

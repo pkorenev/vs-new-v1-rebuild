@@ -47,7 +47,7 @@ $('#home-portfolio, #portfolio-index').each(function(){
     
 
   //$(window).load(function(){
-    $('.portfolio-item a').BlackAndWhite({
+    /*$('.portfolio-item a').BlackAndWhite({
         hoverEffect : true, // default true
         // set the path to BnWWorker.js for a superfast implementation
         webworkerPath : false,
@@ -64,7 +64,7 @@ $('#home-portfolio, #portfolio-index').each(function(){
         onImageReady:function(img) {
           // this callback gets executed anytime an image is converted
         }
-    });
+    });*/
   }
 //});
 initPortfolioItems();

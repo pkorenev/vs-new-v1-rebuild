@@ -1,83 +1,90 @@
-<!DOCTYPE html>
-<html style="height:auto !imoportant;overflow:visible !important;" prefix="og: http://ogp.me/ns#" class="no-js <%= params[:controller] %>-controller <%= params[:action] %>-action" >
-<head role="main">
-
-  <% if @static_page_data %>
-      <title><%= @static_page_data.head_title %></title>
-      <meta name="keywords" content="<%= @static_page_data.meta_keywords %>" />
-      <meta name="description" content="<%= @static_page_data.meta_description %>" />
-  <% end %>
 
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <% if 1 == 2 %>
-  <meta property="fb:admins" content="vik.ewoods" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
-  <meta property="og:image" content="http://<%= request.host+'/assets/banner1.jpg' %>" />
-  <meta property="og:description" content="<%= yield :meta_description %>" />
-  <meta property="og:locale" content="uk_UA" />
-  <meta property="og:locale:alternate" content="en_GB" />
-  <% end %>
+  <!DOCTYPE html>
+  <html style="height:auto !imoportant;overflow:visible !important;" prefix="og: http://ogp.me/ns#" class="no-js <%= params[:controller] %>-controller <%= params[:action] %>-action" >
+  <head role="main">
 
-  <meta name="viewport" content="width=device-width">
-  <meta name="viewport" content="initial-scale=1">
-  <meta name="viewport" content="maximum-scale=1">
+    <% if @static_page_data %>
+        <title><%= @static_page_data.head_title %></title>
+        <meta name="keywords" content="<%= @static_page_data.meta_keywords %>" />
+        <meta name="description" content="<%= @static_page_data.meta_description %>" />
+    <% end %>
 
-  <link rel="shortcut icon" href="<%= asset_path( 'favicon.ico' ) %>">
 
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <%= stylesheet_link_tag    "application" %>
+    <% if 1 == 2 %>
+        <meta property="fb:admins" content="vik.ewoods" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
+        <meta property="og:image" content="http://<%= request.host+'/assets/banner1.jpg' %>" />
+        <meta property="og:description" content="<%= yield :meta_description %>" />
+        <meta property="og:locale" content="uk_UA" />
+        <meta property="og:locale:alternate" content="en_GB" />
+    <% end %>
 
-  <script type="text/javascript">
-      //jQuery('html').removeClass('no-js');
-      var html_element = document.getElementsByTagName('html')[0];
-      var list=html_element.classList;
-      list.remove('no-js');
-      html_element.attributes['class'] = list.toString();
-  </script>
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="viewport" content="maximum-scale=1">
 
-  <!--
+    <link rel="shortcut icon" href="<%= asset_path( 'favicon.ico' ) %>">
 
-   -->
-  <%= javascript_include_tag "application",  'data-turbolinks-track' => true, 'data-turbolinks-eval' => false  %>
+    <%= csrf_meta_tags %>
 
-  <!-- sticky footer fix for IE version <=6 and >=8 -->
+    <%= stylesheet_link_tag    "app" %>
 
-  <!--[if !IE 7]>
-  <style type="text/css">
-      #wrap {display:table;height:100%}
-  </style>
-  <![endif]-->
+    <script type="text/javascript">
+        //jQuery('html').removeClass('no-js');
+        var html_element = document.getElementsByTagName('html')[0];
+        var list=html_element.classList;
+        list.remove('no-js');
+        html_element.attributes['class'] = list.toString();
+    </script>
 
-  <!-- end -->
+    <!--
 
-</head>
-<body  role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>" >
-<div id="wrapper">
+     -->
+
+
+    <!-- sticky footer fix for IE version <=6 and >=8 -->
+
+    <!--[if !IE 7]>
+    <style type="text/css">
+        #wrap {display:table;height:100%}
+    </style>
+    <![endif]-->
+
+    <!-- end -->
+
+  </head>
+  <body  role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>" >
+  <div id="wrapper">
     <div id="main">
-        <%= render :partial => 'partials/menu' %>
+      <%= render :partial => 'partials/menu' %>
 
-        <% if params[:controller] == 'page' && params[:action] == 'index' %>
+      <% if params[:controller] == 'page' && params[:action] == 'index' %>
           <%= render :partial => 'partials/bjqs' %>
-        <% end %>
+      <% end %>
 
       <% if params[:controller] == 'portfolio' && params[:action] == 'item' %>
           <%= render partial: 'partials/portfolio_banner' %>
       <% end %>
 
-        <div id="page-content">
-          <%= yield %>
-        </div>
+      <div id="page-content">
+        <%= yield %>
+      </div>
     </div>
 
-</div>
-<%= render :partial => 'partials/footer' %>
+  </div>
+  <%= render :partial => 'partials/footer' %>
 
-<%= render partial: 'partials/ga' %>
 
-</body>
-</html>
+  <%= render partial: 'partials/ga' %>
+  <%# javascript_include_tag "application"  %>
+  <%= javascript_include_tag "application",  'data-turbolinks-track' => true, 'data-turbolinks-eval' => false  %>
+
+  </body>
+  </html>
+

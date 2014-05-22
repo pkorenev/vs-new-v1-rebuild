@@ -1,3 +1,8 @@
+$mobile_menu_screen_max_width: 824px; // 959
+$desktop_menu_screen_min_width: 825px; // 960
+
+$media_max_width:4600px;
+
 #wrap-banner{
   overflow: hidden;
   background: #f3f3f3;
@@ -31,7 +36,7 @@
       //padding-top:70%;
     }
 
-    @media(max-width:$mobile_menu_screen_max_width){
+    @media(max-width: $mobile_menu_screen_max_width){
       padding-top:100%;
     }
 

@@ -35,61 +35,59 @@ html, body {
 
 /* custom -scroll */
 
-.js{
-
-  .nicescroll-rails{
-    width: 10px !important;
-    background-color: #666 !important;
-    left: auto !important;
-    right: 0 !important;
-    z-index: 100 !important;
-    position: fixed;
-    height: 100%;
-
-    & > div{
+.js {
+  &.has-nicescroll {
+    .nicescroll-rails {
       width: 10px !important;
-      border-radius: 0 !important;
-      background-color: red;
-      position: relative;
+      background-color: #666 !important;
+      left: auto !important;
+      right: 0 !important;
+      z-index: 100 !important;
+      position: fixed;
+      height: 100%;
+
+      & > div {
+        width: 10px !important;
+        border-radius: 0 !important;
+        background-color: red;
+        position: relative;
+      }
     }
-  }
 
+    &.no-touch {
+      @media(min-width: $desktop_menu_screen_min_width) {
+        #header-outer {
+          -webkit-transition: height 0.5s;
+          -moz-transition: height 0.5s;
+          -ms-transition: height 0.5s;
+          -o-transition: height 0.5s;
+          transition: height 0.5s;
 
-  &.no-touch{
-    @media(min-width: $desktop_menu_screen_min_width){
-      #header-outer{
-        -webkit-transition: height 0.5s;
-        -moz-transition: height 0.5s;
-        -ms-transition: height 0.5s;
-        -o-transition: height 0.5s;
-        transition: height 0.5s;
+          #header-holder {
+            padding-right: 10px;
+          }
+        }
 
-        #header-holder{
+        #banner-container {
+          //-webkit-transition: margin 0.2s;
+          //-moz-transition: margin 0.2s;
+          //-ms-transition: margin 0.2s;
+          //-o-transition: margin 0.2s;
+          //transition: margin 0.2s;
+        }
+
+        #main-scroller {
+          right: -15px !important;
+          overflow: hidden;
+        }
+        #main-scroller-content {
           padding-right: 10px;
         }
-      }
 
-      #banner-container{
-        //-webkit-transition: margin 0.2s;
-        //-moz-transition: margin 0.2s;
-        //-ms-transition: margin 0.2s;
-        //-o-transition: margin 0.2s;
-        //transition: margin 0.2s;
       }
-
-      #main-scroller{
-        right: -15px !important;
-        overflow: hidden;
-      }
-      #main-scroller-content{
-        padding-right: 10px;
-      }
-
-
     }
   }
 }
-
 
 /* custom -scroll end */
 

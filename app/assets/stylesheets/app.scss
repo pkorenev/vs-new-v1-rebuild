@@ -1,6 +1,24 @@
-@import "config";
+/*
+*= require fancybox
+*= require jquery.ui.all
+*= require_self
+*/
+
+$mobile_menu_screen_max_width: 824px; // 959
+$desktop_menu_screen_min_width: 825px; // 960
+
+$media_max_width:4600px;
+
+//@import 'fancybox';
+//@import "jquery.ui.all";
+
+@import "_config";
+
+$header-color: $text-pink-color;
+
+
 @import "custom_grid/normalize";
-@import "basic";
+@import "_basic";
 @import "font-face";
 @import "custom_grid/mixin-grid960";
 
@@ -9,7 +27,7 @@
 
 
 
-@import "custom_grid/layout";
+@import "custom_grid/_layout";
 
 @import "z_index";
 
@@ -27,14 +45,14 @@
 @import "fancybox-contact";
 
 @import "pages/index";
-@import "page";
+@import "_page";
 
 @import "pages/about";
 @import "pages/service";
 @import "pages/articles";
 @import "pages/article-item";
 
-@import "portfolio";
+@import "_portfolio";
 
 @import "partials/portfolio_invitation";
 
@@ -53,13 +71,13 @@
 //@import "timeline";
 
 
-@import "ckeditor-sections";
+@import "_ckeditor-sections";
 
 
 
 // partials
 @import "sprites";
-@import "banners";
+@import "_banners";
 
 @import "banner-items/valko-banner";
 @import "banner-items/slide-g3k";
@@ -76,4 +94,7 @@
 
 
 
-@import "brand-style";
+@import "_brand-style";
+
+
+//@charset "utf-8";

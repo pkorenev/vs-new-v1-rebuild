@@ -21,7 +21,14 @@ module StudioVoronin
     config.i18n.default_locale = :ru
 
     #config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile = []
     config.assets.precompile += Ckeditor.assets
-    config.assets.precompile += %w( zoomico.png contact-compiler.css jquery.js )
+    config.assets.precompile += %w(app.css application.js zoomico.png jquery.js )
+    config.assets.precompile += %w(voronin-studio-logo.png)
+    config.assets.precompile += %w(contact-compiler.css contacts-close-button.png)
+
+    config.assets.precompile += %w(footer-get-top.jpg behance_footer.jpg)
+
+    config.assets.compile = true
   end
 end

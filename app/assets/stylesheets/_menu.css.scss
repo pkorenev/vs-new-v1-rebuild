@@ -1,3 +1,6 @@
+@import "config";
+@import "custom_grid/mixin-grid960";
+
 #header-wrapper{
   position: relative;
   -webkit-box-shadow: -4px 0 13px rgba(0,0,0,.75);
