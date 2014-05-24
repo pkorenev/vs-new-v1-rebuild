@@ -1,5 +1,6 @@
 /* custom scroll */
 
+/*
 $html_nicescroll = $html.niceScroll({
  scrollspeed: 60,
  mousescrollstep: 40,
@@ -10,7 +11,7 @@ $html_nicescroll = $html.niceScroll({
  autohidemode: false,
  horizrailenabled: false
  });
-
+*/
 
 
 if( typeof $html_nicescroll != 'undefined' && $html_nicescroll ) {
