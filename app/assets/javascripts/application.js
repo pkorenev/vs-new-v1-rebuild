@@ -34,7 +34,7 @@
 // tree ./layouts
 //= require layouts/application/_scroll
 //= require layouts/application/_topbar
-// _tree ./pages
+//= require_tree ./pages
 
 
 jQuery(document).on('ready page:load', function(){

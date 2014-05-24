@@ -86,5 +86,18 @@ if( typeof $html_nicescroll != 'undefined' && $html_nicescroll ) {
     })
 
 }
+else{
+    jQuery(window).scroll(function(){
+        var scroll_top = $body.scrollTop();
+        var info = { end: { y: scroll_top } }
+
+        if(typeof homeBannerOnScroll == 'function'){
+            homeBannerOnScroll(info)
+        }
+        if(typeof portfolioBannerOnScroll == 'function') {
+            portfolioBannerOnScroll(info)
+        }
+    })
+}
 
 /* custom scroll end */
