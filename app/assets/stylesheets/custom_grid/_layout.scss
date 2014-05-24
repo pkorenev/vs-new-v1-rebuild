@@ -37,6 +37,11 @@ html, body {
 
 .js {
   &.has-nicescroll {
+
+    body{
+      padding-right: 10px;
+    }
+
     .nicescroll-rails {
       width: 10px !important;
       background-color: #666 !important;

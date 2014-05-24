@@ -26,10 +26,34 @@
 //= require fancybox/jquery.fancybox.pack
 //= require jquery.isotope
 //= require jquery.isotope.layout.fit_rows_with_height
-//= require jquery.black_and_white
+// require jquery.black_and_white
 //= require bjqs
 //= require carousel
-//= require initializer
+//= require vars
+// init
+// tree ./layouts
+//= require layouts/application/_scroll
+//= require layouts/application/_topbar
+// _tree ./pages
+
+
+jQuery(document).on('ready page:load', function(){
+
+
+    // custom/layout/scroll
+    // custom/partials/header
+
+
+
+    //= require custom/pages/home
+    //= require custom/partials/home_banner
+    //= require_tree custom/partials/home_banner_slides
+
+})
+
+
+
+// require initializer
 //= require to-top
 //= require portfolio/item
 //= require portfolio-banners
@@ -40,10 +64,10 @@
 //= require partials/menu
 //= require partials/portfolio-tabs
 //= require partials/portfolio-items
-//= require partials/bjqs-init
-//= require partials/slides/slide-valko
-//= require partials/slides/slide-g3k
-//= require partials/slides/slide-czmk
-//= require partials/slides/slide-ii
-//= require partials/slides/slide2
-//= require partials/slides/slide3
+// require partials/bjqs-init
+// require partials/slides/slide-valko
+// require partials/slides/slide-g3k
+// require partials/slides/slide-czmk
+// require partials/slides/slide-ii
+// require partials/slides/slide2
+// require partials/slides/slide3
