@@ -25,14 +25,14 @@ module StudioVoronin
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(app.css application.js zoomico.png jquery.js )
     config.assets.precompile += %w(voronin-studio-logo.png)
-    config.assets.precompile += %w(contact-compiler.css contacts-close-button.png)
+    config.assets.precompile += %w(contact-compiler.css)
 
-    config.assets.precompile += %w(footer-get-top.jpg behance_footer.jpg)
+    #config.assets.precompile += %w(footer-get-top.jpg behance_footer.jpg)
 
-    config.assets.precompile += %w(favicon.ico)
+    #config.assets.precompile += %w(favicon.ico)
 
     # add banners images
-    config.assets.precompile += %w(banners/valko/* banners/czmk/* banners/g3k/* )
+    config.assets.precompile += %w(banners/* static_images/*)
 
 
     config.assets.compile = true
