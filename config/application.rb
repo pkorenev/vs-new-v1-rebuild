@@ -32,7 +32,7 @@ module StudioVoronin
     #config.assets.precompile += %w(favicon.ico)
 
     # add banners images
-    config.assets.precompile += %w(banners/* static_images/*)
+    config.assets.precompile += %w(banners/* static_images/* portfolio/*)
 
 
     config.assets.compile = true

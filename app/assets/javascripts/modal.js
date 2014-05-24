@@ -3,6 +3,7 @@ $(document).on('ready page:load', function() {
 
 
     $(".modal-link").each(function() {
+        console.log('init modal link')
         $link = $(this)
         var original_href = $link.attr('href')
 
@@ -26,10 +27,10 @@ $(document).on('ready page:load', function() {
                 preload: true
             },
             beforeLoad: function () {
-
+                console.log('fancybox before_load')
             },
             afterLoad: function () {
-
+                console.log('fancybox after_load')
             },
             afterClose: function () {
                 $("#contact-form").removeClass("current");
@@ -44,6 +45,7 @@ $(document).on('ready page:load', function() {
             },
 
             aftershow: function(){
+                console.log('fancybox after_show')
                 $iframe = $('.fancybox-iframe')
                 $iframe_body = $iframe.contents().find('body')
                 $iframe_body_wrapper = $iframe_body.find('#wrapper')
@@ -59,6 +61,7 @@ $(document).on('ready page:load', function() {
             },
 
             beforeShow: function () {
+                console.log('fancybox before_show')
                 $iframe = $('.fancybox-iframe')
                 $iframe_body = $iframe.contents().find('body')
                 $iframe_body_wrapper = $iframe_body.find('#wrapper')
