@@ -35,6 +35,7 @@
 //= require portfolio-banners
 //= require portfolio-body-slider
 //= require portfolio-sorting
+//= require jquery.form-validator.min
 //= require modal
 //= require page/index
 //= require partials/menu
