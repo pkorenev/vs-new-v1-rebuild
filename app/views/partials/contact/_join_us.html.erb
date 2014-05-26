@@ -2,7 +2,7 @@
   <div class="contact-us-wrapper">
     <% if !flash[:submitted]  %>
     <% if 1 == 2 %><form id="join-us-form" method="post" action="/join-us" multipart="true" ><% end %>
-    <%= form_for @join_us, url: join_us_path, html: { multipart: true } do |f| %>
+    <%= form_for @join_us, url: join_us_path, html: { multipart: true, id: 'join-us-form' } do |f| %>
       <div class="group-1-and-reference">
         <div id="group-1">
           <div class="contact-form-field field-1">
