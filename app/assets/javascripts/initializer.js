@@ -221,6 +221,34 @@ $(document).on('ready page:load', function() {
 
     }
 
+    else{
+        $(window).scroll(function(){
+            var scroll_top = $('body').scrollTop()
+            console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + scroll_top)
+            //console.log(info)
+
+
+
+
+            if (scroll_top > 100) {
+
+                if (!$body.hasClass('header-compact-height')) {
+                    $body.addClass('header-compact-height')
+                }
+            }
+            else {
+                if ($body.hasClass('header-compact-height')) {
+                    $body.removeClass('header-compact-height')
+                }
+            }
+
+            var info = { end: { y: scroll_top } }
+
+            homeBannerOnScroll(info)
+            portfolioBannerOnScroll(info)
+        })
+    }
+
 
     // fix sticky footer when js enabled
     //$('#header-outer').insertBefore( $('#body-content').children().first() )

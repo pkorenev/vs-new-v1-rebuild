@@ -81,11 +81,12 @@ function initTabs(){
     $tabs.click(function(){
         var $tab = $(this)
         tab_content_id = $tab.attr('data-tab-content-id')
-        var $tab_content = $modal_wrapper.find('#'+tab_content_id)
+        var $tab_contents = $modal_wrapper.find('.body-contacts')
+        var $tab_content = $tab_contents.filter('#'+tab_content_id)
 
 
 
-        $("#order-us-container").hide();
+        $tab_contents.hide();
         $tab_content.show();
 
 
@@ -93,7 +94,7 @@ function initTabs(){
         $tab.addClass("contact-active-tab");
 
 
-        $('#wrapper').addClass('selected-' + $tab.attr('id'))
+        //$('#wrapper').addClass('selected-' + $tab.attr('id'))
     });
 
 
