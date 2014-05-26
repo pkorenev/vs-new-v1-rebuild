@@ -13,7 +13,7 @@ html, body {
 	right: 0px;
 	bottom: 0;	
 	padding-right: 0px;
-	overflow-y: scroll;
+	//overflow-y: scroll;
 }
 
 #main-scroller-content{
@@ -265,7 +265,7 @@ body:before {
 
 /* set body min width */
 #main-scroller-content{
-	min-width:460px;
+	//min-width:460px;
 }
 
 

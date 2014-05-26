@@ -51,13 +51,13 @@
 </script>
 
 <article class="contact-header">
-    <div id="contact-us-tab" class="<%= (@section == :contact)? 'contact-active-tab' : '' %>" title="Зв’язатись з нами">
+    <div id="contact-us-tab" data-url="<%= contact_path %>" data-tab-content-id="contact-us-container" class="<%= (@section == :contact)? 'contact-active-tab' : '' %>" title="Зв’язатись з нами">
       Зв’язатись з нами
     </div>
-    <div id="order-us-tab" title="Замовити нас" class="<%= (@section == :order)? 'contact-active-tab' : '' %>">
+    <div id="order-us-tab" data-url="<%= order_path %>" data-tab-content-id="order-us-container" title="Замовити нас" class="<%= (@section == :order)? 'contact-active-tab' : '' %>">
       Замовити нас
     </div>
-    <div id="join-us-tab" title="Приєднатись до нас" class="<%= (@section == :join_us)? 'contact-active-tab' : '' %>">
+    <div id="join-us-tab" data-url="<%= join_us_path %>" data-tab-content-id="join-us-wrapper" title="Приєднатись до нас" class="<%= (@section == :join_us)? 'contact-active-tab' : '' %>">
       Приєднатись до нас
     </div>
     <div id="close-button" class="modal-cls-btn" title="Закрити вікно">

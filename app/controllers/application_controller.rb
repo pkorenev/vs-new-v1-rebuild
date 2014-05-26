@@ -8,10 +8,17 @@ class ApplicationController < ActionController::Base
   helper_method :get_menu
 
 
-  before_filter :set_mailer_host
+  before_filter :set_mailer_host, :init_modal_form
+
+
 
   def set_mailer_host
     ActionMailer::Base.default_url_options[:host] = request.host_with_port
+  end
+
+  def init_modal_form
+    @join_us = Forms::JoinUs.new
+    @order = Forms::Order.new
   end
 
 

@@ -25,7 +25,7 @@ module StudioVoronin
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(app.css application.js zoomico.png jquery.js )
     config.assets.precompile += %w(voronin-studio-logo.png)
-    config.assets.precompile += %w(contact-compiler.css)
+    #config.assets.precompile += %w(contact-compiler.css)
 
     #config.assets.precompile += %w(footer-get-top.jpg behance_footer.jpg)
 

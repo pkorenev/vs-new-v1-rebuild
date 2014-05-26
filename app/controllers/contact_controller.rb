@@ -9,11 +9,11 @@ class ContactController < ApplicationController
   end
 
   def resolve_layout
-    #if params['iframe']
+    if params['modal'] == 'true'
       'contact_layout'
-    #else
-    #  'application'
-    #end
+    else
+      'application'
+    end
   end
 
 
