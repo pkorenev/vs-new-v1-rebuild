@@ -34,8 +34,12 @@
             <li><a href="http://twitter.com/voroninstudio.eu" title="Наш канал на Twitter"><span class="soc-buttons twitter-icon"></span></a></li>
             <li id="fb-like">
               <div id="fb-like-wrapper">
-                <%= fc_connect %>
-                <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+                <% if 1 == 2 %>
+                    <%= fc_connect %>
+                    <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+                <% else %>
+                    <%= fc_like_frame %>
+                <% end %>
               </div>
             </li>
           </ul>

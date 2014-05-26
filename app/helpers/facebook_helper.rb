@@ -14,4 +14,10 @@ module FacebookHelper
     connect.html_safe
   end
 
+  def fc_like_frame
+    source = '<iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>'
+
+    source.html_safe
+  end
+
 end

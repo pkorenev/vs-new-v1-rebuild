@@ -5,8 +5,12 @@
         <li><a href="https://www.facebook.com/voroninstudio" title="Facebook"><span class="soc-buttons facebook-icon"></span></a></li>
         <li><a href="http://ua.linkedin.com/pub/nick-voronin/5/b61/417" title="Linked In"><span class="soc-buttons linkedin-icon"></span></a></li>
         <li>
-          <%= fc_connect %>
-          <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+          <% if 1 == 2 %>
+            <%= fc_connect %>
+            <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
+          <% else %>
+              <%= fc_like_frame %>
+          <% end %>
         </li>
       </ul>
     </section>
