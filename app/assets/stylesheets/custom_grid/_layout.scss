@@ -229,7 +229,8 @@ $mobile_menu_breakpoint:850;
 }
 
 #main {
-	overflow:auto;
+    overflow-x: hidden;
+	overflow-y:hidden;
 	padding-bottom: ($footer_height)+px; /* must be same height as the footer */
 
 	@media(max-width: ($mobile_menu_breakpoint)+px ){

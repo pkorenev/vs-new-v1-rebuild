@@ -62,7 +62,7 @@ $(document).on('ready page:load', function() {
 
 
     $body.css({
-        paddingRight: '10px'
+        //paddingRight: '10px'
     })
 
 

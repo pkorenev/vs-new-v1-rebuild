@@ -29,6 +29,7 @@
 //= require jquery.black_and_white
 //= require bjqs
 //= require carousel
+//= require social_networks
 //= require initializer
 //= require to-top
 //= require portfolio/item
