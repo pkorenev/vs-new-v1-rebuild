@@ -11,9 +11,12 @@ function loadTwitter() {
 function loadFacebookLike(){
     if ($(".fb-like").length > 0) {
         if (typeof (FB) != 'undefined') {
+            console.log('facebook if')
             FB.init({ status: true, cookie: true, xfbml: true });
+            $('.social-buttons-gem').css({top: '-2px'})
         } else {
             $.getScript("http://connect.facebook.net/en_US/all.js#xfbml=1", function () {
+                console.log('facebook else')
                 FB.init({ status: true, cookie: true, xfbml: true });
             });
         }
@@ -25,7 +28,8 @@ function loadGooglePlusButton(){
     if (gbuttons.length > 0) {
         if (typeof (gapi) != 'undefined') {
             gbuttons.each(function () {
-                gapi.plusone.render($(this).get(0));
+                //gapi.plusone.render($(this).get(0));
+                gapi.plusone.go()
             });
         } else {
             $.getScript('https://apis.google.com/js/plusone.js');
