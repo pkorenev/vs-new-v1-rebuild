@@ -8,8 +8,10 @@
           <% if 1 == 2 %>
             <%= fc_connect %>
             <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-send="false" data-layout="button_count" data-width="135" data-show-faces="false" data-font="verdana"></div>
-          <% else %>
+          <% elsif 1 == 2 %>
               <%= fc_like_frame %>
+          <% else %>
+                  <div class="fb-like" data-href="http://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
           <% end %>
         </li>
       </ul>

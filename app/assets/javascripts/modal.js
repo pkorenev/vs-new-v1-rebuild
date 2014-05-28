@@ -2,7 +2,9 @@ display_modal = false
 function showModal($link){
     $modal_wrapper = $('#modal-wrapper')
     if($modal_wrapper.length > 0) {
+
         href = $link.attr('href')
+        console.log('showModal: $link: href='+href)
 
         $contact_header = $modal_wrapper.find('.contact-header')
         $tabs = $contact_header.find('[id*=tab]')
@@ -254,7 +256,7 @@ $(document).on('ready page:load', function() {
 
         $link.click(function(event){
             event.preventDefault()
-
+            var $link = $(this)
             display_modal = $link
             showModal($link)
         })
