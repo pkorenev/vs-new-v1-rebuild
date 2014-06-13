@@ -110,3 +110,5 @@ gem 'acts_as_tree'
 gem 'rubytree'
 
 gem 'social-buttons'
+
+gem 'google-analytics-turbolinks'

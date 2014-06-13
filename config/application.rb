@@ -34,6 +34,11 @@ module StudioVoronin
     # add banners images
     config.assets.precompile += %w(banners/* static_images/* portfolio/*)
 
+    config.assets.precompile += %w(ckeditor)
+    config.assets.precompile += %w(rails_admin/rails_admin.css rails_admin/rails_admin.css)
+
+    config.assets.precompile += %w(fontawesome-webfont.woff)
+
 
     config.assets.compile = true
   end

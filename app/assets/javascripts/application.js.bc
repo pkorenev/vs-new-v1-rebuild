@@ -15,8 +15,7 @@
 //= require jquery-migrate-min
 //= require jquery.ui.effect
 //= require modernizr
-//= require turbolinks
-//= require ga-turbolinks
+//  turbolinks
 //= require jquery.mousewheel.min
 //= require jquery.nicescroll
 // jquery.custom_scroll
@@ -30,23 +29,18 @@
 //= require jquery.black_and_white
 //= require bjqs
 //= require carousel
-//= require social_networks
 //= require initializer
 //= require to-top
 //= require portfolio/item
 //= require portfolio-banners
 //= require portfolio-body-slider
 //= require portfolio-sorting
-//= require jquery.form-validator.min
 //= require modal
 //= require page/index
 //= require partials/menu
 //= require partials/portfolio-tabs
 //= require partials/portfolio-items
 //= require partials/bjqs-init
-//= require partials/slides/slide-valko
-//= require partials/slides/slide-g3k
-//= require partials/slides/slide-czmk
 //= require partials/slides/slide-ii
 //= require partials/slides/slide2
 //= require partials/slides/slide3
