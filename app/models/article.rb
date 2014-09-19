@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Article < ActiveRecord::Base
-  attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :avatar, :delete_avatar, :tags, :tag_list, :release_date, :author
+  attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :avatar, :avatar_file_name, :delete_avatar, :tags, :tag_list, :release_date, :author
 
   acts_as_taggable
   attr_accessible :tag_list
@@ -26,7 +26,7 @@ class Article < ActiveRecord::Base
   before_save :generate_release_date
 
   def generate_slug
-  	self.slug = self.name.parameterize
+  	self.slug ||= self.name.parameterize
   end
 
   def generate_title
@@ -40,6 +40,58 @@ class Article < ActiveRecord::Base
     #self.release_date ||= self.created_at
     #release_date = Date.yesterday
     self.release_date ||= DateTime.now
+  end
+
+  before_save :detect_rename_avatar
+
+  def detect_rename_avatar
+    folder_names = avatar.styles.keys
+    folder_names.push('original')
+    #self.avatar_file_name = "vs-logo-1.jpg#{folder_names.count}"
+
+    if avatar_file_name_changed?
+      if !new_record?
+        old_name = self.avatar_file_name_was
+        new_name = self.avatar_file_name
+
+        original_folder_name = 'original'
+
+        original_old_file_path = avatar.path(original_folder_name)
+        original_new_file_path = original_old_file_path
+
+        original_old_file_path_array = original_old_file_path.split('/')
+        original_old_file_path_array[original_old_file_path_array.count - 1] = old_name
+        original_old_file_path = original_old_file_path_array.join('/')
+
+        if !File.exist?(original_old_file_path)
+          self.avatar_file_name = old_name
+        else
+          folder_names.each do |folder_name|
+            old_file_path = avatar.path(folder_name)
+            new_file_path = old_file_path
+
+            old_file_path_array = old_file_path.split('/')
+            old_file_path_array[old_file_path_array.count - 1] = old_name
+            old_file_path = old_file_path_array.join('/')
+
+
+
+
+
+            if File.exist?(old_file_path) && !File.exist?(new_file_path)
+              FileUtils.mv(old_file_path, new_file_path)
+
+            end
+          end
+        end
+
+
+
+      else
+
+      end
+
+    end
   end
 
 
@@ -81,7 +133,11 @@ class Article < ActiveRecord::Base
       field :tag_list do
         partial 'tag_list_with_suggestions'
       end
-      field :avatar, :paperclip
+      group :image_data do
+        field :avatar, :paperclip
+        field :avatar_file_name
+      end
+
       field :release_date
       field :author
       field :static_page_data

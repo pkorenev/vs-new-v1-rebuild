@@ -1,0 +1,85 @@
+<div class="white-background">
+  <section id="article-item-page">
+    <div id="article-title-section">
+      <div id="article-title-container">
+        <span id="article-title">Анонси та події</span>
+      </div>
+    </div>
+
+    <%= render partial: 'page/service_breadcrumbs' %>
+
+    <div id="article-section">
+      <div id="article-container">
+        <div id="article-title-wrapper">
+          <h1 class="article-title"><%= @service.name %></h1>
+        </div>
+        <div id="avatar-and-tags">
+          <div id="avatar-container">
+            <%= image_tag @service.avatar.url, :alt => @service.name %>
+            <%# image_tag( 'http://placehold.it/1440x960&text=[img]' ) %>
+          </div>
+
+          <div style="" id="header-tag-list">
+            <ul class="tag-list">
+              <%# @service.tag_list.each do | tag | %>
+                  <li><%# link_to tag, article_tag_path(tag) %></li>
+              <%# end %>
+
+            </ul>
+          </div>
+        </div>
+
+
+        <div id="release-date-and-short-description">
+          <div id="release-date">
+            <%# date = @service.release_date %>
+            <%# date.day.to_s + '.' + date.month.to_s + '.' + date.year.to_s %>
+          </div>
+          <div id="short-description">
+            <% raw @service.short_description %>
+          </div>
+        </div>
+
+        <div id="article-body">
+
+
+          <div id="content"><%= raw @service.full_description %></div>
+
+          <div id="footer-tag-list" style="display: none">
+            <ul class="tag-list">
+              <%# @service.tag_list.each do | tag | %>
+                  <li><%# link_to tag, article_tag_path(tag) %></li>
+              <%# end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <%= render partial: 'partials/item_like_bar' %>
+
+    <div id="related-articles">
+      <% @related_services.each do |article_item| %>
+          <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
+            <header>
+              <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), service_item_path(service_item: article_item.slug), :itemprop => 'url') %></h2></div>
+              <div class="image-container"><%= link_to(image_tag(article_item.avatar.url, :itemprop => 'image', :alt => article_item.name),
+                                                       service_item_path(service_item: article_item.slug) ) %></div>
+            </header>
+
+            <section itemprop="description">
+              <p><%= article_item.short_description.truncate(255) %></p>
+            </section>
+            <footer>
+              <ul style="display: none" class="tag-list">
+                <%# article_item.tag_list.each do | tag | %>
+                    <li><%# link_to tag, article_tag_path(tag) %></li>
+                <%# end %>
+              </ul>
+            </footer>
+          </article>
+      <% end %>
+    </div>
+  </section>
+</div>

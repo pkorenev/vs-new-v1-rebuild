@@ -20,6 +20,10 @@ class ContactController < ApplicationController
   def contact_show
     @section = :contact
     @selected_tab = 'contact'
+
+    @page_data = Pages::ContactPage.first
+    @static_page_data = @page_data.static_page_data
+
     render template: 'contact/show'
 
   end
@@ -30,6 +34,10 @@ class ContactController < ApplicationController
     @section = :order
     @selected_tab = 'order'
     @order = Forms::Order.new
+
+    @page_data = Pages::OrderPage.first
+    @static_page_data = @page_data.static_page_data
+
     render template: 'contact/show'
   end
 
@@ -64,7 +72,8 @@ class ContactController < ApplicationController
     @selected_tab = 'join_us'
 
 
-
+    @page_data = Pages::JoinUsPage.first
+    @static_page_data = @page_data.static_page_data
 
     render template: 'contact/show'
   end

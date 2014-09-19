@@ -1,0 +1,13 @@
+<div id="breadcrumbs">
+  <div class="container">
+    <ul style="
+    margin-left: 1%;
+            padding-left: 0%;
+    ">
+      <li><a href="<%= root_path %>">Головна</a></li>
+      <li><a href="<%= portfolio_path %>">Портфоліо</a></li>
+      <li><a href="<%= portfolio_category_path(@item.portfolio_category.url) %>"><%= @item.portfolio_category.title %></a></li>
+      <li><%= @item.title %></li>
+    </ul>
+  </div>
+</div>

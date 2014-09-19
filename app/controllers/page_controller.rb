@@ -52,6 +52,17 @@ class PageController < ApplicationController
   def connect_with_us
   end
 
+  def service_item
+    @service = Service.where(slug: params[:service_item])
+    if @service && @service.respond_to?(:count) && @service.count > 0
+      @service = @service.first
+    end
+
+    @related_services = Service.all.limit(2)
+
+
+  end
+
   def service
     @get_all_services ||= Service.where(published: true).order('sort_id asc')
 

@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-migrate-min
-//= require jquery.ui.effect
+//= require jquery-ui/effect
 //= require modernizr
 //= require turbolinks
 //= require ga-turbolinks

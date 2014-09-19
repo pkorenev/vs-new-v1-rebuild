@@ -117,11 +117,16 @@ RailsAdmin.config do |config|
   seo << Tree::TreeNode.new( 'Про нас', { link: '/admin/pages~about_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Наші послуги', { link: '/admin/pages~services_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Статті', { link: '/admin/pages~articles_list_page/1/edit' } )
+
   seo_portfolio = Tree::TreeNode.new( 'Портфоліо - список', { link: '/admin/pages~portfolio_list_page/1/edit' } )
   seo << seo_portfolio
   seo_portfolio << Tree::TreeNode.new( 'Упаковка', { link: '/admin/pages~portfolio_polygraphy_list_page/1/edit' } )
   seo_portfolio << Tree::TreeNode.new( 'Фірмовий стиль', { link: '/admin/pages~portfolio_corporate_identity_list_page/1/edit' } )
   seo_portfolio << Tree::TreeNode.new( 'Веб', { link: '/admin/pages~portfolio_web_list_page/1/edit' } )
+
+  seo << Tree::TreeNode.new( 'Контакти', { link: '/admin/pages~contact_page/1/edit' } )
+  seo << Tree::TreeNode.new( 'Замовити', { link: '/admin/pages~order_page/1/edit' } )
+  seo << Tree::TreeNode.new( 'Приэднатись', { link: '/admin/pages~join_us_page/1/edit' } )
 
   portfolio = root['portfolio']
   portfolio_portfolio = Tree::TreeNode.new( 'Портфоліо - список', { link: '/admin/portfolio~portfolio' } )
