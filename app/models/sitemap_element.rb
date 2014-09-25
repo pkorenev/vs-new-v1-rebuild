@@ -12,7 +12,7 @@ class SitemapElement < ActiveRecord::Base
   attr_accessible :sitemappable_type
 
 
-  before_save :set_url, :set_defaults
+  #before_save :set_url, :set_defaults
   def set_url
     self.url = "http://#{ActionMailer::Base.default_url_options[:host]}#{ self.path }"
   end
