@@ -32,6 +32,11 @@ class SitemapElement < ActiveRecord::Base
   class Translation
     attr_accessible :locale, :display_on_sitemap, :path, :url, :changefreq, :priority, :lastmod
 
+    before_save :set_url, :set_defaults
+    def set_url
+      self.url = "http://#{ActionMailer::Base.default_url_options[:host]}#{ self.path }"
+    end
+
     # def published=(value)
     #   self[:published] = value
     # end
