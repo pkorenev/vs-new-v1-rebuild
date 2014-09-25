@@ -25,6 +25,8 @@
     }
 
 
+
+
 $(document).on('ready page:load', function() {
 
     // Check jQuery version
@@ -90,7 +92,7 @@ $(document).on('ready page:load', function() {
 
     var current_header_height = $header_wrapper.height()
     var header_height = 95
-    if(scroll_top > 100){
+    if(scroll_top > 100 && !Modernizr.touch){
 
         header_height = 60
 
@@ -109,6 +111,15 @@ $(document).on('ready page:load', function() {
         width: '100%'
     })
 
+    if(Modernizr.touch){
+
+        var banner_top = header_height - scroll_top;
+        if(banner_top < 0)
+            banner_top = 0
+        $('.fixed-banner-wrapper').css({top: '' + banner_top + 'px'})
+    }
+
+
     var $header_logo = $('#studio-logo-section')
 
     console.log('$header_logo')
@@ -124,7 +135,7 @@ $(document).on('ready page:load', function() {
         var header_height = 95
         var scroll_top = $body.scrollTop()
 
-        if(scroll_top > 100){
+        if(scroll_top > 100 && !Modernizr.touch){
             if(!$body.hasClass('header-compact-height')){
                 $body.addClass('header-compact-height')
             }
@@ -145,6 +156,14 @@ $(document).on('ready page:load', function() {
         $('#home-banner-outer .slide .slide-content .layer.description').css({
             opacity: home_banner_opacity
         })
+
+        if(Modernizr.touch){
+
+            var banner_top = header_height - scroll_top;
+            if(banner_top < 0)
+                banner_top = 0
+            $('.fixed-banner-wrapper').css({top: '' + banner_top + 'px'})
+        }
     }
 
     function portfolioBannerOnScroll(info){
@@ -179,7 +198,7 @@ $(document).on('ready page:load', function() {
             var scroll_top = info.end.y
 
 
-            if (scroll_top > 100) {
+            if (scroll_top > 100 && !Modernizr.touch) {
 
                 if (!$body.hasClass('header-compact-height')) {
                     $body.addClass('header-compact-height')
@@ -202,7 +221,7 @@ $(document).on('ready page:load', function() {
             var scroll_top = info.end.y
 
 
-            if (scroll_top > 100) {
+            if (scroll_top > 100 && !Modernizr.touch) {
 
                 if (!$body.hasClass('header-compact-height')) {
                     $body.addClass('header-compact-height')
@@ -230,7 +249,7 @@ $(document).on('ready page:load', function() {
 
 
 
-            if (scroll_top > 100) {
+            if (scroll_top > 100 && !Modernizr.touch) {
 
                 if (!$body.hasClass('header-compact-height')) {
                     $body.addClass('header-compact-height')

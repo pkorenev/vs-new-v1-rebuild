@@ -343,9 +343,9 @@ class PortfolioController < ApplicationController
     #@portfolios ||= Portfolio::Portfolio.where(published: true).order('portfolio_category_id, release asc')
     @static_page_data = Pages::PortfolioListPage.first.static_page_data
 
-    requested_category_url = params[:category]
+    requested_category_slug = params[:category]
 
-    @active_category = Portfolio::PortfolioCategory.where(url: requested_category_url)
+    @active_category = Portfolio::PortfolioCategory.where(slug: requested_category_slug)
     if @active_category && @active_category.count == 1
       @active_category = @active_category.first
     end

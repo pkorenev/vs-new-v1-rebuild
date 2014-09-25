@@ -6,7 +6,7 @@
     ">
       <li><a href="<%= root_path %>">Головна</a></li>
       <li><a href="<%= portfolio_path %>">Портфоліо</a></li>
-      <li><a href="<%= portfolio_category_path(@item.portfolio_category.url) %>"><%= @item.portfolio_category.title %></a></li>
+      <li><a href="<%= portfolio_category_path(category: @item.portfolio_category.slug) %>"><%= @item.portfolio_category.title %></a></li>
       <li><%= @item.title %></li>
     </ul>
   </div>

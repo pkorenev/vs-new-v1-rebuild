@@ -100,9 +100,9 @@
   <div id="portfolio-items-container" class="sortable-portfolio">
     <% items.each do |item| %>
         <% if item.portfolio_category %>
-          <div class="g4 portfolio-item <%= item.portfolio_category.url %><%= ( @active_category && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
+          <div class="g4 portfolio-item <%= item.portfolio_category.slug %><%= ( @active_category && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
             <figure class="myclass">
-              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.title, class: 'grayscale' ), '/portfolio/'+item.portfolio_category.url+'/' +item.slug, title: item.title,  :'data-no-turbolink' => ''  ) %>
+              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.title, class: 'grayscale' ), '/portfolio/'+item.portfolio_category.slug+'/' +item.slug, title: item.title,  :'data-no-turbolink' => ''  ) %>
             </figure>
           </div>
         <% end %>

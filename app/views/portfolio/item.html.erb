@@ -37,8 +37,8 @@
 
 <!-- Render portfolio toolbar -->
 <div id="portfolio-toolbar" class="f-height">
-  <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.url, item: @prev_portfolio.slug) %>" class="pt-left"></a>
-  <a href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.url, item: @next_portfolio.slug) %>" class="pt-right"></a>
+  <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>" class="pt-left"></a>
+  <a href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.slug) %>" class="pt-right"></a>
   <% if (@item.result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
       <div class="container">
       <div class="tabs-wrapper">

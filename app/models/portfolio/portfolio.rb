@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Portfolio::Portfolio < ActiveRecord::Base
-  attr_accessible   :published, :task, :thanks_to, :thanks_image, :delete_thanks_image, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng, :avatar, :delete_avatar
+  attr_accessible   :published, :task, :thanks_to, :thanks_image, :delete_thanks_image, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng, :avatar, :avatar_alt, :delete_avatar
 
   # Association's category, banners, technologies
   belongs_to :portfolio_category
@@ -10,6 +10,34 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   accepts_nested_attributes_for :portfolio_banner, :allow_destroy => true
   attr_accessible :portfolio_banner_attributes
+
+  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :published, :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :published
+        field :name
+        field :slug
+        field :task
+        field :result, :ck_editor
+        field :process, :ck_editor
+        field :live, :ck_editor
+        field :description
+        field :thanks_to
+        field :avatar_alt
+      end
+    end
+  end
 
   # Paperclip image attachments
   has_attached_file :avatar, :styles => {
@@ -111,37 +139,39 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
     edit do
 
-      field :published do
-        label 'Опубликовать'
-      end
-
-      field :name do
-        label 'Название (внутреннее)'
-      end
-
+      # field :published do
+      #   label 'Опубликовать'
+      # end
+      #
+      # field :name do
+      #   label 'Название (внутреннее)'
+      # end
+      #
       field :title do
         label 'Название'
       end
 
-      field :slug do
-        label 'url портфолио относительно категории'
-      end
-
-      field :task do
-        label 'Задача'
-      end
-
-      field :result, :ck_editor do
-        label 'Результат'
-      end
-
-      field :process, :ck_editor do
-        label 'Процесс'
-      end
-
-      field :live, :ck_editor do
-        label 'Реальность'
-      end
+      field :translations, :globalize_tabs
+      #
+      # field :slug do
+      #   label 'url портфолио относительно категории'
+      # end
+      #
+      # field :task do
+      #   label 'Задача'
+      # end
+      #
+      # field :result, :ck_editor do
+      #   label 'Результат'
+      # end
+      #
+      # field :process, :ck_editor do
+      #   label 'Процесс'
+      # end
+      #
+      # field :live, :ck_editor do
+      #   label 'Реальность'
+      # end
 
       field :avatar do
         label 'Изображение'
@@ -156,13 +186,15 @@ class Portfolio::Portfolio < ActiveRecord::Base
         label 'Баннер работы'
       end
 
-      field :description, :ck_editor do
-        label 'Описание проекта'
-      end
+      # field :description, :ck_editor do
+      #   label 'Описание проекта'
+      # end
+      #
+      # field :thanks_to do
+      #   label 'Благодарность'
+      # end
 
-      field :thanks_to do
-        label 'Благодарность'
-      end
+
 
       field :thanks_image do
         label 'Картинка с благодарностью' 

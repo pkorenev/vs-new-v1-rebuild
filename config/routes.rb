@@ -1,54 +1,70 @@
-StudioVoronin::Application.routes.draw do
+Rails.application.class.routes.draw do
 
-  get '/test', to: 'test#media_queries'
+
+
+  #get '/test', to: 'test#media_queries'
 
   get 'sitemap.xml', to: 'sitemap#index'
 
   get 'googleb4007362349b57e0.html', to: 'google_analytics#confirm'
 
+  scope "(:locale)" do
 
+
+
+    get '/users/sign_up', :to => 'error#show', :code => 404
+    get '/users', :to => 'error#show', :code => 404
+
+
+
+    devise_for :users
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+    mount Ckeditor::Engine => '/ckeditor'
+
+    root to: 'page#index', as: :root
+  end
+
+
+
+  DynamicRouter.load
   # Portfolio routes
-  get '/portfolio', to: 'portfolio#index', :as => 'portfolio'
-  get '/portfolio/:category', to: 'portfolio#category', as: :portfolio_category
-  get '/portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
+  # get '/portfolio', to: 'portfolio#index', :as => 'portfolio'
+  # get '/portfolio/:category', to: 'portfolio#category', as: :portfolio_category
+  # get '/portfolio/:category/:item' => 'portfolio#item', as: :portfolio_item
 
-  get 'test', to: 'portfolio#test'
+  #get 'test', to: 'portfolio#test'
 
   #post '/order', to: 'order#submit_form'
 
   # Contacts and contacts-modal routes
-  get '/contact' => 'contact#contact_show', :as => 'contact'
-  get '/order' => 'contact#order_show', :as => 'order'
-  get '/join-us' => 'contact#join_us_show', :as => 'join_us'
+  #get '/contact' => 'contact#contact_show', :as => 'contact'
+  #get '/order' => 'contact#order_show', :as => 'order'
+  #get '/join-us' => 'contact#join_us_show', :as => 'join_us'
   #get '/contact-modal' => 'page#contact_modal', :as => 'contact_modal'
 
-  post '/order', to: 'contact#order_create'
-  post '/join-us', to: 'contact#join_us_create'
+  #post '/order', to: 'contact#order_create'
+  #post '/join-us', to: 'contact#join_us_create'
 
 
 
 
-  get '/users/sign_up', :to => 'error#show', :code => 404
-  get '/users', :to => 'error#show', :code => 404
-
-  devise_for :users
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  mount Ckeditor::Engine => '/ckeditor'
 
 
-  get "test_slider/index"
+
+
+  #get "test_slider/index"
 
   # prevent sign up as new admin
 
 
-  get 'articles/tags/:tag', to: 'page#articles_by_tags', as: :article_tag
+  #get 'articles/tags/:tag', to: 'page#articles_by_tags', as: :article_tag
 
-  get "empty", to: 'empty#index'
+  #get "empty", to: 'empty#index'
 
-  get "custom_grid/index"
+  #get "custom_grid/index"
 
-  get "partial_test/portfolio", :to => 'partial_test#portfolio'
-  get "partial_test/home-slider", :to => 'partial_test#home_slider'
+  #get "partial_test/portfolio", :to => 'partial_test#portfolio'
+  #get "partial_test/home-slider", :to => 'partial_test#home_slider'
 
 
 
@@ -57,13 +73,13 @@ StudioVoronin::Application.routes.draw do
   
 
   # Define pages routes
-  get 'about'   => 'page#about', :as => 'about'
-  get 'services/:service_item', to: 'page#service_item', as: :service_item
-  get 'services'   => 'page#service', :as => 'service_list'
-  get 'articles'  => 'page#article', :as => 'article_list'
+  #get 'about'   => 'page#about', :as => 'about'
+  #get 'services/:service_item', to: 'page#service_item', as: :service_item
+  #get 'services'   => 'page#service', :as => 'service_list'
+  #get 'articles'  => 'page#article', :as => 'article_list'
   
   #get 'articles/:id'  => 'page#article_item', :as => 'article'
- get 'articles/:id' => 'page#article_item', :as => 'article_item'
+ #get 'articles/:id' => 'page#article_item', :as => 'article_item'
 
 
   # Portfolio routes
@@ -87,7 +103,7 @@ StudioVoronin::Application.routes.draw do
 
 
   # Rooting application
-  root :to        => 'page#index', as: :root
+
     
   get '*a', :to => 'error#show', :code => 404
 

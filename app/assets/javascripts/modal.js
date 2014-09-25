@@ -40,9 +40,12 @@ function showModal($link){
 }
 
 function loadModalContent(){
+    var url = $('nav a.modal-link').attr('href')+''+'?modal=true'
+
+
     $.ajax({
         type: 'get',
-        url: '/contact?modal=true',
+        url: url,
         success: function(data){
             var $data = $(data)
             $data.wrap('<div style="display:none;" id="modal-wrapper"></div>');

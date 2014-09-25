@@ -15,20 +15,34 @@ class Portfolio::PortfolioBanner < ActiveRecord::Base
                     :url  => '/assets/portfolio_banners/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/portfolio_banners/:id/:style/:basename.:extension'
 
+  translates :title, :description
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :published, :title, :description
+
+    def published=(value)
+      self[:published] = value
+    end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :published
+        field :title, :ck_editor
+        field :description, :ck_editor
+      end
+    end
+  end
+
   rails_admin do
   	edit do
   		field :name do
   			help 'внутреннее имя'
   		end
 
-  		field :title, :ck_editor do
-  			help 'будет выводится на странице портфолио'
-  		end
-
-  		field :description, :ck_editor do
-  			label 'Описание'
-  			help 'описание баннера под заголовком'
-  		end
+  		field :translations, :globalize_tabs
 
   		field :background do
   			label 'фоновая картинка'

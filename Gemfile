@@ -70,7 +70,8 @@ gem 'rails_admin_tag_list', github: 'VoroninNick/rails_admin_tag_list', branch: 
 gem 'rails-i18n'
 gem 'russian'
 gem 'globalize'
-gem 'rails_admin_globalize_field'
+#gem 'rails_admin_globalize_field'
+gem 'rails_admin_globalize_field', github: 'VoroninNick/rails_admin_globalize_field', branch: 'allow-current-locale'
 
 #db
 #gem 'yaml_db'
@@ -113,3 +114,9 @@ gem 'rubytree'
 gem 'social-buttons'
 
 gem 'google-analytics-turbolinks'
+
+gem 'rails_admin_nestable'
+
+gem 'http_accept_language'
+
+gem 'codemirror-rails'

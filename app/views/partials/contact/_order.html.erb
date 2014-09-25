@@ -1,6 +1,6 @@
 <article class="body-contacts" id="order-us-container" <% if( @section == :order ) %>style="display: block;" <% else %>style="display: none;" <% end %> >
   <div class="contact-us-wrapper">
-    <form id="order-form" action="/order" method="post">
+    <form id="order-form" action="<%= post_order_path %>" method="post">
       <div class="group-1-and-group-2-and-reference">
 
         <div id="group-1">

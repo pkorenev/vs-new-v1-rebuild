@@ -32,6 +32,25 @@ html, body {
 
 /* end */
 
+.touch{
+  #header-holder{
+    position: static !important;
+    height: auto !important;
+    width: auto !important;
+
+    #header-wrapper{
+      height: inherit !important;
+      width: auto !important;
+    }
+  }
+
+  .header-compact-height{
+    .fixed-banner-wrapper{
+      top: 0;
+    }
+  }
+}
+
 
 /* custom -scroll */
 
@@ -53,6 +72,8 @@ html, body {
         position: relative;
       }
     }
+
+
 
     &.no-touch {
       @media(min-width: $desktop_menu_screen_min_width) {
@@ -130,8 +151,9 @@ $header_height: 95;
         nav{
           height: inherit;
 
-          ul{
+          ul#header-menu{
             height: inherit;
+
 
             li{
               height: inherit;
@@ -181,7 +203,7 @@ $header_height: 95;
     @media (min-width: $desktop_menu_screen_min_width) {
       .menu-wrapper {
         nav {
-          ul {
+          ul#header-menu {
             li {
               a {
                 .header {

@@ -10,6 +10,28 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_mailer_host, :init_modal_form
 
+  before_filter :set_locale
+
+  def set_locale
+    #render inline: params[:controller]
+    if !params[:controller].match(/^rails_admin/)
+      params_locale = params[:locale]
+      locale = params_locale
+
+      if !locale || !I18n.available_locales.include?(locale.to_sym)
+        locale = http_accept_language.compatible_language_from(I18n.available_locales)
+      end
+
+      #render inline: "#{locale == params_locale}"
+
+      if locale != params_locale
+        redirect_to locale: locale
+      else
+        I18n.locale = locale
+      end
+    end
+  end
+
 
 
   def set_mailer_host

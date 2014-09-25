@@ -21,6 +21,32 @@ class Article < ActiveRecord::Base
                     :path => ':rails_root/public/assets/articles/:id/:style/:basename.:extension'
 
 
+
+  translates :name, :slug, :short_description, :content, :avatar_alt
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :published, :name, :slug, :short_description, :content, :avatar_alt
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :published
+        field :name
+        field :slug
+        field :short_description
+        field :content, :ck_editor
+        field :avatar_alt
+      end
+    end
+  end
+
+
   before_validation :generate_slug
   before_validation :generate_title
   before_save :generate_release_date
@@ -121,15 +147,17 @@ class Article < ActiveRecord::Base
       field :avatar, :paperclip
     end
     edit do
-      field :published
-      field :name
+      #field :published
+      #field :name
       field :title
-      field :short_description do 
-      	label 'краткое описание'
-      end
-      field :content, :ck_editor do
-      	label 'содержание статьи'
-      end
+      # field :short_description do
+      # 	label 'краткое описание'
+      # end
+      # field :content, :ck_editor do
+      # 	label 'содержание статьи'
+      # end
+
+      field :translations, :globalize_tabs
       field :tag_list do
         partial 'tag_list_with_suggestions'
       end

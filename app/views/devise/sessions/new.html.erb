@@ -4,7 +4,7 @@
       <article class="g3">&nbsp;</article>
       <article class="g6">
         <h1>А вам куда?</h1>
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name, locale: I18n.locale)) do |f| %>
           <div><%= f.email_field :email, :autofocus => true, :placeholder => 'vik.ewoods' %><br /><%= f.label 'логин' %></div>
           <div><%= f.password_field :password, :placeholder => 'verystrongpasswordthatimade' %><br /><%= f.label 'пароль' %></div>
           <% if devise_mapping.rememberable? -%>

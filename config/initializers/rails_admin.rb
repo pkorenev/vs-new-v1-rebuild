@@ -10,6 +10,8 @@ Rails.configuration.to_prepare do
 
 end
 
+require Rails.root.join('app/models/tag.rb')
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -42,7 +44,11 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+
+    nestable
   end
+
+
 
   config.navigation_static_links = {
       'Corporate identity' => 'http://localhost:3000/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=Corporate+identity&query=',
@@ -51,51 +57,62 @@ RailsAdmin.config do |config|
       'About Page' => ''
   }
 
-  #[
-  #    Pages::AboutPage,
-  #    Pages::ArticlesListPage,
-  #    Pages::HomePage,
-  #    Pages::PortfolioCorporateIdentityListPage,
-  #    Pages::PortfolioListPage,
-  #    Pages::PortfolioPolygraphyListPage,
-  #    Pages::PortfolioWebListPage,
-  #    Pages::ServicesPage,
-  #    Pages::AboutPage,
-  #    Pages::AboutPage,
-  #    Pages::AboutPage,
-  #
-  #    Banner,
-  #    StaticPageData,
-  #
-  #    Portfolio::PortfolioBanner,
-  #    Portfolio::PortfolioCategory,
-  #    Portfolio::PortfolioTechnology,
-  #    Portfolio::Portfolio,
-  #
-  #    Ckeditor::Asset,
-  #    Ckeditor::AttachmentFile,
-  #    Ckeditor::Picture,
-  #
-  #    TrustCompany,
-  #    Service,
-  #
-  #    Article,
-  #
-  #    User,
-  #
-  #    Developer,
-  #    DeveloperRole
-  #
-  #
-  #].each do | model |
-  #  config.model model.name do
-  #    visible false
-  #  end
+  [
+     SitemapElement,
+     Pages::AboutPage,
+     Pages::ArticlesListPage,
+     Pages::HomePage,
+     Pages::PortfolioCorporateIdentityListPage,
+     Pages::PortfolioListPage,
+     Pages::PortfolioPolygraphyListPage,
+     Pages::PortfolioWebListPage,
+     Pages::ServicesPage,
+     Pages::AboutPage,
+     Pages::AboutPage,
+     Pages::AboutPage,
+
+     Banner,
+     StaticPageData,
+
+     Portfolio::PortfolioBanner,
+     Portfolio::PortfolioCategory,
+     Portfolio::PortfolioTechnology,
+     Portfolio::Portfolio,
+
+     Ckeditor::Asset,
+     Ckeditor::AttachmentFile,
+     Ckeditor::Picture,
+
+     TrustCompany,
+     Service,
+
+     Article,
+
+     User,
+
+     Developer,
+     DeveloperRole,
+
+     Route,
+     ActsAsTaggableOn::Tag,
+     CodePage
+
+
+  ].each do | model |
+  #config.model model.name do
+     #visible false
+    config.included_models += [model]
+    if model.respond_to?(:translates?) && model.translates? && model.respond_to?(:translation_class)
+      config.included_models += [model.translation_class]
+    end
   #end
+  end
 
   config.navigation_static_label = "Static Pages"
 
   root = Tree::TreeNode.new('navigation_static_tree')
+  root << Tree::TreeNode.new( 'routes', {link: '/admin/route'} )
+  root << Tree::TreeNode.new( 'tags', {link: '/admin/acts_as_taggable_on~tag'} )
   root << Tree::TreeNode.new( 'seo' )
   root << Tree::TreeNode.new( 'services', title: 'Наші послуги' )
   root << Tree::TreeNode.new( 'portfolio', title: 'Портфолио' )

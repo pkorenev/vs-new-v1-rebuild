@@ -18,7 +18,7 @@
         <script type="text/javascript" charset="utf-8" id="menu-linkup">
           /*$(document).ready(function() {
             $("#li-about").click(function(){
-              window.location = "<%= about_path %>";
+              window.location = "<%= send "#{I18n.locale}_about_path" %>";
             });
 
             $("#contact-form").click(function(){
@@ -35,7 +35,19 @@
             });
           });*/
         </script>
-        <ul>
+
+        <ul id="lang-bar">
+          <% I18n.available_locales.each do |locale| %>
+            <li>
+              <% if locale != I18n.locale %>
+                <%= link_to locale.to_s.upcase, locale: locale %>
+              <% else %>
+                <span><%= locale.to_s.upcase %></span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+        <ul id="header-menu">
           <% menu_items = get_menu %>
           <% menu_items.each do |menu_item| %>
               <% if menu_item[:id] == 'contact-form' && 1==2 %>

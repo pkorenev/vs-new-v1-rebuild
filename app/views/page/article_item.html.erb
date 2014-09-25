@@ -22,7 +22,7 @@
                   <div style="" id="header-tag-list">
                     <ul class="tag-list">
                       <% @article.tag_list.each do | tag | %>
-                          <li><%= link_to tag, article_tag_path(tag) %></li>
+                          <li><%= link_to tag, send("article_tag_path", tag) %></li>
                       <% end %>
 
                     </ul>

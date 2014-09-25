@@ -5,7 +5,7 @@
             padding-left: 0%;
     ">
       <li><a href="<%= root_path %>">Головна</a></li>
-      <li><a href="<%= service_list_path %>">Послуги</a></li>
+      <li><a href="<%= send "#{I18n.locale}_service_list_path" %>">Послуги</a></li>
       <li><%= @service.name %></li>
     </ul>
   </div>
