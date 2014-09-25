@@ -235,4 +235,4 @@ class Service < ActiveRecord::Base
 end
 
 
-Service.all.each  {|s| translated_locales = s.translations_by_locale.keys; I18n.available_locales.each {|locale| if !translated_locales.include?(locale) then; t = s.class.translation_class.new; t.service_id = s.id; t.locale = locale; t.short_description = s.short_description; t.full_description = s.full_description; t.avatar_alt = s.avatar_alt; t.slug = s.slug; t.name = s.name; t.save;  end;  } }
+#Service.all.each  {|s| translated_locales = s.translations_by_locale.keys; I18n.available_locales.each {|locale| if !translated_locales.include?(locale) then; t = s.class.translation_class.new; t.service_id = s.id; t.locale = locale; t.short_description = s.short_description; t.full_description = s.full_description; t.avatar_alt = s.avatar_alt; t.slug = s.slug; t.name = s.name; t.save;  end;  } }
