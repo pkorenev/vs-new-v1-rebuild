@@ -123,6 +123,9 @@ class PortfolioController < ApplicationController
     end
 
     if @item
+      @translated_locales = @item.published_locales
+      @untranslated_locale = !@translated_locales.include?(I18n.locale)
+
       @static_page_data = @item.static_page_data
       query = "SELECT p.id FROM portfolios p WHERE p.published = 't' ORDER BY p.portfolio_category_id, p.release asc"
       result = ActiveRecord::Base.connection.execute(query)
@@ -248,6 +251,9 @@ class PortfolioController < ApplicationController
     @prev_portfolio = Portfolio::Portfolio.first
 
     if @item
+      @translated_locales = []
+      @item.tra
+
 
       query = "SELECT p.id FROM portfolios p ORDER BY p.portfolio_category_id, p.release asc"
       result = ActiveRecord::Base.connection.execute(query)
@@ -334,6 +340,8 @@ class PortfolioController < ApplicationController
     #  end
     #
     #end
+
+
 
   end
 

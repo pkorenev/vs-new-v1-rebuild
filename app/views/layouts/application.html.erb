@@ -72,6 +72,10 @@
           <%= render partial: 'partials/portfolio_banner' %>
       <% end %>
 
+      <% if @untranslated_locale && !'nick-allows' %>
+        <%= render partial: 'partials/locale_not_supported' %>
+      <% end %>
+
       <div id="page-content">
         <%= yield %>
       </div>

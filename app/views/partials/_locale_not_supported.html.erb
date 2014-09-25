@@ -1,0 +1,10 @@
+<div class="locale-not-supported" style="background: lightblue; width: 100%; height: 100px; position: fixed; z-index: 6">
+  <span style="color: red; font-weight: 900; font-size: 26px">article not translated</span>
+  <ul>
+    <% @translated_locales.each do |locale| %>
+        <li>
+          <a href="<%= url_for locale: locale %>"><%= locale %></a>
+        </li>
+    <% end %>
+  </ul>
+</div>

@@ -15,6 +15,19 @@ class Portfolio::Portfolio < ActiveRecord::Base
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 
+  def published_locales
+    locales = []
+    published_translations.each do |t|
+      locales.push(t.locale.to_sym)
+    end
+
+    locales
+  end
+
+  def published_translations
+    translations.where(published: true)
+  end
+
   class Translation
     attr_accessible :locale, :published, :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt
 

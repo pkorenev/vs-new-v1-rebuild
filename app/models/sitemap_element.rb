@@ -25,22 +25,48 @@ class SitemapElement < ActiveRecord::Base
 
   validate :path, nil: false, uniqueness: true
 
+  translates :path, :url, :changefreq
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :display_on_sitemap, :path, :url, :changefreq, :priority, :lastmod
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        # field :locale, :hidden
+        # field :published
+        # field :name
+        # field :slug
+        # field :short_description
+        # field :content, :ck_editor
+        # field :avatar_alt
+
+        field :display_on_sitemap
+        field :path
+        field :url do
+          read_only true
+        end
+        field :changefreq, :enum do
+          enum do
+            [ :always, :hourly, :daily, :weekly, :monthly, :yearly]
+          end
+        end
+        field :priority
+        field :lastmod
+      end
+    end
+  end
+
 
 
   rails_admin do
     edit do
-      field :display_on_sitemap
-      field :path
-      field :url do
-        read_only true
-      end
-      field :changefreq, :enum do
-        enum do
-          [ :always, :hourly, :daily, :weekly, :monthly, :yearly]
-        end
-      end
-      field :priority
-      field :lastmod
+      field :translations, :globalize_tabs
     end
   end
 
