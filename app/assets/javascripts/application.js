@@ -15,6 +15,7 @@
 //= require jquery-migrate-min
 //= require jquery-ui/effect
 //= require modernizr
+//= require add_links
 //= require turbolinks
 //= require ga-turbolinks
 //= require jquery.mousewheel.min

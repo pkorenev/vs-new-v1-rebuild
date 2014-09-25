@@ -32,6 +32,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  before_filter :init_translated_locales
+
+  def init_translated_locales
+    @translated_locales = [:uk]
+  end
+
 
 
   def set_mailer_host

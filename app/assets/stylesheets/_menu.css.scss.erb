@@ -116,10 +116,12 @@ ul#lang-bar{
             font-family: OpenSansSemibold, Arial, sans-serif;
         }
 
-        a{
+        a, span.untranslated-locale{
             color: #646464;
             padding: 3px;
             background-color: #313131;
+            cursor: pointer;
+            border: none;
 
             &:hover{
                 padding: 2px;
@@ -154,7 +156,7 @@ ul#lang-bar{
             top: 50%;
             transform: translateY(-50%);
 
-            a, span{
+            a, span, span.untranslated-locale{
                 font-size: 22px;
                 margin-left: 1.5rem;
                 padding: 0 6px;
@@ -167,7 +169,7 @@ ul#lang-bar{
 
             }
 
-            a{
+            a, span.untranslated-locale{
                 &:hover{
                     padding: 0 5px;
 

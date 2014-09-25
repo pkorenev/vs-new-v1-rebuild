@@ -130,7 +130,7 @@ class PageController < ApplicationController
   end
 
   def article_item
-    @article ||= Article.find_by_slug(params[:id])
+    @article ||= Article.find_by_slug(params[:article_item])
 
 
     if @article
