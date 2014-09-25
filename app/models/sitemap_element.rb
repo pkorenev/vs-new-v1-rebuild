@@ -37,6 +37,14 @@ class SitemapElement < ActiveRecord::Base
       self.url = "http://#{ActionMailer::Base.default_url_options[:host]}#{ self.path }"
     end
 
+    def set_defaults
+      self.display_on_sitemap ||= true
+      self.changefreq ||= :weekly
+      self.priority ||= 0.8
+    end
+
+    validate :path, nil: false, uniqueness: true
+
     # def published=(value)
     #   self[:published] = value
     # end
