@@ -20,6 +20,30 @@ class StaticPageData < ActiveRecord::Base
   accepts_nested_attributes_for :sitemap_element, :allow_destroy => true
   attr_accessible :sitemap_element
 
+  translates :head_title, :meta_keywords, :meta_description
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :head_title, :meta_keywords, :meta_description
+
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :head_title
+        field :meta_keywords
+        #field :meta_keyword_list do
+        #  partial 'tag_list_with_suggestions'
+        #end
+        field :meta_description
+      end
+    end
+  end
+
   before_save :create_sitemap_element
   def create_sitemap_element
     build_sitemap_element
@@ -27,12 +51,13 @@ class StaticPageData < ActiveRecord::Base
 
   rails_admin do
     edit do
-      field :head_title
-      field :meta_keywords
+      #field :head_title
+      #field :meta_keywords
       #field :meta_keyword_list do
       #  partial 'tag_list_with_suggestions'
       #end
-      field :meta_description
+      #field :meta_description
+      field :translations, :globalize_tabs
 
       field :sitemap_element
     end

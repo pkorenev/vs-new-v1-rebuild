@@ -29,6 +29,12 @@ class Route < ActiveRecord::Base
     end
   end
 
+  after_save :reload_routes
+
+  def reload_routes
+    DynamicRouter.reload
+  end
+
   rails_admin do
     nestable_list true
 

@@ -10,7 +10,7 @@ class AddTranslationsToSitemapElements < ActiveRecord::Migration
         t.boolean :display_on_sitemap
       end
 
-      model.all.each  {|item| translated_locales = item.translations_by_locale.keys; I18n.available_locales.each {|locale| if !translated_locales.include?(locale) then; t = model.translation_class.new; t.send("#{model.to_s.split('::').last.underscore}_id=", item.id); t.locale = locale; item.translated_attribute_names.each {|attr_name|   t.send("#{attr_name}=", item.send(attr_name) );  }; t.display_on_sitemap = item.display_on_sitemap if locale.to_sym == :uk; t.priority = item.priority; t.lastmod = item.lastmod; t.save;  end;  } }
+      model.all.each  {|item| translated_locales = item.translations_by_locale.keys; I18n.available_locales.each {|locale| if !translated_locales.include?(locale) then; t = model.translation_class.new; id_method_name = "#{model.to_s.split('::').last.underscore}_id="; t.send(id_method_name, item.id) if t.methods.include?(id_method_name.to_sym); t.locale = locale; item.translated_attribute_names.each {|attr_name|   t.send("#{attr_name}=", item.send(attr_name) );  }; t.display_on_sitemap = item.display_on_sitemap if locale.to_sym == :uk; t.priority = item.priority; t.lastmod = item.lastmod; t.save;  end;  } }
     end
 
   end
