@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       #render inline: "#{locale == params_locale}"
 
       if locale != params_locale
-        redirect_to locale: locale
+        redirect_to locale: locale, :status => :moved_permanently
       else
         I18n.locale = locale
       end
