@@ -68,9 +68,9 @@ class Portfolio::Portfolio < ActiveRecord::Base
                         non_retina_bw: '-threshold 50%',
                         retina_bw: '-threshold 50%'
                     },
-                    :url  => '/assets/portfolios/:id/:style/:hash.:extension',
+                    :url  => '/assets/portfolios/:id/:style/:basename.:extension',
                     :hash_secret => ':basename',
-                    :path => ':rails_root/public/assets/portfolios/:id/:style/:hash.:extension'
+                    :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
 
   # add a delete_<asset_name> method:
   has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },

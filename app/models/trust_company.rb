@@ -1,9 +1,9 @@
 class TrustCompany < ActiveRecord::Base
   attr_accessible :published, :name, :description, :url
   has_attached_file :avatar,
-                    :url          => '/assets/trust_companies/:id/:style/:hash.:extension',
+                    :url          => '/assets/trust_companies/:id/:style/:basename.:extension',
                     :hash_secret  => ':basename',
-                    :path         => ':rails_root/public/assets/trust_companies/:id/:style/:hash.:extension'
+                    :path         => ':rails_root/public/assets/trust_companies/:id/:style/:basename.:extension'
 
   [:avatar].each do |paperclip_field_name|
     attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
@@ -60,3 +60,5 @@ class TrustCompany < ActiveRecord::Base
     end
   end
 end
+
+
