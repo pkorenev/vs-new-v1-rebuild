@@ -1,0 +1,13 @@
+uk:
+  pages:
+    home:
+      clients:
+        section-header: 'Нам довіряють'
+      articles:
+        section-header: 'Анонси та події'
+    contact:
+      page-title: 'Зв’язатись з нами'
+    order:
+      page-title: 'Замовити нас'
+    join-us:
+      page-title: 'Приєднатись до нас'

@@ -1,0 +1,24 @@
+uk:
+  layout:
+    main_menu:
+      about:
+        header: 'ХТО'
+        description: 'Про студію'
+      services:
+        header: 'ЩО'
+        description: 'Наші послуги'
+      portfolio:
+        header: 'ЯК'
+        description: 'Портфоліо'
+      articles:
+        header: 'КОЛИ'
+        description: 'Анонси та події'
+      contact:
+        header: 'ДЕ'
+        description: 'Наші контакти'
+    footer:
+      copyright:
+        year: '© 2006 — %{year} '
+        studio-link:
+          title: 'Дизайн Студія Миколи Вороніна'
+        all-rights-reserved: '. Всі права застережено.'

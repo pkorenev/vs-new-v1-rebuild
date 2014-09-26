@@ -7,10 +7,32 @@ class Pages::ContactPage < ActiveRecord::Base
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
   attr_accessible :static_page_data_attributes
 
+  attr_accessible :content
+
+  translates :content
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :content
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :content, :ck_editor
+      end
+    end
+  end
+
   rails_admin do
 
 
     edit do
+      field :translations, :globalize_tabs
       field :static_page_data
     end
 
