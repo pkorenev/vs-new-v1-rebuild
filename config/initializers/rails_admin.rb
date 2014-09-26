@@ -97,7 +97,9 @@ RailsAdmin.config do |config|
      ActsAsTaggableOn::Tag,
      CodePage,
 
-     FormConfig
+     FormConfig,
+     Dictionary,
+     DictionaryKey
 
 
   ]+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )).each do | model |
@@ -115,6 +117,7 @@ RailsAdmin.config do |config|
   root = Tree::TreeNode.new('navigation_static_tree')
   root << Tree::TreeNode.new( 'routes', {link: '/admin/route'} )
   root << Tree::TreeNode.new( 'tags', {link: '/admin/acts_as_taggable_on~tag'} )
+  root << Tree::TreeNode.new( 'dictionary', {link: '/admin/dictionary'} )
   root << Tree::TreeNode.new( 'seo' )
   root << Tree::TreeNode.new( 'services', title: 'Наші послуги' )
   root << Tree::TreeNode.new( 'portfolio', title: 'Портфолио' )
@@ -139,9 +142,9 @@ RailsAdmin.config do |config|
 
   seo_portfolio = Tree::TreeNode.new( 'Портфоліо - список', { link: '/admin/pages~portfolio_list_page/1/edit' } )
   seo << seo_portfolio
-  seo_portfolio << Tree::TreeNode.new( 'Упаковка', { link: '/admin/pages~portfolio_polygraphy_list_page/1/edit' } )
-  seo_portfolio << Tree::TreeNode.new( 'Фірмовий стиль', { link: '/admin/pages~portfolio_corporate_identity_list_page/1/edit' } )
-  seo_portfolio << Tree::TreeNode.new( 'Веб', { link: '/admin/pages~portfolio_web_list_page/1/edit' } )
+  #seo_portfolio << Tree::TreeNode.new( 'Упаковка', { link: '/admin/pages~portfolio_polygraphy_list_page/1/edit' } )
+  #seo_portfolio << Tree::TreeNode.new( 'Фірмовий стиль', { link: '/admin/pages~portfolio_corporate_identity_list_page/1/edit' } )
+  #seo_portfolio << Tree::TreeNode.new( 'Веб', { link: '/admin/pages~portfolio_web_list_page/1/edit' } )
 
   seo << Tree::TreeNode.new( 'Контакти', { link: '/admin/pages~contact_page/1/edit' } )
   seo << Tree::TreeNode.new( 'Замовити', { link: '/admin/pages~order_page/1/edit' } )
