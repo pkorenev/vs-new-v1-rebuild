@@ -12,7 +12,10 @@ class Dictionary < ActiveRecord::Base
       #field :name
       field :code_name
       #field :info_description
-      field :dictionary_keys
+      field :dictionary_keys do
+        #collapse false
+        active true
+      end
 
     end
   end

@@ -62,6 +62,30 @@ module ApplicationHelper
     @articles ||= Article.where(:published => true, :limit => limit)
   end
 
+  def self.dictionary(key, locale = I18n.locale)
+    parts = key.split('.')
+    dictionary_name = parts.first
+    parts.delete_at(0)
+    key_path = parts.join('.')
+    dic = Dictionary.where(code_name: dictionary_name)
+    if dic.count > 0
+      dic = dic.first
+      keys = dic.dictionary_keys.where(key: key_path)
+      if keys.count > 0
+        k = keys.first
+        return k.translations_by_locale[locale].value
+      else
+        return ''
+      end
+    else
+      return ''
+    end
+  end
+
+  def d(key, locale = I18n.locale)
+    self.dictionary(key, locale)
+  end
+
 
 
 
