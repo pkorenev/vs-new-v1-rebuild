@@ -9,10 +9,11 @@ class Dictionary < ActiveRecord::Base
 
   rails_admin do
     edit do
-      field :name
-      field :info_description
-      field :dictionary_keys
+      #field :name
       field :code_name
+      #field :info_description
+      field :dictionary_keys
+
     end
   end
 

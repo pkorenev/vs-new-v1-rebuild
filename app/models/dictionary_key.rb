@@ -27,7 +27,7 @@ class DictionaryKey < ActiveRecord::Base
 
   rails_admin do
     edit do
-      field :info_description
+      #field :info_description
       field :key
       field :translations, :globalize_tabs
     end
