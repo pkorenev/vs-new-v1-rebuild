@@ -1,6 +1,5 @@
 class Developer < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :email, :avatar, :facebook_profile, :vkontakte_profile, :twitter_profile, :developer_role_id
-  has_attached_file :avatar
+  attr_accessible :first_name, :last_name, :email, :facebook_profile, :vkontakte_profile, :twitter_profile, :developer_role_id
 
   belongs_to :developer_role
 
@@ -8,6 +7,12 @@ class Developer < ActiveRecord::Base
   has_attached_file :avatar, :styles => { :thumb => '150x150>' },
                     :url  => '/assets/developers/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/developers/:id/:style/:basename.:extension'
+
+  [:avatar].each do |paperclip_field_name|
+    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
+
+    attr_accessor "delete_#{paperclip_field_name}".to_sym
+  end
 
 
 
@@ -46,7 +51,10 @@ class Developer < ActiveRecord::Base
 
   		field :email
 
-  		field :avatar
+      group :image_data do
+        field :avatar, :paperclip
+        field :avatar_file_name_fallback
+      end
 
   		field :developer_role
 

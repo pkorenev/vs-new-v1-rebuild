@@ -57,19 +57,19 @@ RailsAdmin.config do |config|
       'About Page' => ''
   }
 
-  [
+  ([
      SitemapElement,
-     Pages::AboutPage,
-     Pages::ArticlesListPage,
-     Pages::HomePage,
-     Pages::PortfolioCorporateIdentityListPage,
-     Pages::PortfolioListPage,
-     Pages::PortfolioPolygraphyListPage,
-     Pages::PortfolioWebListPage,
-     Pages::ServicesPage,
-     Pages::AboutPage,
-     Pages::AboutPage,
-     Pages::AboutPage,
+     # Pages::AboutPage,
+     # Pages::ArticlesListPage,
+     # Pages::HomePage,
+     # Pages::PortfolioCorporateIdentityListPage,
+     # Pages::PortfolioListPage,
+     # Pages::PortfolioPolygraphyListPage,
+     # Pages::PortfolioWebListPage,
+     # Pages::ServicesPage,
+     # Pages::ContactPage,
+     # Pages::OrderPage,
+     # Pages::JoinUsPage,
 
      Banner,
      StaticPageData,
@@ -95,10 +95,12 @@ RailsAdmin.config do |config|
 
      Route,
      ActsAsTaggableOn::Tag,
-     CodePage
+     CodePage,
+
+     FormConfig
 
 
-  ].each do | model |
+  ]+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )).each do | model |
   #config.model model.name do
      #visible false
     config.included_models += [model]
@@ -146,8 +148,16 @@ RailsAdmin.config do |config|
   seo << Tree::TreeNode.new( 'Приэднатись', { link: '/admin/pages~join_us_page/1/edit' } )
 
   portfolio = root['portfolio']
+  portfolio_categories = Tree::TreeNode.new( 'Категорії', { link: '/admin/portfolio~portfolio_category' } )
+  portfolio << portfolio_categories
   portfolio_portfolio = Tree::TreeNode.new( 'Портфоліо - список', { link: '/admin/portfolio~portfolio' } )
   portfolio << portfolio_portfolio
+
+
+  Portfolio::PortfolioCategory.all.each do | c |
+    portfolio_categories << Tree::TreeNode.new( c.name, { link: "/admin/portfolio~portfolio/#{c.id}/edit"} )
+  end
+
 
   Portfolio::PortfolioCategory.all.each do | c |
     portfolio_portfolio << Tree::TreeNode.new( c.name, { link: '/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=' + c.name + '&query=' } )

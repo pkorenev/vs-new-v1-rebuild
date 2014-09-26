@@ -356,6 +356,7 @@ class PortfolioController < ApplicationController
     @active_category = Portfolio::PortfolioCategory.where(slug: requested_category_slug)
     if @active_category && @active_category.count == 1
       @active_category = @active_category.first
+      @active_category.to_s
     end
     render template: 'portfolio/category'
   end

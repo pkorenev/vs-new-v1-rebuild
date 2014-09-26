@@ -9,7 +9,10 @@ function loadTwitter() {
 }
 
 function loadFacebookLike(){
-    if ($(".fb-like").length > 0) {
+    var $fb_like = $(".fb-like")
+    console.log('fb-like length: '+$fb_like.length)
+    if ($fb_like.length > 0) {
+
         if (typeof (FB) != 'undefined') {
             console.log('facebook if')
             FB.init({ status: true, cookie: true, xfbml: true });

@@ -1,16 +1,19 @@
 class Service < ActiveRecord::Base
-  attr_accessible :sort_id, :published, :name, :short_description, :full_description, :avatar, :delete_avatar, :avatar_file_name, :avatar_file_name_fallback, :avatar_alt, :slug
+  attr_accessible :sort_id, :published, :name, :short_description, :full_description, :slug
+
+
   has_attached_file :avatar
+  [:avatar].each do |paperclip_field_name|
+    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
+
+    attr_accessor "delete_#{paperclip_field_name}".to_sym
+  end
+
   validates :sort_id, :uniqueness => true, :presence => true
 
 
-  attr_accessor :delete_avatar
-  before_validation {
-    if self.delete_avatar == '1'
-      self.avatar.clear;
-      self.avatar_file_name_fallback = avatar_file_name;
-    end
-  }
+
+
 
   translates :short_description, :full_description, :avatar_alt, :slug, :name
   accepts_nested_attributes_for :translations
@@ -61,52 +64,7 @@ class Service < ActiveRecord::Base
 
 #  before_save :detect_rename_avatar
 
-  before_save :detect_rename_avatar2
 
-  def detect_rename_avatar2
-    result_file_name = avatar_file_name
-
-    if self.avatar_file_name_changed? && !self.avatar_file_name.nil? # file uploaded: new or updated
-      if avatar_file_name_fallback && avatar_file_name_fallback.match(/\w{1,}(\.\w{3,4})/)
-        result_file_name = avatar_file_name_fallback
-        self.avatar_file_name = result_file_name
-      else
-        self.avatar_file_name_fallback = avatar_file_name
-      end
-
-
-    elsif !self.avatar_file_name_changed? && self.avatar.exists? && self.avatar_file_name_fallback_changed? #rename existing file
-      if avatar_file_name_fallback && avatar_file_name_fallback.match(/\w{1,}(\.\w{3,4})/) # valid name
-        result_file_name = self.avatar_file_name_fallback
-        self.avatar_file_name = result_file_name
-
-        old_file_name = self.avatar_file_name_was
-        new_file_name = self.avatar_file_name
-
-        folder_names = avatar.styles.keys
-        folder_names.push 'original'
-        folder_names.each do |folder_name|
-          new_file_path = avatar.path(folder_name.to_s)
-          old_file_path_array = new_file_path.split('/')
-          old_file_path_array[old_file_path_array.count - 1] = old_file_name
-          old_file_path = old_file_path_array.join('/')
-
-          # do rename
-
-          if File.exist?(old_file_path) && !File.exist?(new_file_path)
-            FileUtils.mv(old_file_path, new_file_path)
-          end
-        end
-      else
-        result_file_name = self.avatar_file_name
-        self.avatar_file_name_fallback = result_file_name
-      end
-    end
-
-
-
-
-  end
 
   def detect_rename_avatar
 

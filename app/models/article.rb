@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Article < ActiveRecord::Base
-  attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :avatar, :avatar_file_name, :delete_avatar, :tags, :tag_list, :release_date, :author
+  attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :tags, :tag_list, :release_date, :author
+
 
   acts_as_taggable
   attr_accessible :tag_list
@@ -13,12 +14,19 @@ class Article < ActiveRecord::Base
 
   validates :short_description, :presence => true, length: { maximum: 250 }
 
-  has_attached_file :avatar
 
   # Paperclip image attachments
+
+
   has_attached_file :avatar, :styles => { :thumb => '150x150>', :article_item => '320x320>', home_article_item: '250x250>', article_page: '500x500>'},
                     :url  => '/assets/articles/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/articles/:id/:style/:basename.:extension'
+
+  [:avatar].each do |paperclip_field_name|
+    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
+
+    attr_accessor "delete_#{paperclip_field_name}".to_sym
+  end
 
 
 
@@ -163,7 +171,7 @@ class Article < ActiveRecord::Base
       end
       group :image_data do
         field :avatar, :paperclip
-        field :avatar_file_name
+        field :avatar_file_name_fallback
       end
 
       field :release_date

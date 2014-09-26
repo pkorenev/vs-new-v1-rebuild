@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Portfolio::Portfolio < ActiveRecord::Base
-  attr_accessible   :published, :task, :thanks_to, :thanks_image, :delete_thanks_image, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng, :avatar, :avatar_alt, :delete_avatar
+  attr_accessible   :published, :task, :thanks_to, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng
 
   # Association's category, banners, technologies
   belongs_to :portfolio_category
@@ -68,23 +68,23 @@ class Portfolio::Portfolio < ActiveRecord::Base
                         non_retina_bw: '-threshold 50%',
                         retina_bw: '-threshold 50%'
                     },
-                    :url  => '/assets/portfolios/:id/:style/:hash.:extension',
+                    :url  => '/assets/portfolios/:id/:style/:basename.:extension',
                     :hash_secret => ':basename',
-                    :path => ':rails_root/public/assets/portfolios/:id/:style/:hash.:extension'
+                    :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
 
   # add a delete_<asset_name> method:
-  attr_accessor :delete_avatar
-  before_validation { self.avatar.clear if self.delete_avatar == '1' }
-
-
-
-
-  attr_accessor :delete_thanks_image
-
   has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
                                     :url  => '/assets/portfolios/:id/thanks_image/:style/:basename.:extension',
                                     :hash_secret => ':basename',
                                     :path => ':rails_root/public/assets/portfolios/:id/thanks_image/:style/:basename.:extension'
+
+  [:avatar, :thanks_image].each do |paperclip_field_name|
+    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
+
+    attr_accessor "delete_#{paperclip_field_name}".to_sym
+  end
+
+
 
   # Validate models
   validates :name, presence: true
@@ -186,9 +186,13 @@ class Portfolio::Portfolio < ActiveRecord::Base
       #   label 'Реальность'
       # end
 
-      field :avatar do
-        label 'Изображение'
-        help 'Минимальное расширение изображения должно быть 716х716! Изображение должно быть цветным!'
+      group :avatar_image_data do
+        field :avatar do
+          label 'Изображение'
+          help 'Минимальное расширение изображения должно быть 716х716! Изображение должно быть цветным!'
+        end
+
+        field :avatar_file_name_fallback
       end
 
       field :portfolio_category do
@@ -208,9 +212,13 @@ class Portfolio::Portfolio < ActiveRecord::Base
       # end
 
 
+      group :thanks_image_data do
 
-      field :thanks_image do
-        label 'Картинка с благодарностью' 
+        field :thanks_image do
+          label 'Картинка с благодарностью'
+        end
+
+        field :thanks_image_file_name_fallback
       end
 
       field :developers do
