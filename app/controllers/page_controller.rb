@@ -75,7 +75,30 @@ class PageController < ApplicationController
       if found_version
         @service = found_version.item
         found_version_slug = found_version.reify.slug
-        new_slug = Service.translation_class.find(@service.id).slug
+        service_translation_current_version = Service.translation_class.find(@service.id)
+        service_current_version = Service.find(service_translation_current_version.service_id)
+        new_slug = service_current_version.slug
+        published_translations = service_current_version.translations.where(published: true)
+        published_locales = []
+        published_translations.each do |t|
+          published_locales.push(t.locale.to_sym)
+        end
+
+        @content_locale = service_current_version.locale.to_sym
+
+            if !published_locales.include?(@content_locale)
+          @content_locale = http_accept_language.compatible_language_from(published_locales)
+            end
+
+
+
+
+        # if published_locales.count < I18n.available_locales.count
+        #   if published_locales.where(locale: I18n.locale)
+        # end
+
+        item_locale = @service
+
         redirect_to service_item: new_slug, :status => :moved_permanently
       else
         @service = nil
