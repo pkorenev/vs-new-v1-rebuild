@@ -57,7 +57,7 @@ class PageController < ApplicationController
     params_slug = params[:service_item]
     @service = Service.translation_class.where(slug: params_slug, locale: I18n.locale)
 
-    render inline: @service.count.to_s
+    #render inline: @service.count.to_s
 
     if @service && @service.respond_to?(:count) && @service.count > 0
       @service = @service.first
