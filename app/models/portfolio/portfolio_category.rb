@@ -12,7 +12,7 @@ class Portfolio::PortfolioCategory < ActiveRecord::Base
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
   attr_accessible :static_page_data_attributes
 
-  translates :name, :slug, :short_description , :full_description
+  translates :name, :slug, :short_description , :full_description, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 

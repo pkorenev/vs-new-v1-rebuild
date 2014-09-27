@@ -53,9 +53,32 @@ class PageController < ApplicationController
   end
 
   def service_item
-    @service = Service.where(slug: params[:service_item])
+
+    params_slug = params[:service_item]
+    @service = Service.translation_class.where(slug: params_slug, locale: I18n.locale)
+
+    render inline: @service.count.to_s
+
     if @service && @service.respond_to?(:count) && @service.count > 0
       @service = @service.first
+
+    else
+      versions = PaperTrail::Version.field_version_values_for_class(Service, :slug)
+      found_version = nil
+      versions.each do |v|
+        if found_version.nil? && v.reify.slug == params_slug
+          found_version = v
+
+        end
+      end
+
+      if found_version
+        @service = found_version.item
+        found_version_slug = found_version.reify.slug
+        redirect_to '/', :status => :moved_permanently
+      else
+        @service = nil
+      end
     end
 
     @related_services = Service.all.limit(2)

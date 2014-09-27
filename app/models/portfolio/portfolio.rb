@@ -11,7 +11,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
   accepts_nested_attributes_for :portfolio_banner, :allow_destroy => true
   attr_accessible :portfolio_banner_attributes
 
-  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt
+  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 

@@ -6,8 +6,10 @@
       </div>
     </div>
 
-    <%= render partial: 'page/service_breadcrumbs' %>
 
+    <%= render partial: 'page/service_breadcrumbs' if @service %>
+
+    <% if @service %>
     <div id="article-section">
       <div id="article-container">
         <div id="article-title-wrapper">
@@ -55,6 +57,7 @@
         </div>
       </div>
     </div>
+    <% end %>
 
 
     <%= render partial: 'partials/item_like_bar' %>

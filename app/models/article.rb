@@ -30,7 +30,7 @@ class Article < ActiveRecord::Base
 
 
 
-  translates :name, :slug, :short_description, :content, :avatar_alt
+  translates :name, :slug, :short_description, :content, :avatar_alt, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 

@@ -11,11 +11,11 @@ class Service < ActiveRecord::Base
 
   validates :sort_id, :uniqueness => true, :presence => true
 
+  has_paper_trail
 
 
 
-
-  translates :short_description, :full_description, :avatar_alt, :slug, :name
+  translates :short_description, :full_description, :avatar_alt, :slug, :name, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 

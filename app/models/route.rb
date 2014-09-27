@@ -4,7 +4,7 @@ class Route < ActiveRecord::Base
 
   attr_accessible :name, :route_string, :route_name, :controller_action, :redirect_to_url, :position
 
-  translates :route_string, :redirect_to_url
+  translates :route_string, :redirect_to_url, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 

@@ -11,7 +11,7 @@ class CustomArticle < ActiveRecord::Base
 
   attr_accessible :name, :slug, :short_description, :full_description, :published
 
-  translates :name, :slug, :short_description, :full_description, :avatar_alt
+  translates :name, :slug, :short_description, :full_description, :avatar_alt, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 
