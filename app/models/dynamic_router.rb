@@ -33,7 +33,7 @@ class DynamicRouter
 
         rb_code = "def #{route.route_name}_path( options = {})" +'options[:locale] = I18n.locale if !options.include? :locale; '+'send( "#{I18n.locale}_' + "#{route.route_name}_path" +'", options ); end'
 
-
+        #match 'photos/:id' => 'photos#show', :constraints => { :id => /[A-Z]\d{5}/ }
 
         Rails.application.routes.url_helpers.module_eval rb_code
         #ApplicationHelper.module_eval rb_code
@@ -45,7 +45,7 @@ class DynamicRouter
             to = redirect(route_translation.redirect_to_url)
           end
 
-          match "(/:locale)#{route_translation.route_string}", to: to, as: "#{locale}_#{route.route_name}", via: route.method_list, defaults: { predefined_locale: locale.to_s, route_id: route.id, route_locale: locale.to_s }
+          match "(/:locale)#{route_translation.route_string}", to: to, as: "#{locale}_#{route.route_name}", via: route.method_list, constraints: { locale: /[a-zA-Z]{2,2}/ }, defaults: { predefined_locale: locale.to_s, route_id: route.id, route_locale: locale.to_s }
         end
       end
     end

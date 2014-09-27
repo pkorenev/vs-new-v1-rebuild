@@ -8,7 +8,7 @@ Rails.application.class.routes.draw do
 
   get 'googleb4007362349b57e0.html', to: 'google_analytics#confirm'
 
-  scope "(:locale)" do
+  scope "(:locale)", constraints: { locale: /[a-zA-Z]{2,2}/ } do
 
 
 
