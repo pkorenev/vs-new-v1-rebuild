@@ -120,3 +120,5 @@ gem 'rails_admin_nestable'
 gem 'http_accept_language'
 
 gem 'codemirror-rails'
+
+gem 'paper_trail'

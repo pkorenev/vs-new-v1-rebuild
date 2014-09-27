@@ -1,4 +1,4 @@
-[Article ,Service, TrustCompany, Portfolio::Portfolio, Portfolio::PortfolioTechnology, Portfolio::PortfolioBanner, Developer].each do |model|
+[Article ,Service, TrustCompany, Portfolio::Portfolio, Portfolio::PortfolioTechnology, Portfolio::PortfolioBanner, Developer, CustomArticle].each do |model|
   model.class_eval do
     def init_paperclip_fields(*fields)
       fields.each do |paperclip_field_name|

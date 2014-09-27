@@ -27,6 +27,7 @@ RailsAdmin.config do |config|
 
   ## == PaperTrail ==
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+  #config.audit_with :paper_trail, 'User', 'PaperTrail::Version'
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
@@ -99,7 +100,8 @@ RailsAdmin.config do |config|
 
      FormConfig,
      Dictionary,
-     DictionaryKey
+     DictionaryKey,
+     CustomArticle
 
 
   ]+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )).each do | model |
