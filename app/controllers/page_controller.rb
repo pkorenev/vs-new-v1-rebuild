@@ -63,10 +63,10 @@ class PageController < ApplicationController
       @service =  model.find(@service.first.send("#{model.to_s.downcase}_id"))
 
     else
-      versions = PaperTrail::Version.field_version_values_for_class(model, :slug)
+      versions = PaperTrail::Version.field_version_values_for_class(model.translation_class, :slug)
       found_version = nil
       versions.each do |v|
-        if found_version.nil? && v.reify.slug == params_slug
+        if found_version.nil? && v.reify && v.reify.slug == params_slug
           found_version = v
 
         end
@@ -75,7 +75,8 @@ class PageController < ApplicationController
       if found_version
         @service = found_version.item
         found_version_slug = found_version.reify.slug
-        redirect_to '/', :status => :moved_permanently
+        new_slug = Service.translation_class.find(@service.id).slug
+        redirect_to service_item: new_slug, :status => :moved_permanently
       else
         @service = nil
       end

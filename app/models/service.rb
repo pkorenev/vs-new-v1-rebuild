@@ -26,6 +26,12 @@ class Service < ActiveRecord::Base
     #   self[:published] = value
     # end
 
+    before_save do
+      if !self.slug || self.slug.length == 0
+        self.slug = self.name.parameterize
+      end
+    end
+
     rails_admin do
       edit do
         field :locale, :hidden
@@ -51,12 +57,12 @@ class Service < ActiveRecord::Base
     sort_id ||= id
   end
 
-  before_validation :generate_slug
-  before_validation :generate_name
+  # before_validation :generate_slug
+  # before_validation :generate_name
 
-  def generate_slug
-    self.slug ||= self.name.parameterize
-  end
+  # def generate_slug
+  #   self.slug ||= self.name.parameterize
+  # end
 
   def generate_name
     self.name ||= "service-#{self.id}"
