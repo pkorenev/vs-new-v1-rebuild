@@ -53,17 +53,17 @@ class PageController < ApplicationController
   end
 
   def service_item
-
+    model = Service
     params_slug = params[:service_item]
-    @service = Service.translation_class.where(slug: params_slug, locale: I18n.locale)
+    @service = model.translation_class.where(slug: params_slug, locale: I18n.locale)
 
     #render inline: @service.count.to_s
 
     if @service && @service.respond_to?(:count) && @service.count > 0
-      @service = @service.first
+      @service =  model.find(@service.first.send("#{model.to_s.downcase}_id"))
 
     else
-      versions = PaperTrail::Version.field_version_values_for_class(Service, :slug)
+      versions = PaperTrail::Version.field_version_values_for_class(model, :slug)
       found_version = nil
       versions.each do |v|
         if found_version.nil? && v.reify.slug == params_slug
