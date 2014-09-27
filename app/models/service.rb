@@ -28,7 +28,12 @@ class Service < ActiveRecord::Base
 
     before_save do
       if !self.slug || self.slug.length == 0
-        self.slug = self.name.parameterize
+        if I18n.locale != :ru
+          locale = I18n.locale
+          I18n.locale = :ru
+          self.slug = self.name.parameterize
+          I18n.locale = locale
+        end
       end
     end
 
