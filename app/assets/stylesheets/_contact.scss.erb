@@ -269,9 +269,23 @@
         padding: 10px 0;
         width: 560px;
         color: #ff2e8b;
+
         text-decoration: none;
         font-size: 36px;
         line-height: 38px;
+
+
+        span.number{
+            border-bottom: 1px solid rgba(#ff2e8b, 0.3);
+            @include transition-property(border-bottom-color);
+            @include transition-duration(0.4s);
+        }
+
+        &:hover{
+            span.number{
+                border-bottom-color: #ff2e8b;
+            }
+        }
     }
 
     section#contacts-page article.body-contacts div.contact-us-wrapper a.mobile img {
@@ -286,6 +300,18 @@
         text-decoration: none;
         font-size: 22px;
         line-height: 38px;
+
+        span.number{
+            border-bottom: 1px solid rgba(#555555, 0.3);
+            @include transition-property(border-bottom-color);
+            @include transition-duration(0.4s);
+        }
+
+        &:hover{
+            span.number{
+                border-bottom-color: #555555;
+            }
+        }
     }
 
     section#contacts-page article.body-contacts div.contact-us-wrapper a.fax img {
@@ -301,6 +327,18 @@
         text-decoration: none;
         font-size: 22px;
         line-height: 38px;
+
+        span.address{
+            border-bottom: 1px solid rgba(#555555, 0.3);
+            @include transition-property(border-bottom-color);
+            @include transition-duration(0.4s);
+        }
+
+        &:hover{
+            span.address{
+                border-bottom-color: #555555;
+            }
+        }
     }
 
     section#contacts-page article.body-contacts div.contact-us-wrapper a.address img {
@@ -366,6 +404,12 @@
         color: #ff2e8b;
         text-decoration: none;
         font-size: inherit;
+
+        /*border-bottom-color: rgba(255, 30, 140, 0.3);*/
+
+        /*&:hover{*/
+            /*border-bottom-color: #ff2e8b;*/
+        /*}*/
     }
 
     .next-section-btn {

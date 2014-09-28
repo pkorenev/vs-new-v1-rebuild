@@ -171,6 +171,8 @@
   @extend .white-background;
 
 
+
+
   /* from #sub-footer */
   padding: 4rem 0;
   background: #fff;
@@ -207,6 +209,7 @@
   .news-item .image-holder{
      float: left;
      width: 250px;
+
   }
 
   .news-item .image-holder a img{
@@ -226,7 +229,7 @@
 
   .news-item header .h4-title a{
     font-size: 1.375rem;
-    border-bottom: solid 1px rgba(255, 46, 139, 0.3);
+    //border-bottom: solid 1px rgba(255, 46, 139, 0.3);
     line-height: 1.75rem;
   }
 
@@ -324,6 +327,10 @@
     float: left;
     position: relative;
     width:33.3333%;
+
+    a{
+      //border-bottom: none;
+    }
 
     img{
       max-width: 100%;

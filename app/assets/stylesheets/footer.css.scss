@@ -44,7 +44,7 @@
 }
 
 .site-copyrights a{
-  border-bottom: 1px solid rgba(255, 255, 255, 0.01);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   text-decoration: none;
 }
@@ -69,6 +69,19 @@
   font-weight: normal;
   font-size: 1.25em;
   font-family: 'OpenSansLight', Arial, sans-serif;
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+
+  &:hover{
+    border-bottom-color: #fff;
+  }
+
+  &.tel{
+    border-bottom-color: rgba(255, 46, 139, 0.3);
+
+    &:hover{
+      border-bottom-color: rgb(255, 46, 139);
+    }
+  }
 }
 
 

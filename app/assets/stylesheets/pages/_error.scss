@@ -1,0 +1,48 @@
+.page.error-not-found{
+  text-align: center;
+  #error-message{
+    margin-top: 40px;
+    display: inline-block;
+    text-align: center;
+    .error, .page-not-found{
+      color: #545454;
+      font-weight: normal;
+      font-size: 30px;
+      display: block;
+      font-family: OpenSansLight, Arial, sans-serif;
+    }
+
+    .error{
+      text-align: right;
+      margin-right: 16%;
+    }
+
+    .error-code{
+      display: block;
+      font-size: 250px;
+      font-family: OpenSansExtrabold, Arial, sans-serif;
+      font-weight: 900;
+      line-height: 0.7;
+
+    }
+
+    .page-not-found{
+      font-size: 40px;
+      margin-top: 30px;
+    }
+
+
+  }
+
+  #links{
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    a{
+      margin-left: 50px;
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+  }
+}

@@ -5,14 +5,14 @@
       
       <div class="footer-contacts-wrapper">
         <div class="footer-contacts">
-          <p id="phone"><span class="cont-sprite-s cont-s-mobile-icon"></span><a href="tel: +38 (050) 417-07-28" title="+38 (050) 417-07-28">+38 (050) 417-07-28</a></p>
+          <p id="phone"><span class="cont-sprite-s cont-s-mobile-icon"></span><a class="tel" href="tel: +38 (050) 417-07-28" title="+38 (050) 417-07-28">+38 (050) 417-07-28</a></p>
           <p id="email"><span class="cont-sprite-s cont-s-email-icon"></span><a href="mailto: office@voroninstudio.eu" title="office@voroninstudio.eu">office@voroninstudio.eu</a></p>
 
         </div>
       </div>
 
       <div class="behance">
-        <%= link_to image_tag('static_images/behance_footer.jpg'), '/behance', :title => 'Behance HOST' %>
+        <%= link_to image_tag('static_images/behance_footer.jpg'), '/behance', :title => 'Behance HOST', class: 'image-link' %>
       </div>
       <div class="get-me-top-wrapper">
         <figure class="get-me-top-container-holder">
@@ -27,11 +27,11 @@
       <div id="social-panel-and-copyrights">
         <div class="social-panel">
           <ul>
-            <li><a href="http://www.behance.net/voronin" title="Наш канал на Behance"><span class="soc-buttons behance-icon"></span></a></li>
-            <li><a href="https://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" title="Наш канал на Facebook"><span class="soc-buttons facebook-icon"></span></a></li>
-            <li><a href="#" title="Наш канал на Google+"><span class="soc-buttons google-icon"></span></a></li>
-            <li><a title="Наш канал на LinkedIn" href="http://ua.linkedin.com/pub/nick-voronin/5/b61/417" ><span class="soc-buttons linkedin-icon"></span></a></li>
-            <li><a href="http://twitter.com/voroninstudio.eu" title="Наш канал на Twitter"><span class="soc-buttons twitter-icon"></span></a></li>
+            <li><a class="no-border-bottom" href="http://www.behance.net/voronin" title="Наш канал на Behance"><span class="soc-buttons behance-icon"></span></a></li>
+            <li><a class="no-border-bottom" href="https://www.facebook.com/pages/Voronin-Design-Studio/327478650602139" title="Наш канал на Facebook"><span class="soc-buttons facebook-icon"></span></a></li>
+            <li><a  class="no-border-bottom" href="#" title="Наш канал на Google+"><span class="soc-buttons google-icon"></span></a></li>
+            <li><a class="no-border-bottom" title="Наш канал на LinkedIn" href="http://ua.linkedin.com/pub/nick-voronin/5/b61/417" ><span class="soc-buttons linkedin-icon"></span></a></li>
+            <li><a class="no-border-bottom" href="http://twitter.com/voroninstudio.eu" title="Наш канал на Twitter"><span class="soc-buttons twitter-icon"></span></a></li>
             <li id="fb-like">
               <div id="fb-like-wrapper">
                 <% if 1 == 2 %>

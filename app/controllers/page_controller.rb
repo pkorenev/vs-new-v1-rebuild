@@ -78,19 +78,10 @@ class PageController < ApplicationController
         service_translation_current_version = Service.translation_class.find(@service.id)
         service_current_version = Service.find(service_translation_current_version.service_id)
         new_slug = service_current_version.slug
-        published_translations = service_current_version.translations.where(published: true)
-        published_locales = []
-        published_translations.each do |t|
-          published_locales.push(t.locale.to_sym)
-        end
-
-        @content_locale = service_current_version.locale.to_sym
-
-            if !published_locales.include?(@content_locale)
-          @content_locale = http_accept_language.compatible_language_from(published_locales)
-            end
 
 
+
+        #render inline: "content_locale: #{@content_locale}"
 
 
         # if published_locales.count < I18n.available_locales.count
@@ -104,6 +95,24 @@ class PageController < ApplicationController
         @service = nil
       end
     end
+
+    if @service
+      @content_locale = I18n.locale
+
+      published_translations = @service.translations.where(published: true)
+      published_locales = []
+      published_translations.each do |t|
+        published_locales.push(t.locale.to_sym)
+      end
+
+      if !published_locales.include?(@content_locale)
+        @content_locale = http_accept_language.compatible_language_from(published_locales)
+      end
+    else
+      @content_locale = I18n.locale
+    end
+
+    #render inline: "content_locale: #{@content_locale}"
 
     @related_services = Service.all.limit(2)
 

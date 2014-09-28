@@ -12,6 +12,8 @@ $media_max_width:4600px;
 //@import 'fancybox';
 //@import "jquery.ui.all";
 
+@import "functions";
+
 @import "_config";
 
 $header-color: $text-pink-color;
@@ -23,6 +25,7 @@ $header-color: $text-pink-color;
 @import "custom_grid/mixin-grid960";
 
 @import "fonts";
+
 
 
 
@@ -52,6 +55,8 @@ $header-color: $text-pink-color;
 @import "pages/articles";
 @import "pages/article-item";
 @import "pages/portfolio_item";
+@import "pages/error";
+@import "devise";
 
 @import "_portfolio";
 

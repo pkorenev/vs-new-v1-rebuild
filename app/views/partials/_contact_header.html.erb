@@ -53,13 +53,13 @@
 <article class="contact-header">
 
     <div id="contact-us-tab" data-url="<%= contact_path %>" data-tab-content-id="contact-us-container" class="<%= (@section == :contact)? 'contact-active-tab' : '' %>" title="Зв’язатись з нами">
-      <%= link_to_if @section != :contact, 'Зв’язатись з нами', contact_path %>
+      <%= link_to_if @section != :contact, 'Зв’язатись з нами', contact_path, class: 'no-border-bottom' %>
     </div>
     <div id="order-us-tab" data-url="<%= order_path %>" data-tab-content-id="order-us-container" title="Замовити нас" class="<%= (@section == :order)? 'contact-active-tab' : '' %>">
-      <%= link_to_if @section != :order, 'Замовити нас', order_path %>
+      <%= link_to_if @section != :order, 'Замовити нас', order_path, class: 'no-border-bottom' %>
     </div>
     <div id="join-us-tab" data-url="<%= join_us_path %>" data-tab-content-id="join-us-wrapper" title="Приєднатись до нас" class="<%= (@section == :join_us)? 'contact-active-tab' : '' %>">
-      <%= link_to_if @section != :join_us, 'Приєднатись до нас', join_us_path %>
+      <%= link_to_if @section != :join_us, 'Приєднатись до нас', join_us_path, class: 'no-border-bottom' %>
     </div>
     <div id="close-button" class="modal-cls-btn" title="Закрити вікно">
       <a href="" class="modal-cls-btn" title="Закрити вікно">

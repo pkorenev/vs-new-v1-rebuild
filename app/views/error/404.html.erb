@@ -1,1 +1,8 @@
-<h1>404 Not Found</h1>
+<div class="page error-not-found">
+<h1 id="error-message"><span class="error">помилка</span><span class="error-code">404</span><span class="page-not-found">Сторінку не знайдено...</span></h1>
+
+<div id="links">
+  <a href="<%= root_path(locale: I18n.locale) %>">Повернутись на головну</a>
+  <a href="<%= portfolio_path %>">Переглянути портфоліо</a>
+</div>
+</div>

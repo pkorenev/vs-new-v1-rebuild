@@ -17,7 +17,7 @@
           <div class="article-body">
             <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), article_item_path(article_item: article_item.slug), :itemprop => 'url') %></h2></div>
             <div class="image-container"><%= link_to(image_tag(article_item.avatar.url(:article_item), :itemprop => 'image', :alt => article_item.name), 
-            '/articles/'+ article_item.slug ) %></div>
+            '/articles/'+ article_item.slug, class: 'no-border-bottom' ) %></div>
 
             <section itemprop="description">
               <p><%= article_item.short_description.truncate(255) %></p>

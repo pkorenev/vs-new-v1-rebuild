@@ -375,3 +375,25 @@ h2{
 }
 
 
+a{
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 46, 139, 0.3);
+  @include transition-duration(0.5s);
+  @include transition-property(border-bottom);
+
+  &:hover{
+    border-bottom-color: rgb(255, 46, 139);
+  }
+
+  &.image-link{
+    border-bottom: none;
+  }
+}
+
+
+
+
+
+.no-border-bottom{
+  border-bottom: none !important;
+}
