@@ -29,7 +29,7 @@ class Portfolio::PortfolioCategory < ActiveRecord::Base
         field :published
         field :name
         field :slug
-        field :short_description
+        #field :short_description
         field :full_description
       end
     end

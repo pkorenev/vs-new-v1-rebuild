@@ -7,6 +7,8 @@ class PortfolioController < ApplicationController
     @page_data = Pages::PortfolioListPage.first
     @static_page_data = @page_data.static_page_data
     #@portfolio_invitation_source = @page_data.portfolio_invitation
+
+    @portfolio_description = Pages::PortfolioListPage.first.full_description
   end
 
   def test
@@ -356,7 +358,9 @@ class PortfolioController < ApplicationController
     @active_category = Portfolio::PortfolioCategory.where(slug: requested_category_slug)
     if @active_category && @active_category.count == 1
       @active_category = @active_category.first
-      @active_category.to_s
+
+
+      @portfolio_description = @active_category.full_description
     end
     render template: 'portfolio/category'
   end
