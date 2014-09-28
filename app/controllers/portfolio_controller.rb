@@ -8,7 +8,7 @@ class PortfolioController < ApplicationController
     @static_page_data = @page_data.static_page_data
     #@portfolio_invitation_source = @page_data.portfolio_invitation
 
-    @portfolio_description = Pages::PortfolioListPage.first.full_description
+    @portfolio_description = Pages::PortfolioListPage.first.intro_text
   end
 
   def test
