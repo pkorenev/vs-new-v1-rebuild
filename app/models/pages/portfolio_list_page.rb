@@ -21,7 +21,7 @@ class Pages::PortfolioListPage < ActiveRecord::Base
 
     rails_admin do
       edit do
-        field :intro_text
+        field :intro_text, :ck_editor
       end
     end
   end

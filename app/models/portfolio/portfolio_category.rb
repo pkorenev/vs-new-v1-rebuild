@@ -30,7 +30,7 @@ class Portfolio::PortfolioCategory < ActiveRecord::Base
         field :name
         field :slug
         #field :short_description
-        field :full_description
+        field :full_description, :ck_editor
       end
     end
   end
