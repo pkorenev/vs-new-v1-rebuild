@@ -101,10 +101,12 @@ RailsAdmin.config do |config|
      FormConfig,
      Dictionary,
      DictionaryKey,
-     CustomArticle
+     CustomArticle,
 
 
-  ]+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )).each do | model |
+  ]#+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )
+
+  ).each do | model |
   #config.model model.name do
      #visible false
     config.included_models += [model]
@@ -112,6 +114,14 @@ RailsAdmin.config do |config|
       config.included_models += [model.translation_class]
     end
   #end
+  end
+
+  ["Pages::AboutPage", "Pages::ArticlesListPage", "Pages::ContactPage", "Pages::HomePage", "Pages::JoinUsPage", "Pages::OrderPage", "Pages::ServicesPage"].each do |m|
+    config.included_models += [m]
+  end
+
+  [Pages::PortfolioListPage].each do |model|
+    config.included_models += [model, "#{model.to_s}::Translation"]
   end
 
   config.navigation_static_label = "Static Pages"

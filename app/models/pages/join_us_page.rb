@@ -22,7 +22,8 @@ class Pages::JoinUsPage < ActiveRecord::Base
 
     rails_admin do
       edit do
-        field :translations, :globalize_tabs
+
+        field :locale, :hidden
         field :content, :ck_editor
       end
     end

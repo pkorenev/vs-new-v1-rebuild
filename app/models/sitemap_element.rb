@@ -51,7 +51,7 @@ class SitemapElement < ActiveRecord::Base
 
     rails_admin do
       edit do
-        # field :locale, :hidden
+        field :locale, :hidden
         # field :published
         # field :name
         # field :slug

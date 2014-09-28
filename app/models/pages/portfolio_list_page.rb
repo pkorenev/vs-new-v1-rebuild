@@ -13,7 +13,7 @@ class Pages::PortfolioListPage < ActiveRecord::Base
   attr_accessible :translations_attributes, :translations
 
   class Translation
-    attr_accessible :locale, :intro_text
+    attr_accessible :locale, :published, :intro_text
 
     # def published=(value)
     #   self[:published] = value
@@ -21,7 +21,10 @@ class Pages::PortfolioListPage < ActiveRecord::Base
 
     rails_admin do
       edit do
+        field :locale, :hidden
+        field :published
         field :intro_text, :ck_editor
+
       end
     end
   end

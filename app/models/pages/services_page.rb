@@ -18,12 +18,32 @@ class Pages::ServicesPage < ActiveRecord::Base
 
   attr_accessible :intro_text, :footer_text
 
+  translates :intro_text, :footer_text, :versioning => :paper_trail
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :published, :intro_text, :footer_text
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :published
+        field :intro_text
+        field :footer_text
+      end
+    end
+  end
+
   rails_admin do
 
 
     edit do
-      field :intro_text
-      field :footer_text
+      field :translations, :globalize_tabs
       field :services
       field :static_page_data
     end

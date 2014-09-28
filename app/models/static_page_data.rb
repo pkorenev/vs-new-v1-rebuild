@@ -34,6 +34,7 @@ class StaticPageData < ActiveRecord::Base
 
     rails_admin do
       edit do
+        field :locale, :hidden
         field :head_title
         field :meta_keywords
         #field :meta_keyword_list do

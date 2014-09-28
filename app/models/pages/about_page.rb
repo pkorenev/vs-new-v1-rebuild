@@ -10,6 +10,25 @@ class Pages::AboutPage < ActiveRecord::Base
   attr_accessible :clients_intro
   attr_accessible :team_text
 
+  translates :content, :clients_intro, :team_text, :versioning => :paper_trail
+  accepts_nested_attributes_for :translations
+  attr_accessible :translations_attributes, :translations
+
+  class Translation
+    attr_accessible :locale, :intro_text
+
+    # def published=(value)
+    #   self[:published] = value
+    # end
+
+    rails_admin do
+      edit do
+        field :locale, :hidden
+        field :intro_text, :ck_editor
+      end
+    end
+  end
+
 
 
 
