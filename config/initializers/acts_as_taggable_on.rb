@@ -1,4 +1,4 @@
-# ActsAsTaggableOn::Tag.class_eval do
+ActsAsTaggableOn::Tag.class_eval do
 #   translates :name
 #   accepts_nested_attributes_for :translations
 #   attr_accessible :translations_attributes, :translations
@@ -12,8 +12,10 @@
 #     end
 #   end
 #
-#   rails_admin do
-#     field :translations, :globalize_tabs
-#   end
+   rails_admin do
+
+     field :translations, :globalize_tabs
+     field :taggings
+   end
 #
-# end
+end

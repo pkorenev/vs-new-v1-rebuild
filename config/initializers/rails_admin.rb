@@ -10,7 +10,7 @@ Rails.configuration.to_prepare do
 
 end
 
-require Rails.root.join('app/models/tag.rb')
+require Rails.root.join('app/models/acts_as_taggable/tag.rb')
 
 RailsAdmin.config do |config|
 
@@ -96,12 +96,17 @@ RailsAdmin.config do |config|
 
      Route,
      ActsAsTaggableOn::Tag,
+     ActsAsTaggableOn::Taggable,
+     ActsAsTaggableOn::Tagging,
+     ActsAsTaggableOn::Tagger,
+     ActsAsTaggableOn::TagList,
      CodePage,
 
      FormConfig,
      Dictionary,
      DictionaryKey,
      CustomArticle,
+     PortfolioTagScope
 
 
   ]#+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )

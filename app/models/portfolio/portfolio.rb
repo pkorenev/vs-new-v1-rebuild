@@ -116,6 +116,16 @@ class Portfolio::Portfolio < ActiveRecord::Base
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
   attr_accessible :static_page_data_attributes
 
+  has_one :portfolio_tag_scope, :as => :scope_taggable
+  attr_accessible :portfolio_tag_scope
+  accepts_nested_attributes_for :portfolio_tag_scope, :allow_destroy => true
+  attr_accessible :portfolio_tag_scope_attributes
+  before_save do
+    if !portfolio_tag_scope
+      self.build_portfolio_tag_scope
+    end
+  end
+
   rails_admin do
 
 
@@ -160,6 +170,12 @@ class Portfolio::Portfolio < ActiveRecord::Base
       #   label 'Название (внутреннее)'
       # end
       #
+
+      field :portfolio_tag_scope do
+        active true
+        label 'теги'
+      end
+
       field :title do
         #label 'Название'
       end

@@ -55,6 +55,8 @@ class Article < ActiveRecord::Base
   end
 
 
+
+
   before_validation :generate_slug
   before_validation :generate_title
   before_save :generate_release_date
@@ -130,6 +132,18 @@ class Article < ActiveRecord::Base
 
 
   has_one :static_page_data, :as => :has_static_page_data
+
+  has_one :portfolio_tag_scope, :as => :scope_taggable
+  attr_accessible :portfolio_tag_scope
+  accepts_nested_attributes_for :portfolio_tag_scope, :allow_destroy => true
+  attr_accessible :portfolio_tag_scope_attributes
+  before_save do
+    if !portfolio_tag_scope
+      self.build_portfolio_tag_scope
+    end
+  end
+
+
   attr_accessible :static_page_data
 
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
@@ -155,9 +169,14 @@ class Article < ActiveRecord::Base
       field :avatar, :paperclip
     end
     edit do
-      #field :published
+      field :published
       #field :name
+      field :portfolio_tag_scope do
+        active true
+        label 'теги'
+      end
       field :title
+
       # field :short_description do
       # 	label 'краткое описание'
       # end
@@ -166,9 +185,10 @@ class Article < ActiveRecord::Base
       # end
 
       field :translations, :globalize_tabs
-      field :tag_list do
-        partial 'tag_list_with_suggestions'
-      end
+      # field :tag_list do
+      #   partial 'tag_list_with_suggestions'
+      # end
+
       group :image_data do
         field :avatar, :paperclip
         field :avatar_file_name_fallback

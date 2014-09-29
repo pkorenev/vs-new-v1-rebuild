@@ -19,7 +19,7 @@ class ActsAsTaggableOn::Tag
     end
 
     edit do
-
+      field :taggings
       field :translations, :globalize_tabs
     end
   end
