@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Service < ActiveRecord::Base
   attr_accessible :sort_id, :published, :name, :short_description, :full_description, :slug
 
@@ -168,6 +169,27 @@ class Service < ActiveRecord::Base
   end
 
   rails_admin do
+    configure :sort_id do
+      label 'Порядок сортировки на странице вывода всех сервисов'
+    end
+
+    configure :published do
+      label 'опубликовать'
+    end
+
+    configure :avatar_file_name_fallback do
+      label 'имя файла'
+      help 'должен включать расширение. Например: gav-upakovka.jpg'
+    end
+
+    configure :static_page_data do
+      label 'Данные о странице'
+    end
+
+    configure :services_page do
+
+    end
+
    list do
    field :sort_id do
      #label 'id'
@@ -180,7 +202,8 @@ class Service < ActiveRecord::Base
 
    edit do
     field :sort_id do
-     #label 'id'
+     label ''
+
     end
     field :published
     #field :name
@@ -191,15 +214,16 @@ class Service < ActiveRecord::Base
     # field :full_description, :ck_editor
     field :translations, :globalize_tabs
 
-    field :avatar do
-      group :image_data
-    end
+
     # field :avatar_alt do
     #   group :image_data
     # end
-    field :avatar_file_name_fallback do
-      group :image_data
-      label 'file name'
+    group :image_data do
+      field :avatar
+      field :avatar_file_name_fallback do
+
+        label 'file name'
+      end
     end
      field :services_page
 
