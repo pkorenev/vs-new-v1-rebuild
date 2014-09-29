@@ -62,6 +62,7 @@ class PageController < ApplicationController
     if @service && @service.respond_to?(:count) && @service.count > 0
       @service =  model.find(@service.first.send("#{model.to_s.downcase}_id"))
 
+
     else
       versions = PaperTrail::Version.field_version_values_for_class(model.translation_class, :slug)
       found_version = nil
