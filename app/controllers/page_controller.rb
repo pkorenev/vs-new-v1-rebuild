@@ -134,7 +134,7 @@ class PageController < ApplicationController
         filtered_taggables.push t.scope_taggable if (t.respond_to?(:scope_taggable) && t.scope_taggable.published)
       end
       
-      filtered_taggables.sort! { |x, y| x.updated_at > y.updated_at }
+      filtered_taggables.sort! { |x, y| x.updated_at - y.updated_at }
 
       a = 5 + 5
 
