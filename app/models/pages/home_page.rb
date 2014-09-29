@@ -13,7 +13,7 @@ class Pages::HomePage < ActiveRecord::Base
   attr_accessible :translations_attributes, :translations
 
   class Translation
-    attr_accessible :locale, :published, :greetings, :intro_text
+    attr_accessible :locale, :published, :greetings
 
     # def published=(value)
     #   self[:published] = value
