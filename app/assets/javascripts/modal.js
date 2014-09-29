@@ -83,7 +83,8 @@ function initTabs(){
     });
 
 
-    $tabs.click(function(){
+    $tabs.click(function(event){
+        event.preventDefault()
         var $tab = $(this)
         tab_content_id = $tab.attr('data-tab-content-id')
         var $tab_contents = $modal_wrapper.find('.body-contacts')
