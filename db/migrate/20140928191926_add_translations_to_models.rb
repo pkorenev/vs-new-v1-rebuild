@@ -41,7 +41,11 @@ class AddTranslationsToModels < ActiveRecord::Migration
 
   def down
     [Pages::PortfolioListPage, Pages::HomePage, Pages::ServicesPage].each do |model|
-      model.drop_translation_table!
+
+
+      if ActiveRecord::Base.connection.tables.include?(model.translation_class.table_name)
+        model.drop_translation_table!
+      end
 
       remove_column model.table_name, :published
 
