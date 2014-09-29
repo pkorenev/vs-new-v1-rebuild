@@ -108,6 +108,8 @@ class PageController < ApplicationController
       if !published_locales.include?(@content_locale)
         @content_locale = http_accept_language.compatible_language_from(published_locales)
       end
+
+      @static_page_data = @service.static_page_data
     else
       @content_locale = I18n.locale
     end

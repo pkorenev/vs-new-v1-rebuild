@@ -9,6 +9,8 @@
         <title><%= @static_page_data.head_title %></title>
         <meta name="keywords" content="<%= @static_page_data.meta_keywords %>" />
         <meta name="description" content="<%= @static_page_data.meta_description %>" />
+    <% else %>
+        <meta name="metadata" content="none" />
     <% end %>
 
 
