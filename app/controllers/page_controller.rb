@@ -110,12 +110,20 @@ class PageController < ApplicationController
         @content_locale = http_accept_language.compatible_language_from(published_locales)
       end
 
+      @static_page_data = @service.static_page_data
+
+      @related_projects = []
+      taggables = PortfolioTagScope.tagged_with(@service.portfolio_tag_scope.tag_list, any: true).where(scope_taggable_type: Portfolio::Portfolio.to_s)
+      taggables.each do |t|
+        @related_projects.push(t.scope_taggable) if t.scope_taggable.class == Portfolio::Portfolio
+      end
+
 
     else
       @content_locale = I18n.locale
     end
 
-    @static_page_data = @service.static_page_data
+
 
     #render inline: "content_locale: #{@content_locale}"
 

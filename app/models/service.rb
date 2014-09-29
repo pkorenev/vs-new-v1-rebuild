@@ -217,10 +217,7 @@ class Service < ActiveRecord::Base
     end
     field :published
 
-    field :portfolio_tag_scope do
-      active true
-      label 'теги'
-    end
+
     #field :name
     # field :slug do
     #   label 'url part'
@@ -228,6 +225,11 @@ class Service < ActiveRecord::Base
     # field :short_description
     # field :full_description, :ck_editor
     field :translations, :globalize_tabs
+
+    field :portfolio_tag_scope do
+      active true
+      label 'теги'
+    end
 
 
 

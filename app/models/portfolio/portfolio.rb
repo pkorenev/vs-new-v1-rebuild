@@ -171,10 +171,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
       # end
       #
 
-      field :portfolio_tag_scope do
-        active true
-        label 'теги'
-      end
+
 
       field :title do
         #label 'Название'
@@ -235,6 +232,11 @@ class Portfolio::Portfolio < ActiveRecord::Base
         end
 
         field :thanks_image_file_name_fallback
+      end
+
+      field :portfolio_tag_scope do
+        active true
+        label 'теги'
       end
 
       field :developers do

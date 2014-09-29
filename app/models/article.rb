@@ -171,10 +171,7 @@ class Article < ActiveRecord::Base
     edit do
       field :published
       #field :name
-      field :portfolio_tag_scope do
-        active true
-        label 'теги'
-      end
+
       field :title
 
       # field :short_description do
@@ -188,6 +185,10 @@ class Article < ActiveRecord::Base
       # field :tag_list do
       #   partial 'tag_list_with_suggestions'
       # end
+      field :portfolio_tag_scope do
+        active true
+        label 'теги'
+      end
 
       group :image_data do
         field :avatar, :paperclip

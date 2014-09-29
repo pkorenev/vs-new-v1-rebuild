@@ -1,0 +1,20 @@
+<div id="other-projects">
+  <div class="carousel-wrapper">
+    <ul class="carousel">
+      <% for i in 1..1 %>
+          <% @related_projects.each do |project| %>
+              <li class="carousel-item">
+                <figure>
+                  <a class="image-link" href="<%= project.slug %>" data-no-turbolink="" >
+                    <img title="<%= project.title %>" alt="<%= project.title %>" class="grayscale" src="<%= project.avatar.url(:non_retina) %>" />
+                  </a>
+                </figure>
+              </li>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
+  <script type="text/javascript">
+
+  </script>
+</div>
