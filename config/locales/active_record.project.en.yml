@@ -1,0 +1,8 @@
+en:
+  activerecord:
+#      models:
+#        box:
+#          one: Beautiful box
+#          other: Beautiful boxen
+    attributes:
+      

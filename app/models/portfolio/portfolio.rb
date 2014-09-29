@@ -129,18 +129,18 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   # Rails admin configuration
   rails_admin do
-    label 'Портфолио'
-    label_plural 'Портфолио'
+    # label 'Портфолио'
+    # label_plural 'Портфолио'
 
     list do
       field :name do
-        label 'Название'
+        #label 'Название'
       end
       field :portfolio_category do
-        label 'Тип работы'
+        #label 'Тип работы'
       end
       field :avatar do
-        label 'Изображение'
+        #label 'Изображение'
         thumb_method :admin_prv
       end
     end
@@ -161,7 +161,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
       # end
       #
       field :title do
-        label 'Название'
+        #label 'Название'
       end
 
       field :translations, :globalize_tabs
@@ -215,22 +215,22 @@ class Portfolio::Portfolio < ActiveRecord::Base
       group :thanks_image_data do
 
         field :thanks_image do
-          label 'Картинка с благодарностью'
+        #  label 'Картинка с благодарностью'
         end
 
         field :thanks_image_file_name_fallback
       end
 
       field :developers do
-        label 'Команда'
+       # label 'Команда'
       end
 
       field :portfolio_technologies do
-        label 'Технологии'
+       # label 'Технологии'
       end
 
       field :release do
-        label 'Дата выхода работы'
+      #  label 'Дата выхода работы'
       end
 
       field :static_page_data

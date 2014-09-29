@@ -1,0 +1,5 @@
+ru:
+  admin:
+    help:
+#      user:
+#        login: "Enter your handle, please. %{help}"
