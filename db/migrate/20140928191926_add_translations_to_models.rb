@@ -11,7 +11,7 @@ class AddTranslationsToModels < ActiveRecord::Migration
       end
 
       if model.respond_to?(:translates?) && model.translates?
-        if ActiveRecord::Base.connection.tables.include?(model.translation_class.table_name)
+        if !ActiveRecord::Base.connection.tables.include?(model.translation_class.table_name)
           model.create_translation_table!
         end
 
@@ -28,7 +28,8 @@ class AddTranslationsToModels < ActiveRecord::Migration
           I18n.available_locales.each {|locale|
             if !translated_locales.include?(locale) then;
             t = model.translation_class.new;
-            t.send("#{model.to_s.remove('::').underscore}_id=", item.id);
+            model_id_column_name = "#{model.table_name.sub(/^#{model.table_name_prefix}/, '').singularize}_id"
+            t.send("#{model_id_column_name}=", item.id);
             t.locale = locale; item.translated_attribute_names.each {|attr_name|
               t.send("#{attr_name}=", item.send(attr_name) );
             };
