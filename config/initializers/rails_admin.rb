@@ -116,12 +116,12 @@ RailsAdmin.config do |config|
   #end
   end
 
-  ["Pages::AboutPage", "Pages::ArticlesListPage", "Pages::ContactPage", "Pages::HomePage", "Pages::JoinUsPage", "Pages::OrderPage", "Pages::ServicesPage"].each do |m|
+  [Pages::ArticlesListPage ].each do |m|
     config.included_models += [m]
   end
 
-  [Pages::PortfolioListPage].each do |model|
-    config.included_models += [model, "#{model.to_s}::Translation"]
+  [Pages::PortfolioListPage, Pages::AboutPage, Pages::ContactPage, Pages::HomePage, Pages::JoinUsPage, Pages::OrderPage, Pages::ServicesPage].each do |model|
+    config.included_models += [model.to_s, "#{model.to_s}::Translation"]
   end
 
   config.navigation_static_label = "Static Pages"
@@ -170,7 +170,7 @@ RailsAdmin.config do |config|
 
 
   Portfolio::PortfolioCategory.all.each do | c |
-    portfolio_categories << Tree::TreeNode.new( c.name, { link: "/admin/portfolio~portfolio/#{c.id}/edit"} )
+    portfolio_categories << Tree::TreeNode.new( c.name, { link: "/admin/portfolio~portfolio_category/#{c.id}/edit"} )
   end
 
 

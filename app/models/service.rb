@@ -13,6 +13,11 @@ class Service < ActiveRecord::Base
 
   has_paper_trail
 
+  has_one :static_page_data, :as => :has_static_page_data
+  attr_accessible :static_page_data
+
+  accepts_nested_attributes_for :static_page_data, :allow_destroy => true
+  attr_accessible :static_page_data_attributes
 
 
   translates :short_description, :full_description, :avatar_alt, :slug, :name, :versioning => :paper_trail
@@ -197,6 +202,8 @@ class Service < ActiveRecord::Base
       label 'file name'
     end
      field :services_page
+
+    field :static_page_data
 
 
    end
