@@ -109,10 +109,12 @@ class PageController < ApplicationController
         @content_locale = http_accept_language.compatible_language_from(published_locales)
       end
 
-      @static_page_data = @service.static_page_data
+
     else
       @content_locale = I18n.locale
     end
+
+    @static_page_data = @service.static_page_data
 
     #render inline: "content_locale: #{@content_locale}"
 

@@ -1,9 +1,9 @@
 ru:
   activerecord:
-      models:
-        portfolio_portfolio:
-          one: Портфолио
-          other: Портфолио
+    models:
+      portfolio_portfolio:
+        one: Портфолио
+        other: Портфолио
     attributes:
       portfolio_portfolio:
         name: Название
