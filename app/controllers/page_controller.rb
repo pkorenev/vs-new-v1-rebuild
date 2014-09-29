@@ -136,8 +136,10 @@ class PageController < ApplicationController
       
       filtered_taggables.sort! { |x, y| x.updated_at - y.updated_at }
 
-      filtered_taggables.each do |t|
-        @related_projects.push t
+      while @related_projects.count < 8
+        filtered_taggables.each do |t|
+          @related_projects.push t
+        end
       end
 
       a = 5 + 5
