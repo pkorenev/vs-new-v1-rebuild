@@ -113,14 +113,30 @@ class PageController < ApplicationController
       @static_page_data = @service.static_page_data
 
       @related_projects = []
-      taggables = PortfolioTagScope.tagged_with(@service.portfolio_tag_scope.tag_list, any: true).where(scope_taggable_type: Portfolio::Portfolio.to_s).limit(8)
-      .joins(:scope_taggable).where(scope_taggable: { published: true } )
+      # if @service.portfolio_tag_scope && @service.portfolio_tag_scope.tag_list.count > 0
+      #   taggables = PortfolioTagScope.tagged_with(@service.portfolio_tag_scope.tag_list, any: true).where(scope_taggable_type: Portfolio::Portfolio.to_s).include(:scope_taggable)
+      #   # = taggables.class.new
+      #   taggables.each do |t|
+      #     @related_projects.push(t.scope_taggable) if t.scope_taggable.class == Portfolio::Portfolio && t.scope_taggable.published
+      #   end
+      # end
+
+      @related_projects = []
+      #taggables = PortfolioTagScope.where(scope_taggable_type: Portfolio::Portfolio.to_s).joins(:scope_taggable).where(scope_taggable: { published: true }).tagged_with(@service.portfolio_tag_scope.tag_list)
+
+      tag_list = @service.portfolio_tag_scope.tag_list
+      taggables = PortfolioTagScope.where(scope_taggable_type: Portfolio::Portfolio.to_s).tagged_with(tag_list)
+      taggables.push(tag_list)
+
+      filtered_taggables = []
+
       taggables.each do |t|
-        @related_projects.push(t.scope_taggable) if t.scope_taggable.class == Portfolio::Portfolio
+        filtered_taggables.push t.scope_taggable if (t.respond_to?(:scope_taggable) && t.scope_taggable.published)
       end
+      
+      filtered_taggables.sort! { |x, y| x.updated_at > y.updated_at }
 
-
-
+      a = 5 + 5
 
     else
       @content_locale = I18n.locale
