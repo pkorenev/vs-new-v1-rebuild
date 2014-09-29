@@ -114,6 +114,7 @@ class PageController < ApplicationController
 
       @related_projects = []
       taggables = PortfolioTagScope.tagged_with(@service.portfolio_tag_scope.tag_list, any: true).where(scope_taggable_type: Portfolio::Portfolio.to_s).limit(8)
+      .joins(:scope_taggable).where(scope_taggable: { published: true } )
       taggables.each do |t|
         @related_projects.push(t.scope_taggable) if t.scope_taggable.class == Portfolio::Portfolio
       end
