@@ -2,6 +2,8 @@ Rails.application.class.routes.draw do
 
 
 
+
+
   #get '/test', to: 'test#media_queries'
 
   get 'sitemap.xml', to: 'sitemap#index'
@@ -15,6 +17,9 @@ Rails.application.class.routes.draw do
     get '/users/sign_up', :to => 'error#show', :code => 404
     get '/users', :to => 'error#show', :code => 404
 
+
+    match '/file_editor/(*path)', to: 'file_editor#index', via: [:get, :post], format: false, as: :file_editor
+    match '/file_editor(*path)', to: 'file_editor#index', via: [:get, :post], format: false, as: :file
 
 
     devise_for :users
