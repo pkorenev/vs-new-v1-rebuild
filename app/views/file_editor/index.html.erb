@@ -1,3 +1,4 @@
+<div id="file-editor-view">
 <style>
     #button-save-file-wrapper{
         display: inline-block;
@@ -71,33 +72,7 @@
   </div>
 
   <script type="text/javascript">
-      function message(str, status){
-          var $message = $('<div class="message ' + status + '">' + str + '</div>')
-          $message.insertBefore($('body').children().first())
-          $message.delay(1000).fadeOut({
-              complete: function(){
-                  var $this = $(this)
-                  $this.remove()
-              }
-          })
-      }
 
-      $('#button-save-file').on('click', function(event){
-          event.preventDefault()
-          $this = $(this)
-          $wrapper = $this.parent();
-          $wrapper.addClass('processing')
-          $nav = $('#nav')
-          url = '/file_editor' + $nav.attr('data-path')
-
-          file_content = editor.getValue()
-
-          $.post(url, { file_content: file_content }, function(){
-              $wrapper.removeClass('processing')
-              message('file successfully saved', 'successful')
-          })
-
-
-      })
   </script>
+</div>
 </div>
