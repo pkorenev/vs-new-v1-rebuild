@@ -8,7 +8,9 @@ class DictionaryKey < ActiveRecord::Base
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 
-
+  def obj_label_method
+    self.key
+  end
 
   class Translation
     attr_accessible :locale, :value
@@ -18,6 +20,9 @@ class DictionaryKey < ActiveRecord::Base
     # end
 
     rails_admin do
+     # object_label_method do
+	#self.key
+     # end
       edit do
         field :locale, :hidden
         field :value
@@ -26,7 +31,12 @@ class DictionaryKey < ActiveRecord::Base
   end
 
   rails_admin do
-    edit do
+   object_label_method do
+    :obj_label_method
+   end
+
+     edit do
+      
       #field :info_description
       field :key
       field :translations, :globalize_tabs

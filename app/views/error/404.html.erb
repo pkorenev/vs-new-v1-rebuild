@@ -1,8 +1,8 @@
 <div class="page error-not-found">
-<h1 id="error-message"><span class="error">помилка</span><span class="error-code">404</span><span class="page-not-found">Сторінку не знайдено...</span></h1>
+<h1 id="error-message"><span class="error"><%= t('pages.not_found.error') %></span><span class="error-code">404</span><span class="page-not-found"><%= t('pages.not_found.page-not-found') %></span></h1>
 
 <div id="links">
-  <a href="<%= root_path(locale: I18n.locale) %>">Повернутись на головну</a>
-  <a href="<%= portfolio_path %>">Переглянути портфоліо</a>
+  <a href="<%= root_path(locale: I18n.locale) %>"><%= t('pages.not_found.return-to-home') %></a>
+  <a href="<%= portfolio_path(locale: I18n.locale) %>"><%= t('pages.not_found.view-portfolio') %></a>
 </div>
 </div>

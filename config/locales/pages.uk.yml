@@ -1,5 +1,10 @@
 uk:
   pages:
+    not_found:
+      error: 'помилка'
+      page-not-found: 'Сторінку не знайдено...'
+      return-to-home: 'Повернутись на головну'
+      view-portfolio: 'Переглянути портфоліо'
     home:
       clients:
         section-header: 'Нам довіряють'

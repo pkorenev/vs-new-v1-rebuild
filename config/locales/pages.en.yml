@@ -1,1 +1,8 @@
 en:
+  pages:
+    not_found:
+      error: 'error'
+      page-not-found: 'Page not found...'
+      return-to-home: 'Return to home page'
+      view-portfolio: 'View portfolio'
+

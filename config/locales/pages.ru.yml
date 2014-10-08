@@ -1,1 +1,8 @@
 ru:
+  pages: 
+    not_found:
+      error: 'ошибка'
+      page-not-found: 'Страница не найдена...'
+      return-to-home: 'Вернуться на главную'
+      view-portfolio: 'Просмотреть портфолио'
+
