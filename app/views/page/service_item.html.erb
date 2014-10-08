@@ -67,7 +67,7 @@
       <% @related_services.each do |article_item| %>
           <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
             <header>
-              <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), send("#{I18n.locale}_service_item_path", service_item: article_item.slug), :itemprop => 'url') %></h2></div>
+              <div class="article-title-wrapper"><h3 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), send("#{I18n.locale}_service_item_path", service_item: article_item.slug), :itemprop => 'url') %></h3></div>
               <div class="image-container"><%= link_to(image_tag(article_item.avatar.url, :itemprop => 'image', :alt => article_item.name),
                                                        send("#{I18n.locale}_service_item_path", service_item: article_item.slug), class: 'image-link' ) %></div>
             </header>

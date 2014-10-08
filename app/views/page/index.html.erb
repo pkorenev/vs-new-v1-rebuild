@@ -39,7 +39,7 @@
           </ul>
         </div>
         <div id="modal-btn-wrapper">
-          <%= link_to("Замовте нас!", send("#{I18n.locale}_order_path"), :class => "order-us brand-button modal-link fancybox", :data => { :'fancybox-type' => "iframe" }) %>
+          <%= link_to( t('pages.home.welcome.order-button'), order_path, :class => "order-us brand-button modal-link fancybox", :data => { :'fancybox-type' => "iframe" }) %>
         </div>
       </div>
   </section>

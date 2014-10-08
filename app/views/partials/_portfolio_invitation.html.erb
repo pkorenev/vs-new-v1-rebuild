@@ -3,11 +3,11 @@
         <section class="container">
           <article class="team-block">
             <div class="g6">
-              <p class="italic-t fr-s">Ми будемо раді бачити і Вашу роботу в цьому списку. Ласкаво просимо на каву та обговорення майбутнього проекту.</p>
-              <p class="italic-t sc-s"><small>Переглянувши гарні картинки — <a href="">почитайте нашу методику</a> :)</small></p>
+              <p class="italic-t fr-s"><%= t('pages.portfolio-list.invitation.part-1') %></p>
+              <p class="italic-t sc-s"><small><%= t('pages.portfolio-list.invitation.part-2', link_open: "<a href='#{about_path}'>", link_close: '</a>') %></small></p>
             </div>
             <div class="g6">
-              <%= link_to("ДОМОВИТИСЬ!", order_path, :"data-fancybox-type" => 'iframe', :class => "order-us brand-button large modal-link fancybox", :id => "modal-btn") %>
+              <%= link_to( t('pages.portfolio-list.invitation.button-label'), order_path, :"data-fancybox-type" => 'iframe', :class => "order-us brand-button large modal-link fancybox", :id => "modal-btn") %>
             </div>
           </article>
         </section>

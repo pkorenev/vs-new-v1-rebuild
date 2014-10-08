@@ -6,29 +6,29 @@
       <div class="group-1-and-reference">
         <div id="group-1">
           <div class="contact-form-field field-1">
-            <input type="text" name="name" id="name" data-validation="length" data-validation-length="3-20" placeholder="Енді Уорхол"/>
-            <label for="name">Вас звати <sup>*</sup></label>
+            <input type="text" name="name" id="name" data-validation="length" data-validation-length="3-20" placeholder="<%= t('partials.forms.base.fields.name.placeholder') %>"/>
+            <label for="name"><%= t('partials.forms.base.fields.name.label') %> <sup>*</sup></label>
           </div>
           <div class="contact-form-field field-2">
-            <input type="text" name="phone" id="phone" data-validation="custom" data-validation-regexp="^[0-9]{6,11}$" placeholder="+38 (050) 417 07 28"/>
-            <label for="phone">Ваш телефон <sup>*</sup></label>
+            <input type="text" name="phone" id="phone" data-validation="custom" data-validation-regexp="^[0-9]{6,11}$" placeholder="<%= t('partials.forms.base.fields.phone.placeholder') %>"/>
+            <label for="phone"><%= t('partials.forms.base.fields.phone.label') %> <sup>*</sup></label>
           </div>
         </div>
         <div id="group-2">
           <div class="contact-form-field field-3">
             <% if 1 == 2 %><input class="portfolio" id="portfolio" name="attachment" type="file" placeholder="Виберіть файл"/><% end %>
             <%= f.file_field :portfolio  %>
-            <label for="portfolio">Ваше портфоліо</label>
+            <label for="portfolio"><%= t('partials.forms.join-us.fields.portfolio.label') %></label>
           </div>
           <div class="contact-form-field field-4">
-            <input class="email" name="email" id="email" type="text" data-validation="email" placeholder="appleplus@gmail.com" />
-            <label for="email">Ваша електронна почта <sup>*</sup></label>
+            <input class="email" name="email" id="email" type="text" data-validation="email" placeholder="<%= t('partials.forms.base.fields.email.placeholder') %>" />
+            <label for="email"><%= t('partials.forms.base.fields.email.label') %> <sup>*</sup></label>
           </div>
         </div>
 
         <div class="reference">
-          <p>Примітка:</p>
-          <p><i>Поля відмічені <sup>*</sup> є обов’язковими для заповнення.</i></p>
+          <p><%= t('partials.forms.base.fields.tip.title') %></p>
+          <p><i><%= raw t('partials.forms.base.fields.tip.part-1', symbol: "<sup>*</sup>") %></i></p>
 
         </div>
       </div>
@@ -38,34 +38,34 @@
         <div class="contact-form-field field-5">
           <div class="select-wrapper">
             <select name="vacancy" id="vacancy">
-                <option value="extra-high-budget">Web desinger</option>
-                <option selected="selected" value="extra-high-budget">Graphic designer</option>
+                <option value="extra-high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.1') %></option>
+                <option selected="selected" value="extra-high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.2') %></option>
 
-                <option value="high-budget">ROR Developer</option>
-                <option value="low-budget" selected>HTML 5, CSS 3 developer</option>
-                <option value="extra-high-budget">Copywriter</option>
-                <option value="extra-high-budget">Sales manager</option>
-                <option value="extra-high-budget">Класний пацан :)</option>
+                <option value="high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.3') %></option>
+                <option value="low-budget" selected><%= t('partials.forms.join-us.fields.vacancy.values.4') %></option>
+                <option value="extra-high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.5') %></option>
+                <option value="extra-high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.6') %></option>
+                <option value="extra-high-budget"><%= t('partials.forms.join-us.fields.vacancy.values.7') %></option>
             </select>
             <span class="select-arrow"></span>
           </div>
-          <label for="price-range">Бажана вакансія</label>
+          <label for="price-range"><%= t('partials.forms.join-us.fields.vacancy.label') %></label>
         </div>
 
         <div class="right-section-textarea field-6">
           <div class="contact-form-field text-input">
-            <textarea name="message" id="message" cols="15" rows="15" placeholder="Я, молодий, комунікабельний графічний дизайнер з п'ятирічним досвідом, шукаю цікаву роботу в дружній команді. Посилання на портфоліо нижче"></textarea>
-            <label for="message">Коротко опишіть себе</label>
+            <textarea name="message" id="message" cols="15" rows="15" placeholder="<%= t('partials.forms.join-us.fields.message.placeholder') %>"></textarea>
+            <label for="message"><%= t('partials.forms.join-us.fields.message.label') %></label>
           </div>
         </div>
 
         <div class="submit field-7">
-          <input style="float:right" type="submit" class="brand-button" value="НАДІСЛАТИ" />
+          <input style="float:right" type="submit" class="brand-button" value="<%= t('partials.forms.base.fields.button-send') %>" />
         </div>
 
         <div class="mobile-reference">
-          <p>Примітка:</p>
-          <p><i>Поля відмічені <sup>*</sup> є обов’язковими для заповнення.</i></p>
+          <p><%= t('partials.forms.base.fields.tip.title') %></p>
+          <p><i><%= raw t('partials.forms.base.fields.tip.part-1', symbol: "<sup>*</sup>") %></i></p>
         </div>
       </div>
 
@@ -84,10 +84,8 @@
     <% end %>
 
     <div id="join-us-form-success-alert" class="form-success-alert" <% if flash[:submitted] %>style="display: block;"<% end %> >
-      <span class="h1">Ваш запит відправлено!</span>
-      <p>Дякуємо за проявлений інтерес до студії.
-        В разі зацікавленості ми обов'язково зв'яжемося з вами.<br/>
-        Гарного дня.</p>
+      <span class="h1"><%= t('partials.forms.base.form-success-alert.title') %></span>
+      <p><%= raw t('partials.forms.base.form-success-alert.text') %></p>
     </div>
 
   </div><!-- contact us wrapper -->

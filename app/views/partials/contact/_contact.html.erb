@@ -1,23 +1,23 @@
 <article class="body-contacts" id="contact-us-container" <% if( @section == :contact ) %>style="display: block;" <% else %>style="display: none;" <% end %> >
   <div class="contact-us-wrapper">
     <div id="contact-us-data">
-      <a href="tel:+38 (050) 417 07 28" class="mobile no-border-bottom" title="+38 (050) 417 07 28" style="cursor: default;">
+      <a href="tel:<%= t('pages.contact.mobile') %>" class="mobile no-border-bottom" title="<%= t('pages.contact.mobile') %>" style="cursor: default;">
         <span class="cont-sprite-b cont-mobile-icon"></span>
-        <span class="">+38 (050) 417 07 28</span>
+        <span class=""><%= t('pages.contact.mobile') %></span>
       </a>
-      <a href="tel:+38 (032) 240-33-50" class="fax no-border-bottom" title="+38 (032) 240-33-50" style="cursor: default;">
+      <a href="tel:<%= t('pages.contact.phone') %>" class="fax no-border-bottom" title="<%= t('pages.contact.phone') %>" style="cursor: default;">
         <span class="cont-sprite-b cont-fax-icon"></span>
-        <span class="number">+38 (032) 240-33-50</span>
+        <span class="number"><%= t('pages.contact.phone') %></span>
       </a>
-      <a href="http://goo.gl/maps/V062N" target="_blank" class="address no-border-bottom" title="Показати на карті">
+      <a href="http://goo.gl/maps/V062N" target="_blank" class="address no-border-bottom" title="<%= t('pages.contact.address-tip') %>">
         <span class="cont-sprite-b cont-address-icon"></span>
-        <span class="address">вул. Лукіяновича, 11, м. Львів, Україна</span>
+        <span class="address"><%= t('pages.contact.address') %></span>
       </a>
       <div class="emails">
         <span class="cont-sprite-b cont-email-icon"></span>
-        <p><a href="mailto:nick@voroninstudio.eu">nick@voroninstudio.eu</a>&nbsp;&mdash;&nbsp;фінансові та арт питання</p>
-        <p><a href="mailto:office@voroninstudio.eu">office@voroninstudio.eu</a>&nbsp;&mdash;&nbsp;офіс</p>
-        <p><a href="mailto:support@voroninstudio.eu">support@voroninstudio.eu</a>&nbsp;&mdash;&nbsp;питання технічної підтримки</p>
+        <p><a href="mailto:<%= t('pages.contact.emails.1.email') %>"><%= t('pages.contact.emails.1.email') %></a>&nbsp;&mdash;&nbsp;<%= t('pages.contact.emails.1.description') %></p>
+        <p><a href="mailto:<%= t('pages.contact.emails.2.email') %>"><%= t('pages.contact.emails.2.email') %></a>&nbsp;&mdash;&nbsp;<%= t('pages.contact.emails.2.description') %></p>
+        <p><a href="mailto:<%= t('pages.contact.emails.3.email') %>"><%= t('pages.contact.emails.3.email') %></a>&nbsp;&mdash;&nbsp;<%= t('pages.contact.emails.3.description') %></p>
       </div>
     </div>
   </div>

@@ -11,11 +11,11 @@
 		<div id="article-section">
 			<div id="article-container">
 				<div id="article-title-wrapper">
-					<h1 class="article-title"><%= @article.title %></h1>
+					<h1 class="article-title"><%= @article.name %></h1>
 				</div>
                 <div id="avatar-and-tags">
 				    <div id="avatar-container">
-					    <%= image_tag @article.avatar.url, :alt => @article.title %>
+					    <%= image_tag @article.avatar.url, :alt => @article.name %>
                         <%# image_tag( 'http://placehold.it/1440x960&text=[img]' ) %>
 				    </div>
 
@@ -63,7 +63,7 @@
 			<% @related_articles.each do |article_item| %>
         <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
           <header>
-            <div class="article-title-wrapper"><h2 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), article_list_path+'/'+article_item.slug, :itemprop => 'url') %></h2></div>
+            <div class="article-title-wrapper"><h3 class="article-title" itemprop="name"><%= link_to(article_item.name.truncate(100), article_list_path+'/'+article_item.slug, :itemprop => 'url') %></h3></div>
             <div class="image-container"><%= link_to(image_tag(article_item.avatar.url(:article_item), :itemprop => 'image', :alt => article_item.name),
             '/articles/'+ article_item.slug, class: 'image-link' ) %></div>
           </header>

@@ -6,3 +6,39 @@ en:
       return-to-home: 'Return to home page'
       view-portfolio: 'View portfolio'
 
+    home:
+      welcome:
+        order-button: 'Замовте нас!'
+      clients:
+        section-header: 'Нам довіряють'
+      articles:
+        section-header: 'Анонси та події'
+    contact:
+      page-title: 'Зв’язатись з нами'
+      mobile: '+38 (050) 417 07 28'
+      phone: '+38 (032) 240-33-50'
+      address: 'вул. Лукіяновича, 11, м. Львів, Україна'
+      address-tip: 'Показати на карті'
+      emails:
+        1:
+          email: 'nick@voroninstudio.eu'
+          description: 'фінансові та арт питання'
+        2:
+          email: 'office@voroninstudio.eu'
+          description: 'офіс'
+        3:
+          email: 'support@voroninstudio.eu'
+          description: 'питання технічної підтримки'
+    order:
+      page-title: 'Замовити нас'
+    join-us:
+      page-title: 'Приєднатись до нас'
+    portfolio-list:
+      page-title: 'Портфоліо'
+      invitation:
+        part-1: 'Ми будемо раді бачити і Вашу роботу в цьому списку. Ласкаво просимо на каву та обговорення майбутнього проекту.'
+        part-2: "Переглянувши гарні картинки — %{link_open}почитайте нашу методику%{link_close} :)"
+        button-label: 'ДОМОВИТИСЬ!'
+
+    articles-list:
+      page-title: 'Анонси та події'
