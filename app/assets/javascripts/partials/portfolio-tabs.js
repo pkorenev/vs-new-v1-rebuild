@@ -18,7 +18,9 @@ $(document).on('ready page:load', function(){
     $('[data-controller=page][data-action=index] #portfolio-tabs-wrapper').each(function(){
         var $tabs_wrapper = $(this)
         $tabs_wrapper.find('.portfolio-tab').click(function(event){
+            var current_scroll_top = $(document).scrollTop()
             event.preventDefault()
+
 
             var $tab = $(this)
             if( !$tab.hasClass('active') ){
@@ -29,6 +31,8 @@ $(document).on('ready page:load', function(){
                 var filter = $tab.attr('data-filter');
 
                 PortfolioFilter(filter);
+
+                $(document).scrollTop(current_scroll_top)
 
             }
         })
