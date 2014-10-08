@@ -38,6 +38,11 @@ function PortfolioFilter(filter){
         }
     });
 
+    setTimeout(function(){
+        console.log('isotope-complete-scroll-top: ' + current_scroll_top)
+        $(document).scrollTop(current_scroll_top)
+    }, 750)
+
     normalize(filter);
 }
 
