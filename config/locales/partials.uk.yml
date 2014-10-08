@@ -17,10 +17,10 @@ uk:
           price-range:
             label: 'Межі вашого бюджету на проект'
             values:
-              1: 'від 12 000 грн.'
-              2: 'від 6 000 до 12 000 грн.'
-              3: 'від 3 000 до 6 000 грн.'
-              4: 'до 3 000 грн.'
+              value-1: 'від 12 000 грн.'
+              value-2: 'від 6 000 до 12 000 грн.'
+              value-3: 'від 3 000 до 6 000 грн.'
+              value-4: 'до 3 000 грн.'
           organization:
             label: 'Назва організації'
             placeholder: 'Ябко плюс'
@@ -50,13 +50,13 @@ uk:
           vacancy:
             label: 'Бажана вакансія'
             values:
-              1: 'Web desinger'
-              2: 'Graphic designer'
-              3: 'ROR Developer'
-              4: 'HTML 5, CSS 3 developer'
-              5: 'Copywriter'
-              6: 'Sales manager'
-              7: 'Класний пацан :)'
+              value-1: 'Web desinger'
+              value-2: 'Graphic designer'
+              value-3: 'ROR Developer'
+              value-4: 'HTML 5, CSS 3 developer'
+              value-5: 'Copywriter'
+              value-6: 'Sales manager'
+              value-7: 'Класний пацан :)'
           message:
             placeholder: "Я, молодий, комунікабельний графічний дизайнер з п'ятирічним досвідом, шукаю цікаву роботу в дружній команді. Посилання на портфоліо нижче"
             label: 'Коротко опишіть себе'

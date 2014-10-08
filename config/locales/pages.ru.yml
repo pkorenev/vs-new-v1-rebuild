@@ -20,13 +20,13 @@ ru:
       address: 'вул. Лукіяновича, 11, м. Львів, Україна'
       address-tip: 'Показати на карті'
       emails:
-        1:
+        email-1:
           email: 'nick@voroninstudio.eu'
           description: 'фінансові та арт питання'
-        2:
+        email-2:
           email: 'office@voroninstudio.eu'
           description: 'офіс'
-        3:
+        email-3:
           email: 'support@voroninstudio.eu'
           description: 'питання технічної підтримки'
     order:
