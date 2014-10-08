@@ -18,6 +18,8 @@ function getItemsPerRow (){
 
 function PortfolioFilter(filter){
     var $container = $('.sortable-portfolio');
+    var current_scroll_top = $(document).scrollTop()
+    console.log('portfolio-filter-scroll-top: ' + current_scroll_top)
     $container.isotope({
         filter: filter,
         resizable:true,
@@ -29,7 +31,10 @@ function PortfolioFilter(filter){
             easing: 'linear',
             queue: false
         },
-        animationEngine : "jquery"
+        animationEngine : "jquery",
+        complete: function(){
+            $(document).scrollTop(current_scroll_top)
+        }
     });
 
     normalize(filter);

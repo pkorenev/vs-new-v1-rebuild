@@ -33,6 +33,8 @@ $(document).on('ready page:load', function(){
 
                 PortfolioFilter(filter);
 
+
+
                 $(document).scrollTop(current_scroll_top)
 
             }
