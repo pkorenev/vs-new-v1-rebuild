@@ -20,6 +20,7 @@ $(document).on('ready page:load', function(){
         $tabs_wrapper.find('.portfolio-tab').click(function(event){
             var current_scroll_top = $(document).scrollTop()
             event.preventDefault()
+            console.log('current_scroll_top: ' + current_scroll_top)
 
 
             var $tab = $(this)
