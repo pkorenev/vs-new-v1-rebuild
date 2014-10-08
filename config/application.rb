@@ -40,6 +40,8 @@ module StudioVoronin
 
     config.assets.precompile += %w(fonts/*, fontawesome*)
 
+
+
     # august
     #config.assets.precompile += %w(jquery-ui/ui-bg_flat_75_ffffff_40x100.png)
 
