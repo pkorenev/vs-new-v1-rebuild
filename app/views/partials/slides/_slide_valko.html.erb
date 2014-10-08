@@ -6,10 +6,10 @@
     <div id = "ii-crystal-blured-small" class = "layer crystal ii-crystal-blured-small final-position"><%= image_tag ('banners/valko/vs-maimban-valko-3.png') %></div>
     <div id = "ii-crystal-blured-big" class = "layer crystal ii-crystal-blured-big final-position"><%= image_tag ('banners/valko/vs-maimban-valko-4.png') %></div>
     <div id="" class="layer description final-position">
-      <span class="title"><a data-no-turbolink="" href="<%= portfolio_item_path(  category: valko_portfolio.portfolio_category.slug, item: valko_portfolio.slug ) %>">«Валько»  — розробка логотипу та фірмового стилю</a></span>
+      <span class="title"><a data-no-turbolink="" href="<%= portfolio_item_path(  category: valko_portfolio.portfolio_category.slug, item: valko_portfolio.slug ) %>"><%= raw t('pages.home.main-banner.slides.slide-1.title') %></a></span>
 
-      <p>Нам довірили провести візуальний ребрендинг торгової компанії, яка спеціалізується на продажі металопластикових вікон, зовнішніх підвіконь, жалюзі, аксесуарів і т.п. продукції.</p>
-      <a data-no-turbolink="" href="<%= portfolio_item_path( category: valko_portfolio.portfolio_category.slug, item: valko_portfolio.slug ) %>" class="brand-button">Детальніше!</a>
+      <p><%= raw t('pages.home.main-banner.slides.slide-1.description') %></p>
+      <a data-no-turbolink="" href="<%= portfolio_item_path( category: valko_portfolio.portfolio_category.slug, item: valko_portfolio.slug ) %>" class="brand-button"><%= t('partials.buttons.read-more') %></a>
     </div>
   </div>
   <script>
