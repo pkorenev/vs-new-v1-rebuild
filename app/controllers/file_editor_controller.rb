@@ -1,5 +1,12 @@
 class FileEditorController < ApplicationController
+  before_filter do
+    if !(user_signed_in? && current_user)
+      render template: 'error/404'
+    end
+  end
+
   def index
+
     @path = params[:path]
 
     if !@path || @path == ''
