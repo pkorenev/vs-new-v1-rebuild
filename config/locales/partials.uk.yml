@@ -5,6 +5,8 @@ uk:
       order: 'ЗАМОВТЕ НАС!'
     modal-window:
       close: 'Закрити вікно'
+    portfolio-tabs:
+      all-types: "Усі види"
     forms:
       base:
         fields:

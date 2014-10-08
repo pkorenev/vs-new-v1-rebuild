@@ -1,7 +1,7 @@
 <div id="portfolio-tabs-wrapper">
       <section id="tabs-container">
         <div class="portfolio-tab brand-tab<%= (@active_category)? '' : ' active'  %>" data-tab-index="1" data-filter=".portfolio-item" data-tab-url="<%= portfolio_path %>" data-tab-relative-url=""  id="all-tab">
-          <h2 class="tab-title"><%= link_to( 'Усі види', portfolio_path ) %></h2>
+          <h2 class="tab-title"><%= link_to( t('partials.portfolio-tabs.all-types'), portfolio_path ) %></h2>
         </div>
 
         <% @portfolio_categories.each_with_index do | c, index | %>

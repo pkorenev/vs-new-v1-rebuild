@@ -5,6 +5,8 @@ ru:
       order: 'ЗАМОВТЕ НАС!'
     modal-window:
       close: 'Закрити вікно'
+    portfolio-tabs:
+      all-types: "Все виды"
     forms:
       base:
         fields:
