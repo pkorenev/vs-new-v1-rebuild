@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require jquery-migrate-min
 //= require jquery-ui/effect
+//= require ace/ace
+//= require ace/worker-html
+//= require "ace/mode-yaml"
 //= require modernizr
 //= require add_links
 //= require turbolinks

@@ -126,3 +126,5 @@ gem 'paper_trail'
 gem 'globalize-versioning'
 
 gem 'rails_admin-i18n'
+
+gem 'ace-rails-ap'
