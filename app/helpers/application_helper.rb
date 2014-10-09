@@ -42,7 +42,7 @@ module ApplicationHelper
       copyrights = "<p class='site-copyrights'>© 2006 — #{Time.now.year} #{link_to(t('layout.footer.copyright.studio-link.title'), root_path, :class => 'animate')}<b>.</b> #{ t('layout.footer.copyright.all-rights-reserved') }<b>.</b></p>"
       copyrights.html_safe
     else
-      copyrights = "<p class='site-copyrights'>© 2006 — #{Time.now.year} #{link_to(t('layout.footer.copyright.studio-link.title'), root_path, :class => 'animate')}. #{ t('layout.footer.copyright.all-rights-reserved') }.</p>"
+      copyrights = "<p class='site-copyrights'>© 2006 — #{Time.now.year} #{link_to(t('layout.footer.copyright.studio-link.title'), root_path, :class => 'animate')}#{ t('layout.footer.copyright.all-rights-reserved') }</p>"
       copyrights.html_safe
     end
   end
