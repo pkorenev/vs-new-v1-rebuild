@@ -25,7 +25,11 @@ module RailsAdmin
           #content_tag :li, link_to
           if item.parent
             if item.content && item.content.is_a?(Hash) && item.content[:link]
-              concat( content_tag(:li, link_to("#{ item.content[:title] ? item.content[:title] : item.name }", item.content[:link], class: "#{ item.level > 2 ? 'nav-level-'+ (item.level - 2).to_s : '' }") ) )
+              if item.content[:new_tab] && item.content[:new_tab] == true
+                concat( content_tag(:li, link_to("#{ item.content[:title] ? item.content[:title] : item.name }", item.content[:link], class: "#{ item.level > 2 ? 'nav-level-'+ (item.level - 2).to_s : '' }", target: '_blank'  ) ) )
+              else
+                concat( content_tag(:li, link_to("#{ item.content[:title] ? item.content[:title] : item.name }", item.content[:link], class: "#{ item.level > 2 ? 'nav-level-'+ (item.level - 2).to_s : '' }"  ) ) )
+              end
             else
               concat( content_tag( :li, "#{ item.content && item.content[:title] ? item.content[:title] : item.name }",class: 'nav-header' ) )
             end

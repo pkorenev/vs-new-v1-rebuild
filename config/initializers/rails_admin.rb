@@ -131,7 +131,9 @@ RailsAdmin.config do |config|
 
   config.navigation_static_label = "Static Pages"
 
+
   root = Tree::TreeNode.new('navigation_static_tree')
+  root << Tree::TreeNode.new('locales', { link: '/file_editor/home/applications/develop/voroninstudio-2013/config/locales/', new_tab: true } )
   root << Tree::TreeNode.new( 'routes', {link: '/admin/route'} )
   root << Tree::TreeNode.new( 'tags', {link: '/admin/acts_as_taggable_on~tag'} )
   root << Tree::TreeNode.new( 'dictionary', {link: '/admin/dictionary'} )
