@@ -5,7 +5,7 @@
         </div>
 
         <% @portfolio_categories.each_with_index do | c, index | %>
-            <div  class="portfolio-tab brand-tab category-tab tab<%= ( @active_category && @active_category.id == c.id )? ' active' : '' %>" data-tab-index="<%= index + 2 %>" data-filter=".<%= c.slug %>" data-tab-url="<%= c.slug %>" data-tab-relative-url="<%= c.slug %>" data-category-url="<%= c.slug %>" id="<%= c.slug %>-tab">
+            <div  class="portfolio-tab brand-tab category-tab tab<%= ( @active_category && @active_category.respond_to(:id) && c.respond_to?(:id) && @active_category.id == c.id )? ' active' : '' %>" data-tab-index="<%= index + 2 %>" data-filter=".<%= c.slug %>" data-tab-url="<%= c.slug %>" data-tab-relative-url="<%= c.slug %>" data-category-url="<%= c.slug %>" id="<%= c.slug %>-tab">
               <h2 class="tab-title"><%= link_to( c.class.translation_class.where("portfolio_category_id = #{index + 1} and locale = '#{I18n.locale.to_s}'").first['name'], portfolio_category_path(category: c.slug) ) %></h2>
             </div>
         <% end %>
