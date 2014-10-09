@@ -356,11 +356,12 @@ class PortfolioController < ApplicationController
     requested_category_slug = params[:category]
 
     @active_category = Portfolio::PortfolioCategory.where(slug: requested_category_slug)
-    if @active_category && @active_category.count == 1
+    if @active_category && @active_category.count >= 1
       @active_category = @active_category.first
 
 
       @portfolio_description = @active_category.full_description
+      @static_page_data = @active_category.static_page_data
     end
     render template: 'portfolio/category'
   end
