@@ -142,6 +142,7 @@ class FileEditorController < ApplicationController
         if request.method == 'POST'
           file_content = params[:file_content]
           File.write(@normalized_path, file_content)
+          I18n.backend.reload!
         end
         @file_content = File.read(@normalized_path)
         #render inline: @file_content
