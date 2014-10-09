@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     #render inline: params[:controller]
 
-    if !params[:controller].match(/^rails_admin/) && !(params[:controller] == 'error')
+    if !params[:controller].match(/^rails_admin/) && !params[:controller].match(/^file_editor/) && !(params[:controller] == 'error')
       params_locale = params[:locale]
       locale = params_locale
 
