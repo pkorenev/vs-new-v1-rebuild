@@ -17,5 +17,5 @@
 //= require ace/worker-html
 
 //= require "ace/mode-yaml"
-//= require file_editor
+// file_editor
 //tree .

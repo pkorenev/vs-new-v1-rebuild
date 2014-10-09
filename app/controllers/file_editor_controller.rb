@@ -198,7 +198,7 @@ class FileEditorController < ApplicationController
 
 
 
-    render layout: 'file_editor_application'
+    render layout: 'file_editor_application', template: 'file_editor/index_original'
     #render inline: @normalized_path
   end
 end
