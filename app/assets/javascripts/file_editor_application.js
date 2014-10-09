@@ -16,6 +16,7 @@
 //= require ace/ace
 //= require ace/worker-html
 
-//= require "ace/mode-yaml"
+//= require ace/mode-yaml
+//= require ace/theme-monokai
 // file_editor
 //tree .
