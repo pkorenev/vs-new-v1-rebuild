@@ -15,7 +15,7 @@ class Pages::AboutPage < ActiveRecord::Base
   attr_accessible :translations_attributes, :translations
 
   class Translation
-    attr_accessible :locale, :intro_text
+    attr_accessible :locale, :content, :clients_intro, :team_text
 
     # def published=(value)
     #   self[:published] = value
@@ -24,7 +24,9 @@ class Pages::AboutPage < ActiveRecord::Base
     rails_admin do
       edit do
         field :locale, :hidden
-        field :intro_text, :ck_editor
+        field :content
+        field :clients_intro
+        field :team_text
       end
     end
   end
@@ -33,9 +35,10 @@ class Pages::AboutPage < ActiveRecord::Base
 
 
   rails_admin do
-    field :content
-    field :clients_intro
-    field :team_text
+    #field :content
+    #field :clients_intro
+    #field :team_text
+    field :translations, :globalize_tabs
 
     field :static_page_data
   end
