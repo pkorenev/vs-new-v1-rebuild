@@ -1,0 +1,18 @@
+<div id="portfolio-tabs-wrapper">
+  <section id="tabs-container">
+    <div class="portfolio-tab brand-tab<%= (@active_category)? '' : ' active'  %>" data-tab-index="1" data-filter=".portfolio-item" data-tab-url="<%= portfolio_path %>" data-tab-relative-url=""  id="all-tab">
+      <h2 class="tab-title"><%= link_to( t('partials.portfolio-tabs.all-types'), portfolio_path ) %></h2>
+    </div>
+
+    <% @portfolio_categories.each_with_index do | c, index | %>
+        <div  class="portfolio-tab brand-tab category-tab tab<%= ( @active_category && @active_category.respond_to?(:id) && c.respond_to?(:id) && @active_category.id == c.id )? ' active' : '' %>" data-tab-index="<%= index + 2 %>" data-filter=".<%= c.slug %>" data-tab-url="<%= c.slug %>" data-tab-relative-url="<%= c.slug %>" data-category-url="<%= c.slug %>" id="<%= c.slug %>-tab">
+          <%= content_tag((c.id == @active_category.id)? 'h1' : 'span', link_to( c.class.translation_class.where("portfolio_category_id = #{index + 1} and locale = '#{I18n.locale.to_s}'").first['name'], portfolio_category_path(category: c.slug) ), class: 'tab-title') %>
+        </div>
+    <% end %>
+
+  </section>
+</div>
+
+<script type="text/javascript">
+
+</script>

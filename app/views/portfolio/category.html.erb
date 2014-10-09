@@ -4,11 +4,15 @@
 <div class="white-background">
   <section class="container" id="portfolio-section">
     <section class="f-height">
-      <article class="g12"><h1>Портфоліо</h1></article>
+      <article class="g12"><span class="text">Портфоліо</span></article>
     </section>
   </section>
   <div id="portfolio-index">
-    <%= render :partial => 'partials/portfolio_tabs', :locals => { :target => 'home', active_category: @active_category } %>
+    <% if @active_category && @active_category.respond_to?(:id) %>
+        <%= render :partial => 'partials/category_portfolio_tabs', :locals => { :target => 'home', active_category: @active_category } %>
+    <% else %>
+        <%= render :partial => 'partials/portfolio_tabs', :locals => { :target => 'home', active_category: @active_category } %>
+    <% end %>
     <%= render :partial => 'partials/portfolio_items', :locals => { :target => 'home', :items => @portfolios } %>
   </div>
 
