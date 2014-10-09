@@ -47,13 +47,7 @@
 
       <% else %>
 
-          <div class="file-content-editor" id="editor" data-filename="<%= @file_name %>" data-filetype="<%= @file_type %>" <% if @file_type == :text %>data-ace-mode="<%= @ace_mode %>"<% end %>>
-            <% if @file_type == :text %>
-                <%= raw @file_content %>
-            <% elsif @file_type == :image %>
-                <h1>image file</h1>
-            <% end %>
-          </div>
+          <div class="file-content-editor" id="editor" data-filename="<%= @file_name %>" data-filetype="<%= @file_type %>" <% if @file_type == :text %>data-ace-mode="<%= @ace_mode %>"<% end %>><% if @file_type == :text %><%= raw @file_content %><% elsif @file_type == :image %><h1>image file</h1><% end %></div>
 
           <script>
               //var editor = ace.edit("editor");
