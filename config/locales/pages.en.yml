@@ -10,46 +10,46 @@ en:
       main-banner:
         slides:
           slide-1:
-            title: '«Валько»  — розробка логотипу та фірмового стилю'
-            description: 'Нам довірили провести візуальний ребрендинг торгової компанії, яка спеціалізується на продажі металопластикових вікон, зовнішніх підвіконь, жалюзі, аксесуарів і т.п. продукції.'
+            title: '«Valko»  — logo design and corporate identity'
+            description: 'We have been entrusted to carry out visual rebranding trading company that specializes in the sale of plastic windows, external window sills, blinds, accessories, etc. products.'
           slide-2:
-            title: "&laquo;Games3K&raquo; — розробка логотипу та фірмового стилю!"
-            description: "Нашою задачею стало придумати назву, створити логотип та фірмовий стиль. А також інтернет магазин для реалізації товару через інтернет."
+            title: "«Games3K» — logo design and corporate identity!"
+            description: "Our task was to come up with a name, create a logo and corporate identity. Also online store for selling goods over the internet."
           slide-3:
-            title: "«ЧЗМК» &mdash; розробка корпоративного веб сайту"
-            description: "Після успішної розробки логотипу та фірмового стилю для заводу металоконструкцій нам доручили розробити корпоративний веб сайт, на якому буде представлено усі досягнення та переваги виробника."
+            title: "«CHZMK» — Development of a corporate Website"
+            description: "After the successful development of a logo and corporate identity for fabricated metals, we have tasked to develop a corporate website that will feature all the achievements and benefits of products. "
       welcome:
-        order-button: 'Замовте нас!'
+        order-button: 'Order us!'
       clients:
-        section-header: 'Нам довіряють'
+        section-header: 'We are trusted'
       articles:
-        section-header: 'Анонси та події'
+        section-header: 'Publications etc.'
     contact:
-      page-title: 'Зв’язатись з нами'
+      page-title: 'Contact us'
       mobile: '+38 (050) 417 07 28'
       phone: '+38 (032) 240-33-50'
-      address: 'вул. Лукіяновича, 11, м. Львів, Україна'
-      address-tip: 'Показати на карті'
+      address: 'Lukiyanovycha Str. 11, Lviv, Ukraine'
+      address-tip: 'Show on the map'
       emails:
         email-1:
           email: 'nick@voroninstudio.eu'
-          description: 'фінансові та арт питання'
+          description: 'financial and art questions'
         email-2:
           email: 'office@voroninstudio.eu'
-          description: 'офіс'
+          description: 'office'
         email-3:
           email: 'support@voroninstudio.eu'
-          description: 'питання технічної підтримки'
+          description: 'technical support question'
     order:
-      page-title: 'Замовити нас'
+      page-title: 'Order us'
     join-us:
-      page-title: 'Приєднатись до нас'
+      page-title: 'Join us'
     portfolio-list:
-      page-title: 'Портфоліо'
+      page-title: 'Portfolio'
       invitation:
-        part-1: 'Ми будемо раді бачити і Вашу роботу в цьому списку. Ласкаво просимо на каву та обговорення майбутнього проекту.'
-        part-2: "Переглянувши гарні картинки — %{link_open}почитайте нашу методику%{link_close} :)"
-        button-label: 'ДОМОВИТИСЬ!'
+        part-1: 'We will be glad to see your work in this list. Welcome on coffee and to discuss the future project.'
+        part-2: "After reviewing pretty pictures — %{link_open}read our methodology%{link_close} :)"
+        button-label: 'AGREE!'
 
     articles-list:
-      page-title: 'Анонси та події'
+      page-title: 'Publications etc.'
