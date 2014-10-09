@@ -8,8 +8,7 @@
     </section>
   </section>
   <div id="portfolio-index">
-    <% if @active_category && @a
-         ctive_category.respond_to?(:id) %>
+    <% if @active_category && @active_category.respond_to?(:id) %>
         <%= render :partial => 'partials/category_portfolio_tabs', :locals => { :target => 'home', active_category: @active_category } %>
     <% else %>
         <%= render :partial => 'partials/portfolio_tabs', :locals => { :target => 'home', active_category: @active_category } %>
