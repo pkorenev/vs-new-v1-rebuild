@@ -1,56 +1,58 @@
 en:
   partials:
     buttons:
-      read-more: 'ДЕТАЛЬНІШЕ!'
-      order: 'ЗАМОВТЕ НАС!'
+      read-more: 'FIND OUT!'
+      order: 'HIRE US!'
     modal-window:
-      close: 'Закрити вікно'
+      close: 'Close'
+      footer: 
+        address: 'Lukiyanovycha Str. 11, Lviv'
     portfolio-tabs:
       all-types: "All types"
     forms:
       base:
         fields:
           name:
-            label: 'Вас звати'
-            placeholder: 'Микола Еплович'
+            label: 'Your name'
+            placeholder: 'Nick Eplovych'
           phone:
-            label: 'Ваш телефон'
+            label: 'Your phone'
             placeholder: '+38 (050) 417 07 28'
           price-range:
-            label: 'Межі вашого бюджету на проект'
+            label: 'The limits of your budget for the project'
             values:
-              value-1: 'від 12 000 грн.'
-              value-2: 'від 6 000 до 12 000 грн.'
-              value-3: 'від 3 000 до 6 000 грн.'
-              value-4: 'до 3 000 грн.'
+              value-1: 'from 12 000 UAH'
+              value-2: 'from 6 000 to 12 000 UAH'
+              value-3: 'from 3 000 to 6 000 UAH'
+              value-4: 'up to 3 000 UAH'
           organization:
-            label: 'Назва організації'
-            placeholder: 'Ябко плюс'
+            label: 'Organization name'
+            placeholder: 'Yabko plus'
           email:
-            label: 'Ваша електронна пошта'
+            label: 'Your email address'
             placeholder: 'appleplus@gmail.com'
           message:
-            label: 'Чим ми можемо вам допомогти?'
-            placeholder: 'Нам потрібен крутий логотип, фірмовий стиль та бренд бук. Ми продаємо натуральні яблука з власних садів. А також нам потрібно налагодити замовлення  продаж яблок через інтернет. Терміни: 2 місяця.'
-          button-send: 'НАДІСЛАТИ!'
+            label: 'How we can help you?'
+            placeholder: 'We need a cool logo, corporate identity and brand book. We are selling organic apples from their own gardens. And we need to establish order selling apples via the Internet. Terms: 2 months.'
+          button-send: 'SEND!'
 
           tip:
-            title: 'Примітка:'
-            part-1: "Поля відмічені %{symbol} є обов’язковими для заповнення."
-            part-2: 'Чим повніше Ви опишете суть запиту / проекту, тим швидшою та повноціннішею буде наша відповідь, а визначення меж бюджету значно зекономить Ваш час :)'
+            title: 'Note:'
+            part-1: "Marked fields %{symbol} are required to fill in."
+            part-2: 'The more complete you describe the essence of inquiry / project, the faster and more high-grade will be our answer, and defining the boundaries of the budget considerably saves your time :)'
 
         form-success-alert:
-          title: 'Ваш запит відправлено!'
-          text: "Дякуємо за проявлений інтерес до студії.В разі зацікавленості ми обов'язково зв'яжемося з вами.<br/>Гарного дня."
+          title: 'Your request was sent !'
+          text: "Thank you for your interest in design studio. In case of interest, we will contact you. Have a nice day."
 
       join-us:
         fields:
           name:
-            placeholder: 'Енді Уорхол'
+            placeholder: 'Andy Warhol'
           portfolio:
-            label: 'Ваше портфоліо'
+            label: 'Your portfolio'
           vacancy:
-            label: 'Бажана вакансія'
+            label: 'Desired vacancy'
             values:
               value-1: 'Web desinger'
               value-2: 'Graphic designer'
@@ -60,6 +62,16 @@ en:
               value-6: 'Sales manager'
               value-7: 'Класний пацан :)'
           message:
-            placeholder: "Я, молодий, комунікабельний графічний дизайнер з п'ятирічним досвідом, шукаю цікаву роботу в дружній команді. Посилання на портфоліо нижче"
-            label: 'Коротко опишіть себе'
+            placeholder: "I am young, sociable graphic designer with five years experience, looking for interesting work in a friendly team. Link to portfolio below"
+            label: 'Briefly describe yourself'
+            
+    breadcrumbs:
+      base:
+        home-page: 'Home'
+      portfolio-item:
+        portfolio-list-page: 'Portfolio'
+      article-item:
+        articles-list-page: 'Articles'
+      service-item:
+        services-list-page: 'Services'
 
