@@ -59,7 +59,7 @@ module StudioVoronin
 
     config.assets.precompile += %w(rails_admin/colorpicker/*.gif rails_admin/colorpicker/*.png rails_admin/bootstrap/*.png rails_admin/aristo/images/* rails_admin/multiselect/*.png rails_admin/*.png)
 
-    config.assets.precompile += %w(ckeditor/plugins/codemirror/plugin.js)
+    config.assets.precompile += %w(ckeditor/plugins/codemirror/*)
 
 
     config.assets.compile = true
