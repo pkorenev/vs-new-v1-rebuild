@@ -173,9 +173,9 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
 
 
-      field :title do
-        #label 'Название'
-      end
+      # field :title do
+      #   #label 'Название'
+      # end
 
       field :translations, :globalize_tabs
       #

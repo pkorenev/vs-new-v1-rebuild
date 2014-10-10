@@ -4,10 +4,10 @@
     margin-left: 1%;
             padding-left: 0%;
     ">
-      <li><a href="<%= root_path %>">Головна</a></li>
-      <li><a href="<%= portfolio_path %>">Портфоліо</a></li>
-      <li><a href="<%= portfolio_category_path(category: @item.portfolio_category.slug) %>"><%= @item.portfolio_category.title %></a></li>
-      <li><%= @item.title %></li>
+      <li><a href="<%= root_path %>"><%= t('partials.breadcrumbs.base.home-page') %></a></li>
+      <li><a href="<%= portfolio_path %>"><%= t('partials.breadcrumbs.portfolio-item.portfolio-list-page') %></a></li>
+      <li><a href="<%= portfolio_category_path(category: @item.portfolio_category.slug) %>"><%= @item.portfolio_category.name %></a></li>
+      <li><%= @item.name %></li>
     </ul>
   </div>
 </div>
