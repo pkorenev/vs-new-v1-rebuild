@@ -4,7 +4,7 @@ $(document).on('ready page:load', function(){
             //animtype:'slide'
             //animtype: 'slide'
             animtype: 'fade',
-            animspeed: 150000
+            animspeed: 15000
         });  
     });
 });
