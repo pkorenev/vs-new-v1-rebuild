@@ -48,6 +48,7 @@
 //= require partials/portfolio-tabs
 //= require partials/portfolio-items
 //= require partials/bjqs-init
+//= require partials/slides/slide-izhak_web
 //= require partials/slides/slide-valko
 //= require partials/slides/slide-g3k
 //= require partials/slides/slide-czmk

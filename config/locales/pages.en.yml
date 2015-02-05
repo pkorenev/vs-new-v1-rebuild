@@ -9,6 +9,9 @@ en:
     home:
       main-banner:
         slides:
+          slide-izhak-web:
+            title: "&laquo;Їжа.ки&raquo; - Development of service delivery food"
+            description: "We have been entrusted to develop a user-friendly web service for ordering food from a network of institutions catering. By the way, the name, logo and corporate identity were developed by us."
           slide-1:
             title: '«Valko»  — logo design and corporate identity'
             description: 'We have been entrusted to carry out visual re-branding of trading company that specializes in the sale of plastic windows, external window sills, blinds, accessories and other products.'

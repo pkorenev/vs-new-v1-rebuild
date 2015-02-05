@@ -1,0 +1,23 @@
+<% izhak_web_portfolio =  Portfolio::Portfolio.find(36) %>
+<li id="slide-izhak_web" class="slide">
+  <div class="slide-content">
+
+    <div id="izhak_web-3a" class = "layer crystal ii-layer izhak_web-left-3a final-position"><%= image_tag ('banners/izhak_web/3a.png') %></div>
+    <div id="izhak_web-3" class = "layer crystal ii-layer izhak_web-left-3 final-position"><%= image_tag ('banners/izhak_web/3.png') %></div>
+    <div id="izhak_web-4" class = "layer crystal ii-layer izhak_web-left-4 final-position"><%= image_tag ('banners/izhak_web/4.png') %></div>
+    <div id="izhak_web-left-arrow" class = "layer crystal ii-layer izhak_web-left-arrow final-position"><%= image_tag ('banners/izhak_web/4a.png') %></div>
+    <div id="izhak_web-letter" class="layer crystal izhak_web-letter final-position"><%= image_tag ('banners/izhak_web/logo.png') %></div>
+    <div id="izhak_web-2" class="layer crystal izhak_web-2 final-position"><%= image_tag ('banners/izhak_web/2.png') %></div>
+    <div id="izhak_web-letter-arrow" class = "layer crystal izhak_web-letter-arrow final-position"><%= image_tag ('banners/izhak_web/3a.png') %></div>
+    <div id="izhak_web-bottom-right-arrow" class = "layer crystal izhak_web-bottom-right-arrow final-position"><%= image_tag ('banners/izhak_web/5.png') %></div>
+    <div id="" class="layer description final-position">
+      <span class="title"><a data-no-turbolink="" href="<%= portfolio_item_path(  category: izhak_web_portfolio.portfolio_category.slug, item: izhak_web_portfolio.slug ) %>"><%= raw t('pages.home.main-banner.slides.slide-izhak-web.title') %></a></span>
+      <p><%= raw t('pages.home.main-banner.slides.slide-izhak-web.description') %></p>
+      <a data-no-turbolink="" style="" class="order-us brand-button" href="<%= portfolio_item_path(  category: izhak_web_portfolio.portfolio_category.slug, item: izhak_web_portfolio.slug ) %>"><%= t('partials.buttons.read-more') %></a>
+    </div>
+  </div>
+  <script>
+
+  </script>
+
+</li>

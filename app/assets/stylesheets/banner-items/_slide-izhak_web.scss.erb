@@ -1,0 +1,158 @@
+#home-banner-outer .slider #slide-izhak_web{
+    background: url(<%= asset_path('banners/izhak_web/bg.jpg') %>) repeat-x #262C4E;
+    background-size: cover;
+
+    .layer{
+        &.description{
+            &.final-position, &.display-slide{
+
+                .brand-button{
+                    //background: #f36b22;
+                    background: #fa9d26;
+                }
+
+                .title{
+                    //color: #f36b22;
+                    color: white;
+                    a{
+                        border-bottom-color: rgba(255, 255, 255, 0.3);
+
+                        &:hover{
+                            border-bottom-color: rgb(255, 255, 255);
+                        }
+                    }
+                }
+            }
+        }
+
+        &.crystal{
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        &.izhak_web-left-arrow{
+            background-image: url( <%= asset_path('banners/izhak_web/4a.png') %> );
+            &.final-position, &.display-slide{
+                left: 15%;
+                top: 68%;
+                width:3%;
+                z-index: 2;
+            }
+
+            &.display-slide{
+                left:-10%;
+            }
+        }
+
+        &.izhak_web-letter{
+            background-image: url( <%= asset_path('banners/izhak_web/logo.png') %>);
+
+
+
+
+            &.final-position, &.display-slide{
+                top:4%;
+                left:13%;
+                width:30%;
+                z-index: 1;
+
+            }
+
+            &.display-slide{
+                //top:-100%;
+                left: -35%;
+
+                //animation-duration: 1s;
+                //animation-name: slidein;
+            }
+        }
+
+        &.izhak_web-2{
+            background-image: url(<%= asset_path( 'banners/izhak_web/2.png' ) %> );
+            opacity: 0.7;
+
+            &.final-position, &.display-slide{
+                top: 7%;
+                left: 13.3%;
+                width: 3.5%;
+
+            }
+
+            &.display-slide{
+                top:-50%;
+
+                //animation-duration: 1s;
+                //animation-name: slidein;
+            }
+        }
+
+        &.izhak_web-letter-arrow{
+            display: none;
+            background-image: url( <%= asset_path('banners/izhak_web/4.png') %> );
+
+            &.final-position, &.display-slide{
+                //top:50%;
+                //left:39%;
+                top: 42%;
+                left: 28.68%;
+                z-index: 1;
+                width:10.8%;
+            }
+
+            &.display-slide{
+                //opacity: 0;
+                top: -50%;
+            }
+        }
+
+        &.izhak_web-bottom-right-arrow{
+            background-image: url( <%= asset_path('banners/izhak_web/5.png') %> );
+            &.final-position, &.display-slide{
+                /*top:65%;*/
+                /*left:45%;*/
+                /*width:33.5%;*/
+                left: 58%;
+                width: 25%;
+                top: 69%;
+            }
+            &.display-slide{
+                top:100%;
+            }
+        }
+
+        &#izhak_web-3a{
+            background-image: url(<%= asset_path("banners/izhak_web/3a.png") %>);
+            &.final-position, &.display-slide {
+                width: 10%;
+                left: -3%;
+                top: 41%;
+                z-index: 2;
+            }
+        }
+
+        &#izhak_web-3{
+            background-image: url(<%= asset_path("banners/izhak_web/3.png") %>);
+            &.final-position, &.display-slide {
+                width: 5%;
+                left: 39%;
+                top: 50%;
+                z-index: 1;
+            }
+        }
+
+        &#izhak_web-4{
+            background-image: url(<%= asset_path("banners/izhak_web/4.png") %>);
+            &.final-position, &.display-slide {
+                width: 5%;
+                left: 39%;
+                top: 80%;
+                z-index: 2;
+            }
+        }
+    }
+
+    .layer.crystal.selected-layer{
+        background: none repeat scroll 0 0 rgba(255, 47, 139, 0.1);
+    }
+}
+
