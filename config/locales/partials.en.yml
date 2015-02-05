@@ -17,7 +17,7 @@ en:
             placeholder: 'Nick Eplovych'
           phone:
             label: 'Your phone'
-            placeholder: '+38 (050) 417 07 28'
+            placeholder: '0504170728'
           price-range:
             label: 'The limits of your budget for the project'
             values:
@@ -32,7 +32,7 @@ en:
             label: 'Your email address'
             placeholder: 'appleplus@gmail.com'
           message:
-            label: 'How we can help you?'
+            label: 'How can we help you?'
             placeholder: 'We need a cool logo, corporate identity and brand book. We are selling organic apples from their own gardens. And we need to establish order selling apples via the Internet. Terms: 2 months.'
           button-send: 'SEND!'
 

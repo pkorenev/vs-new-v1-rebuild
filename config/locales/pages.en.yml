@@ -11,12 +11,12 @@ en:
         slides:
           slide-1:
             title: '«Valko»  — logo design and corporate identity'
-            description: 'We have been entrusted to carry out visual rebranding of trading company that specializes in the sale of plastic windows, external window sills, blinds, accessories and other products.'
+            description: 'We have been entrusted to carry out visual re-branding of trading company that specializes in the sale of plastic windows, external window sills, blinds, accessories and other products.'
           slide-2:
             title: "«Games3K» — logo design and corporate identity!"
             description: "Our task was to come up with a name, create a logo and corporate identity. Also online store for selling goods over the internet."
           slide-3:
-            title: "«CHZMK» — Development of a corporate Website"
+            title: "«CHZMK» — corporate Website"
             description: "After the successful development of a logo and corporate identity for fabricated metals, we have tasked to develop a corporate website that will feature all the achievements and benefits of products. "
       welcome:
         order-button: 'Hire us!'
@@ -47,7 +47,7 @@ en:
     portfolio-list:
       page-title: 'Portfolio'
       invitation:
-        part-1: 'We will be glad to see your work in this list. Welcome on coffee and to discuss the future project.'
+        part-1: 'We will be glad to see your work in this list. welcome on cup of coffee and talk about future projects'
         part-2: "After reviewing pretty pictures — %{link_open}read our methodology%{link_close} :)"
         button-label: 'GET IN TOUCH!'
 

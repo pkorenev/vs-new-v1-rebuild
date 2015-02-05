@@ -11,7 +11,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
   accepts_nested_attributes_for :portfolio_banner, :allow_destroy => true
   attr_accessible :portfolio_banner_attributes
 
-  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt, :versioning => :paper_trail
+  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt, :versioning => :paper_trail, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 
@@ -45,7 +45,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
         field :result, :ck_editor
         field :process, :ck_editor
         field :live, :ck_editor
-        field :description
+        field :description, :ck_editor
         field :thanks_to
         field :avatar_alt
       end
@@ -162,9 +162,9 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
     edit do
 
-      # field :published do
-      #   label 'Опубликовать'
-      # end
+      field :published do
+        label 'Опубликовать'
+      end
       #
       # field :name do
       #   label 'Название (внутреннее)'

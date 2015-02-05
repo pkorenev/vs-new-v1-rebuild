@@ -6,7 +6,7 @@
       <% if current_page?(root_path) %>
         <%= image_tag('static_images/voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну') %>
       <% else %>
-        <%= link_to(image_tag('static_images/voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path, :title => 'На головну' ) %>
+        <%= link_to(image_tag('static_images/voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path(locale: I18n.locale), :title => 'На головну' ) %>
       <% end %>
       </div>
     </div>
@@ -41,9 +41,9 @@
             <li>
               <% if locale != I18n.locale %>
                 <% if @translated_locales.include?(locale.to_sym) %>
-                  <%= link_to locale.to_s.upcase, locale: locale %>
+                  <%= link_to locale.to_s.upcase, @links_for_locales[locale.to_sym] %>
                 <% else %>
-                  <span class="untranslated-locale" data-href="<%= url_for locale: locale %>"><%= locale.to_s.upcase %></span>
+                  <span class="untranslated-locale" data-href="<%= @links_for_locales[locale.to_sym]  %>"><%= locale.to_s.upcase %></span>
                 <% end %>
               <% else %>
                 <span><%= locale.to_s.upcase %></span>

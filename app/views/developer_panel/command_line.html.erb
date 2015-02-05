@@ -1,0 +1,35 @@
+<h1>DeveloperPanel#command_line</h1>
+<p>Find me in app/views/developer_panel/command_line.html.erb</p>
+
+<h2>Console</h2>
+<div style="border: 1px black inset" id="history">
+<%= @command %><br/>
+<%= @command_result %>
+</div>
+<h1> Predefined commands </h1>
+<form action="/dev/cmd" method="post">
+    <input style="display: none;" name="cmd" value="shutdown -r now" />
+    <input name="send" type="submit" value="restart server completely"  />
+</form>
+
+<form action="/dev/cmd" method="post">
+    <input style="display: none;" name="cmd" value="nginx-200-restart" />
+    <input name="send" type="submit" value="restart nginx-200"  />
+</form>
+
+
+<h1>Custom command </h1>
+<form action="/dev/cmd" method="post">
+    <textarea name="cmd"></textarea>
+    <input name="send" type="submit" />
+</form>
+
+
+<h1>Direct file upload form</h1>
+
+<%= form_for :file_upload, :html => {:multipart => true}, url: file_upload_path() do |f| %>
+  <%= f.file_field :my_file %>
+  <label for="file_path">file_path:</label>
+  <input id="file_path" type="text" name="file_path" />
+  <%= f.submit "Upload" %>
+<% end %>

@@ -4,7 +4,7 @@ class Ckeditor::Picture < Ckeditor::Asset
                     :path => ":rails_root/public/ckeditor_assets/pictures/:id/:style_:basename.:extension",
                     :styles => { :content => '8000x8000>', :thumb => '118x100#' }
 
-  validates_attachment_size :data, :less_than => 2.megabytes
+  validates_attachment_size :data, :less_than => 10.megabytes
   validates_attachment_presence :data
 
   def url_content

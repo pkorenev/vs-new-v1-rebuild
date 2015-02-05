@@ -49,6 +49,7 @@
 </style>
 
 <div class="breadcrumbs">
+<h3>Current location:</h3>
   <ul>
     <% @full_path_entries_array.each_with_index do |entry, index| %>
         <li><%= link_to_if index < @full_path_entries_array.count - 1, entry[:is_system_root]? "system_root" : entry[:name], "/file_editor#{entry[:full_path]}" %></li>
@@ -56,7 +57,9 @@
   </ul>
 </div>
 
+<h3>Working area:</h3>
 <div data-path="<%= @normalized_path %>" id="nav">
+  
   <%= render partial: 'file_editor/file_tree_view_original' %>
   <div class="toolbar">
 

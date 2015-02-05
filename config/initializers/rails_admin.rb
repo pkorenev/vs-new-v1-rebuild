@@ -106,7 +106,9 @@ RailsAdmin.config do |config|
      Dictionary,
      DictionaryKey,
      CustomArticle,
-     PortfolioTagScope
+     PortfolioTagScope,
+     Forms::Order,
+     Forms::JoinUs
 
 
   ]#+(Dir.glob(Rails.root.join('app/models/pages/*.rb')).each {|file| require file;}; classes = [] ;Pages.constants.each {|c| classes.push("Pages::#{c.to_s}") }; classes )
@@ -182,7 +184,7 @@ RailsAdmin.config do |config|
 
 
   Portfolio::PortfolioCategory.all.each do | c |
-    portfolio_portfolio << Tree::TreeNode.new( c.name, { link: '/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=' + c.name + '&query=' } )
+    portfolio_portfolio << Tree::TreeNode.new( c.name, { link: '/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=' + c.id.to_s + '&query=' } )
     #portfolio_portfolio << Tree::TreeNode.new( 'Фірмовий стиль', { link: '/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=Corporate+identity&query=' } )
     #portfolio_portfolio << Tree::TreeNode.new( 'Веб', { link: '/admin/portfolio~portfolio?utf8=%E2%9C%93&f[portfolio_category][58574][o]=is&f[portfolio_category][58574][v]=web&query=' } )
   end

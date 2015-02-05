@@ -1,10 +1,17 @@
-<% hostname = 'new.voroninstudio.eu' %>
-name: <%= @order.name %>
-phone: <%= @order.phone %>
-organization_name: <%= @order.organization_name %>
-email: <%= @order.email %>
-money: <%= @order.money %>
-text: <%= @order.text %>
+<% hostname = 'voroninstudio.eu' %>
+<% [:name, :phone, :organization_name, :email, :money, :text].each do |attr_name|  %>
+  <tr>
+    <td><%= attr_name  %></td>
+    <td><%= @order.send(attr_name) %></td>
+  </tr>
+<% end %>
+
+
+
+
+
+
+
 
 
 <br/>

@@ -100,6 +100,13 @@ class PageController < ApplicationController
     if @service
       @content_locale = I18n.locale
 
+      #I18n.available_locales.each do |locale|
+      #  I18n.with_locale(locale.to_sym) do
+      #    @links_for_locales[locale.to_sym] = service_item_path(service_item: @service.slug, locale: locale)
+      #  end
+      #end
+
+
       published_translations = @service.translations.where(published: true)
       published_locales = []
       published_translations.each do |t|
@@ -109,6 +116,12 @@ class PageController < ApplicationController
       if !published_locales.include?(@content_locale)
         @content_locale = http_accept_language.compatible_language_from(published_locales)
       end
+
+     I18n.available_locales.each do |locale|
+       I18n.with_locale(locale.to_sym) do 
+         @links_for_locales[locale.to_sym] = service_item_path(service_item: @service.slug, locale: locale)
+       end
+     end
 
       @static_page_data = @service.static_page_data
 
@@ -237,6 +250,12 @@ class PageController < ApplicationController
       end
 
       @static_page_data = @article.static_page_data
+
+      I18n.available_locales.each do |locale|
+       I18n.with_locale(locale.to_sym) do
+         @links_for_locales[locale.to_sym] = article_item_path(article_item: @article.slug, locale: locale)
+       end
+      end
 
       @related_articles = get_related_articles(@article)
 

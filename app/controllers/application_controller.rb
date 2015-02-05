@@ -19,11 +19,24 @@ class ApplicationController < ActionController::Base
       params_locale = params[:locale]
       locale = params_locale
 
+      cookies_locale = cookies[:locale]
+
+      if !locale || !I18n.available_locales.include?(locale.to_sym)
+        locale = cookies_locale
+      end
+
       if !locale || !I18n.available_locales.include?(locale.to_sym)
         locale = http_accept_language.compatible_language_from(I18n.available_locales)
       end
 
       #render inline: "#{locale == params_locale}"
+
+      if locale != cookies_locale
+        cookies[:locale] = {
+          value: locale,
+          expires: 1.year.from_now
+        }
+      end
 
       if locale != params_locale
         redirect_to locale: locale, :status => :moved_permanently
@@ -40,6 +53,10 @@ class ApplicationController < ActionController::Base
 
   def init_translated_locales
     @translated_locales = [:uk]
+    @links_for_locales = {}
+    I18n.available_locales.each do |locale|
+      @links_for_locales[locale.to_sym] = url_for(locale: locale )
+    end
   end
 
 

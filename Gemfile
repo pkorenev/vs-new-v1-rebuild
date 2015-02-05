@@ -61,7 +61,7 @@ gem 'protected_attributes'
 
 #gem 'rails_admin' #, github: 'VoroninNick/rails_admin', branch: 'pasha'
 gem 'rails_admin', github: 'sferik/rails_admin'
-gem 'safe_yaml'
+
 gem 'devise'
 gem 'paperclip', '~> 3.5.3'
 gem 'ckeditor'
@@ -75,7 +75,7 @@ gem 'rails_admin_globalize_field', github: 'VoroninNick/rails_admin_globalize_fi
 
 #db
 #gem 'yaml_db'
-
+gem 'safe_yaml', '~> 1.0.4'
 
 # assets optimization
 # Use SCSS for stylesheets

@@ -46,9 +46,9 @@ class ContactController < ApplicationController
     f = Forms::Order.new
     f.name = params['name']
     f.phone = params['phone']
-    f.organization_name = params['organization_name']
+    f.organization_name = params['organization']
     f.email = params['email']
-    f.money = params['money']
+    f.money = params['price-range']
     f.text = params['message']
     f.save
 
@@ -87,7 +87,7 @@ class ContactController < ApplicationController
     f.phone = params['phone']
     #f.organization_name = params['organization_name']
     f.email = params['email']
-    f.portfolio = params['forms_join_us']['portfolio']
+    f.portfolio = (params['forms_join_us'])? params['forms_join_us']['portfolio'] : nil
     f.role = params['vacancy']
     f.text = params['message']
 

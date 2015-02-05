@@ -32,20 +32,42 @@
 
 </style>
 
+<%
+_result = @item.result
+
+I18n.available_locales.each do |locale|
+  locale = locale.to_sym
+  %>  <%
+  
+  if _result.blank? #&& @item.translations_by_locale.keys.map(&:to_sym).include?(locale.to_sym)
+    t = @item.translations_by_locale[locale.to_sym]
+    _result = t['result'] if t && t['result'] && t["result"].length > 0 #if !t.result.blank? 
+    #_result = "#{t.inspect}" #["result".to_sym]
+    %> <div class="test1" style="display: none;"><%= "#{locale}: was_blank: #{ (_result.blank? && @item.translations_by_locale.keys.include?(locale.to_s) ).inspect }. result: #{t['result'].inspect}. simple_test: #{@item.translations_by_locale[:uk].result.blank?.inspect }" %></div> <%
+  end 
+end
+
+if _result
+  #_result = false
+  _result = @item.result
+end
 
 
+%>
+
+<%# @result = (!@item.result.blank?) ? @item.result : ( (!(@item.translations_by_locale[:ru].result.blank?)) ? @item.translations_by_locale[:ru].result  : (!(@item.translations_by_locale[:uk].result.blank?)) ?  @item.translations_by_locale[:uk].result : false ) %>
 
 <!-- Render portfolio toolbar -->
 <div id="portfolio-toolbar" class="f-height">
   <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>" class="pt-left"></a>
   <a href="<%= portfolio_item_path(category: @next_portfolio.portfolio_category.slug, item: @next_portfolio.slug) %>" class="pt-right"></a>
-  <% if (@item.result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
+  <% if (_result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
       <div class="container">
       <div class="tabs-wrapper">
 
 
           <section id="tabs-container" class="f-height">
-            <% if @item.result && @item.result.length > 0  %>
+            <% if _result   %>
                 <div class="portfolio-tab bottom-arrow" id="result" >
                     <p>Результат</p>
                 </div>
@@ -74,7 +96,7 @@
 <!-- Render Portfolio body -->
 <div style="width:auto;" id="portfolio-body" class="f-height">
   
-  
+  <div class="test" style="display: none;" ><%= raw _result.inspect %></div>
 
   <section class="portfolio-content">
     <section class="f-height">
@@ -87,9 +109,9 @@
 
       <!-- Here will be content -->
 
-      <% if (@item.result && @item.result.length > 0) || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
+      <% if _result || (@item.process && @item.process.length > 0) || (@item.live && @item.live.length > 0) %>
           <div class="tabpages portfolio-tabpages">
-            <% if @item.result && @item.result.length > 0 %>
+            <% if _result %>
                 <div class="tabpage active" id="result">
 
 
@@ -107,7 +129,7 @@
                 </div>
               </figure> -->
 
-              <%=  raw @item.result  %>
+              <%=  raw _result  %>
 
 
               <!-- /result content -->

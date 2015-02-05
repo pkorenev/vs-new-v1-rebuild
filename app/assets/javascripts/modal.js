@@ -114,11 +114,28 @@ function initFormValidation(){
 
     var $forms = $('#order-form, #join-us-form')
     $forms.submit(function(event){
+        event.preventDefault()
         var $form = $(this)
+        var form = this;
         //console.log('submit order form')
         if( $form.find('.error').length == 0 ){
-            event.preventDefault()
-            var form_data = $form.serialize()
+            //event.preventDefault()
+            var form_data = false;
+            if(window.FormData){
+              form_data = new FormData($form[0]);
+              var $file_input = $form.find('input[type=file]:first')
+              if($file_input.length > 0){
+                var file_input = $file_input.get(0)
+                var input_name = $file_input.attr('name') || ''
+                if(input_name != '' && file_input.files.length > 0){
+                  form_data.append(input_name, file_input.files[0])
+                }
+              }
+            }
+            if(!form_data){
+              form_data = $form.serialize()
+            }
+            //var form_data = new FormData(form);
             var $form_container = $form.parent()
             var $form_waiting = $form_container.find('.form-waiting')
             $form.remove()
@@ -127,6 +144,9 @@ function initFormValidation(){
                 url: $form.attr('action'),
                 type: 'POST',
                 data: form_data,
+                cache: false,
+                contentType: false,
+                processData: false,
                 complete: function(){
                     $form.animate(
                         {
@@ -149,7 +169,7 @@ function initFormValidation(){
 
         //console.log('submit order form')
 
-        return false
+        //return false
     })
 }
 

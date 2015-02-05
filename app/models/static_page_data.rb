@@ -18,7 +18,7 @@ class StaticPageData < ActiveRecord::Base
   has_one :sitemap_element
 
   accepts_nested_attributes_for :sitemap_element, :allow_destroy => true
-  attr_accessible :sitemap_element
+  attr_accessible :sitemap_element, :sitemap_element_attributes
 
   translates :head_title, :meta_keywords, :meta_description
   accepts_nested_attributes_for :translations

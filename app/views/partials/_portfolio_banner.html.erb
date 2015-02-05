@@ -1,10 +1,11 @@
+<% if @item && @item.respond_to?(:portfolio_banner) && @item.portfolio_banner %>
 <div id="portfolio-banner-outer"  class="banner-outer">
   <!-- Outer wrapper for presentation only, this can be anything you like -->
   <figure class="banner-holder-figure">
     <div class="fixed-banner-wrapper">
       <figure class="fixed-banner-holder-figure">
 
-        <div style="background-image: url(<%= @item.portfolio_banner.background.url %>)" class="slide">
+        <div style="background-image: url(<%= (@item && @item.portfolio_banner && @item.portfolio_banner.background.exists?)?  @item.portfolio_banner.background.url : 'none' %>)" class="slide">
             <div id="nav-arrows">
                 <div class="prev">
                   <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>">
@@ -22,7 +23,7 @@
             </div>
 
               <div class="slide-description">
-                <div class="title"><%= raw @item.portfolio_banner.title %></div>
+                <div class="title"><%= (@item && @item.portfolio_banner && @item.portfolio_banner.title && @item.portfolio_banner.title.length >= 0)?  raw(@item.portfolio_banner.title) : "Untitled portfolio banner" %></div>
                 <div class="description"><%= raw @item.portfolio_banner.description %></div>
               </div>
           </div>
@@ -40,3 +41,4 @@
       //});
   </script>
 </div>
+<% end %>

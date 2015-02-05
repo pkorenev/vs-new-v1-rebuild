@@ -117,41 +117,16 @@ class PortfolioController < ApplicationController
 
   def item
 
-    @category = Portfolio::PortfolioCategory.where(slug: params[:category]).first
+    @item = Portfolio::Portfolio.where(slug: params[:item]).limit(1)
 
-    @item = Portfolio::Portfolio.where(slug: params[:item], published: 't', portfolio_category_id: @category.id).limit(1) if @category 
-    
-    testing = false # params[:test]
-    
 
-    if @item && @item.count == 1
+    if @item.count == 1
       @item = @item.first
     end
 
-    if @item.nil?
-      @available_translations = Portfolio::Portfolio.translation_class.where(slug: params[:item], published_translation: true).not(locale: I18n.locale.to_s)
-    end 
-
-    
-    
-    
-
-    if @item && !@item.respond_to?(:count)
+    if @item
       @translated_locales = @item.published_locales
       @untranslated_locale = !@translated_locales.include?(I18n.locale)
-      
-      I18n.available_locales.each do |locale|
-       I18n.with_locale(locale.to_sym) do
-         @links_for_locales[locale.to_sym] = portfolio_item_path(item: @item.slug, category: @item.portfolio_category.slug, locale: locale)
-       end
-      end
-
-      if testing
-
-        #render inline: @item.result.blank?.
-      end
-
-      unless testing
 
       @static_page_data = @item.static_page_data
       query = "SELECT p.id FROM portfolios p WHERE p.published = 't' ORDER BY p.portfolio_category_id, p.release asc"
@@ -258,11 +233,8 @@ class PortfolioController < ApplicationController
 
 
 
-    else
-      render template: 'error/404' unless testing
 
 
-    end
 
     end
   end
@@ -389,17 +361,14 @@ class PortfolioController < ApplicationController
 
 
       @portfolio_description = @active_category.full_description
-      @static_page_data = @active_category.static_page_data
-
-
-      I18n.available_locales.each do |locale|
-       I18n.with_locale(locale.to_sym) do
-         @links_for_locales[locale.to_sym] = portfolio_category_path(category: @active_category.slug, locale: locale)
-       end
-      end
-
     end
-    render template: 'portfolio/category'
+
+   #if  1 == 2
+     render template: 'portfolio/category'
+   #else
+   #  render inline: "#{@active_category.inspect}"
+   #end
+    
   end
 
   def polygraphy
@@ -432,3 +401,4 @@ class PortfolioController < ApplicationController
   end
 
 end
+

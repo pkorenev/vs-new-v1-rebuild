@@ -17,7 +17,7 @@ ru:
             placeholder: 'Николай Еплович'
           phone:
             label: 'Ваш телефон'
-            placeholder: '+38 (050) 417 07 28'
+            placeholder: '0504170728'
           price-range:
             label: 'Пределы вашего бюджета на проект'
             values:
