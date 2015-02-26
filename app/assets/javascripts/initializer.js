@@ -145,15 +145,22 @@ $(document).on('ready page:load', function() {
     initHeaderSize()
 
     function homeBannerOnScroll(info){
+        console.log("homeBannerOnScroll: ", info)
         var scroll_top = info.end.y
 
         var home_banner_content_top = scroll_top / 3 * (-1)
         var home_banner_opacity = 150 / scroll_top
-        $('#home-banner-outer .slide .slide-content').css({
+        if(!isFinite(home_banner_opacity)){
+            home_banner_opacity = 1
+        }
+
+
+        var $slide_content = $('#home-banner-outer li.slide div.slide-content')
+        $slide_content.css({
             marginTop: home_banner_content_top + 'px'
         })
 
-        $('#home-banner-outer .slide .slide-content .layer.description').css({
+        $slide_content.find('.layer.description').css({
             opacity: home_banner_opacity
         })
 
@@ -233,7 +240,7 @@ $(document).on('ready page:load', function() {
                 }
             }
 
-
+            //alert('hello')
             homeBannerOnScroll(info)
             portfolioBannerOnScroll(info)
         })
@@ -263,8 +270,13 @@ $(document).on('ready page:load', function() {
 
             var info = { end: { y: scroll_top } }
 
+            //alert("hello")
             homeBannerOnScroll(info)
             portfolioBannerOnScroll(info)
+
+            setTimeout(function(){
+                homeBannerOnScroll(info)
+            }, 3000)
         })
     }
 
