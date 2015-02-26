@@ -129,7 +129,8 @@ class PortfolioController < ApplicationController
     end
 
     if @item.nil?
-      @available_translations = Portfolio::Portfolio.translation_class.where(slug: params[:item], published_translation: true).not(locale: I18n.locale.to_s)
+      @available_translations = Portfolio::Portfolio.translation_class.where(slug: params[:item], published_translation: true)
+      @available_translations = @available_translations.where.not(locale: I18n.locale.to_s)
     end 
 
     

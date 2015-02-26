@@ -53,6 +53,13 @@ en:
         part-1: 'We will be glad to see your work in this list. welcome on cup of coffee and talk about future projects'
         part-2: "After reviewing pretty pictures — %{link_open}read our methodology%{link_close} :)"
         button-label: 'GET IN TOUCH!'
+    portfolio-item:
+      task: "Task"
+      project_team: "Project team:"
+      thanks_to: "Special thanks:"
+      result: "Result"
+      process: "Process"
+      live: "Live"
 
     articles-list:
       page-title: 'Publications etc.'

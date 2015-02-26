@@ -1,13 +1,14 @@
 <div id="developers-panel">
   <div class="dev-pan f-height">
     <div class="mobile-column">
+      <%  _description = project.description; I18n.available_locales.each {|locale|  break if _description.present?; _description = project.translations_by_locale[locale].description  }  %>
       <div class="dev-field project-description">
-        <p><%= raw project.description %></p>
+        <p><%= raw _description %></p>
       </div>
 
-    <% if project.developers.count>0 %>
+    <% if project.developers.any? %>
       <div class="dev-field">
-        <h4>Команда проекту:</h4>
+        <h4><%= t("pages.portfolio-item.project_team") %></h4>
       </div>
       <!-- Developers and roles -->
     <% project.developers.each do |developer| %>
@@ -21,11 +22,12 @@
 
 
     <div class="mobile-column">
-    <% if project.thanks_to && project.thanks_to!='' %>
+    <%  _thanks_to = project.thanks_to; I18n.available_locales.each {|locale|  break if _thanks_to.present?; _thanks_to = project.translations_by_locale[locale].thanks_to  }  %>  
+    <% if _thanks_to.present? %>
     <!-- Thanks for work -->
       <div class="dev-field">
-        <h4 class="last-h4">Особлива подяка:</h4>
-        <p class="author"><%= project.thanks_to %></p>
+        <h4 class="last-h4"><%= t("pages.portfolio-item.thanks_to") %></h4>
+        <p class="author"><%= _thanks_to %></p>
       </div>
     <% end %>
 
