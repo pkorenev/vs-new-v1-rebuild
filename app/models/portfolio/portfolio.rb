@@ -15,6 +15,11 @@ class Portfolio::Portfolio < ActiveRecord::Base
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
 
+  def self.remove_text_align_justify(fields = [])
+    fields = [:live, :result, :process] if fields.try(&:empty?)
+    ActiveRecord::Base.remove_text_align_justify(self, fields)
+  end
+
   def published_locales
     locales = []
     published_translations.each do |t|

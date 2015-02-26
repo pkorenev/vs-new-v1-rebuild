@@ -3,6 +3,11 @@ class Article < ActiveRecord::Base
   attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :tags, :tag_list, :release_date, :author
 
 
+  def self.remove_text_align_justify(fields = [])
+    fields = [:content] if fields.try(&:empty?)
+    ActiveRecord::Base.remove_text_align_justify(self, fields)
+  end
+
   acts_as_taggable
   attr_accessible :tag_list
 
