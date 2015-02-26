@@ -19,7 +19,14 @@ function getItemsPerRow (){
 function PortfolioFilter(filter){
     var $container = $('.sortable-portfolio');
     var current_scroll_top = $(document).scrollTop()
-    filter = filter + ':lt(12)'
+    var data_limit = parseInt($container.attr('data-limit'))
+    var limit = data_limit >= 0 ? data_limit : undefined
+
+    if(limit >= 0){
+        filter = filter + ':lt('+limit+')'
+    }
+    console.log('limit: ', limit)
+
     console.log('portfolio-filter-scroll-top: ' + current_scroll_top)
     $container.isotope({
         filter: filter,

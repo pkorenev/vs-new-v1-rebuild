@@ -99,7 +99,7 @@
 
   </style>
   
-  <div id="portfolio-items-container" class="sortable-portfolio">
+  <div id="portfolio-items-container" class="sortable-portfolio" <%= "data-limit=#{isotope_limit}" if defined?(isotope_limit) && isotope_limit >= 0 %> >
     <% items.each do |item| %>
         <% if item.portfolio_category %>
           <div class="g4 portfolio-item <%= item.portfolio_category.slug %><%= ( @active_category && @active_category.respond_to?(:id) && item.portfolio_category && item.portfolio_category && item.portfolio_category.respond_to?(:id)  && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
