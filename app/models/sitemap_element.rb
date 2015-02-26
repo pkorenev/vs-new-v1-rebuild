@@ -23,7 +23,7 @@ class SitemapElement < ActiveRecord::Base
     self.priority ||= 0.8
   end
 
-  validate :path, nil: false, uniqueness: true
+  validates :path,presence: true, uniqueness: true
 
   translates :path, :url, :changefreq
   accepts_nested_attributes_for :translations
@@ -43,7 +43,7 @@ class SitemapElement < ActiveRecord::Base
       self.priority ||= 0.8
     end
 
-    validate :path, nil: false, uniqueness: true
+    validates :path, presence: true, uniqueness: true
 
     # def published=(value)
     #   self[:published] = value

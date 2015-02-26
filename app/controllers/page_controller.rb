@@ -10,7 +10,7 @@ class PageController < ApplicationController
     @featured_articles ||= Article.limit(3).where(published: true).order('release_date desc')
     @our_clients ||= TrustCompany.all.order('RANDOM()').limit(15)
 
-    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc').limit(12)
+    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')#.limit(12)
     @page_data = Pages::HomePage.first
     @static_page_data = @page_data.static_page_data
     @greetings = @page_data.greetings

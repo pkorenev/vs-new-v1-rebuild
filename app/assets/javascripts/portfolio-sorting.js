@@ -4,7 +4,7 @@ function getItemsPerRow (){
           if(window.innerWidth <= 1200 && window.innerWidth > 960){
             items_per_row = 4;
           }
-          
+
           else if(window.innerWidth <= 960 && window.innerWidth > 600){
             items_per_row = 3;
           }
@@ -19,12 +19,14 @@ function getItemsPerRow (){
 function PortfolioFilter(filter){
     var $container = $('.sortable-portfolio');
     var current_scroll_top = $(document).scrollTop()
+    filter = filter + ':lt(12)'
     console.log('portfolio-filter-scroll-top: ' + current_scroll_top)
     $container.isotope({
         filter: filter,
         resizable:true,
         resizesContainer: true,
-        layoutMode: 'fitRowsWithHeight',
+        layout: 'fitRows',
+        //layoutMode: 'fitRowsWithHeight',
         //masonry: { columnWidth: $container.width() / 6 - 10 },
         animationOptions: {
             duration: 750,
@@ -33,8 +35,8 @@ function PortfolioFilter(filter){
         },
         animationEngine : "jquery",
         complete: function(){
-            console.log('isotope-complete-scroll-top: ' + current_scroll_top)
-            $(document).scrollTop(current_scroll_top)
+            //console.log('isotope-complete-scroll-top: ' + current_scroll_top)
+            //$(document).scrollTop(current_scroll_top)
         }
     });
 
@@ -49,7 +51,7 @@ function PortfolioFilter(filter){
 function PortfolioShowAll(){
 
     // Caching selector
-    
+
     PortfolioFilter('.portfolio-item');
 
     //normalize('nnn');

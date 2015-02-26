@@ -35,7 +35,7 @@ $(document).on('ready page:load', function(){
 
 
 
-                $(document).scrollTop(current_scroll_top)
+                //$(document).scrollTop(current_scroll_top)
 
             }
         })

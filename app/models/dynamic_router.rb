@@ -31,8 +31,10 @@ class DynamicRouter
 
         #end
 
-        rb_code = "def #{route.route_name}_path( options = {})" +'options[:locale] = I18n.locale if !options.include? :locale; '+'send( "#{I18n.locale}_' + "#{route.route_name}_path" +'", options ); end'
 
+        rb_code = "def #{route.route_name}_path( options = {});" +'options[:locale] = I18n.locale if !options.include? :locale; '+'send( "#{I18n.locale}_' + "#{route.route_name}_path" +'", options ); end'
+
+        puts "DYNAMIC_ROUTER: RB_CODE::  #{rb_code} ::END_CODE::"
         #match 'photos/:id' => 'photos#show', :constraints => { :id => /[A-Z]\d{5}/ }
 
         Rails.application.routes.url_helpers.module_eval rb_code

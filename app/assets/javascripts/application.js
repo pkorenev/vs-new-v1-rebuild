@@ -29,8 +29,9 @@
 //= require fancybox/helpers/jquery.fancybox-media
 //= require fancybox/helpers/jquery.fancybox-thumbs
 //= require fancybox/jquery.fancybox.pack
-//= require jquery.isotope
-//= require jquery.isotope.layout.fit_rows_with_height
+// require jquery.isotope
+//= require isotope.pkgd.min
+// require jquery.isotope.layout.fit_rows_with_height
 //= require jquery.black_and_white
 //= require bjqs
 //= require carousel
