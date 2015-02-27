@@ -179,11 +179,15 @@ $(document).on('ready page:load', function() {
 
         var portfolio_banner_content_top = scroll_top / 3 * (-1)
         var portfolio_banner_opacity = 150 / scroll_top
-        $('#portfolio-banner-outer .slide .slide-description').css({
+        if(!isFinite(portfolio_banner_opacity)){
+            portfolio_banner_opacity = 1
+        }
+        var $portfolio_banner_slide_description = $('#portfolio-banner-outer div.slide div.slide-description')
+        $portfolio_banner_slide_description.css({
             marginTop: portfolio_banner_content_top + 'px'
         })
 
-        $('#portfolio-banner-outer .slide .slide-description').css({
+        $portfolio_banner_slide_description.css({
             opacity: portfolio_banner_opacity
         })
     }
