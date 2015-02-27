@@ -4,7 +4,7 @@ function showModal($link){
     if($modal_wrapper.length > 0) {
 
         href = $link.attr('href')
-        console.log('showModal: $link: href='+href)
+        //console.log('showModal: $link: href='+href)
 
         $contact_header = $modal_wrapper.find('.contact-header')
         $tabs = $contact_header.find('[id*=tab]')
@@ -54,13 +54,13 @@ function loadModalContent(){
             initTabs()
             initFormValidation()
 
-            console.log(' form initialized ')
+            //console.log(' form initialized ')
 
             if(display_modal){
                 showModal(display_modal)
             }
 
-            console.log(' form showed ')
+            //console.log(' form showed ')
 
 
 
@@ -183,7 +183,7 @@ $(document).on('ready page:load', function() {
 
 
     $(".modal-link").each(function() {
-        console.log('init modal link')
+        //console.log('init modal link')
         $link = $(this)
         var original_href = $link.attr('href')
 
@@ -208,10 +208,10 @@ $(document).on('ready page:load', function() {
                     preload: true
                 },
                 beforeLoad: function () {
-                    console.log('fancybox before_load')
+                    //console.log('fancybox before_load')
                 },
                 afterLoad: function () {
-                    console.log('fancybox after_load')
+                    //console.log('fancybox after_load')
                 },
                 afterClose: function () {
                     $("#contact-form").removeClass("current");
@@ -226,7 +226,7 @@ $(document).on('ready page:load', function() {
                 },
 
                 aftershow: function () {
-                    console.log('fancybox after_show')
+                    //console.log('fancybox after_show')
                     $iframe = $('.fancybox-iframe')
                     $iframe_body = $iframe.contents().find('body')
                     $iframe_body_wrapper = $iframe_body.find('#wrapper')
@@ -238,11 +238,11 @@ $(document).on('ready page:load', function() {
                         height: '' + wrapper_height + 'px'
                     });
 
-                    console.log('wrapper_height:' + wrapper_height)
+                    //console.log('wrapper_height:' + wrapper_height)
                 },
 
                 beforeShow: function () {
-                    console.log('fancybox before_show')
+                    //console.log('fancybox before_show')
                     $iframe = $('.fancybox-iframe')
                     $iframe_body = $iframe.contents().find('body')
                     $iframe_body_wrapper = $iframe_body.find('#wrapper')
@@ -262,7 +262,7 @@ $(document).on('ready page:load', function() {
                         $active_tab = $tabs.filter('.contact-active-tab')
                         wrapper_height = $iframe_body_wrapper.height()
 
-                        console.log('wrap_height:' + wrapper_height)
+                        //console.log('wrap_height:' + wrapper_height)
 
                         $('.fancybox-wrap, .fancybox-skin, .fancybox-outer, .fancybox-inner, .fancybox-iframe').css({
                             height: '' + wrapper_height + 'px'
@@ -270,7 +270,7 @@ $(document).on('ready page:load', function() {
 
                     });
 
-                    console.log('hello')
+                    //console.log('hello')
                 }
             });
 

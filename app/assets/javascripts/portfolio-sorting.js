@@ -25,9 +25,9 @@ function PortfolioFilter(filter){
     if(limit >= 0){
         filter = filter + ':lt('+limit+')'
     }
-    console.log('limit: ', limit)
+    //console.log('limit: ', limit)
 
-    console.log('portfolio-filter-scroll-top: ' + current_scroll_top)
+    //console.log('portfolio-filter-scroll-top: ' + current_scroll_top)
     $container.isotope({
         filter: filter,
         resizable:true,
@@ -48,7 +48,7 @@ function PortfolioFilter(filter){
     });
 
     setTimeout(function(){
-        console.log('isotope-complete-scroll-top: ' + current_scroll_top)
+        //console.log('isotope-complete-scroll-top: ' + current_scroll_top)
         $(document).scrollTop(current_scroll_top)
     }, 750)
 
@@ -79,7 +79,7 @@ function normalize(filterClass){
             //if(items)
             var item_top = Math.floor(item_original_order / items_per_row) * item_height;
             var item_left = ( (item_original_order-1) % items_per_row ) * item_width;
-            console.log('rendered for '+items_per_row+' items per row');
+            //console.log('rendered for '+items_per_row+' items per row');
 
 
             $isotope_item.delay(750).css({top:item_top,left:item_left});

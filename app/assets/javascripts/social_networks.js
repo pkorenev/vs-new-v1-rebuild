@@ -10,16 +10,16 @@ function loadTwitter() {
 
 function loadFacebookLike(){
     var $fb_like = $(".fb-like")
-    console.log('fb-like length: '+$fb_like.length)
+    //console.log('fb-like length: '+$fb_like.length)
     if ($fb_like.length > 0) {
 
         if (typeof (FB) != 'undefined') {
-            console.log('facebook if')
+            //console.log('facebook if')
             FB.init({ status: true, cookie: true, xfbml: true });
             $('.social-buttons-gem').css({top: '-2px'})
         } else {
             $.getScript("http://connect.facebook.net/en_US/all.js#xfbml=1", function () {
-                console.log('facebook else')
+                //console.log('facebook else')
                 FB.init({ status: true, cookie: true, xfbml: true });
             });
         }

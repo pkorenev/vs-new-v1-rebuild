@@ -82,7 +82,7 @@
     _fitRowsWithHeightGetContainerSize : function () {
 
       var items_per_row = this._fitRowsWithHeightGetItemsPerRow();
-      console.log('layout:rendered for '+items_per_row+' items per row');
+      //console.log('layout:rendered for '+items_per_row+' items per row');
 
 
       var item = this.$filteredAtoms[0];

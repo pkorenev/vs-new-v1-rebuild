@@ -1,6 +1,6 @@
 $(document).on('ready page:load', function(){
 $('#header-wrapper').each(function(){
-  console.log('init-menu');
+  //console.log('init-menu');
 $("#contact-form").click(function(){
               // % if current_page?(!root_path)%
                 $("nav ul li").removeClass("current");
@@ -15,7 +15,7 @@ $("#contact-form").click(function(){
             });
 
   $('#mobile-menu-button').click(function(){
-    console.log('mobile-menu-button click');
+    //console.log('mobile-menu-button click');
     var $menu_wrapper = $('.menu-wrapper');
     if($menu_wrapper.hasClass('open')){
       //$menu_wrapper.slideUp().removeClass('open');  
@@ -23,16 +23,16 @@ $("#contact-form").click(function(){
       if( !Modernizr.csstransitions ){
         $menu_wrapper.slideUp();
 
-        console.log('slideUp');
+        //console.log('slideUp');
       }
     }
     else{
-      console.log('!hasClass(open)');
+      //console.log('!hasClass(open)');
       //$('.menu-wrapper').slideDown().addClass('open');
       $menu_wrapper.addClass('open');
       if( !Modernizr.csstransitions ){
         $menu_wrapper.slideDown();
-        console.log('slideDown');
+        //console.log('slideDown');
       }
     }
   });

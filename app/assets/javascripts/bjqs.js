@@ -267,7 +267,7 @@
                 required_index = 0;
             }
 
-            console.log('next:' + required_index);
+            //console.log('next:' + required_index);
 
             showSlide(required_index);
         };
@@ -281,7 +281,7 @@
                 required_index = state.lastindex;
             }
 
-            console.log('prev:' + required_index);
+            //console.log('prev:' + required_index);
 
             showSlide(required_index);
         };
@@ -351,7 +351,7 @@
         };
 
         var showSlide = function (slideIndex) {
-            console.log('showSlide: slideIndex:' + slideIndex + ';lastindex:' + state.lastindex + ';currentindex:' + state.currentindex);
+            //console.log('showSlide: slideIndex:' + slideIndex + ';lastindex:' + state.lastindex + ';currentindex:' + state.currentindex);
             if (slideIndex >= 0 && slideIndex <= state.lastindex && slideIndex != state.currentindex && !state.animating) {
 
                 state.animating = true;
@@ -415,7 +415,7 @@
                 }
 
                 else if (settings.animtype == 'fade') {
-                    console.log('type = fade')
+                    //console.log('type = fade')
                     $slider.trigger('beforeHideSlide');
 
                     $slider.css({

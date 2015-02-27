@@ -98,7 +98,7 @@ $(document).on('ready page:load', function(){
 
     $('.developers-panel-wrapper').each(function(){
       var $links = $(this).find('.dev-field.thanks_image a');
-      console.log('links_count:'+$links.length);
+      //console.log('links_count:'+$links.length);
         $(this).find('.dev-field.thanks_image a').fancybox();
     });
 

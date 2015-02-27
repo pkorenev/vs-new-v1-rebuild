@@ -20,7 +20,7 @@ $(document).on('ready page:load', function(){
         $tabs_wrapper.find('.portfolio-tab').click(function(event){
             var current_scroll_top = $(document).scrollTop()
             event.preventDefault()
-            console.log('current_scroll_top: ' + current_scroll_top)
+            //console.log('current_scroll_top: ' + current_scroll_top)
 
 
             var $tab = $(this)
@@ -49,7 +49,7 @@ $(document).on('ready page:load', function(){
                 if (!!(window.history && history.pushState)) {
 
                     window.onpopstate = function (event) {
-                        console.log('state_data: ' + event.state)
+                        //console.log('state_data: ' + event.state)
                         state_data = event.state
 
                         if (state_data) {
@@ -139,6 +139,6 @@ $(document).on('ready page:load', function(){
 
     var $active_tab = $('.portfolio-tab.active')
     var filter = $active_tab.attr('data-filter')
-    console.log('filter:' + filter)
+    //console.log('filter:' + filter)
     PortfolioFilter(filter)
 });

@@ -3,7 +3,7 @@ $('#home-portfolio, #portfolio-index').each(function(){
 // Bind tabs
 
   function initPortfolioItems(){
-    console.log('initPortfolioItems');
+    //console.log('initPortfolioItems');
   handleUrlAnchors();
 
     

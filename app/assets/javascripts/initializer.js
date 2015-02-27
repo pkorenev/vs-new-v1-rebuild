@@ -122,7 +122,7 @@ $(document).on('ready page:load', function() {
 
     var $header_logo = $('#studio-logo-section')
 
-    console.log('$header_logo')
+    //console.log('$header_logo')
 
 
     $header_outer.css({
@@ -130,7 +130,7 @@ $(document).on('ready page:load', function() {
     })
 
     function initHeaderSize(){
-        console.log('initHeaderSize()')
+        //console.log('initHeaderSize()')
         var current_header_height = $header_wrapper.height()
         var header_height = 95
         var scroll_top = $body.scrollTop()
@@ -145,7 +145,7 @@ $(document).on('ready page:load', function() {
     initHeaderSize()
 
     function homeBannerOnScroll(info){
-        console.log("homeBannerOnScroll: ", info)
+        //console.log("homeBannerOnScroll: ", info)
         var scroll_top = info.end.y
 
         var home_banner_content_top = scroll_top / 3 * (-1)
@@ -197,8 +197,8 @@ $(document).on('ready page:load', function() {
         $('html').addClass('has-nicescroll')
 
         $body_nicescroll.scrollstart(function (info) {
-            console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + info.end.y)
-            console.log(info)
+            //console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + info.end.y)
+            //console.log(info)
             //var current_header_height = $header_wrapper.height()
             //var header_height = 95
             //var scroll_top = $body.scrollTop()
@@ -223,7 +223,7 @@ $(document).on('ready page:load', function() {
         })
 
         $body_nicescroll.scrollend(function (info) {
-            console.log('checkHeaderSize(): niceScroll().scrollend: end.y=' + info.end.y)
+            //console.log('checkHeaderSize(): niceScroll().scrollend: end.y=' + info.end.y)
 
             var scroll_top = info.end.y
 
@@ -250,7 +250,7 @@ $(document).on('ready page:load', function() {
     else{
         $(window).scroll(function(){
             var scroll_top = $('body').scrollTop()
-            console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + scroll_top)
+            //console.log('checkHeaderSize(): niceScroll().scrollstart: end.y=' + scroll_top)
             //console.log(info)
 
 
@@ -274,9 +274,9 @@ $(document).on('ready page:load', function() {
             homeBannerOnScroll(info)
             portfolioBannerOnScroll(info)
 
-            setTimeout(function(){
-                homeBannerOnScroll(info)
-            }, 3000)
+            //setTimeout(function(){
+            //    homeBannerOnScroll(info)
+            //}, 3000)
         })
     }
 
@@ -293,7 +293,7 @@ $(document).on('ready page:load', function() {
 
     $('#home-banner-outer').insertAfter('#header-outer')
 
-    console.log('header initialized!')
+    //console.log('header initialized!')
 
 
 

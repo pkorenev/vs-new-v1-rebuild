@@ -62,7 +62,7 @@ var $body = $('body');
             });
 
             $('body').mouseup(function(){
-                console.log('body.mouseup');
+                //console.log('body.mouseup');
                 if(state.mouse_down){
                     state.mouse_down = false;
                     $draggable.trigger('dragComplete');
@@ -104,10 +104,10 @@ var $body = $('body');
                     }
 
                     $target.css('margin-top',''+state.top+'px');
-                    console.log('target_top:'+state.top+';mouse_Y:'+difference);
+                    //console.log('target_top:'+state.top+';mouse_Y:'+difference);
                 }
                 else{
-                    console.log('mouse_move: not focused');
+                    //console.log('mouse_move: not focused');
                 }
             });
 
@@ -153,7 +153,7 @@ $(document).on('ready page:load',function() {
     });
 
     $get_me_top.click(function(){
-        console.log('get-me-top click')
+        //console.log('get-me-top click')
         var $scroller = $('body');
         $scroller.animate({
             scrollTop:0
