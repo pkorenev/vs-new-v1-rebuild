@@ -62,3 +62,6 @@ uk:
 
     articles-list:
       page-title: 'Анонси та події'
+    service-item:
+      service-related-projects-title: "Відповідні проекти:"  
+      related-services-title: "Інші послуги:"

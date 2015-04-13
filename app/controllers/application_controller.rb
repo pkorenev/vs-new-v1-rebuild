@@ -1,5 +1,6 @@
 #encoding: utf-8
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
   #has_mobile_fu
   #has_mobile_fu
@@ -8,9 +9,9 @@ class ApplicationController < ActionController::Base
   helper_method :get_menu
 
 
-  before_filter :set_mailer_host, :init_modal_form
+  before_action :set_mailer_host, :init_modal_form
 
-  before_filter :set_locale
+  before_action :set_locale
 
   def set_locale
     #render inline: params[:controller]
@@ -49,7 +50,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  before_filter :init_translated_locales
+  before_action :init_translated_locales
 
   def init_translated_locales
     @translated_locales = [:uk]
@@ -112,6 +113,12 @@ class ApplicationController < ActionController::Base
 
   def brand_tab(title)
     render template: 'helpers/application/brand_tab.html', locals: { title: title }
+  end
+
+  #after_action :join_html_output
+
+  def join_html_output
+    response.body.gsub!(/>\s+</, '><')
   end
 
 

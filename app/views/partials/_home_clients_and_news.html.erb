@@ -2,28 +2,37 @@
 <section class="home-clients-and-news-container">
     <div id="home-clients">
       <h3 class="h2"><a href="<%= "#{about_path}#clients-section" %>"><%= t('pages.home.clients.section-header') %></a></h3>
-      <% @our_clients.each do |c| %>
-        <div class="client">
-          <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, rel: 'nofollow', class: 'image-link' %>
-        </div>
+      <% if @our_clients.try(&:any?) %>
+        <% @our_clients.each do |c| %>
+          <div class="client">
+            <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, rel: 'nofollow', class: 'image-link' %>
+          </div>
+        <% end %>
       <% end %>
 
     </div>
 
+    <div id="fragment_exists"><%# ActionController::Base.new.fragment_exist?("#{I18n.locale}_home_news").inspect  %></div>
+
+    <% cache "#{I18n.locale}_home_news" do %>
     <div class="news-holder">
       <h3 class="h2"><a href="<%= article_list_path %>"><%= t('pages.home.articles.section-header') %></a></h3>
 
-      <% @featured_articles.each do |a| %>
-      <article class="news-item" itemscope itemtype ="http://schema.org/Article">
-          <div class="image-holder" itemprop="image">
-            <%= link_to(image_tag(a.avatar.url(:article_item)), article_item_path(article_item: a.slug), class: 'image-link' ) %>
-          </div>
-         <header><h4 class="h4-title" itemprop="name"><%= link_to(a.name, article_item_path(article_item: a.slug), :itemprop => "url") %></h4></header>
-         <section><p itemprop="description"><%= a.short_description %></p></section>
-         <footer></footer>
-      </article>
+      <% if @featured_articles.try(&:any?) %>
+        <% @featured_articles.each do |a| %>
+        <article class="news-item" itemscope itemtype ="http://schema.org/Article">
+            <div class="image-holder" itemprop="image">
+              <%= link_to(image_tag(a.avatar.url(:article_item)), article_item_path(article_item: a.slug), class: 'image-link' ) %>
+            </div>
+           <header><h4 class="h4-title" itemprop="name"><%= link_to(a.name, article_item_path(article_item: a.slug), :itemprop => "url") %></h4></header>
+           <section><p itemprop="description"><%= a.short_description %></p></section>
+           <footer></footer>
+        </article>
+        <% end %>
       <% end %>
 
     </div>
+    <% end %>
+
 </section>
 </div>

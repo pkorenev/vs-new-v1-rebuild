@@ -1,12 +1,17 @@
-<% if @related_projects && @related_projects.respond_to?(:count) && @related_projects.count > 0 %>
+<% if @related_projects && @related_projects.try(&:any?) %>
 <div id="other-projects">
+      <div id="service-related-projects-title-container" class="container">
+        <div class="service-related-projects-title">
+          <%= t("pages.service-item.service-related-projects-title") %>
+        </div>
+      </div>
       <div class="carousel-wrapper">
         <ul class="carousel">
           <% for i in 1..1 %>
               <% @related_projects.each do |project| %>
                   <li class="carousel-item">
                     <figure>
-                      <a class="image-link" href="<%= project.slug %>" data-no-turbolink="" >
+                      <a class="image-link" href="<%= portfolio_item_path( category: project.portfolio_category.slug, item: project.slug) %>" data-no-turbolink="" >
                         <img title="<%= project.name %>" alt="<%= project.name %>" class="grayscale" src="<%= project.avatar.url(:non_retina) %>" />
                       </a>
                     </figure>

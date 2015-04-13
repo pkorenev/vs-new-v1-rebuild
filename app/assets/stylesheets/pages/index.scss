@@ -217,6 +217,7 @@
           margin-bottom: 10px;
           text-align: left;
           padding-left: 1rem;
+          margin-left: 50%;
 
 
         }
@@ -327,8 +328,19 @@
 			}
 		}
 	}
+
+  @media (max-width: 600px){
+    @include flexbox;
+    @include flex-wrap();
+
+    div#portfolio-tabs-wrapper{
+      @include order(-1);
+      margin-top: 0;
+    }
+  }
 }
 
 #portfolio-tab{
   
 }
+

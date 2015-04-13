@@ -1,4 +1,12 @@
+require "render_anywhere"
 class Pages::HomePage < ActiveRecord::Base
+  include RailsAdminMethods
+  include RenderAnywhere
+
+  def build_html
+    render template: "page/index"
+  end  
+
   attr_accessible :greetings
 
   has_one :static_page_data, :as => :has_static_page_data

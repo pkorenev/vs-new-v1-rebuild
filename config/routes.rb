@@ -2,7 +2,7 @@ Rails.application.class.routes.draw do
 
 
 
-
+  get "test", to: "test#test", as: :test
 
   #get '/test', to: 'test#media_queries'
 
@@ -12,7 +12,7 @@ Rails.application.class.routes.draw do
 
   scope "(:locale)", constraints: { locale: /[a-zA-Z]{2,2}/ } do
 
-
+    get "test2", to: "test#test2"
 
     get '/users/sign_up', :to => 'error#show', :code => 404
     get '/users', :to => 'error#show', :code => 404
@@ -26,7 +26,7 @@ Rails.application.class.routes.draw do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     mount Ckeditor::Engine => '/ckeditor'
 
-    root to: 'page#index', as: :root
+    root to: 'page#index', as: :root, defaults: { root_page: true  }
   end
 
 

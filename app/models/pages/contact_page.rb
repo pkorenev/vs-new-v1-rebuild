@@ -1,4 +1,5 @@
 class Pages::ContactPage < ActiveRecord::Base
+  include RailsAdminMethods
   self.table_name = :page_contact_page
 
   has_one :static_page_data, :as => :has_static_page_data

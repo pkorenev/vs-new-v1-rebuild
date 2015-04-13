@@ -1,4 +1,5 @@
 class SitemapElement < ActiveRecord::Base
+  include RailsAdminMethods
   belongs_to :static_page_data
   attr_accessible :static_page_data, :static_page_data_id
 
@@ -22,6 +23,10 @@ class SitemapElement < ActiveRecord::Base
     self.changefreq ||= :weekly
     self.priority ||= 0.8
   end
+
+  def resource
+    static_page_data.try(&:has_static_page_data) 
+  end  
 
   validates :path,presence: true, uniqueness: true
 
@@ -79,8 +84,15 @@ class SitemapElement < ActiveRecord::Base
 
   rails_admin do
     edit do
+      field :resource do
+        partial "sitemap_resource"
+      end  
       field :translations, :globalize_tabs
     end
+
+    nested do
+      field :translations, :globalize_tabs
+    end  
   end
 
 

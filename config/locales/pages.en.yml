@@ -63,3 +63,6 @@ en:
 
     articles-list:
       page-title: 'Publications etc.'
+    service-item:
+      service-related-projects-title: "Related projects:"    
+      related-services-title: "Other services:"

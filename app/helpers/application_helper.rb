@@ -87,6 +87,40 @@ module ApplicationHelper
   end
 
 
+  # def link_to name = nil, options = nil, html_options = nil, &block
+  #   html_options, options, name = options, name, block if block_given?
+  #   options ||= {}
 
+  #   html_options = convert_options_to_data_attributes(options, html_options)
+
+  #   url = url_for(options)
+  #   html_options['href'] ||= url
+  #   html_options['hreflang'] ||= I18n.locale
+
+  #   content_tag(:a, name || url, html_options, &block)
+  # end  
 
 end
+
+#ApplicationHelper.module_eval { include ActionView::RoutingUrlFor ; include ActionView::Helpers::UrlHelper }
+
+module A
+  def foo
+    "foo"
+  end  
+end  
+
+module B
+  def foo
+    super + "2"
+  end  
+end 
+
+B.module_eval { include A }
+
+class C
+  include B
+  def bar
+    foo + "c"
+  end  
+end 

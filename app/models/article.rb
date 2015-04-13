@@ -1,5 +1,8 @@
 # -*- encoding : utf-8 -*-
 class Article < ActiveRecord::Base
+  include RailsAdminMethods
+  include Resource
+
   attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :tags, :tag_list, :release_date, :author
 
 
@@ -15,7 +18,7 @@ class Article < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  validates :title, :presence => true, length: { maximum: 70 }
+  #validates :title, :presence => true, length: { maximum: 70 }
 
   validates :short_description, :presence => true, length: { maximum: 250 }
 
@@ -60,19 +63,21 @@ class Article < ActiveRecord::Base
   end
 
 
-
-
+  after_validation :generate_static_page_data
   before_validation :generate_slug
-  before_validation :generate_title
   before_save :generate_release_date
 
-  def generate_slug
-  	self.slug ||= self.name.parameterize
-  end
+  def generate_static_page_data
+    if self.static_page_data.nil?
+      self.build_static_page_data
+    end  
 
-  def generate_title
-    self.title ||= self.name
-  end
+    s = self.static_page_data
+
+    s.translations_by_locale.each do |locale, t|
+
+    end  
+  end  
 
   #before_validation :generate_release_date
 
@@ -154,6 +159,18 @@ class Article < ActiveRecord::Base
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
   attr_accessible :static_page_data_attributes
 
+
+  after_save :expire_cached_fragments
+  after_destroy :expire_cached_fragments
+
+
+  def expire_cached_fragments
+    c = ActionController::Base.new
+    I18n.available_locales.each do |locale|
+      c.expire_fragment("#{locale}_home_news")
+    end
+  end 
+
   rails_admin do
     list do
       field :published
@@ -177,7 +194,7 @@ class Article < ActiveRecord::Base
       field :published
       #field :name
 
-      field :title
+      #field :title
 
       # field :short_description do
       # 	label 'краткое описание'

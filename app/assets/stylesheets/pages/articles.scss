@@ -136,6 +136,15 @@
         //font-size: 0.85em;
         //line-height: 1.4em;
         margin-left:10px;
+
+        &:not(:first-child){
+          display: none;
+        }
+
+        &:first-child{
+          overflow: hidden;
+          max-height: 7.9em;
+        }
       }
     }
 

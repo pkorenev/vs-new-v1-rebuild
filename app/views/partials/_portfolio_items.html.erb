@@ -1,113 +1,14 @@
-  <style>
-    .portfolio-item{
-      z-index: 1;
-    }
-
-    .no-js .g4.portfolio-item{
-      width:16.6666667% !important;
-
-
-    }
-
-    .js .g4.portfolio-item{
-      width:16.666667% !important;
-    }
-
-    .g4.portfolio-item{
-      
-      height: auto !important;
-      
-      margin:0 !important;
-      padding: 1px 1px 1px 1px !important;
-      z-index: 1 !important;
-
-      /*position: relative;*/
-
-
-    }
-    .g4.portfolio-item img{
-      max-width:100%;
-      max-height: 100%;
-      width: 100% !important;
-      position: absolute;
-      z-index: 1 !important;
-      height:100% !important;      
-    }
-
-    .g4.portfolio-item figure{
-      width:100% !important;
-      height: 1px !important;
-      padding-top: 100%;
-      margin:0 !important;
-      position: relative;
-      z-index: 1 !important;
-    }
-
-    .g4.portfolio-item a{
-      top:0 !important;
-      width:100%;
-      height: 100% !important;
-      position: absolute;
-
-
-
-      display: block;
-      z-index: 3 !important;
-    }
-
-
-    #portfolio-items-container{
-      width: 100%;
-    }
-
-    #portfolio-wrapper{
-      padding-top:30px;
-    }
-
-    /* fix for opera */
-    .g4.portfolio-item img{
-      cursor:pointer;
-    }
-
-    .portfolio-item a .BWfade{
-      z-index: 2 !important;
-      cursor: pointer;
-    }
-
-    
-    @media(max-width: 1200px){
-      .js .g4.portfolio-item{
-        width:25% !important;
-      }
-    }
-
-    @media(max-width: 960px){
-      .js .g4.portfolio-item{
-        width:33.33333% !important;
-      }
-    }
-    
-    @media(max-width: 600px){
-      .js .g4.portfolio-item{
-        width:50% !important;
-      }
-    }
-
-
-    
-
-
-  </style>
-  
-  <div id="portfolio-items-container" class="sortable-portfolio" <%= "data-limit=#{isotope_limit}" if defined?(isotope_limit) && isotope_limit >= 0 %> >
-    <% items.each do |item| %>
-        <% if item.portfolio_category %>
-          <div class="g4 portfolio-item <%= item.portfolio_category.slug %><%= ( @active_category && @active_category.respond_to?(:id) && item.portfolio_category && item.portfolio_category && item.portfolio_category.respond_to?(:id)  && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
-            <figure class="myclass">
-              <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.name, class: 'grayscale' ), portfolio_item_path( category: item.portfolio_category.slug, item: item.slug), title: item.name,  :'data-no-turbolink' => '', class: 'image-link'  ) %>
-            </figure>
-          </div>
-        <% end %>
+<div id="portfolio-items-container" class="sortable-portfolio" <%= "data-limit=#{isotope_limit}" if defined?(isotope_limit) && isotope_limit >= 0 %> >
+    <% if items.try(&:any?) %>
+      <% items.each do |item| %>
+          <% if item.portfolio_category %>
+            <div class="g4 portfolio-item <%= item.portfolio_category.slug %><%= ( @active_category && @active_category.respond_to?(:id) && item.portfolio_category && item.portfolio_category && item.portfolio_category.respond_to?(:id)  && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
+              <figure class="myclass">
+                <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.name, class: 'grayscale' ), portfolio_item_path( category: item.portfolio_category.slug, item: item.slug), title: item.name,  :'data-no-turbolink' => '', class: 'image-link'  ) %>
+              </figure>
+            </div>
+          <% end %>
+      <% end %>
     <% end %>
 
 

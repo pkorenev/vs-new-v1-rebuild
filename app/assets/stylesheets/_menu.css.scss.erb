@@ -1,6 +1,7 @@
 @import "config";
 @import "custom_grid/mixin-grid960";
 
+
 #header-wrapper{
   position: relative;
   -webkit-box-shadow: -4px 0 13px rgba(0,0,0,.75);
@@ -79,6 +80,9 @@
   //}
 
   @media (min-width:1px) and (max-width:$mobile_menu_screen_max_width){
+    height: $mobile-header-height;
+    padding-bottom: 5px;
+
     #image-container{
       width:253px;
 
@@ -271,7 +275,7 @@ ul#lang-bar{
   position: relative;
   cursor: pointer;
   outline: none;
-  margin-top: 20px;
+  margin-top: 26px;
   margin-left: 1%;
   margin-right: 1%;
 
@@ -360,12 +364,12 @@ ul#lang-bar{
     width:100%;
     margin-left: 0;
     margin-right: 0;
-    
+    z-index: 6;
 
     nav{
       overflow: hidden;
       height: auto;
-      top: 95px;
+      top: $mobile-header-height;
       position: absolute;
       background-color: #212121;
       max-height: 0;

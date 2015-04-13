@@ -1,4 +1,7 @@
 class PortfolioController < ApplicationController
+  caches_page :index
+  caches_page :item
+  
   def index
     #@portfolios ||= Portfolio::Portfolio.all
     @portfolio_categories = Portfolio::PortfolioCategory.all

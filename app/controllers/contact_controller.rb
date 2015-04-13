@@ -4,6 +4,9 @@ class ContactController < ApplicationController
 
   before_filter :create_join_us_form
 
+  caches_page :order_show
+  caches_page :join_us_show
+
   def create_join_us_form
     @join_us = Forms::JoinUs.new
   end

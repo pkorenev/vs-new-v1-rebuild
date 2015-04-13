@@ -1,7 +1,7 @@
-<%= meta(meta_keywords = "веб, розробка, створення, дизайн, поліграфія, дизайн студія, Львів, веб-дизайн, веб-сайт, веб сторінки, web сторінки, фірмовий стиль, логотипи, бренд-бук, флаєр, листівка, візитка, вітрина, друк", meta_description = "Дизайн студія Миколи Вороніна. Займається розробкою презентаційних і корпоративних веб-сайтів, Інтернет магазинів, SEO, а також створенням якісного графічного дизайну: логотипів, фірмового стилю, буклетів, афіш, реклами, зовнішньої реклами, Інтернет реклами, та веб-банерів.") %>
-<%= title("Дизайн студія Миколи Вороніна (Львів). Графічний дизайн. Створення веб-сайтів. Поліграфія.") %>
+<%# meta(meta_keywords = "веб, розробка, створення, дизайн, поліграфія, дизайн студія, Львів, веб-дизайн, веб-сайт, веб сторінки, web сторінки, фірмовий стиль, логотипи, бренд-бук, флаєр, листівка, візитка, вітрина, друк", meta_description = "Дизайн студія Миколи Вороніна. Займається розробкою презентаційних і корпоративних веб-сайтів, Інтернет магазинів, SEO, а також створенням якісного графічного дизайну: логотипів, фірмового стилю, буклетів, афіш, реклами, зовнішньої реклами, Інтернет реклами, та веб-банерів.") %>
+<%# title("Дизайн студія Миколи Вороніна (Львів). Графічний дизайн. Створення веб-сайтів. Поліграфія.") %>
 
-
+<% cache "#{I18n.locale}_home_welocome", skip_digest: true do %>
 <div id="welcome-wrapper">
   <section class="" id="welcome-section">
       <div id="text-wrapper">
@@ -19,40 +19,23 @@
       </div>
 
         <div id="sprites-and-button-wrapper">
-        <div id="home-sprites-wrapper" class="sprite-section-home">
-          <ul>
-
-            <% @portfolio_technologies.reverse_order! %>
-            <% @portfolio_technologies.each do | t | %>
-                <% if 1 == 2 %>
-            <li>
-              <a href="<%= t.official_link %>" rel="nofollow" title="<%= t.name %>" target="_blank">
-                <figure class="tech-but android-icon">
-                    <img src="<%= t.avatar.url %>" />
-                </figure>
-              </a>
-            </li>
-
-
-                    <% end %>
-            <% end %>
-          </ul>
+          <div id="modal-btn-wrapper">
+            <%= link_to( t('pages.home.welcome.order-button'), order_path, :class => "order-us brand-button modal-link fancybox", :data => { :'fancybox-type' => "iframe" }) %>
+          </div>
         </div>
-        <div id="modal-btn-wrapper">
-          <%= link_to( t('pages.home.welcome.order-button'), order_path, :class => "order-us brand-button modal-link fancybox", :data => { :'fancybox-type' => "iframe" }) %>
-        </div>
-      </div>
   </section>
 </div>
+<% end %>
 
 
+
+<% cache "#{I18n.locale}_home_portfolio", skip_digest: true do %>
 <div id="home-portfolio">
   <%= render :partial => 'partials/portfolio_items', :locals => { :target => 'home', :items => @portfolios, isotope_limit: 12 } %>
   <%= render :partial => 'partials/portfolio_tabs', :locals => { :target => 'home' } %>
-  <script type="text/javascript">
-
-  </script>
 </div>
+<% end %>
+
 <%= render :partial => 'partials/home_clients_and_news' %>
 
 

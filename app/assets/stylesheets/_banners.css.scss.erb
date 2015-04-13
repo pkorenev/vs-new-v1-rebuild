@@ -406,3 +406,38 @@ $media_max_width:4600px;
     display: none;
   }
 }
+
+
+/* latest portfoilio banner */
+
+@media only screen and (max-width: 960px){
+  #portfolio-banner-outer{
+    figure.banner-holder-figure{
+      padding-top: 0 !important;
+      height: auto;
+    }
+
+    .fixed-banner-wrapper{
+      position: relative;
+      top: 0 !important;
+
+      .fixed-banner-holder-figure{
+        padding-top: 0 !important;
+        height: auto;
+
+        .slide{
+          position: relative !important;
+          height: auto !important;
+
+          .slide-description{
+            position: relative !important;
+            width: 100% !important;
+            margin: 0 !important;
+            right: auto !important;
+            max-width: none !important;
+          }
+        }
+      }
+    }
+  }
+}

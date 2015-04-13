@@ -1,0 +1,7 @@
+<% if @links_for_locales.try(&:any?) %>
+	<% I18n.available_locales.each do |locale| %>
+	  
+	        <%# link_to locale.to_s.upcase, @links_for_locales[locale.to_sym] %>
+	  <link rel="alternate" href="<%= @links_for_locales[locale.to_sym] %>" hreflang="<%= locale %>" />
+	<% end %>
+<% end %>

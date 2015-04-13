@@ -1,4 +1,5 @@
 class Pages::PortfolioCorporateIdentityListPage < ActiveRecord::Base
+  include RailsAdminMethods
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 

@@ -1,10 +1,10 @@
-<%= title("Про нас - Дизайн студія Миколи Вороніна (Львів). Графічний дизайн. Створення веб-сайтів. Поліграфія.") %>
-<%= meta(meta_keywords = "веб, розробка, створення, дизайн, поліграфія, дизайн студія, Львів, веб-дизайн, веб-сайт, веб сторінки, web сторінки, фірмовий стиль, логотипи, бренд-бук, флаєр, листівка, візитка, вітрина, друк", meta_description = "Дизайн студія Миколи Вороніна. Займається розробкою презентаційних і корпоративних веб-сайтів, Інтернет магазинів, SEO, а також створенням якісного графічного дизайну: логотипів, фірмового стилю, буклетів, афіш, реклами, зовнішньої реклами, Інтернет реклами, та веб-банерів.") %>
 
+<% cache "#{I18n.locale}_about_top_content" do %>
 <div class="page-content about-page">
   <div class="white-background">
     <div class="white-background-content">
-        <%= raw @content %>
+          <%= raw @content %>
+        
 
 
 <div id="clients-section">
@@ -12,18 +12,17 @@
   <div class="description">
     <%= raw @clients_intro %>
   </div>
-  <!--<div id="proposition">
-    <p class="italic-t padding-t">
-      Через дослідження, стратегію, дизайн та розробку ми допомагаємо створювати та розвивати якісні і видатні бренди.
-    </p>
-    <a href="#" class="brand-button">ЗАМОВИТИ!</a>
-  </div>-->
+
+
+  
   <div id="clients-collection-wrapper">
+  <% end %>
     <% @our_clients.each do |c| %>
         <div class="client">
           <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, title: c.name, rel: 'nofollow', class: 'image-link' %>
         </div>
       <% end %>
+      <% cache "#{I18n.locale}_about_bottom_content" do %>
   </div>
 </div>
 </div>
@@ -39,3 +38,4 @@
 
 </div>
 </div>
+<% end %>

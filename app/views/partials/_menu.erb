@@ -3,7 +3,7 @@
     <div id="mobile-navigation-panel">
     <div id='studio-logo-section'>
       <div id="image-container">
-      <% if current_page?(root_path) %>
+      <% if @home_page %>
         <%= image_tag('static_images/voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну') %>
       <% else %>
         <%= link_to(image_tag('static_images/voronin-studio-logo.png', :alt => 'Дизайн студія Миколи Вороніна', :title => 'На головну'), root_path(locale: I18n.locale), :title => 'На головну' ) %>
@@ -15,27 +15,6 @@
   </div>
     <div class="menu-wrapper">
       <nav>
-        <script type="text/javascript" charset="utf-8" id="menu-linkup">
-          /*$(document).ready(function() {
-            $("#li-about").click(function(){
-              window.location = "<%= about_path %>";
-            });
-
-            $("#contact-form").click(function(){
-              <% if !current_page?(root_path)%>
-                $("nav ul li").removeClass("current");
-              <% end %>
-              $(this).addClass("current");
-              $("#wrapper-header").css(
-                  'z-index', '9999'
-              );
-              $("#wrapper-header").css(
-                  'background', '#212121'
-              );
-            });
-          });*/
-        </script>
-
         <ul id="lang-bar">
           <% I18n.available_locales.each do |locale| %>
             <li>
@@ -92,10 +71,4 @@
       </nav>
     </div>
   </section>
-<script type="text/javascript">
-//$('nav ul li a').click(function(e){if($(this).parent().hasClass('current')){e.preventDefault();}});
- // $('nav ul li').click(function(){$(this).find('a').click();});
-
-  
-</script>
 </div>

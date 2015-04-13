@@ -1,4 +1,5 @@
 class Pages::AboutPage < ActiveRecord::Base
+  include RailsAdminMethods
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 
@@ -30,6 +31,19 @@ class Pages::AboutPage < ActiveRecord::Base
       end
     end
   end
+
+  after_save :expire_cached_fragments
+  after_destroy :expire_cached_fragments
+
+
+  def expire_cached_fragments
+    c = ActionController::Base.new
+    I18n.available_locales.each do |locale|
+      c.expire_fragment("#{locale}_about_top_content")
+      
+      c.expire_fragment("#{locale}_about_bottom_content")
+    end
+  end 
 
 
 

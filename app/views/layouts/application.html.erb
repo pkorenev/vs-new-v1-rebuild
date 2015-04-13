@@ -5,6 +5,8 @@
   <html style="height:auto !imoportant;overflow:visible !important;" prefix="og: http://ogp.me/ns#" class="no-js <%= params[:controller] %>-controller <%= params[:action] %>-action" >
   <head role="main">
 
+  	<%= render partial: "application/head_hreflang" %>
+
     <% if @static_page_data %>
         <title><%= @static_page_data.head_title %></title>
         <meta name="keywords" content="<%= @static_page_data.meta_keywords %>" />
@@ -17,19 +19,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <% if 1 == 2 %>
-        <meta property="fb:admins" content="vik.ewoods" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://<%= request.host+request.fullpath %>" />
-        <meta property="og:image" content="http://<%= request.host+'/assets/banner1.jpg' %>" />
-        <meta property="og:description" content="<%= yield :meta_description %>" />
-        <meta property="og:locale" content="uk_UA" />
-        <meta property="og:locale:alternate" content="en_GB" />
-    <% end %>
-
-    <meta name="viewport" content="width=device-width">
-    <meta name="viewport" content="initial-scale=1">
-    <meta name="viewport" content="maximum-scale=1">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <link rel="shortcut icon" href="<%= asset_path( 'static_images/favicon.ico' ) %>">
 
@@ -61,7 +51,7 @@
     <!-- end -->
 
   </head>
-  <body  role="content-holder" data-env="<%= Rails.env %>" data-rails-version="<%= sha1(hide_setting(Rails.version)) %>" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" data-method="<%= request.method %>" data-cache="<%= request.hash %>" >
+  <body  role="content-holder" data-controller="<%= params[:controller] %>" data-action="<%= params[:action] %>" >
   <div id="wrapper">
     <div id="main">
       <%= render :partial => 'partials/menu' %>
@@ -84,20 +74,16 @@
     </div>
 
   </div>
+  
+  <% cache "#{I18n.locale}_footer" do %>
   <%= render :partial => 'partials/footer' %>
-
-  <div style="background: red; height: 750px;width:1100px;display:none;" id="mydiv">
-
   </div>
 
-  <div id="dtest">
-
-  </div>
 
   <%= render partial: 'partials/ga' %>
   <%# javascript_include_tag "application"  %>
   <%= javascript_include_tag "application",  'data-turbolinks-track' => true, 'data-turbolinks-eval' => false  %>
-
+  <% end %>
 
   </body>
   </html>

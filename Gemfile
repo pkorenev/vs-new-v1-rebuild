@@ -128,3 +128,16 @@ gem 'globalize-versioning'
 gem 'rails_admin-i18n'
 
 gem 'ace-rails-ap'
+
+gem 'render_anywhere', :require => false 
+
+gem "pry"
+gem "pry-rails"
+
+gem "htmlcompressor"
+#gem 'actionpack-page_caching'
+#gem 'actionpack-action_caching'
+
+gem 'rack-page_caching'
+
+gem 'paperclip-optimizer'

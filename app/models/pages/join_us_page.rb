@@ -1,4 +1,5 @@
 class Pages::JoinUsPage < ActiveRecord::Base
+  include RailsAdminMethods
   self.table_name = :page_join_us_page
 
   has_one :static_page_data, :as => :has_static_page_data

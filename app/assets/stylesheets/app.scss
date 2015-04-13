@@ -9,6 +9,8 @@ $desktop_menu_screen_min_width: 825px; // 960
 
 $media_max_width:4600px;
 
+$mobile-header-height: 100px;
+
 //@import 'fancybox';
 //@import "jquery.ui.all";
 
@@ -29,7 +31,7 @@ $header-color: $text-pink-color;
 @import "fonts";
 
 
-
+@import "_brand-style";
 
 
 @import "custom_grid/_layout";
@@ -100,7 +102,7 @@ $header-color: $text-pink-color;
 
 
 
-@import "_brand-style";
+
 
 
 //@charset "utf-8";

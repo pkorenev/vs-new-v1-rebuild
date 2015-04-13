@@ -63,3 +63,6 @@ ru:
 
     articles-list:
       page-title: 'Анонсы и события'
+    service-item:  
+      service-related-projects-title: "Соответствующие проекты:"    
+      related-services-title: "Другие услуги:"

@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Portfolio::Portfolio < ActiveRecord::Base
+  include RailsAdminMethods
   attr_accessible   :published, :task, :thanks_to, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng
 
   # Association's category, banners, technologies
@@ -130,6 +131,17 @@ class Portfolio::Portfolio < ActiveRecord::Base
       self.build_portfolio_tag_scope
     end
   end
+
+  after_save :expire_cached_fragments
+  after_destroy :expire_cached_fragments
+
+
+  def expire_cached_fragments
+  	c = ActionController::Base.new
+  	I18n.available_locales.each do |locale|
+  		c.expire_fragment("#{locale}_home_portfolio")
+  	end
+  end	
 
   rails_admin do
 

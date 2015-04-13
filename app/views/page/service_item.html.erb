@@ -64,6 +64,7 @@
     <%# render partial: 'partials/item_like_bar' %>
 
     <div id="related-articles">
+    	<div id="related-projects-title"><%= t("pages.service-item.related-services-title") %></div>
       <% @related_services.each do |article_item| %>
           <article id="article-2" class="article-item" itemscope itemtype="http://schema.org/Article">
             <header>
@@ -73,7 +74,7 @@
             </header>
 
             <section itemprop="description">
-              <p><%= article_item.short_description.truncate(255) %></p>
+              <%= raw article_item.short_description %>
             </section>
             <footer>
               <ul style="display: none" class="tag-list">

@@ -1,25 +1,59 @@
 #encoding: utf-8
 class PageController < ApplicationController
   layout :resolve_layout
+  caches_page :service
+  caches_page :article
+  caches_page :service_item
+  caches_page :article_item
+  caches_page :about
+  caches_page :index
 
   # Index page
   # TODO: Version 1.2
   # Should limited articles, banners, and companys displaes
+
   def index
-    @get_banners ||= Banner.where(published: true)
-    @featured_articles ||= Article.limit(3).where(published: true).order('release_date desc')
-    @our_clients ||= TrustCompany.all.order('RANDOM()').limit(15)
-
-    @portfolios ||= Portfolio::Portfolio.where(published: true).order('release desc')#.limit(12)
-    @page_data = Pages::HomePage.first
-    @static_page_data = @page_data.static_page_data
-    @greetings = @page_data.greetings
-
-    @portfolio_technologies = Portfolio::PortfolioTechnology.all
-
-    @portfolio_categories = Portfolio::PortfolioCategory.all
-
+    hash_to_instance_vars(index_data)
+    # @data = self.index_data
+    # @get_banners = @data[:get_banners]
+    # @featured_articles = @data[:featured_articles]
+    # @our_clients = @data[:our_clients]
+    # @portfolios = @data[:portfolios]
+    # @page_data = @data[:page_data]
+    # @static_page_data = @data[:static_page_data]
+    # @greetings = @data[:greetings]
+    # @portfolio_technologies = @data[:portfolio_technologies]
+    # @portfolio_categories = @data[:portfolio_categories]
+    # instance_variable_set("@my_instance_var", "hello")
   end
+
+  def index_data
+    data = {} 
+    data[:get_banners] ||= Banner.where(published: true)
+    data[:featured_articles] ||= Article.limit(3).where(published: true).order('release_date desc')
+    data[:our_clients] ||= TrustCompany.all.order('RANDOM()').limit(15)
+
+    data[:portfolios] ||= Portfolio::Portfolio.where(published: true).order('release desc')#.limit(12)
+    data[:page_data] = Pages::HomePage.first
+    data[:static_page_data] = data[:page_data].static_page_data
+    data[:greetings] = data[:page_data].greetings
+
+    data[:portfolio_technologies] = Portfolio::PortfolioTechnology.all
+
+    data[:portfolio_categories] = Portfolio::PortfolioCategory.all
+
+    data[:home_page] = true
+ 
+    data
+  end  
+
+  def hash_to_instance_vars hash = {}
+    if hash.keys.any?
+      hash.each do |key, value|
+        self.instance_variable_set("@#{key}", value)
+      end 
+    end  
+  end  
 
   # About page
   def about
@@ -176,6 +210,8 @@ class PageController < ApplicationController
     @static_page_data = @page_data.static_page_data
     @services_intro = @page_data.intro_text
     @services_footer = @page_data.footer_text
+
+    #cache_page "<body> <h1> hello </h2>       <p> test 123 test </p>   </body>", "/uk/test/1.html"
   end
 
   def article

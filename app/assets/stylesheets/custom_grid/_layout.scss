@@ -123,6 +123,12 @@ $header_height: 95;
     }
   }
 
+  @media (max-width: $mobile_menu_screen_max_width){
+    #header-outer{
+      height: $mobile-header-height;
+    }
+  }
+
   @media(min-width: $desktop_menu_screen_min_width){
     #header-wrapper{
 

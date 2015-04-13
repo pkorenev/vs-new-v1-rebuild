@@ -97,7 +97,9 @@ $(document).on('ready page:load', function(){
                     if( !!(window.history && history.pushState) ) {
 
                         var tab_relative_url = $tab.attr('data-tab-relative-url')
-                        var url = '/portfolio/' + tab_relative_url;
+                        var tab_path = $tab.attr('data-tab-path')
+                        //var url = '/portfolio/' + tab_relative_url;
+                        var url = tab_path
                         var state_data = { controller: 'portfolio', tab_relative_url: tab_relative_url, tab_id: $tab.attr('data-tab-index') }
                         history.pushState(state_data, '', url)
 

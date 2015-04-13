@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Service < ActiveRecord::Base
+  include RailsAdminMethods
   attr_accessible :sort_id, :published, :name, :short_description, :full_description, :slug
 
   def self.remove_text_align_justify(fields = [])

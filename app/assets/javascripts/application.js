@@ -17,7 +17,7 @@
 //= require ace/ace
 //= require ace/worker-html
 //= require "ace/mode-yaml"
-//= require modernizr
+//= require modernizr_new.min
 //= require add_links
 //= require turbolinks
 //= require ga-turbolinks

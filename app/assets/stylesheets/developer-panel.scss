@@ -8,7 +8,7 @@
 
     div.mobile-column{
       @include init-grid;
-      @include grid-6;
+      @include grid-12;
     }
   }
 
