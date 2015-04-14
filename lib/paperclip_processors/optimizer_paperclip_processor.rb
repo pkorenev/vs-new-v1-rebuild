@@ -37,8 +37,12 @@ module Paperclip
       elsif @attachment_content_type == "image/png"
         optimize_png_with_pngquant({in: in_path, out: out_path})
         compressed = true
-      end
+      elsif @attachment_content_type == "image/svg+xml"
+        #puts "@attachment_content_type = #{@attachment_content_type}"
 
+        compressed = true
+      end
+      optimize_svg_with_svgo(in_path, out_path)
       compressed ? dst : src
     end
 
@@ -119,6 +123,13 @@ module Paperclip
       system cmd
       puts "command: #{cmd}"
 
+    end
+
+    def optimize_svg_with_svgo(in_path, out_path)
+      bin = "svgo"
+      cmd = "#{bin} #{in_path} #{out_path}"
+      puts "command: #{cmd}"
+      system cmd
     end
 
     #def make
