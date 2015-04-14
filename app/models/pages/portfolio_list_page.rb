@@ -1,5 +1,7 @@
 class Pages::PortfolioListPage < ActiveRecord::Base
   include RailsAdminMethods
+  include ActiveRecordResourceExpiration
+
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 
@@ -8,6 +10,13 @@ class Pages::PortfolioListPage < ActiveRecord::Base
 
   attr_accessible :intro_text
 
+
+  after_save :expire
+  def expire
+    I18n.available_locales.each do |locale|
+      expire_page(url_helpers.portfolio_path(locale: locale))
+    end
+  end
 
   translates :intro_text, :versioning => :paper_trail
   accepts_nested_attributes_for :translations

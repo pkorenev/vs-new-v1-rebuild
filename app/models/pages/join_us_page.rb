@@ -1,5 +1,7 @@
 class Pages::JoinUsPage < ActiveRecord::Base
   include RailsAdminMethods
+  include ActiveRecordResourceExpiration
+
   self.table_name = :page_join_us_page
 
   has_one :static_page_data, :as => :has_static_page_data
@@ -13,6 +15,13 @@ class Pages::JoinUsPage < ActiveRecord::Base
   translates :content
   accepts_nested_attributes_for :translations
   attr_accessible :translations_attributes, :translations
+
+  after_save :expire
+  def expire
+    I18n.available_locales.each do |locale|
+      expire_page(url_helpers.join_us_path(locale: locale))
+    end
+  end
 
   class Translation
     attr_accessible :locale, :content

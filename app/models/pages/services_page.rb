@@ -1,5 +1,7 @@
 class Pages::ServicesPage < ActiveRecord::Base
   include RailsAdminMethods
+  include ActiveRecordResourceExpiration
+
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 
@@ -40,16 +42,15 @@ class Pages::ServicesPage < ActiveRecord::Base
     end
   end
 
-  after_save :expire_cached_fragments
-  after_destroy :expire_cached_fragments
 
 
-  def expire_cached_fragments
-    c = ActionController::Base.new
+  after_save :expire
+  def expire
     I18n.available_locales.each do |locale|
-      c.expire_fragment("#{locale}_services_index")
+      expire_page(url_helpers.service_list_path(locale: locale))
+      expire_fragment("#{locale}_services_index")
     end
-  end 
+  end
 
 
   rails_admin do

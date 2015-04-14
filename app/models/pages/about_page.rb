@@ -1,5 +1,7 @@
 class Pages::AboutPage < ActiveRecord::Base
   include RailsAdminMethods
+  include ActiveRecordResourceExpiration
+
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 
@@ -10,6 +12,8 @@ class Pages::AboutPage < ActiveRecord::Base
   attr_accessible :content
   attr_accessible :clients_intro
   attr_accessible :team_text
+
+
 
   translates :content, :clients_intro, :team_text, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
@@ -32,18 +36,16 @@ class Pages::AboutPage < ActiveRecord::Base
     end
   end
 
-  after_save :expire_cached_fragments
-  after_destroy :expire_cached_fragments
 
-
-  def expire_cached_fragments
-    c = ActionController::Base.new
+  after_save :expire
+  def expire
     I18n.available_locales.each do |locale|
-      c.expire_fragment("#{locale}_about_top_content")
-      
-      c.expire_fragment("#{locale}_about_bottom_content")
+      expire_fragment("#{locale}_about_top_content")
+      expire_fragment("#{locale}_about_bottom_content")
+
+      expire_page(url_helpers.about_path(locale: locale))
     end
-  end 
+  end
 
 
 

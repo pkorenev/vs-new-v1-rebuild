@@ -1,5 +1,7 @@
 class Pages::PortfolioPolygraphyListPage < ActiveRecord::Base
   include RailsAdminMethods
+  include ActiveRecordResourceExpiration
+
   has_one :static_page_data, :as => :has_static_page_data
   attr_accessible :static_page_data
 

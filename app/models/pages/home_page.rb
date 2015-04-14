@@ -2,6 +2,7 @@ require "render_anywhere"
 class Pages::HomePage < ActiveRecord::Base
   include RailsAdminMethods
   include RenderAnywhere
+  include ActiveRecordResourceExpiration
 
   attr_accessible :greetings
 
@@ -14,7 +15,9 @@ class Pages::HomePage < ActiveRecord::Base
 
   after_save :expire
   def expire
-
+    I18n.available_locales.each do |locale|
+      expire_page(url_helpers.root_path(locale: locale))
+    end
   end
 
   translates :greetings, :versioning => :paper_trail
