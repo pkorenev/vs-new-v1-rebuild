@@ -104,8 +104,10 @@ class Portfolio::Portfolio < ActiveRecord::Base
   	I18n.available_locales.each do |locale|
   		Pages::PortfolioListPage.first.expire
       expire_fragment("#{locale}_home_portfolio")
-
-      expire_page(url_helpers.send("#{locale}_portfolio_item_path", locale: locale, format: "html", category: self.portfolio_category.translations_by_locale[locale].slug, item: self.translations_by_locale[locale].slug ))
+      begin
+        expire_page(url_helpers.send("#{locale}_portfolio_item_path", locale: locale, format: "html", category: self.portfolio_category.translations_by_locale[locale].slug, item: self.translations_by_locale[locale].slug ))
+      rescue NoMethodError
+      end
   	end
   end
 
