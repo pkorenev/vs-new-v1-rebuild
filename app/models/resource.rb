@@ -103,7 +103,11 @@ module Resource
 
 
     def init_paperclip_fields(*fields)
-      @_paperclip_field_names = fields
+      @_paperclip_field_names ||= []
+      fields.each do |field|
+        @_paperclip_field_names << field.to_sym if @_paperclip_field_names.index(field.to_sym).nil?
+      end
+
       fields.each do |paperclip_field_name|
         attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
 
@@ -115,7 +119,7 @@ module Resource
     end
 
     def paperclip_field_names
-      attrs = @_paperclip_field_names.map(&:to_s) #self._accessible_attributes[:default]
+      attrs = @_paperclip_field_names #self._accessible_attributes[:default]
       # paperclip_fields = []
       # attrs.each do |attr_name|
       #
@@ -134,7 +138,15 @@ module Resource
     end
 
     def reprocess_all!(paperclip_instance_names = nil)
-      paperclip_instance_names ||= self.paperclip_instance_names
+      names = nil
+      if paperclip_instance_names.nil?
+        # if self.respond_to?(:paperclip_instance_names)
+        #   paperclip_instance_names = self.paperclip_instance_names
+        # else
+        #   paperclip_instance_names = [:avatar]
+        # end
+        paperclip_instance_names = self.paperclip_field_names
+      end
       self.all.each do |item|
         paperclip_instance_names.each do |paperclip_instance_name|
           item.send(paperclip_instance_name).reprocess!

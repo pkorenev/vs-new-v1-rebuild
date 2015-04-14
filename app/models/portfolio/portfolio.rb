@@ -40,7 +40,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
                     :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
 
   # add a delete_<asset_name> method:
-  has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
+  has_paperclip_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
                     :url  => '/assets/portfolios/:id/thanks_image/:style/:basename.:extension',
                     #:hash_secret => ':basename',
                     :path => ':rails_root/public/assets/portfolios/:id/thanks_image/:style/:basename.:extension'
@@ -60,7 +60,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
   # ===================================================
   # ActiveRecord Callbacks
   # ===================================================
-  before_validation :generate_slug, :generate_title
+  before_validation :normalize_slug, :generate_title
   before_save :normalize_tag_scope
   after_save :expire
   after_destroy :expire
