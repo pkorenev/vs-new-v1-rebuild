@@ -14,7 +14,7 @@ class Pages::PortfolioListPage < ActiveRecord::Base
   after_save :expire
   def expire
     I18n.available_locales.each do |locale|
-      expire_page(url_helpers.send("#{locale}_portfolio_path", locale: locale))
+      expire_page(url_helpers.send("#{locale}_portfolio_path", locale: locale, format: "html"))
     end
   end
 

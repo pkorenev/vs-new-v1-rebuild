@@ -43,7 +43,7 @@ class Pages::AboutPage < ActiveRecord::Base
       expire_fragment("#{locale}_about_top_content")
       expire_fragment("#{locale}_about_bottom_content")
 
-      expire_page(url_helpers.send("#{locale}_about_path", locale: locale))
+      expire_page(url_helpers.send("#{locale}_about_path", locale: locale, format: "html"))
     end
   end
 
