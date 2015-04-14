@@ -19,7 +19,7 @@
   <% end %>
     <% @our_clients.each do |c| %>
         <div class="client">
-          <%= link_to_if c.avatar.present?, image_tag(c.avatar.url, :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, title: c.name, rel: 'nofollow', class: 'image-link' %>
+          <%= link_to_if c.avatar.present?, image_tag(c.avatar.url(:thumb), :alt => c.name, :width => 200, :class => 'trust-hover-action animate'), c.url, title: c.name, rel: 'nofollow', target: "_blank", class: 'image-link' %>
         </div>
       <% end %>
       <% cache "#{I18n.locale}_about_bottom_content" do %>
