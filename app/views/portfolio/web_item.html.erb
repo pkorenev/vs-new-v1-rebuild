@@ -138,7 +138,7 @@
       <% @other_projects.each do |project| %>
         <li class="carousel-item">
           <a href="<%= project.slug %>">
-            <img src="<%= project.avatar.url(:non_retina) %>" />
+            <img src="<%= project.avatar.url(:thumb) %>" />
           </a>
         </li>
       <% end %>

@@ -1,6 +1,7 @@
 module Resource
   def self.included(klass)
     klass.extend Resource::ClassMethods
+    klass.include ActiveRecordResourceExpiration
     klass.class_eval(&:my_included)
   end
 
@@ -132,6 +133,15 @@ module Resource
       attrs
     end
 
+    def reprocess_all!(paperclip_instance_names = nil)
+      paperclip_instance_names ||= self.paperclip_instance_names
+      self.all.each do |item|
+        paperclip_instance_names.each do |paperclip_instance_name|
+          item.send(paperclip_instance_name).reprocess!
+        end
+      end
+    end
+
 
   end
 
@@ -142,6 +152,8 @@ module Resource
   # Instance methods
   # ----------------------------------------------
   # ==============================================
+
+
 
   def generate_title
     self.title ||= name
@@ -238,7 +250,34 @@ module Resource
       self.release_date ||= DateTime.now
     end
   end
-end	
+end
 
-
+# def resolve_avatar_styles
+#   example = {
+#       thumb: {
+#           processors: [:thumbnail, :optimizer_paperclip_processor],
+#           geometry: '250x200#',
+#           optimizer_paperclip_processor: {  }
+#       },
+#       item: {
+#           processors: [:thumbnail, :optimizer_paperclip_processor],
+#           geometry: '800x500#',
+#           optimizer_paperclip_processor: {  }
+#       }
+#   }
+#
+#   field_name = "avatar"
+#   content_type = send("#{field_name}_content_type")
+#
+#   #styles = { :thumb => '150x150>', :article_item => '320x320>', home_article_item: '250x250>', article_page: '500x500>'}
+#
+#
+#   if content_type == "image/jpeg"
+#
+#   elsif content_type == "image/png"
+#
+#   end
+#
+#   styles
+# end
 

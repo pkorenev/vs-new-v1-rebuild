@@ -1,36 +1,69 @@
 class Portfolio::PortfolioBanner < ActiveRecord::Base
-  attr_accessible :description, :name, :portfolio_id, :title
+  # ===================================================
+  # modules
+  # ===================================================
+  include RailsAdminMethods
+  include Resource
+
+  # ===================================================
+  # plugins
+  # ===================================================
+  my_translates :title, :description, :versioning => :paper_trail
+
+  # ===================================================
+  # associations
+  # ===================================================
 
   # Model is a portfolio part and belongs to it
   belongs_to :portfolio
 
-  # Validate content and name
+  # ===================================================
+  # attachments
+  # ===================================================
+  has_paperclip_attached_file :background,
+    styles: proc { |a| a.instance.resolve_background_styles },
+    url: '/assets/portfolio_banners/:id/:style/:basename.:extension',
+    path: ':rails_root/public/:url'
+
+  # ===================================================
+  # Additional attr_accessible
+  # ===================================================
+
+  # ===================================================
+  # Validations
+  # ===================================================
   validates :name, :presence => true
   #validates :description, :presence => true
 
+  # ===================================================
+  # ActiveRecord Callbacks
+  # ===================================================
 
-  # Paperclip image attachments
-  has_attached_file :background,
-                    :url  => '/assets/portfolio_banners/:id/:style/:basename.:extension',
-                    :path => ':rails_root/public/assets/portfolio_banners/:id/:style/:basename.:extension'
+  # ===============================================
+  # -----------------------------------------------
+  # Methods
+  # -----------------------------------------------
+  # ===============================================
 
-  [:background].each do |paperclip_field_name|
-    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
+  def resolve_background_styles
+    styles = {
+        full_width: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '1980x420#',
+            optimizer_paperclip_processor: {  }
+        }
+    }
 
-    attr_accessor "delete_#{paperclip_field_name}".to_sym
+    styles
   end
 
-  translates :title, :description
-  accepts_nested_attributes_for :translations
-  attr_accessible :translations_attributes, :translations
+  # ===============================================
+  # -----------------------------------------------
+  # Rails admin config
+  # -----------------------------------------------
+  # ===============================================
 
   class Translation
-    attr_accessible :locale, :published, :title, :description
-
-    def published=(value)
-      self[:published] = value
-    end
-
     rails_admin do
       edit do
         field :locale, :hidden
@@ -43,6 +76,8 @@ class Portfolio::PortfolioBanner < ActiveRecord::Base
 
   rails_admin do
   	edit do
+      field :published
+
   		field :name do
   			help 'внутреннее имя'
   		end

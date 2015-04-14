@@ -141,3 +141,4 @@ gem "htmlcompressor"
 gem 'rack-page_caching'
 
 gem 'paperclip-optimizer'
+

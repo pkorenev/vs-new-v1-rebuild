@@ -5,7 +5,7 @@
     <div class="fixed-banner-wrapper">
       <figure class="fixed-banner-holder-figure">
 
-        <div style="background-image: url(<%= (@item && @item.portfolio_banner && @item.portfolio_banner.background.exists?)?  @item.portfolio_banner.background.url : 'none' %>)" class="slide">
+        <div style="background-image: url(<%= (@item && @item.portfolio_banner && @item.portfolio_banner.background.exists?)?  @item.portfolio_banner.background.url(:full_width) : 'none' %>)" class="slide">
             <div id="nav-arrows">
                 <div class="prev">
                   <a href="<%= portfolio_item_path(category: @prev_portfolio.portfolio_category.slug, item: @prev_portfolio.slug) %>">

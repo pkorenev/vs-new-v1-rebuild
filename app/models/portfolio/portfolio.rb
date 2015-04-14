@@ -6,6 +6,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
   include RailsAdminMethods
   include Resource
 
+
   # ===================================================
   # plugins
   # ===================================================
@@ -33,29 +34,15 @@ class Portfolio::Portfolio < ActiveRecord::Base
   # attachments
   # ===================================================
 
-  has_attached_file :avatar, :styles => {
-                               admin_prv:     '65x65#',
-                               thumb_bw:      '100x100#',
-                               non_retina_bw: '360x360#',
-                               retina_bw:     '716x716#',
-                               non_retina:    '360x360#',
-                               retina:        '716x716#',
-                               thumb180:      '180x180>'
-                           },
-                    :processor => 'mini_magick',
-                    :convert_options => {
-                        thumb_bw: '-threshold 50%',
-                        non_retina_bw: '-threshold 50%',
-                        retina_bw: '-threshold 50%'
-                    },
+  has_paperclip_attached_file :avatar, styles: proc {|a| a.instance.resolve_avatar_styles },
                     :url  => '/assets/portfolios/:id/:style/:basename.:extension',
-                    :hash_secret => ':basename',
+                    #:hash_secret => ':basename',
                     :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
 
   # add a delete_<asset_name> method:
   has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
                     :url  => '/assets/portfolios/:id/thanks_image/:style/:basename.:extension',
-                    :hash_secret => ':basename',
+                    #:hash_secret => ':basename',
                     :path => ':rails_root/public/assets/portfolios/:id/thanks_image/:style/:basename.:extension'
 
   # ===================================================
@@ -75,8 +62,8 @@ class Portfolio::Portfolio < ActiveRecord::Base
   # ===================================================
   before_validation :generate_slug, :generate_title
   before_save :normalize_tag_scope
-  after_save :expire_cached_fragments
-  after_destroy :expire_cached_fragments
+  after_save :expire
+  after_destroy :expire
 
   # ===============================================
   # -----------------------------------------------
@@ -113,11 +100,33 @@ class Portfolio::Portfolio < ActiveRecord::Base
     translations.where(published: true)
   end
 
-  def expire_cached_fragments
-  	c = ActionController::Base.new
+  def expire
   	I18n.available_locales.each do |locale|
-  		c.expire_fragment("#{locale}_home_portfolio")
+  		expire_fragment("#{locale}_home_portfolio")
   	end
+  end
+
+  def resolve_avatar_styles
+
+    # non_retina => thumb
+
+    styles = {
+        thumb: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '320x320>',
+            optimizer_paperclip_processor: {  }
+        }
+    }
+
+    styles
+  end
+
+  def resolve_thanks_to_styles
+    styles = {
+
+    }
+
+    styles
   end
 
   # ===============================================

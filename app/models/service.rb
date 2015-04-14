@@ -27,7 +27,8 @@ class Service < ActiveRecord::Base
   # ===================================================
   # attachments
   # ===================================================
-  has_paperclip_attached_file :avatar
+  has_paperclip_attached_file :avatar,
+    styles: proc {|a| a.instance.resolve_avatar_styles }
 
   # ===================================================
   # Additional attr_accessible
@@ -65,7 +66,22 @@ class Service < ActiveRecord::Base
     end
   end
 
+  def resolve_avatar_styles
+    styles = {
+        thumb: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '320x320>',
+            optimizer_paperclip_processor: {  }
+        },
+        item: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '800x500>',
+            optimizer_paperclip_processor: {  }
+        }
+    }
 
+    styles
+  end
 
 
 

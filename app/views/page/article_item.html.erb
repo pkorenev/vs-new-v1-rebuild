@@ -15,7 +15,7 @@
 				</div>
                 <div id="avatar-and-tags">
 				    <div id="avatar-container">
-					    <%= image_tag @article.avatar.url, :alt => @article.name %>
+					    <%= image_tag @article.avatar.url(:item), :alt => @article.name %>
                         <%# image_tag( 'http://placehold.it/1440x960&text=[img]' ) %>
 				    </div>
 

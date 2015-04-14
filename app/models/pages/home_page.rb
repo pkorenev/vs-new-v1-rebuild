@@ -3,10 +3,6 @@ class Pages::HomePage < ActiveRecord::Base
   include RailsAdminMethods
   include RenderAnywhere
 
-  def build_html
-    render template: "page/index"
-  end  
-
   attr_accessible :greetings
 
   has_one :static_page_data, :as => :has_static_page_data
@@ -15,6 +11,11 @@ class Pages::HomePage < ActiveRecord::Base
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
   attr_accessible :static_page_data_attributes
 
+
+  after_save :expire
+  def expire
+
+  end
 
   translates :greetings, :versioning => :paper_trail
   accepts_nested_attributes_for :translations

@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   include RailsAdminMethods
   include Resource
 
+
   # ===================================================
   # plugins
   # ===================================================
@@ -29,7 +30,7 @@ class Article < ActiveRecord::Base
       a.instance.resolve_avatar_styles
     },
     :url  => '/assets/articles/:id/:style/:basename.:extension',
-    :path => ':rails_root/public/assets/articles/:id/:style/:basename.:extension'
+    :path => ':rails_root/public/:url'
 
   # ===================================================
   # Additional attr_accessible
@@ -50,8 +51,8 @@ class Article < ActiveRecord::Base
   # ActiveRecord Callbacks
   # ===================================================
   before_save :normalize_tag_scope
-  after_save :expire_cached_fragments
-  after_destroy :expire_cached_fragments
+  after_save :expire
+  after_destroy :expire
 
   # ===============================================
   # -----------------------------------------------
@@ -60,25 +61,18 @@ class Article < ActiveRecord::Base
   # ===============================================
 
   def resolve_avatar_styles
-    example = {
+    styles = {
         thumb: {
             processors: [:thumbnail, :optimizer_paperclip_processor],
-            geometry: '250x200#',
+            geometry: '320x320>',
+            optimizer_paperclip_processor: {  }
+        },
+        item: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '800x500>',
             optimizer_paperclip_processor: {  }
         }
     }
-
-    field_name = "avatar"
-    content_type = send("#{field_name}_content_type")
-
-    styles = { :thumb => '150x150>', :article_item => '320x320>', home_article_item: '250x250>', article_page: '500x500>'}
-
-
-    if content_type == "image/jpeg"
-
-    elsif content_type == "image/png"
-
-    end
 
     styles
   end
@@ -89,10 +83,9 @@ class Article < ActiveRecord::Base
     end
   end
 
-  def expire_cached_fragments
-    c = ActionController::Base.new
+  def expire
     I18n.available_locales.each do |locale|
-      c.expire_fragment("#{locale}_home_news")
+      expire_fragment("#{locale}_home_news")
     end
   end
 

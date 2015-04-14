@@ -189,7 +189,7 @@ end
         <li class="carousel-item">
           <figure>
             <a class="image-link" href="<%= portfolio_item_path(category: project.portfolio_category.slug, item: project.slug, locale: I18n.locale) %>" data-no-turbolink="" >
-              <img title="<%= project.name %>" alt="<%= project.name %>" class="grayscale" src="<%= project.avatar.url(:non_retina) %>" />
+              <img title="<%= project.name %>" alt="<%= project.name %>" class="grayscale" src="<%= project.avatar.url(:thumb) %>" />
             </a>
           </figure>
         </li>

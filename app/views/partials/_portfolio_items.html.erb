@@ -4,7 +4,7 @@
           <% if item.portfolio_category %>
             <div class="g4 portfolio-item <%= item.portfolio_category.slug %><%= ( @active_category && @active_category.respond_to?(:id) && item.portfolio_category && item.portfolio_category && item.portfolio_category.respond_to?(:id)  && @active_category.id != item.portfolio_category.id )? ' isotope-hidden' : '  isotope-hidden' %>">
               <figure class="myclass">
-                <%= link_to(image_tag(item.avatar.url(:non_retina), alt: item.name, class: 'grayscale' ), portfolio_item_path( category: item.portfolio_category.slug, item: item.slug), title: item.name,  :'data-no-turbolink' => '', class: 'image-link'  ) %>
+                <%= link_to(image_tag(item.avatar.url(:thumb), alt: item.name, class: 'grayscale' ), portfolio_item_path( category: item.portfolio_category.slug, item: item.slug), title: item.name,  :'data-no-turbolink' => '', class: 'image-link'  ) %>
               </figure>
             </div>
           <% end %>
