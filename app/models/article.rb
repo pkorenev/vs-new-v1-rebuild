@@ -1,9 +1,20 @@
 # -*- encoding : utf-8 -*-
 class Article < ActiveRecord::Base
+  # ===================================================
+  # modules
+  # ===================================================
   include RailsAdminMethods
+  #better_include Resource
   include Resource
 
-  attr_accessible :published, :name, :title, :slug, :short_description, :content, :original_published, :tags, :tag_list, :release_date, :author
+  # ===================================================
+  # plugins
+  # ===================================================
+  acts_as_taggable
+
+  attr_accessible :tags, :tag_list
+  accessible_nested_attributes_for :translations, :portfolio_tag_scope, :static_page_data
+
 
 
   def self.remove_text_align_justify(fields = [])
@@ -11,10 +22,7 @@ class Article < ActiveRecord::Base
     ActiveRecord::Base.remove_text_align_justify(self, fields)
   end
 
-  acts_as_taggable
-  attr_accessible :tag_list
 
-  #translates :name, :title, :slug, :short_description, :author, :content
 
   validates :name, :presence => true
 
@@ -26,24 +34,49 @@ class Article < ActiveRecord::Base
   # Paperclip image attachments
 
 
-  has_attached_file :avatar, :styles => { :thumb => '150x150>', :article_item => '320x320>', home_article_item: '250x250>', article_page: '500x500>'},
+  has_attached_file :avatar,
+                    styles: proc { |a|
+                      a.instance.resolve_avatar_styles
+                    },
                     :url  => '/assets/articles/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/articles/:id/:style/:basename.:extension'
+  init_paperclip_fields(:avatar)
 
-  [:avatar].each do |paperclip_field_name|
-    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
 
-    attr_accessor "delete_#{paperclip_field_name}".to_sym
+
+  def resolve_avatar_styles
+    example = {
+        thumb: {
+            processors: [:thumbnail, :optimizer_paperclip_processor],
+            geometry: '250x200#',
+            optimizer_paperclip_processor: {  }
+        }
+    }
+
+    field_name = "avatar"
+    content_type = send("#{field_name}_content_type")
+
+    styles = { :thumb => '150x150>', :article_item => '320x320>', home_article_item: '250x250>', article_page: '500x500>'}
+
+
+    if content_type == "image/jpeg"
+
+    elsif content_type == "image/png"
+
+    end
+
+    styles
   end
 
 
 
   translates :name, :slug, :short_description, :content, :avatar_alt, :versioning => :paper_trail
   accepts_nested_attributes_for :translations
-  attr_accessible :translations_attributes, :translations
+
 
   class Translation
-    attr_accessible :locale, :published, :name, :slug, :short_description, :content, :avatar_alt
+    #attr_accessible :locale, :published, :name, :slug, :short_description, :content, :avatar_alt
+    attr_accessible(*attribute_names)
 
     # def published=(value)
     #   self[:published] = value
@@ -63,21 +96,10 @@ class Article < ActiveRecord::Base
   end
 
 
-  after_validation :generate_static_page_data
-  before_validation :generate_slug
+  #after_validation :generate_static_page_data
+  after_validation :normalize_slug
   before_save :generate_release_date
 
-  def generate_static_page_data
-    if self.static_page_data.nil?
-      self.build_static_page_data
-    end  
-
-    s = self.static_page_data
-
-    s.translations_by_locale.each do |locale, t|
-
-    end  
-  end  
 
   #before_validation :generate_release_date
 
@@ -88,65 +110,17 @@ class Article < ActiveRecord::Base
     self.release_date ||= DateTime.now
   end
 
-  before_save :detect_rename_avatar
-
-  def detect_rename_avatar
-    folder_names = avatar.styles.keys
-    folder_names.push('original')
-    #self.avatar_file_name = "vs-logo-1.jpg#{folder_names.count}"
-
-    if avatar_file_name_changed?
-      if !new_record?
-        old_name = self.avatar_file_name_was
-        new_name = self.avatar_file_name
-
-        original_folder_name = 'original'
-
-        original_old_file_path = avatar.path(original_folder_name)
-        original_new_file_path = original_old_file_path
-
-        original_old_file_path_array = original_old_file_path.split('/')
-        original_old_file_path_array[original_old_file_path_array.count - 1] = old_name
-        original_old_file_path = original_old_file_path_array.join('/')
-
-        if !File.exist?(original_old_file_path)
-          self.avatar_file_name = old_name
-        else
-          folder_names.each do |folder_name|
-            old_file_path = avatar.path(folder_name)
-            new_file_path = old_file_path
-
-            old_file_path_array = old_file_path.split('/')
-            old_file_path_array[old_file_path_array.count - 1] = old_name
-            old_file_path = old_file_path_array.join('/')
+  #before_save :detect_rename_avatar
 
 
-
-
-
-            if File.exist?(old_file_path) && !File.exist?(new_file_path)
-              FileUtils.mv(old_file_path, new_file_path)
-
-            end
-          end
-        end
-
-
-
-      else
-
-      end
-
-    end
-  end
 
 
   has_one :static_page_data, :as => :has_static_page_data
 
   has_one :portfolio_tag_scope, :as => :scope_taggable
-  attr_accessible :portfolio_tag_scope
+
   accepts_nested_attributes_for :portfolio_tag_scope, :allow_destroy => true
-  attr_accessible :portfolio_tag_scope_attributes
+
   before_save do
     if !portfolio_tag_scope
       self.build_portfolio_tag_scope
@@ -154,10 +128,10 @@ class Article < ActiveRecord::Base
   end
 
 
-  attr_accessible :static_page_data
+
 
   accepts_nested_attributes_for :static_page_data, :allow_destroy => true
-  attr_accessible :static_page_data_attributes
+
 
 
   after_save :expire_cached_fragments

@@ -28,7 +28,7 @@ class SitemapElement < ActiveRecord::Base
     static_page_data.try(&:has_static_page_data) 
   end  
 
-  validates :path,presence: true, uniqueness: true
+  #validates :path,presence: true, uniqueness: true
 
   translates :path, :url, :changefreq
   accepts_nested_attributes_for :translations

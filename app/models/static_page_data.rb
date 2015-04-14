@@ -47,7 +47,7 @@ class StaticPageData < ActiveRecord::Base
 
   before_save :create_sitemap_element
   def create_sitemap_element
-    build_sitemap_element
+    build_sitemap_element if sitemap_element.nil?
   end
 
   rails_admin do
