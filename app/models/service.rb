@@ -83,6 +83,13 @@ class Service < ActiveRecord::Base
     styles
   end
 
+  def expire
+    I18n.available_locales.each do |locale|
+      Pages::ServicesPage.first.expire
+      expire_page(url_helpers.send("#{locale}_service_item", locale: locale, format: "html", service_item: translations_by_locale[locale].slug))
+    end
+  end
+
 
 
 

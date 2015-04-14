@@ -17,6 +17,10 @@ class Pages::HomePage < ActiveRecord::Base
   def expire
     I18n.available_locales.each do |locale|
       expire_page(url_helpers.root_path(locale: locale, format: "html"))
+      expire_fragment("#{locale}_home_portfolio")
+      expire_fragment("#{locale}_home_welocome")
+      expire_fragment("#{locale}_home_news")
+      expire_fragment("#{locale}_home_banner")
     end
   end
 

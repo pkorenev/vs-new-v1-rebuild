@@ -102,7 +102,10 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   def expire
   	I18n.available_locales.each do |locale|
-  		expire_fragment("#{locale}_home_portfolio")
+  		Pages::PortfolioListPage.first.expire
+      expire_fragment("#{locale}_home_portfolio")
+
+      expire_page(url_helpers.send("#{locale}_portfolio_item_path", locale: locale, format: "html", category: self.portfolio_category.translations_by_locale[locale].slug, item: self.translations_by_locale[locale].slug ))
   	end
   end
 

@@ -85,7 +85,9 @@ class Article < ActiveRecord::Base
 
   def expire
     I18n.available_locales.each do |locale|
+      Pages::ArticlesListPage.first.expire
       expire_fragment("#{locale}_home_news")
+      expire_page(url_helpers.send("#{locale}_article_item", locale: locale, format: "html", article_item: translations_by_locale[locale].slug))
     end
   end
 
