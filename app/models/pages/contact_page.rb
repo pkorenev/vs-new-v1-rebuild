@@ -19,7 +19,7 @@ class Pages::ContactPage < ActiveRecord::Base
   after_save :expire
   def expire
     I18n.available_locales.each do |locale|
-      expire_page(url_helpers.contact_path(locale: locale))
+      expire_page(url_helpers.send("#{locale}_contact_path", locale: locale))
     end
   end
 

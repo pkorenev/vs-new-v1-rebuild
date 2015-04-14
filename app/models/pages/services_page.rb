@@ -47,7 +47,7 @@ class Pages::ServicesPage < ActiveRecord::Base
   after_save :expire
   def expire
     I18n.available_locales.each do |locale|
-      expire_page(url_helpers.service_list_path(locale: locale))
+      expire_page(url_helpers.send("#{locale}_service_list_path", locale: locale))
       expire_fragment("#{locale}_services_index")
     end
   end

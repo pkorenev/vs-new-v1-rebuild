@@ -19,7 +19,7 @@ class Pages::JoinUsPage < ActiveRecord::Base
   after_save :expire
   def expire
     I18n.available_locales.each do |locale|
-      expire_page(url_helpers.join_us_path(locale: locale))
+      expire_page(url_helpers.send("#{locale}_join_us_path", locale: locale))
     end
   end
 
