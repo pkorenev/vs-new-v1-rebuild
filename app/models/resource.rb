@@ -227,30 +227,34 @@ module Resource
   end
 
   def normalize_slug
-    if self.name.present?
-      self.slug = self.name.parameterize if self.slug.blank?
-      self.translations_by_locale.each do |locale, t|
-        t.slug = t.name.parameterize if t.slug.blank?
+    if self.respond_to?(:slug)
+      if self.name.present?
+        self.slug = self.name.parameterize if self.slug.blank?
+        self.translations_by_locale.each do |locale, t|
+          t.slug = t.name.parameterize if t.slug.blank?
+        end
       end
     end
   end
 
   def generate_static_page_data
-    if static_page_data.nil?
-      build_static_page_data
-    end
+    if self.respond_to?(:static_page_data)
+      if static_page_data.nil?
+        build_static_page_data
+      end
 
-    s = self.static_page_data
+      s = self.static_page_data
 
-    if s.sitemap_element.nil?
-      s.build_sitemap_element
-    end
+      if s.sitemap_element.nil?
+        s.build_sitemap_element
+      end
 
-    e = s.sitemap_element
+      e = s.sitemap_element
 
-    s.translations_by_locale.each do |locale, t|
-      #t.head_title
-      #t.save
+      s.translations_by_locale.each do |locale, t|
+        #t.head_title
+        #t.save
+      end
     end
   end
 
