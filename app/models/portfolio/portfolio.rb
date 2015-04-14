@@ -1,20 +1,99 @@
 # -*- encoding : utf-8 -*-
 class Portfolio::Portfolio < ActiveRecord::Base
+  # ===================================================
+  # modules
+  # ===================================================
   include RailsAdminMethods
-  attr_accessible   :published, :task, :thanks_to, :description, :release, :name, :title, :portfolio_category_id, :portfolio_banner_id, :portfolio_technology_ids, :developer_ids, :live, :live_eng, :result, :result_eng, :process, :process_eng
+  include Resource
 
-  # Association's category, banners, technologies
+  # ===================================================
+  # plugins
+  # ===================================================
+  acts_as_taggable
+  my_translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt, :versioning => :paper_trail, :fallbacks_for_empty_translations => true
+  has_seo_tags
+
+  # ===================================================
+  # associations
+  # ===================================================
+  has_one :portfolio_tag_scope, :as => :scope_taggable
+  accessible_nested_attributes_for :portfolio_tag_scope, :allow_destroy => true
+
   belongs_to :portfolio_category
+
   has_one    :portfolio_banner
+  accessible_nested_attributes_for :portfolio_banner, :allow_destroy => true
+
   has_many   :portfolio_technologies
   has_many   :developers
 
-  accepts_nested_attributes_for :portfolio_banner, :allow_destroy => true
-  attr_accessible :portfolio_banner_attributes
 
-  translates :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt, :versioning => :paper_trail, :fallbacks_for_empty_translations => true
-  accepts_nested_attributes_for :translations
-  attr_accessible :translations_attributes, :translations
+
+  # ===================================================
+  # attachments
+  # ===================================================
+
+  has_attached_file :avatar, :styles => {
+                               admin_prv:     '65x65#',
+                               thumb_bw:      '100x100#',
+                               non_retina_bw: '360x360#',
+                               retina_bw:     '716x716#',
+                               non_retina:    '360x360#',
+                               retina:        '716x716#',
+                               thumb180:      '180x180>'
+                           },
+                    :processor => 'mini_magick',
+                    :convert_options => {
+                        thumb_bw: '-threshold 50%',
+                        non_retina_bw: '-threshold 50%',
+                        retina_bw: '-threshold 50%'
+                    },
+                    :url  => '/assets/portfolios/:id/:style/:basename.:extension',
+                    :hash_secret => ':basename',
+                    :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
+
+  # add a delete_<asset_name> method:
+  has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
+                    :url  => '/assets/portfolios/:id/thanks_image/:style/:basename.:extension',
+                    :hash_secret => ':basename',
+                    :path => ':rails_root/public/assets/portfolios/:id/thanks_image/:style/:basename.:extension'
+
+  # ===================================================
+  # Additional attr_accessible
+  # ===================================================
+  attr_accessible :tags, :tag_list
+
+  # ===================================================
+  # Validations
+  # ===================================================
+  validates :name, presence: true
+  validates :slug, uniqueness: true, presence: true
+  validates_associated :portfolio_category
+
+  # ===================================================
+  # ActiveRecord Callbacks
+  # ===================================================
+  before_validation :generate_slug, :generate_title
+  before_save :normalize_tag_scope
+  after_save :expire_cached_fragments
+  after_destroy :expire_cached_fragments
+
+  # ===============================================
+  # -----------------------------------------------
+  # Methods
+  # -----------------------------------------------
+  # ===============================================
+
+  def normalize_tag_scope
+    if portfolio_tag_scope.nil?
+      self.build_portfolio_tag_scope
+    end
+  end
+
+  # Generating friendly urls for an items
+  def to_param
+    slug
+  end
 
   def self.remove_text_align_justify(fields = [])
     fields = [:live, :result, :process] if fields.try(&:empty?)
@@ -34,13 +113,20 @@ class Portfolio::Portfolio < ActiveRecord::Base
     translations.where(published: true)
   end
 
+  def expire_cached_fragments
+  	c = ActionController::Base.new
+  	I18n.available_locales.each do |locale|
+  		c.expire_fragment("#{locale}_home_portfolio")
+  	end
+  end
+
+  # ===============================================
+  # -----------------------------------------------
+  # Rails admin config
+  # -----------------------------------------------
+  # ===============================================
+
   class Translation
-    attr_accessible :locale, :published, :name, :slug, :task, :result, :process, :live, :description, :thanks_to, :avatar_alt
-
-    # def published=(value)
-    #   self[:published] = value
-    # end
-
     rails_admin do
       edit do
         field :locale, :hidden
@@ -58,103 +144,6 @@ class Portfolio::Portfolio < ActiveRecord::Base
     end
   end
 
-  # Paperclip image attachments
-  has_attached_file :avatar, :styles => {
-                        admin_prv:     '65x65#',
-                        thumb_bw:      '100x100#',
-                        non_retina_bw: '360x360#',
-                        retina_bw:     '716x716#',
-                        non_retina:    '360x360#',
-                        retina:        '716x716#',
-                        thumb180:      '180x180>'
-                    },
-                    :processor => 'mini_magick',
-                    :convert_options => {
-                        thumb_bw: '-threshold 50%',
-                        non_retina_bw: '-threshold 50%',
-                        retina_bw: '-threshold 50%'
-                    },
-                    :url  => '/assets/portfolios/:id/:style/:basename.:extension',
-                    :hash_secret => ':basename',
-                    :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
-
-  # add a delete_<asset_name> method:
-  has_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
-                                    :url  => '/assets/portfolios/:id/thanks_image/:style/:basename.:extension',
-                                    :hash_secret => ':basename',
-                                    :path => ':rails_root/public/assets/portfolios/:id/thanks_image/:style/:basename.:extension'
-
-  [:avatar, :thanks_image].each do |paperclip_field_name|
-    attr_accessible paperclip_field_name.to_sym, "delete_#{paperclip_field_name}".to_sym, "#{paperclip_field_name}_file_name".to_sym, "#{paperclip_field_name}_file_size".to_sym, "#{paperclip_field_name}_content_type".to_sym, "#{paperclip_field_name}_updated_at".to_sym, "#{paperclip_field_name}_file_name_fallback".to_sym, "#{paperclip_field_name}_alt".to_sym
-
-    attr_accessor "delete_#{paperclip_field_name}".to_sym
-  end
-
-
-
-  # Validate models
-  validates :name, presence: true
-  validates :slug, uniqueness: true, presence: true
-  validates_associated :portfolio_category
-
-  # Before validate generate friendly url
-  before_validation :generate_slug, :generate_title
-
-  def generate_slug
-    self.slug ||= name.parameterize
-  end
-
-  def generate_title
-    self.title ||= name
-  end
-
-
-
-  attr_accessible :slug
-
-
-
-
-
-  has_one :static_page_data, :as => :has_static_page_data
-  attr_accessible :static_page_data
-
-  accepts_nested_attributes_for :static_page_data, :allow_destroy => true
-  attr_accessible :static_page_data_attributes
-
-  has_one :portfolio_tag_scope, :as => :scope_taggable
-  attr_accessible :portfolio_tag_scope
-  accepts_nested_attributes_for :portfolio_tag_scope, :allow_destroy => true
-  attr_accessible :portfolio_tag_scope_attributes
-  before_save do
-    if !portfolio_tag_scope
-      self.build_portfolio_tag_scope
-    end
-  end
-
-  after_save :expire_cached_fragments
-  after_destroy :expire_cached_fragments
-
-
-  def expire_cached_fragments
-  	c = ActionController::Base.new
-  	I18n.available_locales.each do |locale|
-  		c.expire_fragment("#{locale}_home_portfolio")
-  	end
-  end	
-
-  rails_admin do
-
-
-    edit do
-      field :greetings
-      field :static_page_data
-    end
-
-
-  end
-
-  # Rails admin configuration
   rails_admin do
     # label 'Портфолио'
     # label_plural 'Портфолио'
@@ -272,14 +261,5 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
     end
 
-  end
-
-  # Generating friendly urls for an items
-  def to_param
-    slug
-  end
-
-  def generate_slug
-    self.slug ||= name.parameterize
   end
 end
