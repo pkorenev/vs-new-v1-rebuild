@@ -1,5 +1,9 @@
 class Ckeditor::Picture < Ckeditor::Asset
-  has_attached_file :data,
+  include PaperclipEnhancements::InstanceMethods
+  extend PaperclipEnhancements::ClassMethods
+
+
+  has_paperclip_attached_file :data,
                     url: "/ckeditor_assets/pictures/:id/:style_:basename.:extension",
                     path: ":rails_root/public/:url",
                     styles: proc { |a| a.instance.resolve_data_styles },
@@ -24,6 +28,8 @@ class Ckeditor::Picture < Ckeditor::Asset
 
     styles
   end
+
+
 
 
 end
