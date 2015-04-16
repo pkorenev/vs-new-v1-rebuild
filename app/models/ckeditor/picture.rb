@@ -5,7 +5,7 @@ class Ckeditor::Picture < Ckeditor::Asset
 
   has_paperclip_attached_file :data,
                     url: "/ckeditor_assets/pictures/:id/:style_:basename.:extension",
-                    path: ":rails_root/public/:url"
+                    path: ":rails_root/public/:url",
                     styles: proc { |a| a.instance.resolve_data_styles },
                     processors: [:thumbnail, :paperclip_optimizer]
 
