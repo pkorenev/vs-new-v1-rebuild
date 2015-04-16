@@ -60,6 +60,8 @@ class Article < ActiveRecord::Base
   # -----------------------------------------------
   # ===============================================
 
+
+
   def resolve_avatar_styles
     styles = {
         thumb: {
@@ -71,8 +73,12 @@ class Article < ActiveRecord::Base
             processors: [:thumbnail, :optimizer_paperclip_processor],
             geometry: '800x500>',
             optimizer_paperclip_processor: {  }
-        }
+        },
     }
+
+
+    self.class.with_webp_styles! styles
+
 
     styles
   end
@@ -156,6 +162,9 @@ class Article < ActiveRecord::Base
       group :image_data do
         field :avatar, :paperclip
         field :avatar_file_name_fallback
+        field :avatar_content_type do
+          readonly true
+        end
       end
 
       field :release_date

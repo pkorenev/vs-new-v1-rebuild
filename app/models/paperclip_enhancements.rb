@@ -59,6 +59,20 @@ module PaperclipEnhancements
         end
       end
     end
+
+    def with_webp_styles! styles
+      all_styles = styles.clone
+      styles.each_pair do |style_name, options|
+        webp_style_name = "#{style_name}_webp".to_sym
+
+        all_styles[webp_style_name] = options.clone
+        optimizer_paperclip_processor_options = all_styles[webp_style_name][:optimizer_paperclip_processor] || {}
+        optimizer_paperclip_processor_options[:convert_to_webp] = true
+        all_styles[webp_style_name][:optimizer_paperclip_processor] = optimizer_paperclip_processor_options
+      end
+
+      styles.replace all_styles
+    end
   end
 
   module InstanceMethods

@@ -36,8 +36,9 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   has_paperclip_attached_file :avatar, styles: proc {|a| a.instance.resolve_avatar_styles },
                     :url  => '/assets/portfolios/:id/:style/:basename.:extension',
+                    url: "/portfolio/:portfolio_category/:portfolio_url/:basename.:extension",
                     #:hash_secret => ':basename',
-                    :path => ':rails_root/public/assets/portfolios/:id/:style/:basename.:extension'
+                    :path => ':rails_root/public/:url'
 
   # add a delete_<asset_name> method:
   has_paperclip_attached_file :thanks_image, :styles => { :big => '700x700>', :thumb => '300x300>' },
@@ -118,10 +119,12 @@ class Portfolio::Portfolio < ActiveRecord::Base
     styles = {
         thumb: {
             processors: [:thumbnail, :optimizer_paperclip_processor],
-            geometry: '320x320>',
+            geometry: '320x320#',
             optimizer_paperclip_processor: {  }
         }
     }
+
+    self.class.with_webp_styles! styles
 
     styles
   end

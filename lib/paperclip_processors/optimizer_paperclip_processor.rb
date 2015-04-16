@@ -15,6 +15,8 @@ module Paperclip
 
       puts "file_path: #{@file.path}"
       puts "format: #{@attachment_content_type}"
+
+      puts "options: #{options.inspect}"
     end
     #
     def make
@@ -31,6 +33,7 @@ module Paperclip
       in_path = File.expand_path(src.path)
       dst.binmode
       #dst = Tempfile.new([@basename, @format ? ".#{@format}" : ''])
+
       if @attachment_content_type == "image/jpeg"
         optimize_jpeg_with_jpegrecompress({in: in_path, out: out_path})
         compressed = true
@@ -39,10 +42,10 @@ module Paperclip
         compressed = true
       elsif @attachment_content_type == "image/svg+xml"
         #puts "@attachment_content_type = #{@attachment_content_type}"
-
+        optimize_svg_with_svgo(in_path, out_path)
         compressed = true
       end
-      optimize_svg_with_svgo(in_path, out_path)
+
       compressed ? dst : src
     end
 
@@ -76,7 +79,7 @@ module Paperclip
     end
 
     def optimize_jpeg_with_jpegrecompress(args = {}, options = {})
-
+      #puts "optimize_jpeg_with_jpegrecompress"
       args ||= {}
 
       default_args = {
@@ -87,7 +90,11 @@ module Paperclip
       args = default_args.merge(args)
 
       defaults = {
-          quality: 0
+          quality: 0,
+          min: 0,
+          accurate: true,
+          strip: true,
+          no_copy: true
       }
 
       options = defaults.deep_merge(options)
@@ -103,16 +110,13 @@ module Paperclip
 
       bin = "jpeg-recompress"
 
-      cmd_options = options
-
-
       cmd_options = {
           quality: jpeg_recompress_quality_names[options[:quality]],
-          min: 0,
-          #accurate: "",
-          strip: "",
-          :"no-copy" => ""
-      }
+          min: options[:min],
+          accurate: ( "" if options[:accurate] ),
+          strip: ("" if options[:strip]),
+          :"no-copy" => ("" if options[:no_copy])
+      }.delete_if{ |k,v| v.nil? }
 
       cmd_args = [in_path, out_path]
 

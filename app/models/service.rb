@@ -80,6 +80,8 @@ class Service < ActiveRecord::Base
         }
     }
 
+    self.class.with_webp_styles! styles
+
     styles
   end
 

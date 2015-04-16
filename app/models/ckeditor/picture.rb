@@ -19,12 +19,14 @@ class Ckeditor::Picture < Ckeditor::Asset
   def resolve_data_styles
     styles = {
         :content => {
-            processors: [:thumbnail, :optimizer_paperclip_processor],
+            processors: [:optimizer_paperclip_processor],
             geometry: '1600x1600>',
             optimizer_paperclip_processor: {  }
         },
         :thumb => '118x100#'
     }
+
+    self.class.with_webp_styles! styles
 
     styles
   end
