@@ -23,7 +23,9 @@ class Ckeditor::Picture < Ckeditor::Asset
             geometry: '1600x1600>',
             optimizer_paperclip_processor: {  }
         },
-        :thumb => '118x100#'
+        :thumb => {
+            geometry: '118x100#'
+        }
     }
 
     self.class.with_webp_styles! styles
