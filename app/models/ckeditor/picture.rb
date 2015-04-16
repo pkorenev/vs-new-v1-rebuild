@@ -19,8 +19,8 @@ class Ckeditor::Picture < Ckeditor::Asset
   def resolve_data_styles
     styles = {
         :content => {
-            processors: [:optimizer_paperclip_processor],
-            geometry: '1600x1600>',
+            processors: [],
+            geometry: '10000x10000>',
             optimizer_paperclip_processor: {  }
         },
         :thumb => {
