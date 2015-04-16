@@ -20,6 +20,7 @@ module Paperclip
     end
     #
     def make
+      @disabled = true
       #puts "OptimizerPaperclipProcessor"
       src = @file
       #out_path = @basename
@@ -33,8 +34,9 @@ module Paperclip
       in_path = File.expand_path(src.path)
       dst.binmode
       #dst = Tempfile.new([@basename, @format ? ".#{@format}" : ''])
+      if @disabled
 
-      if @attachment_content_type == "image/jpeg"
+      elsif @attachment_content_type == "image/jpeg"
         optimize_jpeg_with_jpegrecompress({in: in_path, out: out_path})
         compressed = true
       elsif @attachment_content_type == "image/png"
