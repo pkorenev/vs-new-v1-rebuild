@@ -163,7 +163,7 @@ class Article < ActiveRecord::Base
         field :avatar, :paperclip
         field :avatar_file_name_fallback
         field :avatar_content_type do
-          readonly true
+          #readonly true
         end
       end
 
