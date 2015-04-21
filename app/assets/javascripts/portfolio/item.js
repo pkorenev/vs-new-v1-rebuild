@@ -103,3 +103,20 @@ $(document).on('ready page:load', function(){
     });
 
 });
+
+/*
+img{
+  transform: translateY(200px)
+  transition: all 2s
+  opacity: 0
+}
+
+img.show{
+  transofrm: none
+  opacity: 1
+}
+
+ */
+
+//show_images = function(){$('img').filter(function(index, elem){ return $(elem).offset().top <= $(document).scrollTop() + window.innerHeight * 0.8 }).addClass('show')}
+//$(window).on("scroll", show_images)
