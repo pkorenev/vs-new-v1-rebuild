@@ -37,7 +37,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   has_paperclip_attached_file :avatar, styles: proc {|a| a.instance.resolve_avatar_styles },
                     :url  => '/assets/portfolios/:id/:style/:basename.:extension',
-                    url: "/portfolio/:portfolio_category/:portfolio_url/:basename.:extension",
+                    #url: "/portfolio/:portfolio_category/:portfolio_url/:basename.:extension",
                     #:hash_secret => ':basename',
                     :path => ':rails_root/public/:url'
 
