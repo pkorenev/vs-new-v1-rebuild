@@ -8,9 +8,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :get_menu
 
-  # before_action do
-  #   render inline: "#{Portfolio::Portfolio._accessible_attributes[:default].sort.map{|e| "<div>#{e}</div>" }.join("")}"
-  # end
+  #before_action do
+    #render inline: "#{Portfolio::Portfolio._accessible_attributes[:default].sort.map{|e| "<div>#{e}</div>" }.join("")}"
+    #render inline: "root_page: #{params[:root_page].inspect}"
+  #end
 
 
   before_action :set_mailer_host, :init_modal_form

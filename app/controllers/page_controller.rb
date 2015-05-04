@@ -6,7 +6,9 @@ class PageController < ApplicationController
   caches_page :service_item
   caches_page :article_item
   caches_page :about
-  caches_page :index
+  caches_page :index, if: -> {
+                      params[:locale].present?
+                    }
 
   # Index page
   # TODO: Version 1.2
