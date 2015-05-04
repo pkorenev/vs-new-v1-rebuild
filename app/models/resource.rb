@@ -46,7 +46,7 @@ module Resource
 
     def has_seo_tags
       has_one :static_page_data, :as => :has_static_page_data
-      accepts_nested_attributes_for :static_page_data, :allow_destroy => true
+      accessible_nested_attributes_for :static_page_data, :allow_destroy => true
 
     end
 
@@ -58,8 +58,7 @@ module Resource
     def configure_for_translations *args
       #association_name = args.delete_at(0)
       translates *args
-      accepts_nested_attributes_for :translations
-      attr_accessible :translations, :translations_attributes
+      accessible_nested_attributes_for :translations
     end
 
     def init_translation_class

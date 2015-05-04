@@ -24,7 +24,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   has_one    :portfolio_banner
   accessible_nested_attributes_for :portfolio_banner, :allow_destroy => true
-  #attr_accessible :portfolio_banner_attributes, :portfolio_tag_scope_attributes, :developer_ids, :portfolio_technology_ids, :static_page_data_attributes
+  attr_accessible :developer_ids, :portfolio_technology_ids
 
   has_many   :portfolio_technologies
   has_many   :developers
@@ -37,6 +37,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   has_paperclip_attached_file :avatar, styles: proc {|a| a.instance.resolve_avatar_styles },
                     :url  => '/assets/portfolios/:id/:style/:basename.:extension',
+                    #url: ":style_url",
                     #url: "/portfolio/:portfolio_category/:portfolio_url/:basename.:extension",
                     #:hash_secret => ':basename',
                     :path => ':rails_root/public/:url'
@@ -136,6 +137,11 @@ class Portfolio::Portfolio < ActiveRecord::Base
     }
 
     styles
+  end
+
+  def url_per_style(style)
+    file_ext = style.to_s.scan(/webp\Z/).any? ? "webp" : self.avatar.extension
+    "/assets/portfolios/#{self.id}/#{style}/#{self.avatar.basename}.#{file_ext}"
   end
 
   # ===============================================
