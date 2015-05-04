@@ -90,10 +90,20 @@ module Resource
     def accessible_nested_attributes_for(*args_and_options)
       #attrs.each {|attr| attr_accessible attr, "#{attr}_attributes" }
       #attrs.each {|attr| attr_accessible attr, "#{attr}_attributes" }
+      klass = self
       options = args_and_options.select.with_index {|o, i| i == args_and_options.length - 1 &&  args_and_options.last.is_a?(Hash) && args_and_options.last.extractable_options? }
-      args = args_and_options.select { |o| !(args_and_options.last.is_a?(Hash) && args_and_options.last.extractable_options?) }
-      args.each {|attr| attr_accessible attr, "#{attr}_attributes" }
-      accepts_nested_attributes_for *args_and_options
+      #args = args_and_options.select { |o| !(args_and_options.last.is_a?(Hash) && args_and_options.last.extractable_options?) }
+      args = []
+      args_and_options.each do |a|
+        if !a.is_a?(Hash)
+          args << a
+        else
+          break
+        end
+      end
+      args.each {|attr| klass.attr_accessible attr, "#{attr}_attributes" }
+      klass.accepts_nested_attributes_for *args_and_options
+      #puts args.inspect
     end
 
 

@@ -131,6 +131,13 @@ module Paperclip
 
     end
 
+    def optimize_jpeg_with_jpegoptim
+      bin = "jpegoptim"
+      cmd = "#{bin} #{in_path} #{out_path}"
+      puts "command: #{cmd}"
+      system cmd
+    end
+
     def optimize_svg_with_svgo(in_path, out_path)
       bin = "svgo"
       cmd = "#{bin} #{in_path} #{out_path}"

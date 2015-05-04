@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :get_menu
 
+  # before_action do
+  #   render inline: "#{Portfolio::Portfolio._accessible_attributes[:default].sort.map{|e| "<div>#{e}</div>" }.join("")}"
+  # end
+
 
   before_action :set_mailer_host, :init_modal_form
 
@@ -32,12 +36,20 @@ class ApplicationController < ActionController::Base
 
       #render inline: "#{locale == params_locale}"
 
+
+
       if locale != cookies_locale
         cookies[:locale] = {
           value: locale,
           expires: 1.year.from_now
         }
       end
+
+      #render inline: "locale: #{locale.inspect}"
+
+      logger.debug "locale: #{locale.inspect}"
+      logger.debug "params_locale: #{params_locale.inspect}"
+      logger.debug "cookies_locale: #{cookies_locale.inspect}"
 
       if locale != params_locale
         redirect_to locale: locale, :status => :moved_permanently

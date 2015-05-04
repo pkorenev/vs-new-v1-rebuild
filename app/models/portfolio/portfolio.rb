@@ -24,7 +24,7 @@ class Portfolio::Portfolio < ActiveRecord::Base
 
   has_one    :portfolio_banner
   accessible_nested_attributes_for :portfolio_banner, :allow_destroy => true
-  attr_accessible :portfolio_banner_attributes, :portfolio_tag_scope_attributes, :developer_ids, :portfolio_technology_ids, :static_page_data_attributes
+  #attr_accessible :portfolio_banner_attributes, :portfolio_tag_scope_attributes, :developer_ids, :portfolio_technology_ids, :static_page_data_attributes
 
   has_many   :portfolio_technologies
   has_many   :developers
