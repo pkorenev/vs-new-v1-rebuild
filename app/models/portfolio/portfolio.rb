@@ -159,8 +159,8 @@ class Portfolio::Portfolio < ActiveRecord::Base
         field :slug
         field :task
         field :result, :ck_editor
-        field :process, :ck_editor
-        field :live, :ck_editor
+        #field :process, :ck_editor
+        #field :live, :ck_editor
         field :description, :ck_editor
         field :thanks_to
         field :avatar_alt
@@ -269,13 +269,13 @@ class Portfolio::Portfolio < ActiveRecord::Base
         label 'теги'
       end
 
-      field :developers do
+      #field :developers do
        # label 'Команда'
-      end
+      #end
 
-      field :portfolio_technologies do
+      #field :portfolio_technologies do
        # label 'Технологии'
-      end
+      #end
 
       field :release do
       #  label 'Дата выхода работы'
