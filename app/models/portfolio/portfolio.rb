@@ -207,6 +207,10 @@ class Portfolio::Portfolio < ActiveRecord::Base
       #   #label 'Название'
       # end
 
+      field :portfolio_category do
+        label 'Категория работы'
+      end
+
       field :translations, :globalize_tabs
       #
       # field :slug do
@@ -236,10 +240,6 @@ class Portfolio::Portfolio < ActiveRecord::Base
         end
 
         field :avatar_file_name_fallback
-      end
-
-      field :portfolio_category do
-        label 'Категория работы'
       end
 
       field :portfolio_banner do
