@@ -68,12 +68,14 @@ module Resource
 
         # from service.rb before_save
         before_save do
-          if !self.slug || self.slug.length == 0
-            if I18n.locale != :ru
-              locale = I18n.locale
-              I18n.locale = :ru
-              self.slug = self.name.parameterize
-              I18n.locale = locale
+          if self.respond_to?(:slug)
+            if !self.slug || self.slug.length == 0
+              if I18n.locale != :ru
+                locale = I18n.locale
+                I18n.locale = :ru
+                self.slug = self.name.parameterize
+                I18n.locale = locale
+              end
             end
           end
         end
